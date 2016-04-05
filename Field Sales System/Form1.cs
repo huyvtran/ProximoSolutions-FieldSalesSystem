@@ -15,6 +15,7 @@ namespace Field_Sales_System
         public Form1()
         {
             InitializeComponent();
+            //New Line
         }
     }
 }
