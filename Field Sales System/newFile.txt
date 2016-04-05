@@ -1,0 +1,4 @@
+New File
+Created
+And now its changed
+Now I'm changed even more. I wanna remove Created line
