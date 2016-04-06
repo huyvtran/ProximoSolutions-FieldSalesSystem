@@ -14,9 +14,7 @@ namespace Field_Sales_System
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            
         }
     }
 }
