@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business Logic\ContactDetails.cs" />
+    <Compile Include="Business Logic\DisplayPicture.cs" />
     <Compile Include="Business Logic\Employee.cs" />
     <Compile Include="Business Logic\Permission.cs" />
     <Compile Include="Business Logic\Role.cs" />

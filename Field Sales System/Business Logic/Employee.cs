@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Employee
+    abstract class Employee
     {
         private int empId;
         private int empNIC;
         private bool gender;
         private string firstName;
         private string lastName;
-        //private 
+        private DisplayPicture dp;
+        private ContactDetails contactDetails = new ContactDetails();
         public void setEmpId(int empId) {
             this.empId = empId;
         }
@@ -53,6 +54,11 @@ namespace Field_Sales_System.Business_Logic
         public string getLastName() {
             return this.lastName;
         }
+        public void setContactDetails() { }
+        public ContactDetails getContactDetails() {
+            return this.contactDetails;
+        }
+
 
     }
 }
