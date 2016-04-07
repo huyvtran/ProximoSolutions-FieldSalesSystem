@@ -12,7 +12,7 @@ namespace Field_Sales_System.Business_Logic
         private string date;
         private int reportNumber;
         private string dailySalesSummary;
-
+        private DailySalesDetails DailySalesDetails;
 
         public void setAuthor(string author)
         {
