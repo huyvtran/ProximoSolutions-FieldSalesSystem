@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    abstract class User : Employee
+    class User : Employee
     {
         private List<UserRole> userRoles;
         private UserRole UserRole;
@@ -18,5 +18,11 @@ namespace Field_Sales_System.Business_Logic
         public void removeRole(UserRole r) {
             this.userRoles.Remove(r);
         }
+
+        public List<User> searchUser(String keyword) {
+            return new List<User>;  //Just for now. To be implemented later
+        }
+
+
     }
 }
