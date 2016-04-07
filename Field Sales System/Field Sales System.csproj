@@ -53,6 +53,7 @@
     <Compile Include="Business Logic\DisplayPicture.cs" />
     <Compile Include="Business Logic\Employee.cs" />
     <Compile Include="Business Logic\Order.cs" />
+    <Compile Include="Business Logic\OrderProcessDetails.cs" />
     <Compile Include="Business Logic\Permission.cs" />
     <Compile Include="Business Logic\Representative.cs" />
     <Compile Include="Business Logic\UserRole.cs" />
