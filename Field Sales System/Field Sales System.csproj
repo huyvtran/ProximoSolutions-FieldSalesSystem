@@ -56,12 +56,10 @@
     <Compile Include="Business Logic\Order.cs" />
     <Compile Include="Business Logic\Permission.cs" />
     <Compile Include="Business Logic\Representative.cs" />
-    <Compile Include="Business Logic\Role.cs" />
     <Compile Include="Business Logic\OrderPickupSchedule.cs" />
     <Compile Include="Business Logic\OrderProcessDetails.cs" />
     <Compile Include="Business Logic\Product.cs" />
     <Compile Include="Business Logic\ProductDetails.cs" />
-    <Compile Include="Business Logic\Representative.cs" />
     <Compile Include="Business Logic\SalesEntry.cs" />
     <Compile Include="Business Logic\UserRole.cs" />
     <Compile Include="Business Logic\OrderEntry.cs" />
