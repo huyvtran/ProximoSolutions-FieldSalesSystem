@@ -8,7 +8,7 @@ namespace Field_Sales_System.Business_Logic
 {
     class Order
     {
-        private OrderEntry OrderEntry;
+        private List<OrderEntry> orders;
         private int orderId;
         private DateTime orderDate;
         public void setOrderId(int orderId) {

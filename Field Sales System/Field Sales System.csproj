@@ -53,7 +53,9 @@
     <Compile Include="Business Logic\DailySalesReport.cs" />
     <Compile Include="Business Logic\DisplayPicture.cs" />
     <Compile Include="Business Logic\Employee.cs" />
+    <Compile Include="Business Logic\UserManagement.cs" />
     <Compile Include="Business Logic\Order.cs" />
+    <Compile Include="Business Logic\OrderManagement.cs" />
     <Compile Include="Business Logic\OrderPickupSchedule.cs" />
     <Compile Include="Business Logic\OrderProcessDetails.cs" />
     <Compile Include="Business Logic\Product.cs" />

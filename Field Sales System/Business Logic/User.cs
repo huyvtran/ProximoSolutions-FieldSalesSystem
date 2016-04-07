@@ -20,9 +20,17 @@ namespace Field_Sales_System.Business_Logic
         }
 
         public List<User> searchUser(String keyword) {
-            return new List<User>;  //Just for now. To be implemented later
+            return new List<User>();  //Just for now. To be implemented later
         }
-
+        public User viewUser(int userId) {
+            return new User();      //To be implemented later
+        }
+        public List<Product> searchProduct(String keyword) {
+            return new List<Product>();                         //Any system user can search for products
+        }
+        public Product viewProduct(int productId) {
+            return new Product();                               //Any system user can view products
+        }
 
     }
 }

@@ -16,5 +16,9 @@ namespace Field_Sales_System.Business_Logic
         public int getKey() {
             return this.warehouseKeyNo;
         }
+        public void updateWarehouseDetails(Warehouse warehouse) {
+            //update
+        }
+
     }
 }

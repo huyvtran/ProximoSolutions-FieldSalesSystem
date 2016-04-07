@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Representative : User
+    class Representative : User, OrderManagement
     {
+        public void requestOrder(int orderId) { }
+        public void editOrder(int orderId) { }
+        public void viewOrderSummary() { }
+        public void removeOrder(int orderId) { }
     }
 }

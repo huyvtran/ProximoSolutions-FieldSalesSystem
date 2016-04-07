@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Agent : User
+    class Agent : User , OrderManagement
     {
         private string agencyName;
         private string coverageArea;
@@ -22,5 +22,10 @@ namespace Field_Sales_System.Business_Logic
         public string getCoverageArea() {
             return this.coverageArea;
         }
+
+        public void requestOrder(int orderId) { }
+        public void editOrder(int editOrder) { }
+        public void viewOrderSummary() { }
+        public void removeOrder() { }
     }
 }
