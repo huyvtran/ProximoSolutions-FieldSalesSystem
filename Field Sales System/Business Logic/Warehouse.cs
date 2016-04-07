@@ -11,6 +11,7 @@ namespace Field_Sales_System.Business_Logic
         private string warehouseName;
         private string warehouseAddress;
         private string memberName;
+        private Product product;
 
         public void setwarehouseName(string warehouseName)
         {

@@ -9,6 +9,7 @@ namespace Field_Sales_System.Business_Logic
     class SalesEntry
     {
         private int quantity;
+        private Product product;
 
         public void setQuantity(int quantity)
         {

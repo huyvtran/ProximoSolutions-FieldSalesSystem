@@ -10,5 +10,7 @@ namespace Field_Sales_System.Business_Logic
     {
         private int quantity;
         private int itemOrderID;
+
+        private Product product;
     }
 }
