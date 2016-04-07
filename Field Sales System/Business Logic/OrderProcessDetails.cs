@@ -10,6 +10,7 @@ namespace Field_Sales_System.Business_Logic
     {
         private string orderStatus;
         private string processedBy;
+        private OrderPickupSchedule OrderPickupSchedule;
         public void setOrderStatus(string orderStatus) {
             this.orderStatus = orderStatus;
         }
