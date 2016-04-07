@@ -8,37 +8,37 @@ namespace Field_Sales_System.Business_Logic
 {
     class Warehouse
     {
-        private String warehouseName;
-        private String warehouseAddress;
-        private String memberName;
+        private string warehouseName;
+        private string warehouseAddress;
+        private string memberName;
 
-        public void setwarehouseName(String warehouseName)
+        public void setwarehouseName(string warehouseName)
         {
             this.warehouseName = warehouseName;
         }
 
-        public void setwarehouseAddress(String warehouseAddress)
+        public void setwarehouseAddress(string warehouseAddress)
         {
             this.warehouseAddress = warehouseAddress;
         }
 
-        public void setmemberName(String memberName)
+        public void setmemberName(string memberName)
         {
             this.memberName = memberName;
         }
 
 
-        public String getwarehouseName()
+        public string getwarehouseName()
         {
             return this.warehouseName;
         }
 
-        public String getwarehouseAddress()
+        public string getwarehouseAddress()
         {
             return this.warehouseAddress;
         }
 
-        public String getmemberName()
+        public string getmemberName()
         {
             return this.memberName;
         }
