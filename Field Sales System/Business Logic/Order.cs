@@ -9,8 +9,20 @@ namespace Field_Sales_System.Business_Logic
     class Order
     {
         private int orderId;
-        private string orderDate;
-        public 
+        private DateTime orderDate;
+        public void setOrderId(int orderId) {
+            this.orderId = orderId;
+        }
+        public void setOrderDate(DateTime orderDate) {
+            this.orderDate = orderDate;
+        }
+        public DateTime getOrderDate() {
+            return this.orderDate;
+        }
+        public int getOrderId() {
+            return this.orderId;
+        }
+
 
     }
 }
