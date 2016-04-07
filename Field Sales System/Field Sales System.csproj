@@ -52,11 +52,19 @@
     <Compile Include="Business Logic\DailySalesReport.cs" />
     <Compile Include="Business Logic\DisplayPicture.cs" />
     <Compile Include="Business Logic\Employee.cs" />
+<<<<<<< HEAD
     <Compile Include="Business Logic\Order.cs" />
     <Compile Include="Business Logic\OrderProcessDetails.cs" />
     <Compile Include="Business Logic\Permission.cs" />
     <Compile Include="Business Logic\Representative.cs" />
     <Compile Include="Business Logic\UserRole.cs" />
+=======
+    <Compile Include="Business Logic\OrderEntry.cs" />
+    <Compile Include="Business Logic\Permission.cs" />
+    <Compile Include="Business Logic\ReturnEntry.cs" />
+    <Compile Include="Business Logic\Role.cs" />
+    <Compile Include="Business Logic\SalesReturn.cs" />
+>>>>>>> 4bb1f6e17c1a824a734da0dcf035edf960737587
     <Compile Include="Business Logic\User.cs" />
     <Compile Include="Business Logic\Warehouse.cs" />
     <Compile Include="Business Logic\WarehouseManager.cs" />

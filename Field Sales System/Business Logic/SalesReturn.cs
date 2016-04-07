@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class OrderEntry
+    class SalesReturn
     {
-
+        private int returnID;
+        private DateTime returndate;
     }
 }

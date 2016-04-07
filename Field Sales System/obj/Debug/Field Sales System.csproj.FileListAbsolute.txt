@@ -6,3 +6,12 @@ C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Deb
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csproj.GenerateResource.Cache
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
+<<<<<<< HEAD
+E:\ACA\Semester_3_new\OOSD\Project\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe.config
+E:\ACA\Semester_3_new\OOSD\Project\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
+E:\ACA\Semester_3_new\OOSD\Project\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
+=======
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe.config
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
+>>>>>>> refs/remotes/origin/master
