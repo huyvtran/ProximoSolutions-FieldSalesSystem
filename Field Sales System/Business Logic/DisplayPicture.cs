@@ -8,13 +8,14 @@ namespace Field_Sales_System.Business_Logic
 {
     class DisplayPicture
     {
-        private string pictureURL;
+        private String pictureURL;
+
         public void setPicture(string pictureURL) {
             this.pictureURL = pictureURL;
         }
 
-        public void getPicture() {
-            return this.pictureURL;
+        public String getPicture() {
+            return pictureURL;
         }
     }
 }

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Role
+    class UserRole
     {
 
         private List<Permission> perms;
         private string roleName;
+        private Permission Permission;
         public void setRoleName(string name) {
             this.roleName = name;
         }

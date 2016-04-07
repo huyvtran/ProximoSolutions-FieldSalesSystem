@@ -8,14 +8,14 @@ namespace Field_Sales_System.Business_Logic
 {
     abstract class User : Employee
     {
-        private List<Role> userRoles;
-
-        public void addRole(Role r) {
+        private List<UserRole> userRoles;
+        private UserRole UserRole;
+        public void addRole(UserRole r) {
             this.userRoles.Add(r);
 
         }
 
-        public void removeRole(Role r) {
+        public void removeRole(UserRole r) {
             this.userRoles.Remove(r);
         }
     }
