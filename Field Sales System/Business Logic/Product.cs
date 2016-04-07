@@ -11,6 +11,7 @@ namespace Field_Sales_System.Business_Logic
         private String productName;
         private int productID;
         private String productDescription;
+        private ProductDetails productDetails;
 
         public void setProductName(String productName)
         {
@@ -38,6 +39,12 @@ namespace Field_Sales_System.Business_Logic
         public String getProductDescription()
         {
             return productDescription;
+        }
+        public void setProductDetails(ProductDetails productDetails) {
+            this.productDetails = productDetails;
+        }
+        public ProductDetails getProductDetails() {
+            return this.productDetails;
         }
     }
 }
