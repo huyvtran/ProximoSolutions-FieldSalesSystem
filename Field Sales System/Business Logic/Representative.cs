@@ -12,5 +12,15 @@ namespace Field_Sales_System.Business_Logic
         public void editOrder(int orderId) { }
         public void viewOrderSummary() { }
         public void removeOrder(int orderId) { }
+        public void requestPaymentDetailsUpdate(int orderNo)
+        {
+
+        }
+
+        public void enterPaymentDetails(int orderNo)
+        {
+
+        }
+
     }
 }
