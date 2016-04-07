@@ -46,12 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business Logic\Agent.cs" />
+    <Compile Include="Business Logic\CompanyAdmin.cs" />
     <Compile Include="Business Logic\ContactDetails.cs" />
     <Compile Include="Business Logic\DisplayPicture.cs" />
     <Compile Include="Business Logic\Employee.cs" />
+    <Compile Include="Business Logic\Order.cs" />
     <Compile Include="Business Logic\Permission.cs" />
+    <Compile Include="Business Logic\Representative.cs" />
     <Compile Include="Business Logic\Role.cs" />
     <Compile Include="Business Logic\User.cs" />
+    <Compile Include="Business Logic\Warehouse.cs" />
+    <Compile Include="Business Logic\WarehouseManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

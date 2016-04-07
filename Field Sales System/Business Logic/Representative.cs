@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Representative
+    class Representative : User
     {
     }
 }
