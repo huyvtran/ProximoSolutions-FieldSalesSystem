@@ -54,11 +54,9 @@
     <Compile Include="Business Logic\DisplayPicture.cs" />
     <Compile Include="Business Logic\Employee.cs" />
     <Compile Include="Business Logic\Order.cs" />
-<<<<<<< HEAD
     <Compile Include="Business Logic\Permission.cs" />
     <Compile Include="Business Logic\Representative.cs" />
     <Compile Include="Business Logic\Role.cs" />
-=======
     <Compile Include="Business Logic\OrderPickupSchedule.cs" />
     <Compile Include="Business Logic\OrderProcessDetails.cs" />
     <Compile Include="Business Logic\Product.cs" />
@@ -70,7 +68,6 @@
     <Compile Include="Business Logic\Permission.cs" />
     <Compile Include="Business Logic\ReturnEntry.cs" />
     <Compile Include="Business Logic\SalesReturn.cs" />
->>>>>>> refs/remotes/origin/master
     <Compile Include="Business Logic\User.cs" />
     <Compile Include="Business Logic\Warehouse.cs" />
     <Compile Include="Business Logic\WarehouseManager.cs" />
