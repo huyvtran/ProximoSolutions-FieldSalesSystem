@@ -12,6 +12,8 @@ namespace Field_Sales_System.Business_Logic
         private int productID;
         private String productDescription;
 
+        private ProductDetails productDetails;
+
         public void setProductName(String productName)
         {
             this.productName = productName;

@@ -9,6 +9,7 @@ namespace Field_Sales_System.Business_Logic
     class OrderEntry
     {
         private int quantity;
+        private Product product;
         //private Prdu
         public void setQuantity(int quantity) {
             this.quantity = quantity;
