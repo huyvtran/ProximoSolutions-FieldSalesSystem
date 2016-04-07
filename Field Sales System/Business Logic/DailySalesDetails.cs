@@ -8,6 +8,7 @@ namespace Field_Sales_System.Business_Logic
 {
     class DailySalesDetails
     {
+        private SalesEntry SalesEntry;
         private DateTime date;
         private int submitterID;
 

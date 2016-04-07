@@ -11,6 +11,7 @@ namespace Field_Sales_System.Business_Logic
 
         private List<Permission> perms;
         private string roleName;
+        private Permission Permission;
         public void setRoleName(string name) {
             this.roleName = name;
         }
