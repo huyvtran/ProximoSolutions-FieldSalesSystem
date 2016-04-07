@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Representative : User
+    class Order
     {
+        private int orderId;
+        private string orderDate;
+        public 
+
     }
 }
