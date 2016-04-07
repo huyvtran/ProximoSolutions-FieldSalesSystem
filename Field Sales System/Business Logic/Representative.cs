@@ -8,5 +8,15 @@ namespace Field_Sales_System.Business_Logic
 {
     class Representative : User
     {
+        public void requestPaymentDetailsUpdate(int orderNo)
+        {
+
+        }
+
+        public void enterPaymentDetails(int orderNo)
+        {
+
+        }
+
     }
 }
