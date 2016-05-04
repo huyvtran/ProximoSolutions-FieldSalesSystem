@@ -8,6 +8,13 @@ namespace Field_Sales_System.Business_Logic
 {
     class Representative : User, OrderManagement
     {
+
+        public Representative(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address, string url)
+            :base(empId,empNIC,gender,firstName,lastName,mobileNo,landNo,email,address,url)
+        {
+        
+        }
+            
         public void requestOrder(int orderId) { }
         public void editOrder(int orderId) { }
         public void viewOrderSummary() { }

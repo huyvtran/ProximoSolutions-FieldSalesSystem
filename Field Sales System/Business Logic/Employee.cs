@@ -16,7 +16,7 @@ namespace Field_Sales_System.Business_Logic
         private DisplayPicture dp;
         private ContactDetails contactDetails;
 
-        Employee(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address,string url) {
+        public Employee(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address,string url) {
             this.contactDetails = new ContactDetails(mobileNo, landNo, email, address);
             this.dp = new DisplayPicture(url);
             this.empId = empId;

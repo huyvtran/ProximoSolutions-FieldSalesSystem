@@ -10,6 +10,11 @@ namespace Field_Sales_System.Business_Logic
     {
         private string agencyName;
         private string coverageArea;
+
+        public Agent(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address, string url)
+            :base(empId,empNIC,gender,firstName,lastName,mobileNo,landNo,email,address,url)
+        {
+        }
         public void setAgencyName(string agencyName) {
             this.agencyName = agencyName;
         }

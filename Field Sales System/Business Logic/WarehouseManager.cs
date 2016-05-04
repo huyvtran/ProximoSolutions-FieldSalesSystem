@@ -8,6 +8,7 @@ namespace Field_Sales_System.Business_Logic
 {
     class WarehouseManager
     {
+        
         private int warehouseKeyNo;
 
         public void setKey(int key) {

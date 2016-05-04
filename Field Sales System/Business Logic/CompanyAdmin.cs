@@ -8,6 +8,9 @@ namespace Field_Sales_System.Business_Logic
 {
     class CompanyAdmin : User, UserManagement
     {
+        public CompanyAdmin(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address, string url):base(empId,empNIC,gender,firstName,lastName,mobileNo,landNo,email,address,url)
+        {
+        }
         public void addRepresentative(String firstName, String secondName, int contactNo, String address) { }
         public void addAgent(String agencyName, String firstName, String secondName, int contactNo, String address) { }
         public void updateProduct(Product p) {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.Utility_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,7 +15,18 @@ namespace Field_Sales_System
         [STAThread]
         static void Main()
         {
-            
+            ConnectionManager c = new ConnectionManager();
+            Console.Out.WriteLine(c.isOnline()+"  netCon");
+            if (c.isOnline())
+            {
+                MessageBox.Show("NET CON");
+            }
+            else
+            {
+                MessageBox.Show("No NET CON");
+            }
         }
+            
+        
     }
 }
