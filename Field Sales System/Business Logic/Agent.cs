@@ -26,6 +26,6 @@ namespace Field_Sales_System.Business_Logic
         public void requestOrder(int orderId) { }
         public void editOrder(int editOrder) { }
         public void viewOrderSummary() { }
-        public void removeOrder() { }
+        public void removeOrder(int orderId) { }
     }
 }
