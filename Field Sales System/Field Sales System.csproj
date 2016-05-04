@@ -55,11 +55,8 @@
     <Compile Include="Business Logic\Employee.cs" />
     <Compile Include="Business Logic\UserManagement.cs" />
     <Compile Include="Business Logic\Order.cs" />
-
     <Compile Include="Business Logic\OrderManagement.cs" />
-
     <Compile Include="Business Logic\Representative.cs" />
-
     <Compile Include="Business Logic\OrderPickupSchedule.cs" />
     <Compile Include="Business Logic\OrderProcessDetails.cs" />
     <Compile Include="Business Logic\Product.cs" />
@@ -76,6 +73,7 @@
     <Compile Include="Business Logic\WeeklySalesReport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility Classes\DatabaseConnection.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

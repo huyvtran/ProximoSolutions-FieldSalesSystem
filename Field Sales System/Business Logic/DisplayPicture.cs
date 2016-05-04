@@ -10,6 +10,10 @@ namespace Field_Sales_System.Business_Logic
     {
         private String pictureURL;
 
+        public DisplayPicture(string url) {
+            pictureURL = url;
+        }
+
         public void setPicture(string pictureURL) {
             this.pictureURL = pictureURL;
         }
