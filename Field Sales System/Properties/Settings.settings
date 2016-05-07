@@ -5,10 +5,10 @@
     <Setting Name="dbServerConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=us-cdbr-iron-east-03.cleardb.net;password=e5283432;user id=bf0cd920b581c6;database=heroku_b7c49e68c9ce5b3&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Database=proximoDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b5fb261919a40c;Password=aff5b96f&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=us-cdbr-iron-east-03.cleardb.net;password=e5283432;user id=bf0cd920b581c6;database=heroku_b7c49e68c9ce5b3</Value>
+      <Value Profile="(Default)">Database=proximoDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b5fb261919a40c;Password=aff5b96f</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -8,3 +8,4 @@ C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\Field S
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\Field Sales SystemTests\obj\Debug\Field Sales SystemTests.csprojResolveAssemblyReference.cache
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\Field Sales SystemTests\obj\Debug\Field Sales SystemTests.dll
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\Field Sales SystemTests\obj\Debug\Field Sales SystemTests.pdb
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\Field Sales SystemTests\bin\Debug\Field Sales SystemTests.dll.config

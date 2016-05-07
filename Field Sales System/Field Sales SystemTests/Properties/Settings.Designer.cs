@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Field_Sales_System.Properties {
+namespace Field_Sales_SystemTests.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,11 +26,11 @@ namespace Field_Sales_System.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Database=proximoDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b5fb2" +
-            "61919a40c;Password=aff5b96f")]
-        public string dbServerConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("\"Database=proximoDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b5fb" +
+            "261919a40c;Password=aff5b96f\"")]
+        public string dbConnectionString {
             get {
-                return ((string)(this["dbServerConnectionString"]));
+                return ((string)(this["dbConnectionString"]));
             }
         }
     }
