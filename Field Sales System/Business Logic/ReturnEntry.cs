@@ -12,5 +12,44 @@ namespace Field_Sales_System.Business_Logic
         private int itemOrderID;
 
         private Product product;
+
+        public int Quantity
+        {
+            get
+            {
+                return quantity;
+            }
+
+            set
+            {
+                quantity = value;
+            }
+        }
+
+        public int ItemOrderID
+        {
+            get
+            {
+                return itemOrderID;
+            }
+
+            set
+            {
+                itemOrderID = value;
+            }
+        }
+
+        internal Product Product
+        {
+            get
+            {
+                return product;
+            }
+
+            set
+            {
+                product = value;
+            }
+        }
     }
 }

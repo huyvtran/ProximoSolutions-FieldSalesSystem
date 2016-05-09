@@ -11,6 +11,7 @@ namespace Field_Sales_System.Business_Logic
     {
         private int quantity;
         private Product product;
+        
         public void setQuantity(int quantity) {
             this.quantity = quantity;
         }
@@ -24,7 +25,7 @@ namespace Field_Sales_System.Business_Logic
             return this.product;
         }
 
-
+        
     }
 }
 

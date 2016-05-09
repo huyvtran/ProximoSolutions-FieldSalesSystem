@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Field_Sales_System.Business_Logic
 {
     class DailySalesDetails
     {
-        private SalesEntry SalesEntry;
+        private ArrayList salesEntries = new ArrayList();
         private DateTime date;
         private int submitterID;
 
@@ -30,6 +31,12 @@ namespace Field_Sales_System.Business_Logic
         public int getSubmitterID()
         {
             return submitterID;
+        }
+        public void addEntry(SalesEntry entry) {
+            salesEntries.Add(entry);
+        }
+        public ArrayList getSalesEntries() {
+            return salesEntries;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,37 +12,56 @@ namespace Field_Sales_System.Business_Logic
         private string warehouseName;
         private string warehouseAddress;
         private string memberName;
-        private Product product;
+        private ArrayList storageItems = new ArrayList();
+        private WarehouseManager warehouseManager;
 
-        public void setwarehouseName(string warehouseName)
+        public void setWarehouseName(string warehouseName)
         {
             this.warehouseName = warehouseName;
         }
 
-        public void setwarehouseAddress(string warehouseAddress)
+        public void setWarehouseAddress(string warehouseAddress)
         {
             this.warehouseAddress = warehouseAddress;
         }
 
-        public void setmemberName(string memberName)
+        public void setMemberName(string memberName)
         {
             this.memberName = memberName;
         }
 
 
-        public string getwarehouseName()
+        public string getWarehouseName()
         {
             return this.warehouseName;
         }
 
-        public string getwarehouseAddress()
+        public string getWarehouseAddress()
         {
             return this.warehouseAddress;
         }
 
-        public string getmemberName()
+        public string getMemberName()
         {
             return this.memberName;
+        }
+
+        public void addStorageItem(Product product, int quantity) {
+            ArrayList temp = new ArrayList();
+            temp.Add(quantity);
+            temp.Add(product);
+            storageItems.Add(temp);
+        }
+
+        public ArrayList getStorageItems() {
+            return storageItems;
+        }
+        public void addManager(WarehouseManager manager) {
+            this.warehouseManager = manager;
+        }
+
+        public WarehouseManager getManager() {
+            return warehouseManager;
         }
 
 

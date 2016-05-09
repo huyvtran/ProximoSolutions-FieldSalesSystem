@@ -8,16 +8,11 @@ namespace Field_Sales_System.Business_Logic
 {
     class WeeklySalesReport
     {
-        private string author;
+        
         private string date;
         private int reportNumber;
         private string weeklySalesSummary;
-
-
-        public void setAuthor(string author)
-        {
-            this.author = author;
-        }
+        
         public void setDate(string date)
         {
             this.date = date;
@@ -33,10 +28,6 @@ namespace Field_Sales_System.Business_Logic
             this.weeklySalesSummary = weeklySalesSummary;
         }
 
-        public string getAuthor()
-        {
-            return this.author;
-        }
 
         public string getDate()
         {

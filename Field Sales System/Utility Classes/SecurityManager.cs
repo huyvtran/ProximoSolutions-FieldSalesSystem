@@ -27,9 +27,9 @@ namespace Field_Sales_System.Utility_Classes
         //following method is used to authenticate the login of a user
         public bool login(int empId, string password) {
             
-            MySqlConnection connection = c.connectDatabase();
+            MySqlConnection connection = c.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
             c.openConnection(connection);
-            ArrayList arr = c.readRecord(empId, connection, "users");
+            ArrayList arr = c.readRecord(connection, "users",empId);
             if (computeHash(password).Equals(arr[1]))
             {
                 return true;
@@ -51,7 +51,7 @@ namespace Field_Sales_System.Utility_Classes
                 try
                 {
                     string pwd = computeHash(newPassword);
-                    MySqlConnection connection = c.connectDatabase();
+                    MySqlConnection connection = c.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
                     c.openConnection(connection);
                     ArrayList columns = new ArrayList();
                     columns.Add("pwdHash");
@@ -71,7 +71,7 @@ namespace Field_Sales_System.Utility_Classes
         public bool modifyStatus(int empId,bool status) {
             try
             {
-                MySqlConnection connection = c.connectDatabase();
+                MySqlConnection connection = c.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
                 c.openConnection(connection);
                 ArrayList columns = new ArrayList();
                 columns.Add("status");

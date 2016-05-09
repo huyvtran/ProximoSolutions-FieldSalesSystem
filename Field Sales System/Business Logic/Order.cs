@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.
 
 namespace Field_Sales_System.Business_Logic
 {
     class Order
     {
-        private List<OrderEntry> orders;
+        private ArrayList<> orders;
+        private OrderProcessDetails processDetails;
         private int orderId;
         private DateTime orderDate;
         public void setOrderId(int orderId) {
@@ -23,6 +25,19 @@ namespace Field_Sales_System.Business_Logic
         public int getOrderId() {
             return this.orderId;
         }
+
+        public void setProcessDetails(OrderProcessDetails pd) {
+            this.processDetails = pd;
+        }
+        public OrderProcessDetails getProcessDetails() {
+            return processDetails;
+        }
+        public void addOrderEntry(OrderEntry oe) {
+            this.orders.Add(oe);
+        }
+
+        public ArrayList()
+
 
 
     }

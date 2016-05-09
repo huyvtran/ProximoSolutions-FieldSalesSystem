@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace Field_Sales_System.Utility_Classes
 {
@@ -29,11 +33,11 @@ namespace Field_Sales_System.Utility_Classes
 
         }
 
-        public MySqlConnection connectDatabase()
+        public MySqlConnection connectDatabase(string conString)
         {
             try
             {
-                return new MySqlConnection(Properties.Settings.Default.dbServerConnectionString);
+                return new MySqlConnection(conString);
             }
             catch (Exception e) {
                 return null;
@@ -55,12 +59,18 @@ namespace Field_Sales_System.Utility_Classes
             connection.Close();
         }
 
-        public ArrayList readRecord(int empId, MySqlConnection connection,string table) {
+        public ArrayList readRecord(MySqlConnection connection,string table, int empId = 0,string empFName="",string empLName="") {
             try
             {
-                string command = "SELECT * FROM "+table+" WHERE empId = " + empId + ";";
-                MySqlCommand c = new MySqlCommand(command, connection);
-                MySqlDataReader reader = c.ExecuteReader();
+                string command = "SELECT * FROM "+table+" WHERE empId = @eId or firstName=@fName or lastName=@lName;";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@eId", MySqlDbType.Int32);
+                cmd.Parameters.Add("@fName", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@lName", MySqlDbType.VarChar);
+                cmd.Parameters["@eId"].Value = empId;
+                cmd.Parameters["@fName"].Value = empFName;
+                cmd.Parameters["@lName"].Value = empLName;
+                MySqlDataReader reader = cmd.ExecuteReader();
                 ArrayList userData = new ArrayList();
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
@@ -161,6 +171,41 @@ namespace Field_Sales_System.Utility_Classes
             }
 
             
+        }
+
+        public bool storeImage(int empId, Image image, MySqlConnection connection) {
+            try
+            {
+                MemoryStream ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Jpeg);
+                byte[] imageByteStream = ms.ToArray();
+                string command = "insert into userimages(empId,userImage) values(@empId,@userImage)";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@userImage", MySqlDbType.MediumBlob);
+                cmd.Parameters.Add("@empId", MySqlDbType.Int64);
+                cmd.Parameters["@empId"].Value = empId;
+                cmd.Parameters["@userImage"].Value = imageByteStream;
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+
+                
+            }
+            catch (Exception e) {
+                return false;
+            }
+        }
+
+        public Image retrieveImage(int empId, MySqlConnection connection) {
+            ArrayList image = readRecord(connection,"userimages",empId);
+            MemoryStream ms = new MemoryStream((byte [])image[1]);
+            return Image.FromStream(ms);
+
         }
 
 

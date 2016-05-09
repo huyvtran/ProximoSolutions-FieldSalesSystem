@@ -39,6 +39,7 @@
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -60,6 +61,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Utility Classes\ConnectionManagerTests.cs" />
+    <Compile Include="Utility Classes\ImageHandlerTests.cs" />
     <Compile Include="Utility Classes\SecurityManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>

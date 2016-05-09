@@ -12,7 +12,7 @@ namespace Field_Sales_System.Business_Logic
         private int productID;
         private String productDescription;
         private ProductDetails productDetails;
-
+        private float pricePerUnit;
         public void setProductName(String productName)
         {
             this.productName = productName;
@@ -46,5 +46,14 @@ namespace Field_Sales_System.Business_Logic
         public ProductDetails getProductDetails() {
             return this.productDetails;
         }
+        public void setPricePerUnit(float p)
+        {
+            this.pricePerUnit = p;
+        }
+        public float getPricePerUnit()
+        {
+            return pricePerUnit;
+        }
+
     }
 }

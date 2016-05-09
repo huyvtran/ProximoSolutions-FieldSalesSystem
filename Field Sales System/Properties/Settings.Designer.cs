@@ -33,5 +33,38 @@ namespace Field_Sales_System.Properties {
                 return ((string)(this["dbServerConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Database=proximoImageDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=" +
+            "bc4e805be8c5fd;Password=f4c3aed8")]
+        public string imageServerConnection {
+            get {
+                return ((string)(this["imageServerConnection"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Database=proximoProductDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User I" +
+            "d=b94529907982dc;Password=b8a53004")]
+        public string productDetailsServerConnection {
+            get {
+                return ((string)(this["productDetailsServerConnection"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Database=proximoOrderDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=" +
+            "b6a04a80481541;Password=e0db281b")]
+        public string orderServerConnection {
+            get {
+                return ((string)(this["orderServerConnection"]));
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,18 +9,18 @@ namespace Field_Sales_System.Business_Logic
 {
     class DisplayPicture
     {
-        private String pictureURL;
+        private Image displayPicture;
 
-        public DisplayPicture(string url) {
-            pictureURL = url;
+        public DisplayPicture(Image displayPicture) {
+            this.displayPicture = displayPicture;
         }
 
-        public void setPicture(string pictureURL) {
-            this.pictureURL = pictureURL;
+        public void setPicture(Image displayPicture) {
+            this.displayPicture = displayPicture;
         }
 
-        public String getPicture() {
-            return pictureURL;
+        public Image getPicture() {
+            return displayPicture;
         }
     }
 }

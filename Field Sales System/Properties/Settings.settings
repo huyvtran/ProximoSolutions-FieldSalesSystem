@@ -10,5 +10,26 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Database=proximoDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b5fb261919a40c;Password=aff5b96f</Value>
     </Setting>
+    <Setting Name="imageServerConnection" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Database=proximoImageDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=bc4e805be8c5fd;Password=f4c3aed8&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Database=proximoImageDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=bc4e805be8c5fd;Password=f4c3aed8</Value>
+    </Setting>
+    <Setting Name="productDetailsServerConnection" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Database=proximoProductDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b94529907982dc;Password=b8a53004&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Database=proximoProductDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b94529907982dc;Password=b8a53004</Value>
+    </Setting>
+    <Setting Name="orderServerConnection" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Database=proximoOrderDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b6a04a80481541;Password=e0db281b&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Database=proximoOrderDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=b6a04a80481541;Password=e0db281b</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
