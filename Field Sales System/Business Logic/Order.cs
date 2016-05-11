@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.
+
 
 namespace Field_Sales_System.Business_Logic
 {
@@ -32,13 +32,35 @@ namespace Field_Sales_System.Business_Logic
         public OrderProcessDetails getProcessDetails() {
             return processDetails;
         }
-        public void addOrderEntry(OrderEntry oe) {
-            this.orders.Add(oe);
+
+        public void addorderentry(int amount, Product product)
+        {
+            int entryID = orders.count;
+            OrderEntry newentry = new OrderEntry();
+            newentry.setQuantity(amount);
+            newentry.setProduct(product);
+            newentry.setID(entryID);
+            orders.Add(new OrderEntry());
+        }
+        public void editordentryquantity(int entryid, int quantity)
+        {
+            orders[entryid].setQuantity(quantity);
+        }
+        public void editordentryproduct(int entryid, Product product)
+        {
+            orders[entryid].setProduct(product);
+        }
+        public void deleteorderentry(int orderentryid)
+        {
+            // Remove a record.
         }
 
-        public ArrayList()
-
-
-
+        public void passtobuilder(Order saveorder)
+        {
+            // Send the object to quary builder
+        }
     }
+
+
+
 }

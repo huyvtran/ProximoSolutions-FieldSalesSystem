@@ -21,6 +21,8 @@ namespace Field_Sales_System.Business_Logic
         public void removeRole(UserRole r) {
             this.userRoles.Remove(r);
         }
+        public UserRole getRole() {
+        return }
 
         public List<User> searchUser(String keyword) {
             return new List<User>();  //Just for now. To be implemented later
