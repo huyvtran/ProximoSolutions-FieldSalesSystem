@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace Field_Sales_System.Utility_Classes
 {
     class ObjectExtractor
-    {
-        private static void GetPropertyValues(Object obj, String[] fields)
+    {   
+        public void GetPropertyValues(Object obj, String[] fields)
         {
             Console.WriteLine(fields[0]);
             Type t = obj.GetType();
