@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Warehouse
+    public class Warehouse
     {
         private string warehouseName;
         private string warehouseAddress;
@@ -46,11 +46,8 @@ namespace Field_Sales_System.Business_Logic
             return this.memberName;
         }
 
-        public void addStorageItem(Product product, int quantity) {
-            ArrayList temp = new ArrayList();
-            temp.Add(quantity);
-            temp.Add(product);
-            storageItems.Add(temp);
+        public void addStorageItem(ArrayList products) {          
+            storageItems.Add(products);
         }
 
         public ArrayList getStorageItems() {

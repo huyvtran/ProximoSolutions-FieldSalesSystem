@@ -29,8 +29,8 @@ namespace Field_Sales_System.Utility_Classes
             
             MySqlConnection connection = c.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
             c.openConnection(connection);
-            ArrayList arr = c.readRecord(connection, "users",empId);
-            if (computeHash(password).Equals(arr[1]))
+            List<Object> arr = c.retrieveLoginInfo(connection,empId);
+            if (computeHash(password).Equals(arr[1].ToString()))
             {
                 return true;
             }
@@ -57,7 +57,7 @@ namespace Field_Sales_System.Utility_Classes
                     columns.Add("pwdHash");
                     ArrayList values = new ArrayList();
                     values.Add(computeHash(newPassword));
-                    c.modifyRecord(empId, columns, values, "users", connection);
+                    //c.modifyRecord(empId, columns, values, "users", connection);
                     return 1;
                 }
                 catch (Exception e) {
@@ -77,7 +77,7 @@ namespace Field_Sales_System.Utility_Classes
                 columns.Add("status");
                 ArrayList values = new ArrayList();
                 values.Add(status);
-                c.modifyRecord(empId, columns, values, "users", connection);
+                //c.modifyRecord(empId, columns, values, "users", connection);
                 return true;
             }
             catch (Exception e) {

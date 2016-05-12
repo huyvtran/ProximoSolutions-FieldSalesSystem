@@ -1,24 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    abstract class Employee
+    [Serializable]
+    public abstract class Employee
     {
         private int empId;
         private int empNIC;
         private bool gender;
         private string firstName;
         private string lastName;
-        private DisplayPicture dp;
-        private ContactDetails contactDetails;
+        [NonSerialized()] private DisplayPicture dp;
+        [NonSerialized()] private ContactDetails contactDetails;
 
-        public Employee(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address,string url) {
-            this.contactDetails = new ContactDetails(mobileNo, landNo, email, address);
-            this.dp = new DisplayPicture(url);
+        internal ContactDetails ContactDetails
+        {
+            get
+            {
+                return contactDetails;
+            }
+
+            set
+            {
+                contactDetails = value;
+            }
+        }
+
+        public Employee(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1,string addressLine_2,string addressLine_3,Image img) {
+            this.ContactDetails = new ContactDetails(mobileNo, landNo, email, addressLine_1,addressLine_2,addressLine_3);
+            this.dp = new DisplayPicture(img);
             this.empId = empId;
             this.empNIC = empNIC;
             this.gender = gender;
@@ -65,11 +81,7 @@ namespace Field_Sales_System.Business_Logic
         public string getLastName() {
             return this.lastName;
         }
-        public void setContactDetails() { }
-        public ContactDetails getContactDetails() {
-            return this.contactDetails;
-        }
-
+        
 
     }
 }

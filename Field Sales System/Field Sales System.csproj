@@ -34,6 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -49,11 +51,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business Logic\Agent.cs" />
-    <Compile Include="Business Logic\CompanyAdmin.cs" />
     <Compile Include="Business Logic\ContactDetails.cs" />
+    <Compile Include="Business Logic\ContactsManagement.cs" />
     <Compile Include="Business Logic\DailySalesDetails.cs" />
     <Compile Include="Business Logic\DailySalesReport.cs" />
     <Compile Include="Business Logic\DisplayPicture.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Utility Classes\ConnectionManager.cs" />
     <Compile Include="Utility Classes\ImageHandler.cs" />
     <Compile Include="Utility Classes\SecurityManager.cs" />
+    <Compile Include="Utility Classes\ObjectFactory.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -119,7 +122,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

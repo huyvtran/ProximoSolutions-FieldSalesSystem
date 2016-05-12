@@ -1,7 +1,9 @@
-﻿using Field_Sales_System.Utility_Classes;
+﻿using Field_Sales_System.Business_Logic;
+using Field_Sales_System.Utility_Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 
 
@@ -35,74 +37,79 @@ namespace Field_Sales_System.Utility_Classes.Tests
             Assert.IsFalse(connection == null);
 
         }
-
         [TestMethod()]
-        public void readRecordTest()
-        {
-            MySqlConnection connection = c.openConnection(c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f"));
-            ArrayList al = c.readRecord(connection, "employee",0,"Isuru");
-            System.Console.WriteLine(al.Count);
-            Assert.IsTrue(al[3].Equals("Isuru"));
-        }
-
-        [TestMethod()]
-        public void writeRecordTest()
-        {
-            ArrayList values = new ArrayList();
-            values.Add("empId");
-            values.Add("pwdHash");
-            values.Add("status");
-            //values.Add("firstName");
-            //values.Add("lastName");
-            ArrayList empData = new ArrayList();
-            empData.Add(2828);
-            //empData.Add(451114);
-            //empData.Add(true);
-            empData.Add("yingyang");
-            //empData.Add("CCCDDD");
-            empData.Add(false);
-            MySqlConnection connection = c.openConnection(c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f"));
-            bool flag = c.writeRecord(empData, values, connection, "users");
-            Assert.IsTrue(flag);
-        }
-
-        [TestMethod()]
-        public void modifyRecordTest()
+        public void retrieveImageTest()
         {
             ConnectionManager cnct = new ConnectionManager();
             MySqlConnection connection = cnct.openConnection(cnct.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f"));
-            ArrayList values = new ArrayList();
-            values.Add("firstName");
-            values.Add("lastName");
-            ArrayList newValues = new ArrayList();
-            newValues.Add("Kasun");
-            newValues.Add("Pathirage");
-            bool b = cnct.modifyRecord(1245, values, newValues, "employee", connection);
-            //ArrayList arrlst = cnct.readRecord(1245,connection,"employee");
+            ImageHandler ih = new ImageHandler();
+            Image i = cnct.retrieveImage(1212, connection);
+            bool b = ih.saveImage(1516, "C:/testImg", i);
             Assert.IsTrue(b);
+        }
+
+        [TestMethod()]
+        public void storeUserTest()
+        {
+            ImageHandler ih = new ImageHandler();
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+
+            c.openConnection(connection);
+            Image image = ih.openImage("C:/testImg/1515.jpg");
+            WarehouseManager manager = new WarehouseManager(1212, 454545, true, "fName", "sName", 0775487515, 112451414, "email@asd", "Add1", "add2", "add3", image);
+            c.storeUser(manager, connection);
+            List<User> u = c.retrieveUser(connection, 1212);
+
+
         }
 
         [TestMethod()]
         public void storeImageTest()
         {
             ConnectionManager cnct = new ConnectionManager();
-            MySqlConnection connection = cnct.openConnection(cnct.connectDatabase("Database=proximoImageDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=bc4e805be8c5fd;Password=f4c3aed8"));
+            MySqlConnection connection = cnct.openConnection(cnct.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f"));
             ImageHandler ih = new ImageHandler();
-            Image imgToSave = ih.resizeImage(ih.openImage("C:/testImg/test.jpg"));
-            bool b = cnct.storeImage(1515, imgToSave, connection);
+            Image img = ih.openImage("C:/testImg/test.jpg");
+            img = ih.resizeImage(img);
+            bool b = cnct.storeImage(1212, img, connection);
             Assert.IsTrue(b);
-
         }
 
         [TestMethod()]
-        public void retrieveImageTest()
+        public void storeContactDetailsTest()
         {
-            ConnectionManager cnct = new ConnectionManager();
-            MySqlConnection connection = cnct.openConnection(cnct.connectDatabase("Database=proximoImageDB;Data Source=us-cdbr-azure-central-a.cloudapp.net;User Id=bc4e805be8c5fd;Password=f4c3aed8"));
-            ImageHandler ih = new ImageHandler();
-            Image i = cnct.retrieveImage(1515,connection);
-            bool b = ih.saveImage(1515, "C:/testImg", i);
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+            c.openConnection(connection);
+            bool b = c.storeContactDetails(1212, new ContactDetails(121241, 54451245, "izu@as.com", "add1", "add2", "add3"), connection);
             Assert.IsTrue(b);
+        }
+
+        [TestMethod()]
+        public void retrieveContactDetailsTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+            c.openConnection(connection);
+            List<ContactDetails> cnt = c.retrieveContactDetails(connection, 1212);
+        }
+
+        [TestMethod()]
+        public void modifyUserTest()
+        {
+            ImageHandler ih = new ImageHandler();
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+
+            c.openConnection(connection);
+            Image image = ih.openImage("C:/testImg/1515.jpg");
+            WarehouseManager manager = new WarehouseManager(1212, 454545, true, "fName", "sName", 0775487515, 112451414, "email@asd", "Add1", "add2", "add3", image);
+            c.storeUser(manager, connection);
+            List<User> u = c.retrieveUser(connection, 1212);
+            u[0].setFirstName("Izzzzzzzzz");
+            c.modifyUser(u[0],connection);
+            List<User> u2 = c.retrieveUser(connection, 1212);
         }
     }
 }

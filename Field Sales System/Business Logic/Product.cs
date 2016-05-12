@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Product
+    public class Product
     {
         private String productName;
         private int productID;
