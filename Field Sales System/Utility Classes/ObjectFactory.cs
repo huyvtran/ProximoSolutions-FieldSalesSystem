@@ -13,6 +13,8 @@ namespace Field_Sales_System.Utility_Classes
         public User crerateUser(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img,string userRole, List<Permission> permissions) {
             try
             {
+
+                //This class is not finished. Do not touch!
                 if (userRole.Equals("Representative")) {
                     User rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                     ContactDetails c = new ContactDetails(mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);

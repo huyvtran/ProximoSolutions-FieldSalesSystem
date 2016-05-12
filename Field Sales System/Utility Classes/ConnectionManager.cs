@@ -61,6 +61,30 @@ namespace Field_Sales_System.Utility_Classes
             connection.Close();
         }
 
+        public List<Object> retrieveLoginInfo(MySqlConnection connection, int empId)
+        {
+            try
+            {
+                string command = "SELECT * FROM user WHERE empId = @eId;";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@eId", MySqlDbType.Int32);
+                cmd.Parameters["@eId"].Value = empId;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                List<Object> userData = new List<Object>();
+                reader.Read();
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    userData.Add(reader[i]);
+                }
+                return userData;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        //retrieves user objects from database
         public List<User> retrieveUser(MySqlConnection connection,int empId = 0,string empFName="",string empLName="") {
             try
             {
@@ -91,28 +115,8 @@ namespace Field_Sales_System.Utility_Classes
             
         }
 
-        public List<Object> retrieveLoginInfo(MySqlConnection connection, int empId) {
-            try
-            {
-                string command = "SELECT * FROM user WHERE empId = @eId;";
-                MySqlCommand cmd = new MySqlCommand(command, connection);
-                cmd.Parameters.Add("@eId", MySqlDbType.Int32);              
-                cmd.Parameters["@eId"].Value = empId;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                List<Object> userData = new List<Object>();
-                reader.Read();
-                for (int i = 0; i < reader.FieldCount; i++)
-                {                   
-                    userData.Add(reader[i]);
-                }
-                return userData;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-
+        
+        //stores a user in the database
         public bool storeUser(User user, MySqlConnection connection) {
             
 
@@ -138,6 +142,31 @@ namespace Field_Sales_System.Utility_Classes
                 return false;
             }
             
+
+        }
+
+        //modifies user object in the database with the input value
+        public bool modifyUser(User user, MySqlConnection connection)
+        {
+            try
+            {
+                string command = "update proximodb.employee set employee = @employee  where empId = @empId; ";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@eId", MySqlDbType.Int32);
+                cmd.Parameters["@eId"].Value = user.getEmpId();
+                MemoryStream ms = new MemoryStream();
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(ms, user);
+                cmd.Parameters.Add("@employee", MySqlDbType.MediumBlob);
+                cmd.Parameters["@employee"].Value = ms.ToArray();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
 
         }
 
@@ -194,27 +223,7 @@ namespace Field_Sales_System.Utility_Classes
 
         }
 
-        public bool modifyUser(User user, MySqlConnection connection) {
-            try
-            {
-                string command = "update proximodb.employee set employee = @employee  where empId = @empId; ";
-                MySqlCommand cmd = new MySqlCommand(command, connection);
-                cmd.Parameters.Add("@eId", MySqlDbType.Int32);
-                cmd.Parameters["@eId"].Value = user.getEmpId();
-                MemoryStream ms = new MemoryStream();
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(ms, user);
-                cmd.Parameters.Add("@employee", MySqlDbType.MediumBlob);
-                cmd.Parameters["@employee"].Value = ms.ToArray();
-                cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception e) {
-                return false;
-            }
-
-            
-        }
+        
 
         public bool storeImage(int empId, Image image, MySqlConnection connection) {
             try
@@ -264,6 +273,9 @@ namespace Field_Sales_System.Utility_Classes
             
 
         }
+
+        //Need similar methods to store, retrieve, modify for displayPicture, Contact details, DailySalesReport, WeeklySalesReport,
+        //Order,Warehouse, etc.. Assume there are such methods when you code for ObjectFactory
 
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Field_Sales_System.Business_Logic
 {
     public class Product
     {
+
         private String productName;
         private int productID;
         private String productDescription;

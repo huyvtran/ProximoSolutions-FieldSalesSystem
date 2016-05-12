@@ -9,6 +9,7 @@ namespace Field_Sales_System.Business_Logic
 {
     class OrderEntry
     {
+        private int ID;
         private int quantity;
         private Product product;
         
@@ -24,8 +25,10 @@ namespace Field_Sales_System.Business_Logic
         public Product getProduct() {
             return this.product;
         }
-
-        
+        public void setID(int entryID)
+        {
+            this.ID = entryID;
+        }
     }
 }
 
