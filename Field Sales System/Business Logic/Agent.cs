@@ -38,18 +38,39 @@ namespace Field_Sales_System.Business_Logic
             return this.coverageArea;
         }
 
-        public void placeorder(int orderID, DateTime orderaddedtime, string orderproduct, int quantity, int productID)
+        public void placeOrder(int orderID, DateTime orderaddedtime, string orderproduct, List<int> quantity, List<int> productID)
         {
+           
+            String quantityString = "";
+            for (int i = 0; i < quantity.Count; i++)
+            {
+                quantityString = quantityString + Convert.ToString(quantity[i]);
+                quantityString = quantityString + ",";
+            }
+
+            String productIDString = "";
+            for (int i = 0; i < qproductID.Count; i++)
+            {
+                productIDString = productIDString + Convert.ToString(productID[i]);
+                productIDString = productIDString + ",";
+            }
+
             ArrayList inputset = new ArrayList();
             inputset.Add(orderID);
             inputset.Add(orderaddedtime);
             inputset.Add(orderproduct);
+<<<<<<< HEAD
             inputset.Add(quantity);
             inputset.Add(productID);
             //Object.setObject(inputset);
             //neworder.setOrderId(orderID);
             //neworder.setOrderDate(ordertime);
             //neworder.addorderentry(quantity, product);
+=======
+            inputset.Add(quantityString);
+            inputset.Add(productIDString);
+            Object.setObject(inputset);
+>>>>>>> master
         }
         public void pickuporder(DateTime pickeduptime)
         {

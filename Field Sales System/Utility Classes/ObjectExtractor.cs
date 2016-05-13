@@ -12,7 +12,7 @@ namespace Field_Sales_System.Utility_Classes
     {   
         public void GetPropertyValues(Object obj, String[] fields)
         {
-            Console.WriteLine(fields[0]);
+            //Console.WriteLine(fields[0]);
             Type t = obj.GetType();
             ArrayList sendpacket = new ArrayList();
             sendpacket.Add(t.Name);
@@ -39,6 +39,31 @@ namespace Field_Sales_System.Utility_Classes
                     }
             }
             sendpacket.Add(obj);
+        }
+
+        public Boolean Checkmatching(Object obj, String field,String type)
+        {
+            //Console.WriteLine(fields[0]);
+            Type t = obj.GetType();
+            PropertyInfo[] props = t.GetProperties();
+                foreach (var prop in props)
+                    if (prop.GetIndexParameters().Length == 0)
+                    {
+                        if (prop.Name.Equals(field))
+                        {
+                        if (prop.GetValue(obj).Equals(type))
+                            {
+                            return true;
+                            }
+                        }
+
+                    }
+                    else {
+                        //Console.WriteLine("   {0} ({1}): <Indexed>", prop.Name,
+                        //prop.PropertyType.Name);
+                    }
+
+            return false;
         }
     }
 }
