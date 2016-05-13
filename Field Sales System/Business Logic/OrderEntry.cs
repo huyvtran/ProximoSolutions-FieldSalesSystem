@@ -12,23 +12,29 @@ namespace Field_Sales_System.Business_Logic
         private int ID;
         private int quantity;
         private Product product;
+
+       public  OrderEntry(int IID, int Quantity, Product Product)
+        {
+            ID = IID;
+            quantity = Quantity;
+            product = Product;
+
+
+        }
         
-        public void setQuantity(int quantity) {
+        public void UpdateQuantity(int quantity) {
             this.quantity = quantity;
         }
         public int getQuantity() {
             return this.quantity;
         }
-        public void setProduct(Product p) {
+        public void UpdateProduct(Product p) {
             this.product = p;
         }
         public Product getProduct() {
             return this.product;
         }
-        public void setID(int entryID)
-        {
-            this.ID = entryID;
-        }
+    
     }
 }
 

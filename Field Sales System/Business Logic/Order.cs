@@ -12,17 +12,15 @@ namespace Field_Sales_System.Business_Logic
     {
         private List<OrderEntry> orders;
         private OrderProcessDetails processDetails;
-        private OrderEntry newOrderEntry;
         private int orderId;
         private DateTime orderaddedDate;
         private DateTime orderRequestedDate;
 
-    public Order (int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, OrderEntry NewOrderEntry, OrderProcessDetails newprocessDetails)
+    public Order (int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, OrderProcessDetails newprocessDetails)
             {
             orderId = OrderID;
             orderaddedDate = OrderaddedDate;
             orderRequestedDate = OrderRequestedDate;
-            newOrderEntry = NewOrderEntry;
             processDetails = newprocessDetails;
             }
         public void setOrderId(int orderId) {
@@ -45,14 +43,12 @@ namespace Field_Sales_System.Business_Logic
             return processDetails;
         }
 
-        public void addorderentry(int amount, Product product)
+        public void addorderentry(OrderEntry orderedProductEntry)
         {
-            int entryID = orders.count;
-            OrderEntry newentry = new OrderEntry();
-            newentry.setQuantity(amount);
-            newentry.setProduct(product);
-            newentry.setID(entryID);
-            orders.Add(new OrderEntry());
+            orders.Add(orderedProductEntry);
+        }
+        public int getentrysize() {
+           return this.orders.Count;
         }
         public void editordentryquantity(int entryid, int quantity)
         {
@@ -67,15 +63,7 @@ namespace Field_Sales_System.Business_Logic
             // Remove a record.
         }
 
-<<<<<<< HEAD
-        
-=======
-        public void passtobuilder(Order saveorder)
-        {
-            // Send the object to quary builder
-        }
     }
->>>>>>> 937845a8ad5cb49a5ecfe14650f5fbc9781cd0ba
 
 
 
