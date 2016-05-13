@@ -10,19 +10,28 @@ namespace Field_Sales_System.Business_Logic
     {
         private String category;
         private int batchNO;
-        private String MFD;
-        private String EXP;
+        private DateTime MFD;
+        private DateTime EXP;
 
-        public void setCategory(String category)
-        {
+        public ProductDetails(String Category, int BatchNO, DateTime mfd, DateTime exp)
+            {
+            category = Category;
+            batchNO = BatchNO;
+            MFD = mfd;
+            EXP = exp;
+    }
+
+        public void updateCategory(String category)
+        {   //get the object 
             this.category = category;
+            // save the object
         }
         public String getCategory()
         {
             return category;
         }
 
-        public void setBatchNO(int batchNO)
+        public void updateBatchNO(int batchNO)
         {
             this.batchNO = batchNO;
         }
@@ -31,20 +40,20 @@ namespace Field_Sales_System.Business_Logic
             return batchNO;
         }
 
-        public void setMFD(String MFD)
+        public void updateMFD(DateTime mfd)
         {
-            this.MFD = MFD;
+            this.MFD =mfd;
         }
-        public String getMFD()
+        public DateTime getMFD()
         {
             return MFD;
         }
 
-        public void setEXP(String EXP)
+        public void setEXP(DateTime exp)
         {
-            this.EXP = EXP;
+            this.EXP = exp;
         }
-        public String getEXP()
+        public DateTime getEXP()
         {
             return EXP;
         }

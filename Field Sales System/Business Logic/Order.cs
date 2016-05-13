@@ -11,8 +11,19 @@ namespace Field_Sales_System.Business_Logic
     {
         private ArrayList<> orders;
         private OrderProcessDetails processDetails;
+        private OrderEntry newOrderEntry;
         private int orderId;
-        private DateTime orderDate;
+        private DateTime orderaddedDate;
+        private DateTime orderRequestedDate;
+
+    public Order (int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, OrderEntry NewOrderEntry, OrderProcessDetails newprocessDetails)
+            {
+            orderId = OrderID;
+            orderaddedDate = OrderaddedDate;
+            orderRequestedDate = OrderRequestedDate;
+            newOrderEntry = NewOrderEntry;
+            processDetails = newprocessDetails;
+            }
         public void setOrderId(int orderId) {
             this.orderId = orderId;
         }

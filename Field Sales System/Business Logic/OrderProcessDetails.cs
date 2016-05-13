@@ -8,7 +8,7 @@ namespace Field_Sales_System.Business_Logic
 {
     class OrderProcessDetails
     {
-        private string orderStatus;
+        private string orderStatus="Not Processed";
         private string processedBy;
         private OrderPickupSchedule OrderPickupSchedule;
         public void setOrderStatus(string orderStatus) {

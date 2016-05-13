@@ -34,16 +34,17 @@ namespace Field_Sales_System.Business_Logic
             return productID;
         }
 
-        public void setProductDescription(String productDescription)
+        public void setProductDescription()
         {
-            this.productDescription = productDescription;
+            
         }
         public String getProductDescription()
         {
             return productDescription;
         }
-        public void setProductDetails(ProductDetails productDetails) {
-            this.productDetails = productDetails;
+        public void setProductDetails(String Category, int BatchNO, DateTime MFD, DateTime EXP)
+        {//Pass to factory to creat the object
+         
         }
         public ProductDetails getProductDetails() {
             return this.productDetails;

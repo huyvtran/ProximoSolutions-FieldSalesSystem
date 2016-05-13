@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Field_Sales_System.Utility_Classes;
+using System.Collections;
 
 namespace Field_Sales_System.Business_Logic
 {
@@ -11,6 +13,8 @@ namespace Field_Sales_System.Business_Logic
         private string agencyName;
         private string coverageArea;
         OrderPickupSchedule orderpickedup;
+        ObjectFactory Object;
+       
 
         public Agent(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address, string url)
             : base(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, address, url)
@@ -33,9 +37,15 @@ namespace Field_Sales_System.Business_Logic
             return this.coverageArea;
         }
 
-        public void placeorder(int orderID, DateTime ordertime, string orderproduct, int quantity, Product product)
+        public void placeorder(int orderID, DateTime orderaddedtime, string orderproduct, int quantity, int productID)
         {
-            Order neworder = new Order();
+            ArrayList inputset = new ArrayList();
+            inputset.Add(orderID);
+            inputset.Add(orderaddedtime);
+            inputset.Add(orderproduct);
+            inputset.Add(quantity);
+            inputset.Add(productID);
+            Object.setObject(inputset);
             neworder.setOrderId(orderID);
             neworder.setOrderDate(ordertime);
             neworder.addorderentry(quantity, product);
