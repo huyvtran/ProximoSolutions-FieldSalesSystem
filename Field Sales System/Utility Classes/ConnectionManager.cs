@@ -466,21 +466,25 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
 
-        public bool storeEntry(MySqlConnection connection, DateTime dateTime, Object entry) {
+        public bool storeEntry(MySqlConnection connection, Object entry) {
             try
             {
                 String command;
-                int entererId;
+                int entererId =0;
+                DateTime date = new DateTime();
                 if (entry is DailySalesDetails)
                 {
                     command = "insert into sales (sellerId,date,sales) values(@entererId,@date,@entry)";
-                    entererId = ((DailySalesDetails)entry).getSubmitterID();
+                    entererId = ((DailySalesDetails)entry).SubmitterID;
+                    date = ((DailySalesDetails)entry).getDate();
                 }
                 else if (entry is SalesReturn)
                 {
-                    command = "insert into return (returnerId,date,return) values(@entererId,@date,@entry)";
-                    entererId = ((SalesReturn)entry).getSubmitterID();
+                    command = "insert into sales_return (returnerId,date,return_entry) values(@entererId,@date,@entry)";
+                    entererId = ((SalesReturn)entry).ReturnerID;
+                    date = ((SalesReturn)entry).ReturnDate;
                 }
+                
                 else {
                     command = "";
                 }
@@ -490,12 +494,112 @@ namespace Field_Sales_System.Utility_Classes
                     cmd.Parameters.Add("@entererId", MySqlDbType.Int32);
                     cmd.Parameters.Add("@date", MySqlDbType.DateTime);
                     cmd.Parameters.Add("@entry", MySqlDbType.MediumBlob);
-                    cmd.Parameters["entererId"].Value = entererId;
-                    cmd.Parameters["@date"].Value = dateTime;
+                    cmd.Parameters["@entererId"].Value = entererId;
+                    cmd.Parameters["@date"].Value = date;
                     MemoryStream ms = new MemoryStream();
                     BinaryFormatter bf = new BinaryFormatter();
                     bf.Serialize(ms, entry);
                     cmd.Parameters["@entry"].Value = ms.ToArray();
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                    {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    return false;
+                }
+            }
+            catch (Exception e) {
+                return false;
+            }
+        }
+
+        public List<Object> retrieveEntry(MySqlConnection connection, DateTime beginDate, DateTime endDate, string entryType,int viewerId = 0) {
+            try
+            {
+                string command = "";
+                if (entryType.Equals("salesEntry"))
+                {
+                    if (viewerId == 0)
+                    {
+                        command = "select * from sales where date between @beginDate and @endDate or sellerId = @viewerId";
+                    }
+                    else {
+                        command = "select * from sales where date between @beginDate and @endDate and sellerId = @viewerId";
+                    }
+                    
+                }
+                else if (entryType.Equals("returnEntry"))
+                {
+                    if (viewerId == 0)
+                    {
+                        command = "select * from sales_return where date between @beginDate and @endDate or returnerId = @viewerId";
+                    }
+                    else {
+                        command = "select * from sales_return where date between @beginDate and @endDate and returnerId = @viewerId";
+                    }
+                    
+                }
+                else if (entryType.Equals("orderEntry"))
+                {
+                    if (viewerId == 0)
+                    {
+                        command = "select * from order_entries where orderDate between @beginDate and @endDate or ordererId = @viewerId";
+                    }
+                    else {
+                        command = "select * from order_entries where orderDate between @beginDate and @endDate and ordererId = @viewerId";
+                    }
+
+                }
+                if (!command.Equals("")) {
+                    MySqlCommand cmd = new MySqlCommand(command, connection);
+                    cmd.Parameters.Add("@beginDate",MySqlDbType.DateTime);
+                    cmd.Parameters.Add("@endDate", MySqlDbType.DateTime);
+                    cmd.Parameters.Add("@viewerId",MySqlDbType.Int32);
+                    cmd.Parameters["@viewerId"].Value = viewerId;
+                    cmd.Parameters["@beginDate"].Value = beginDate;
+                    cmd.Parameters["@endDate"].Value = endDate;
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    List<Object> returnEntries = new List<Object>();
+                    while (reader.Read())
+                    {
+                        BinaryFormatter bin = new BinaryFormatter();
+                        MemoryStream ms = new MemoryStream((byte[])reader[2]);
+                        ms.Seek(0, SeekOrigin.Begin);
+                        returnEntries.Add((Object)bin.Deserialize(ms));
+                    }
+                    return returnEntries;
+
+
+                }
+                else {
+                    return null;
+                }
+                
+                
+            }
+            catch (Exception e) {
+                return null;
+            }
+        }
+
+        public bool setOrderStatus(MySqlConnection connection, String status, DateTime orderDate) {
+            try
+            {
+                string command = "update order_entries set orderStatus = @status where orderDate = @date";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@status", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@date", MySqlDbType.DateTime);
+                cmd.Parameters["@status"].Value = status;
+                cmd.Parameters["@date"].Value = orderDate;
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
                     return true;
                 }
                 else {
@@ -506,6 +610,161 @@ namespace Field_Sales_System.Utility_Classes
                 return false;
             }
         }
+
+        public bool storeOrder(MySqlConnection connection, String status, Order order) {
+            try
+            {
+                string command = "INSERT INTO order_entries(ordererId , orderDate , orderEntry , orderStatus) values(@id , @date , @orderEntry , @status)";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@id",MySqlDbType.Int32);
+                cmd.Parameters.Add("@date", MySqlDbType.DateTime);
+                cmd.Parameters.Add("@orderEntry", MySqlDbType.MediumBlob);
+                cmd.Parameters.Add("@status", MySqlDbType.VarChar);
+                cmd.Parameters["@id"].Value = order.OrdererId;
+                cmd.Parameters["@date"].Value = order.OrderRequestedDate;
+                cmd.Parameters["@status"].Value = status;
+                MemoryStream ms = new MemoryStream();
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(ms, order);
+                cmd.Parameters["@orderEntry"].Value = ms.ToArray();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+
+
+            }
+            catch (Exception e) {
+                return false;
+            }
+        }
+
+        public List<Order> retrievOrdersByStatus(MySqlConnection connection,string status,int ordererId = 0) {
+           
+            try
+            {
+                string command = "";
+                if (ordererId == 0)
+                {
+                     command = "select * from order_entries where orderStatus = @status or ordererId = @ordererId";
+                }
+                else {
+                    command = "select * from order_entries where orderStatus = @status and ordererId = @ordererId";
+                }
+                
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@status", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@ordererId", MySqlDbType.Int32);
+                cmd.Parameters["@status"].Value = status;
+                cmd.Parameters["@ordererId"].Value = ordererId;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                List<Order> returnEntries = new List<Order>();
+                while (reader.Read())
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    MemoryStream ms = new MemoryStream((byte[])reader[2]);
+                    ms.Seek(0, SeekOrigin.Begin);
+                    returnEntries.Add((Order)bin.Deserialize(ms));
+                }
+                return returnEntries;
+            }
+            catch (Exception e) {
+                return null;
+            }
+        }
+
+        public bool storeReport(MySqlConnection connection, Object report) {
+            try
+            {
+                string command = "";
+                DateTime reportDate = new DateTime();
+                if (report is DailySalesReport)
+                {
+                    command = "INSERT INTO daily_report(creationDate,report) values(@cd,@report)";
+                    reportDate = ((DailySalesReport)report).getDate();
+                }
+                else if (report is WeeklySalesReport)
+                {
+                    command = "INSERT INTO weekly_report(creationDate,report) values(@cd,@report)";
+                    reportDate = ((WeeklySalesReport)report).Date;
+                }
+                else {
+                    command = "";
+                }
+                if (command != "")
+                {
+                    MySqlCommand cmd = new MySqlCommand(command, connection);
+                    cmd.Parameters.Add("@cd", MySqlDbType.DateTime);
+                    cmd.Parameters.Add("@report", MySqlDbType.MediumBlob);
+                    cmd.Parameters["@cd"].Value = reportDate;
+                    MemoryStream ms = new MemoryStream();
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(ms, report);
+                    cmd.Parameters["@report"].Value = ms.ToArray();
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                    {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    return false;
+                }
+
+            }
+            catch (Exception e) {
+                return false;
+            }
+        }
+
+        public List<Object> retrieveReport(MySqlConnection connection, DateTime beginDate, DateTime endDate, string reportType) {
+            try
+            {
+                string command = "";
+                if (reportType == "Daily Report")
+                {
+                    command = "select * from daily_report where creationDate between @beginDate and @endDate";
+                }
+                else if (reportType == "Weekly Report") {
+                    command = "select * from weekly_report where creationDate between @beginDate and @endDate";
+                }
+                if (command != "")
+                {
+                    MySqlCommand cmd = new MySqlCommand(command, connection);
+                    cmd.Parameters.Add("@beginDate", MySqlDbType.DateTime);
+                    cmd.Parameters.Add("@endDate", MySqlDbType.DateTime);
+                    cmd.Parameters["@beginDate"].Value = beginDate;
+                    cmd.Parameters["@endDate"].Value = endDate;
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    List<Object> returnEntries = new List<Object>();
+                    while (reader.Read())
+                    {
+                        BinaryFormatter bin = new BinaryFormatter();
+                        MemoryStream ms = new MemoryStream((byte[])reader[1]);
+                        ms.Seek(0, SeekOrigin.Begin);
+                        returnEntries.Add((Object)bin.Deserialize(ms));
+                    }
+                    return returnEntries;
+
+
+                }
+                else {
+                    return null;
+                }
+            }
+            catch (Exception e) {
+                return null;
+            }
+        }
+
+        
 
         //Need similar methods to store, retrieve, modify for displayPicture, Contact details, DailySalesReport, WeeklySalesReport,
         //Order,Warehouse, etc.. Assume there are such methods when you code for ObjectFactory

@@ -12,15 +12,30 @@ namespace Field_Sales_System.Business_Logic
         private int quantity;
         private Product product;
 
-        public void setQuantity(int quantity)
+        public Product Product
         {
-            this.quantity = quantity;
+            get
+            {
+                return product;
+            }
+
+            set
+            {
+                product = value;
+            }
         }
 
-        public int getQuantity()
+        public int Quantity
         {
-            return quantity;
-        }
+            get
+            {
+                return quantity;
+            }
 
+            set
+            {
+                quantity = value;
+            }
+        }
     }
 }

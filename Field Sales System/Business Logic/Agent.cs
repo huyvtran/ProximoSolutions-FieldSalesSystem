@@ -13,8 +13,7 @@ namespace Field_Sales_System.Business_Logic
     {
         private string agencyName;
         private string coverageArea;
-        OrderPickupSchedule orderpickedup;
-        //ObjectFactory Object;
+        private List<Representative> registeredRepresentatives;
        
 
         public Agent(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1,string addressLine_2,string addressLine_3, Image img)
@@ -49,7 +48,7 @@ namespace Field_Sales_System.Business_Logic
             }
 
             String productIDString = "";
-            for (int i = 0; i < qproductID.Count; i++)
+            for (int i = 0; i < productID.Count; i++)
             {
                 productIDString = productIDString + Convert.ToString(productID[i]);
                 productIDString = productIDString + ",";
@@ -59,23 +58,19 @@ namespace Field_Sales_System.Business_Logic
             inputset.Add(orderID);
             inputset.Add(orderaddedtime);
             inputset.Add(orderproduct);
-<<<<<<< HEAD
+
             inputset.Add(quantity);
             inputset.Add(productID);
             //Object.setObject(inputset);
             //neworder.setOrderId(orderID);
             //neworder.setOrderDate(ordertime);
             //neworder.addorderentry(quantity, product);
-=======
-            inputset.Add(quantityString);
-            inputset.Add(productIDString);
-            Object.setObject(inputset);
->>>>>>> master
+
         }
         public void pickuporder(DateTime pickeduptime)
         {
-            orderpickedup.setPickedUpBy(this.agencyName);
-            orderpickedup.setPickUpDateAndTime(pickeduptime); //ordertime has to be given 
+            //orderpickedup.setPickedUpBy(this.agencyName);
+            //orderpickedup.setPickUpDateAndTime(pickeduptime); //ordertime has to be given 
         }
 
         public void requestOrder(int orderId)

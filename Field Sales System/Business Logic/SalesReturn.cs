@@ -14,7 +14,7 @@ namespace Field_Sales_System.Business_Logic
         private DateTime returnDate;
         private List<ReturnEntry> returns = new List<ReturnEntry>();
 
-        public int ReturnID
+        public int ReturnerID
         {
             get
             {

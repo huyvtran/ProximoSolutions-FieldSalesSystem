@@ -35,39 +35,26 @@ namespace Field_Sales_System.Utility_Classes
             String check = this.checker().GetFrame(1).GetMethod().Name;
             switch (check)
             {
-<<<<<<< HEAD
-               /* case "placeorder":
-=======
-                case "placeOrder":
->>>>>>> master
+
+               case "placeorder":
+
                     {
                         int[] quantity = Array.ConvertAll((Convert.ToString(inputset[3])).Split(','), int.Parse);
                         int[] productID = Array.ConvertAll((Convert.ToString(inputset[4])).Split(','), int.Parse);
                   
-                        object send = this.neworder(Convert.ToInt32(inputset[0]), Convert.ToDateTime(inputset[1]), Convert.ToDateTime(inputset[2]), quantity, productID);
+                        //object send = this.neworder(Convert.ToInt32(inputset[0]), Convert.ToDateTime(inputset[1]), Convert.ToDateTime(inputset[2]), quantity, productID);
                         return send;
-                    }*/
+                    }
 
             }
             return null;
         }
 
 
-<<<<<<< HEAD
-       /* private Object neworder(ArrayList inputset)
-        {
-            Product orderedProduct = this.getObject(Convert.ToInt32(inputset[2]));
-            Order neworder = new Order(Convert.ToInt32(inputset[0]), Convert.ToDateTime(inputset[1]));
-            return neworder;
 
-        }*/
 
-        private StackTrace checker()
-        {
-            StackTrace stackTrace = new StackTrace();
-            return stackTrace;
-=======
->>>>>>> master
+        
+
 
         //Method to get objects
         public Object getObject(ArrayList inputget)
@@ -90,32 +77,35 @@ namespace Field_Sales_System.Utility_Classes
 
 
 
+
+        /*
         //Create new order
         private Object neworder(int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, int[] quantity, int[] productID)
         {
 
             OrderProcessDetails gotprocessDetails = getOrderProcessDetails();
-            Order neworder = new Order(OrderID, OrderaddedDate, OrderRequestedDate, gotprocessDetails);
+           // Order neworder = new Order(OrderID, OrderaddedDate, OrderRequestedDate, gotprocessDetails);
             for (int i = 0; i < quantity.Length; i++)
             {
                 int entryID = neworder.getentrysize();
-                OrderEntry orderedProductEntry = this.setProductEntry(entryID, productID[i], quantity[i] );
-                neworder.addorderentry(orderedProductEntry);
+                //OrderEntry orderedProductEntry = this.setProductEntry(entryID, productID[i], quantity[i] );
+                //neworder.addorderentry(orderedProductEntry);
 
             }
-            return neworder;
+            return null;
 
         }
+        */
 
        
        
         //Create Orderentry
-        private OrderEntry setProductEntry(int entryID, int ProductID, int Quantity)
+        /*private OrderEntry setProductEntry(int entryID, int ProductID, int Quantity)
         {
             Product gotProduct = (getProduct(ProductID)[0]);
-            OrderEntry newEntry= new OrderEntry(entryID, Quantity , gotProduct);
+            //OrderEntry newEntry= new OrderEntry(entryID, Quantity , gotProduct);
             return newEntry;
-        }
+        }*/
 
 
 
@@ -169,7 +159,7 @@ namespace Field_Sales_System.Utility_Classes
                         sendlist.Add(Obj);
                     }
                 }
-                sendlist =Connect.Connect(sendlist, Myarray[0].Name, inputvalue, inputCode);
+                //sendlist = Connect.Connect(sendlist, Myarray[0].Name, inputvalue, inputCode);
                 foreach (Object obj in sendlist)
                 {
                     if (memoryStack.Contains(obj))

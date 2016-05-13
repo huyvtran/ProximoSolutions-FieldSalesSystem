@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class OrderProcessDetails
+    [Serializable]
+    public class OrderProcessDetails
     {
         private string orderStatus="Not Processed";
         private string processedBy= "------";

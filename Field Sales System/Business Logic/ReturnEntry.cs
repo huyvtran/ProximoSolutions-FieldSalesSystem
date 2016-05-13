@@ -9,22 +9,10 @@ namespace Field_Sales_System.Business_Logic
     [Serializable]
     public class ReturnEntry
     {
-        private int quantity;
         private int itemOrderID;
         private Product product;
-
-        public int Quantity
-        {
-            get
-            {
-                return quantity;
-            }
-
-            set
-            {
-                quantity = value;
-            }
-        }
+        private string notes;
+        
 
         public int ItemOrderID
         {
@@ -39,7 +27,7 @@ namespace Field_Sales_System.Business_Logic
             }
         }
 
-        internal Product Product
+        public Product Product
         {
             get
             {
@@ -49,6 +37,19 @@ namespace Field_Sales_System.Business_Logic
             set
             {
                 product = value;
+            }
+        }
+
+        public string Notes
+        {
+            get
+            {
+                return notes;
+            }
+
+            set
+            {
+                notes = value;
             }
         }
     }

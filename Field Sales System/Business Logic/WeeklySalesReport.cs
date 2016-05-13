@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class WeeklySalesReport
+    [Serializable]
+    public class WeeklySalesReport
     {
         
-        private string date;
+        private DateTime date;
         private int reportNumber;
         private string weeklySalesSummary;
-        
-        public void setDate(string date)
+
+        public DateTime Date
         {
-            this.date = date;
+            get
+            {
+                return date;
+            }
+
+            set
+            {
+                date = value;
+            }
         }
 
         public void setReportNumber(int reportNumber)
@@ -29,10 +38,7 @@ namespace Field_Sales_System.Business_Logic
         }
 
 
-        public string getDate()
-        {
-            return this.date;
-        }
+        
 
         public int getReportNumber()
         {

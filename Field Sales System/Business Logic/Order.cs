@@ -8,41 +8,37 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Order
+    [Serializable]
+    public class Order
     {
         private List<OrderEntry> orders;
         private OrderProcessDetails processDetails;
-        private int orderId;
-        private DateTime orderaddedDate;
+        private int ordererId;
         private DateTime orderRequestedDate;
-
-<<<<<<< HEAD
-        public Order(int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, OrderEntry NewOrderEntry, OrderProcessDetails newprocessDetails)
+        public int OrdererId
         {
-=======
-    public Order (int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, OrderProcessDetails newprocessDetails)
+            get
             {
->>>>>>> master
-            orderId = OrderID;
-            orderaddedDate = OrderaddedDate;
-            orderRequestedDate = OrderRequestedDate;
-            processDetails = newprocessDetails;
+                return ordererId;
+            }
+
+            set
+            {
+                ordererId = value;
+            }
         }
-        public void setOrderId(int orderId)
+
+        public DateTime OrderRequestedDate
         {
-            this.orderId = orderId;
-        }
-        public void setOrderDate(DateTime orderDate)
-        {
-            this.orderaddedDate = orderDate;
-        }
-        public DateTime getOrderDate()
-        {
-            return this.orderaddedDate;
-        }
-        public int getOrderId()
-        {
-            return this.orderId;
+            get
+            {
+                return orderRequestedDate;
+            }
+
+            set
+            {
+                orderRequestedDate = value;
+            }
         }
 
         public void setProcessDetails(OrderProcessDetails pd)
@@ -56,27 +52,19 @@ namespace Field_Sales_System.Business_Logic
 
         public void addorderentry(OrderEntry orderedProductEntry)
         {
-<<<<<<< HEAD
-            int entryID = 00;
-            OrderEntry newentry = new OrderEntry();
-            newentry.setQuantity(amount);
-            newentry.setProduct(product);
-            newentry.setID(entryID);
-            orders.Add(new OrderEntry());
-=======
             orders.Add(orderedProductEntry);
         }
         public int getentrysize() {
            return this.orders.Count;
->>>>>>> master
+
         }
         public void editordentryquantity(int entryid, int quantity)
         {
-            orders[entryid].setQuantity(quantity);
+            //orders[entryid].setQuantity(quantity);
         }
         public void editordentryproduct(int entryid, Product product)
         {
-            orders[entryid].setProduct(product);
+            //orders[entryid].setProduct(product);
         }
         public void deleteorderentry(int orderentryid)
         {
@@ -84,11 +72,7 @@ namespace Field_Sales_System.Business_Logic
         }
 
     }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> master
 
 
 

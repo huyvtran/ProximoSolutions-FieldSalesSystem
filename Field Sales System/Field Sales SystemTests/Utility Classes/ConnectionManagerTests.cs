@@ -2,6 +2,7 @@
 using Field_Sales_System.Utility_Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MySql.Data.MySqlClient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -26,7 +27,7 @@ namespace Field_Sales_System.Utility_Classes.Tests
         {
 
             MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
-
+            connection = c.openConnection(connection);
             Assert.IsFalse(connection == null);
         }
 
@@ -171,8 +172,126 @@ namespace Field_Sales_System.Utility_Classes.Tests
         {
             ConnectionManager c = new ConnectionManager();
             MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+
+            SalesEntry se = new SalesEntry();
+            DailySalesDetails ds = new DailySalesDetails();
+            SalesReturn sr = new SalesReturn();
+            ReturnEntry re = new ReturnEntry();
+            Order newOrder = new Order();
+            newOrder.OrdererId = 4578;
+            newOrder.OrderRequestedDate = System.DateTime.Now;
+            sr.addReturnEntry(re);
+            sr.ReturnerID = 750;
+            ds.SubmitterID = 565;
+            ds.addEntry(se);
+            se.Quantity = 50;
+            se.Product = new Product();
             c.openConnection(connection);
-            SalesEntry 
+            System.DateTime now = System.DateTime.Now;
+            ds.setDate(now);
+            bool b = c.storeEntry(connection, ds);
+            c.closeConnection(connection);
+        }
+
+        [TestMethod()]
+        public void retrieveEntryTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+            c.openConnection(connection);
+            DateTime dt1 = new DateTime(2015, 01, 01);
+            DateTime dt2 = new DateTime(2017, 01, 01);
+            List<object> l = c.retrieveEntry(connection, dt1, dt2, "salesEntry", 559);
+
+        }
+
+        [TestMethod()]
+        public void modifyEntryTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+
+            DateTime dt1 = new DateTime(2015, 01, 01);
+            DateTime dt2 = new DateTime(2017, 01, 01);
+            c.openConnection(connection);
+            List<object> l = c.retrieveEntry(connection, dt1, dt2, "orderEntry");
+            c.closeConnection(connection);
+            c.openConnection(connection);
+            ((DailySalesDetails)l[1]).setDate(DateTime.Now);
+            SalesEntry se = new SalesEntry();
+            DailySalesDetails ds = new DailySalesDetails();
+            SalesReturn sr = new SalesReturn();
+            ReturnEntry re = new ReturnEntry();
+            sr.addReturnEntry(re);
+            sr.ReturnerID = 750;
+            ds.SubmitterID = 565;
+            ds.addEntry(se);
+            se.Quantity = 50;
+            System.DateTime now = System.DateTime.Now;
+            ds.setDate(now);
+            //c.modifyEntry(connection, ds, l[1]);
+
+        }
+
+        [TestMethod()]
+        public void storeOrderTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+            c.openConnection(connection);
+            Order order = new Order();
+            order.OrdererId = 15451;
+            order.OrderRequestedDate = System.DateTime.Now;
+            bool b = c.storeOrder(connection, "New Order", order);
+        }
+
+        [TestMethod()]
+        public void setOrderStatusTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+
+            DateTime dt1 = new DateTime(2015, 01, 01);
+            DateTime dt2 = new DateTime(2017, 01, 01);
+            c.openConnection(connection);
+            List<object> l = c.retrieveEntry(connection, dt1, dt2, "orderEntry");
+            c.closeConnection(connection);
+            c.openConnection(connection);
+            bool b = c.setOrderStatus(connection, "Processing", ((Order)l[0]).OrderRequestedDate);
+        }
+
+        [TestMethod()]
+        public void retrievOrdersByStatusTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+            c.openConnection(connection);
+            List<Order> or = c.retrievOrdersByStatus(connection, "Processing", 15471);
+        }
+
+        [TestMethod()]
+        public void storeReportTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+            c.openConnection(connection);
+            DailySalesReport dsr = new DailySalesReport();
+            WeeklySalesReport wsr = new WeeklySalesReport();
+            wsr.Date = DateTime.Now;
+            dsr.setDate(DateTime.Now);
+            bool b = c.storeReport(connection, wsr);
+        }
+
+        [TestMethod()]
+        public void retrieveReportTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+
+            DateTime dt1 = new DateTime(2015, 01, 01);
+            DateTime dt2 = new DateTime(2017, 01, 01);
+            c.openConnection(connection);
+            List<object> l = c.retrieveReport(connection, dt1, dt2, "Weekly Report");
         }
     }
 }

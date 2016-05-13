@@ -6,29 +6,65 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class OrderPickupSchedule
+    [Serializable]
+    public class OrderPickupSchedule
     {
+        
         private DateTime pickUpDateAndTime;
-        private String pickedUpBy;
+        private int pickUpId;
+        private int pickUpNIC;
+        private String pickUpStatus;
 
-        public void setPickUpDateAndTime(DateTime pickUpDateAndTime)
+        public DateTime PickUpDateAndTime
         {
-            this.pickUpDateAndTime = pickUpDateAndTime;
+            get
+            {
+                return pickUpDateAndTime;
+            }
+
+            set
+            {
+                pickUpDateAndTime = value;
+            }
         }
 
-        public DateTime getPickUpDateAndTime()
+        public int PickUpId
         {
-            return pickUpDateAndTime;
+            get
+            {
+                return pickUpId;
+            }
+
+            set
+            {
+                pickUpId = value;
+            }
         }
 
-        public void setPickedUpBy(String pickedUpBy)
+        public int PickUpNIC
         {
-            this.pickedUpBy = pickedUpBy;
+            get
+            {
+                return pickUpNIC;
+            }
+
+            set
+            {
+                pickUpNIC = value;
+            }
         }
 
-        public String getPickedUpBy()
+        public string PickUpStatus
         {
-            return pickedUpBy;
+            get
+            {
+                return pickUpStatus;
+            }
+
+            set
+            {
+                pickUpStatus = value;
+            }
         }
     }
 }

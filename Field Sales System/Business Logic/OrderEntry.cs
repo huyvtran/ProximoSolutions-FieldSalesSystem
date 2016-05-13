@@ -7,31 +7,28 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class OrderEntry
+    public class OrderEntry
     {
-        private int ID;
         private int quantity;
-        private Product product;
+        private List<Product> product;
 
-       public  OrderEntry(int IID, int Quantity, Product Product)
+        public int Quantity
         {
-            ID = IID;
-            quantity = Quantity;
-            product = Product;
+            get
+            {
+                return quantity;
+            }
 
+            set
+            {
+                quantity = value;
+            }
+        }
 
+        public void addProduct(Product p) {
+            product.Add(p);
         }
-        
-        public void UpdateQuantity(int quantity) {
-            this.quantity = quantity;
-        }
-        public int getQuantity() {
-            return this.quantity;
-        }
-        public void UpdateProduct(Product p) {
-            this.product = p;
-        }
-        public Product getProduct() {
+        public List<Product> getProductList() {
             return this.product;
         }
     
