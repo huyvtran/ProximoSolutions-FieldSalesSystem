@@ -88,9 +88,8 @@
     <Compile Include="Utility Classes\ConnectionManager.cs" />
     <Compile Include="Utility Classes\ImageHandler.cs" />
     <Compile Include="Utility Classes\ObjectExtractor.cs" />
-    <Compile Include="Utility Classes\ObjectFactory.cs" />
+    <Compile Include="Utility Classes\ObjectFactoryNew.cs" />
     <Compile Include="Utility Classes\SecurityManager.cs" />
-    <Compile Include="Utility Classes\ObjectFactory.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
