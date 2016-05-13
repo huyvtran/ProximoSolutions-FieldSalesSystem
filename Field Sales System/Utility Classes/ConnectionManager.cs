@@ -11,10 +11,12 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
+using Field_Sales_System.Business_Logic;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Field_Sales_System.Utility_Classes
 {
-    
+    [Serializable]
     public class ConnectionManager
     {
         public bool isOnline()
@@ -59,10 +61,34 @@ namespace Field_Sales_System.Utility_Classes
             connection.Close();
         }
 
-        public ArrayList readRecord(MySqlConnection connection,string table, int empId = 0,string empFName="",string empLName="") {
+        public List<Object> retrieveLoginInfo(MySqlConnection connection, int empId)
+        {
             try
             {
-                string command = "SELECT * FROM "+table+" WHERE empId = @eId or firstName=@fName or lastName=@lName;";
+                string command = "SELECT * FROM user WHERE empId = @eId;";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@eId", MySqlDbType.Int32);
+                cmd.Parameters["@eId"].Value = empId;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                List<Object> userData = new List<Object>();
+                reader.Read();
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    userData.Add(reader[i]);
+                }
+                return userData;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        //retrieves user objects from database
+        public List<User> retrieveUser(MySqlConnection connection,int empId = 0,string empFName="",string empLName="") {
+            try
+            {
+                string command = "SELECT * FROM employee WHERE empId = @eId or firstName=@fName or lastName=@lName;";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
                 cmd.Parameters.Add("@eId", MySqlDbType.Int32);
                 cmd.Parameters.Add("@fName", MySqlDbType.VarChar);
@@ -71,12 +97,16 @@ namespace Field_Sales_System.Utility_Classes
                 cmd.Parameters["@fName"].Value = empFName;
                 cmd.Parameters["@lName"].Value = empLName;
                 MySqlDataReader reader = cmd.ExecuteReader();
-                ArrayList userData = new ArrayList();
-                for (int i = 0; i < reader.FieldCount; i++)
-                {
-                    reader.Read();
-                    userData.Add(reader[i]);
+                List<User> userData = new List<User>();
+                while (reader.Read()) {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    MemoryStream ms = new MemoryStream((byte[])reader[3]);
+                    ms.Seek(0, SeekOrigin.Begin);
+                    userData.Add((User)bin.Deserialize(ms));
                 }
+                    
+                    
+                
                 return userData;
             }
             catch (Exception e) {
@@ -85,54 +115,28 @@ namespace Field_Sales_System.Utility_Classes
             
         }
 
-        public bool writeRecord(ArrayList empData,ArrayList type, MySqlConnection connection,string table) {
+        
+        //stores a user in the database
+        public bool storeUser(User user, MySqlConnection connection) {
             
 
             try
-            {
-                if (empData.Count != type.Count)
-                {
-                    return false;
-                }
-                else
-                {
-                    string command = "INSERT INTO " + table + " (";
-                    for (int i = 0; i < type.Count; i++)
-                    {
-                        command += type[i];
-                        if (i == (type.Count-1))
-                        {
-                            break;
-                        }
-                        command += " , ";
-                    }
-                    command += ") VALUES ( ";
-                    for (int i = 0; i < empData.Count; i++)
-                    {
-
-                        if (empData[i].GetType().Equals("".GetType()))
-                        {
-                            command += ("\"" + empData[i] + "\"");
-                        }
-                        else {
-                            command += empData[i];
-                        }
-                        
-
-                        if (i == (empData.Count-1))
-                        {
-                            break;
-                        }
-                        command += " , ";
-                    }
-                    command += ");";
-
-                    MySqlCommand cmd = new MySqlCommand(command, connection);
-                    cmd.ExecuteNonQuery();
-                    return true;
-
-                }
-                
+            {   
+                string command = "INSERT INTO employee (empId,firstName,lastName,employee) values(@empId,@fName,@lName,@employee)";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@empId", MySqlDbType.Int64);
+                cmd.Parameters.Add("@fName", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@lName", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@employee", MySqlDbType.MediumBlob);
+                MemoryStream ms = new MemoryStream();
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(ms, user);
+                cmd.Parameters["@empId"].Value = user.getEmpId();
+                cmd.Parameters["@fName"].Value = user.getFirstName();
+                cmd.Parameters["@lName"].Value = user.getLastName();
+                cmd.Parameters["@employee"].Value = ms.ToArray();
+                cmd.ExecuteNonQuery();
+                return true;        
             }
             catch (Exception e) {
                 return false;
@@ -141,37 +145,85 @@ namespace Field_Sales_System.Utility_Classes
 
         }
 
-        public bool modifyRecord(int empId, ArrayList columns, ArrayList values, string table, MySqlConnection connection) {
+        //modifies user object in the database with the input value
+        public bool modifyUser(User user, MySqlConnection connection)
+        {
             try
             {
-                string command = "update " + table + " set ";
-                for (int i = 0; i < columns.Count; i++)
-                {
-                    if (values[i].GetType().Equals("".GetType()))
-                    {
-                        command += columns[i] + " = " + "\"" + values[i] + "\"";
-                    }
-                    else
-                    {
-                        command += columns[i] + " = " + values[i];
-                    }
-                    
-                    if (i != columns.Count - 1)
-                    {
-                        command += " , ";
-                    }
-                }
-                command += " where empId=" + empId+" ;";
+                string command = "update proximodb.employee set employee = @employee  where empId = @empId; ";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@eId", MySqlDbType.Int32);
+                cmd.Parameters["@eId"].Value = user.getEmpId();
+                MemoryStream ms = new MemoryStream();
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(ms, user);
+                cmd.Parameters.Add("@employee", MySqlDbType.MediumBlob);
+                cmd.Parameters["@employee"].Value = ms.ToArray();
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return false;
             }
 
-            
+
         }
+
+        public bool storeContactDetails(int empId,ContactDetails contacts, MySqlConnection connection)
+        {
+            try
+            {
+                string command = "INSERT INTO contact_details (empId,contactDetails) values(@empId,@contactDetails)";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@empId", MySqlDbType.Int64);
+                cmd.Parameters.Add("@contactDetails", MySqlDbType.MediumBlob);
+                MemoryStream ms = new MemoryStream();
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(ms, contacts);
+                cmd.Parameters["@empId"].Value = empId;
+                cmd.Parameters["@contactDetails"].Value = ms.ToArray();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+
+        }
+
+        public List<ContactDetails> retrieveContactDetails(MySqlConnection connection, int empId)
+        {
+            try
+            {
+                string command = "SELECT * FROM contact_details WHERE empId = @eId";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@eId", MySqlDbType.Int32);          
+                cmd.Parameters["@eId"].Value = empId;               
+                MySqlDataReader reader = cmd.ExecuteReader();
+                List<ContactDetails> userData = new List<ContactDetails>();
+                while (reader.Read())
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    MemoryStream ms = new MemoryStream((byte[])reader[1]);
+                    ms.Seek(0, SeekOrigin.Begin);
+                    userData.Add((ContactDetails)bin.Deserialize(ms));
+                }
+
+
+
+                return userData;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        
 
         public bool storeImage(int empId, Image image, MySqlConnection connection) {
             try
@@ -179,7 +231,7 @@ namespace Field_Sales_System.Utility_Classes
                 MemoryStream ms = new MemoryStream();
                 image.Save(ms, ImageFormat.Jpeg);
                 byte[] imageByteStream = ms.ToArray();
-                string command = "insert into userimages(empId,userImage) values(@empId,@userImage)";
+                string command = "insert into profile_picture(empId,picture) values(@empId,@userImage)";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
                 cmd.Parameters.Add("@userImage", MySqlDbType.MediumBlob);
                 cmd.Parameters.Add("@empId", MySqlDbType.Int64);
@@ -202,11 +254,28 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public Image retrieveImage(int empId, MySqlConnection connection) {
-            ArrayList image = readRecord(connection,"userimages",empId);
-            MemoryStream ms = new MemoryStream((byte [])image[1]);
-            return Image.FromStream(ms);
+            try
+            {
+                string command = "SELECT picture FROM profile_picture WHERE empId = @eId ;";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                cmd.Parameters.Add("@eId", MySqlDbType.Int32);  
+                cmd.Parameters["@eId"].Value = empId;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                MemoryStream ms = new MemoryStream((byte [])reader[0]);
+                
+                return Image.FromStream(ms);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            
 
         }
+
+        //Need similar methods to store, retrieve, modify for displayPicture, Contact details, DailySalesReport, WeeklySalesReport,
+        //Order,Warehouse, etc.. Assume there are such methods when you code for ObjectFactory
 
 
 

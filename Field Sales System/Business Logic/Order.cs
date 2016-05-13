@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Field_Sales_System.Business_Logic
 {
     class Order
     {
-        private ArrayList<> orders;
+        private List<OrderEntry> orders;
         private OrderProcessDetails processDetails;
         private OrderEntry newOrderEntry;
         private int orderId;
@@ -66,11 +67,15 @@ namespace Field_Sales_System.Business_Logic
             // Remove a record.
         }
 
+<<<<<<< HEAD
+        
+=======
         public void passtobuilder(Order saveorder)
         {
             // Send the object to quary builder
         }
     }
+>>>>>>> 937845a8ad5cb49a5ecfe14650f5fbc9781cd0ba
 
 
 
