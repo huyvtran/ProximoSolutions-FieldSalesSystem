@@ -17,37 +17,43 @@ namespace Field_Sales_System.Business_Logic
         private DateTime orderaddedDate;
         private DateTime orderRequestedDate;
 
-    public Order (int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, OrderEntry NewOrderEntry, OrderProcessDetails newprocessDetails)
-            {
+        public Order(int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, OrderEntry NewOrderEntry, OrderProcessDetails newprocessDetails)
+        {
             orderId = OrderID;
             orderaddedDate = OrderaddedDate;
             orderRequestedDate = OrderRequestedDate;
             newOrderEntry = NewOrderEntry;
             processDetails = newprocessDetails;
-            }
-        public void setOrderId(int orderId) {
+        }
+        public void setOrderId(int orderId)
+        {
             this.orderId = orderId;
         }
-        public void setOrderDate(DateTime orderDate) {
-            this.orderDate = orderDate;
+        public void setOrderDate(DateTime orderDate)
+        {
+            this.orderaddedDate = orderDate;
         }
-        public DateTime getOrderDate() {
-            return this.orderDate;
+        public DateTime getOrderDate()
+        {
+            return this.orderaddedDate;
         }
-        public int getOrderId() {
+        public int getOrderId()
+        {
             return this.orderId;
         }
 
-        public void setProcessDetails(OrderProcessDetails pd) {
+        public void setProcessDetails(OrderProcessDetails pd)
+        {
             this.processDetails = pd;
         }
-        public OrderProcessDetails getProcessDetails() {
+        public OrderProcessDetails getProcessDetails()
+        {
             return processDetails;
         }
 
         public void addorderentry(int amount, Product product)
         {
-            int entryID = orders.count;
+            int entryID = 00;
             OrderEntry newentry = new OrderEntry();
             newentry.setQuantity(amount);
             newentry.setProduct(product);
@@ -67,15 +73,9 @@ namespace Field_Sales_System.Business_Logic
             // Remove a record.
         }
 
-<<<<<<< HEAD
-        
-=======
-        public void passtobuilder(Order saveorder)
-        {
-            // Send the object to quary builder
-        }
     }
->>>>>>> 937845a8ad5cb49a5ecfe14650f5fbc9781cd0ba
+
+
 
 
 

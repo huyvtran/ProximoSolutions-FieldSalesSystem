@@ -20,24 +20,24 @@ namespace Field_Sales_System.Utility_Classes
             String check = this.checker().GetFrame(1).GetMethod().Name;
             switch (check)
             {
-                case "placeorder":
+               /* case "placeorder":
                     {
                         object send = this.neworder(inputset);
                         return send;
-                    }
+                    }*/
 
             }
             return null;
         }
 
 
-        private Object neworder(ArrayList inputset)
+       /* private Object neworder(ArrayList inputset)
         {
             Product orderedProduct = this.getObject(Convert.ToInt32(inputset[2]));
             Order neworder = new Order(Convert.ToInt32(inputset[0]), Convert.ToDateTime(inputset[1]));
             return neworder;
 
-        }
+        }*/
 
         private StackTrace checker()
         {
@@ -69,20 +69,22 @@ namespace Field_Sales_System.Utility_Classes
             try
             {
 
-                //This class is not finished. Do not touch!
-                if (userRole.Equals("Representative"))
+                switch(userRole)
                 {
-                    User rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
-                    ContactDetails c = new ContactDetails(mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
-                    UserRole ur = new UserRole();
-                    ur.setRoleName(userRole);
-                    for (int i = 0; i < permissions.Count; i++)
-                    {
-                        ur.addPermission(permissions[i]);
-                    }
+                    case "Representative":
+                    
+                        User rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        ContactDetails c = new ContactDetails(mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        UserRole ur = new UserRole();
+                        ur.setRoleName(userRole);
+                        for (int i = 0; i < permissions.Count; i++)
+                        {
+                            ur.addPermission(permissions[i]);
+                        }
 
 
-                    return rep;
+                        return rep;
+                    
                 }
                 return null;
             }

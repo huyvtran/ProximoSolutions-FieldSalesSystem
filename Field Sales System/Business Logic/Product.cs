@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
+    [Serializable]
     public class Product
     {
 
@@ -15,6 +16,7 @@ namespace Field_Sales_System.Business_Logic
         private String productDescription;
         private ProductDetails productDetails;
         private float pricePerUnit;
+        DisplayPicture productPicture;
         public void setProductName(String productName)
         {
             this.productName = productName;

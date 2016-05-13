@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
-{
-    class SalesEntry
+{   
+    [Serializable]
+    public class SalesEntry
     {
         private int quantity;
         private Product product;

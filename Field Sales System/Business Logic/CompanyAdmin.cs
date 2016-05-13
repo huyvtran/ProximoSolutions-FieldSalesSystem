@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,16 +9,16 @@ namespace Field_Sales_System.Business_Logic
 {
     class CompanyAdmin : User, UserManagement
     {
-        public CompanyAdmin(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address, string url):base(empId,empNIC,gender,firstName,lastName,mobileNo,landNo,email,address,url)
+        public CompanyAdmin(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1,string addressLine_2,string addressLine_3, Image img):base(empId,empNIC,gender,firstName,lastName,mobileNo,landNo,email,addressLine_1,addressLine_2,addressLine_3,img)
         {
         }
         public void addRepresentative(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address) {
             string url="have to build"; // Create url 
-            Representative newrep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, address, url);
+            //Representative newrep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, address, url);
         }
         public void addAgent(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address) {
             string url = "have to build"; // Create url 
-            Agent newagent = new Agent(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, address, url);
+            //Agent newagent = new Agent(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, address, url);
            
         }
         public void updateProduct(Product p) {

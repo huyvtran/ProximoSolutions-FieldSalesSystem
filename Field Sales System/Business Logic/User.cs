@@ -45,8 +45,8 @@ namespace Field_Sales_System.Business_Logic
         {
             databaseCon.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
         }
-        public UserRole getRole() {
-        return }
+        //public UserRole getRole() {
+        //return }
 
         public bool activateUser(User user)
         {

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
+    [Serializable]
     public class ReturnEntry
     {
         private int quantity;
         private int itemOrderID;
-
         private Product product;
 
         public int Quantity

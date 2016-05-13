@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
+    [Serializable]
     class DailySalesDetails
     {
-        private ArrayList salesEntries = new ArrayList();
+        private List<SalesEntry> salesEntries = new List<SalesEntry>();
         private DateTime date;
         private int submitterID;
 
