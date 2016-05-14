@@ -11,6 +11,8 @@ namespace Field_Sales_System.Business_Logic
     {
         private String category;
         private int batchNO;
+        private DateTime MDF;
+        private DateTime EXP;
 
       
 

@@ -11,7 +11,7 @@ using System.Drawing;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class Agent : User, OrderManagement
+    class Agent : User, UserManagement, OrderManagement
     {
         private string agencyName;
         private string coverageArea;
@@ -68,7 +68,7 @@ namespace Field_Sales_System.Business_Logic
             pickUpOrderObject.getProcessDetails().getOrderPickupSchedule().PickUpId = this.getEmpId();
             pickUpOrderObject.getProcessDetails().getOrderPickupSchedule().PickUpDateAndTime = pickeduptime;
             pickUpOrderObject.getProcessDetails().getOrderPickupSchedule().PickUpStatus = "PickedUP";
-            Object.saveOrder(pickUpOrderObject);
+            Object.saveOrder(pickUpOrderObject,orderId);
 
         }
 
@@ -105,7 +105,7 @@ namespace Field_Sales_System.Business_Logic
             Order editOrderObject = Object.getOrder(orderEditID)[0];
             editOrderObject.editordentryquantity(orderEntryId, editorderquantity, gotProduct);
             editOrderObject.getProcessDetails().setProcessedBy(this.getEmpId());
-            Object.saveOrder(editOrderObject);
+            Object.saveOrder(editOrderObject,orderEditID);
 
             
         }
@@ -117,7 +117,7 @@ namespace Field_Sales_System.Business_Logic
             OrderEntry newOrderEntry = Object.setOrderEntry(entryId, quantity, productId);
             addEntryObject.addorderentry(newOrderEntry);//Check whether it was done
             addEntryObject.getProcessDetails().setProcessedBy(this.getEmpId());
-            Object.saveOrder(addEntryObject);
+            Object.saveOrder(addEntryObject,orderId);
         }       
         //public Order viewOrderSummary(int orderid)
         //{
@@ -128,7 +128,7 @@ namespace Field_Sales_System.Business_Logic
             Order removeOrderObject = (Object.getOrder(orderId)[0]);
            removeOrderObject.getProcessDetails().setOrderStatus("Cancelled");
            removeOrderObject.getProcessDetails().setProcessedBy(this.getEmpId());
-           Object.saveOrder(removeOrderObject);
+           Object.saveOrder(removeOrderObject,orderId);
             return true;
         }
         public Boolean removeOrderentry(int orderId, int orderEntryId)
@@ -136,7 +136,7 @@ namespace Field_Sales_System.Business_Logic
             Order removeOrderentryObject = (Object.getOrder(orderId)[0]);
             removeOrderentryObject.deleteorderentry(orderEntryId);
             removeOrderentryObject.getProcessDetails().setProcessedBy(this.getEmpId());
-            Object.saveOrder(removeOrderentryObject);
+            Object.saveOrder(removeOrderentryObject,orderId);
             return true;
 
         }
@@ -166,6 +166,11 @@ namespace Field_Sales_System.Business_Logic
         }
 
         bool OrderManagement.removeOrder(int orderId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool requestOrder(Order order)
         {
             throw new NotImplementedException();
         }

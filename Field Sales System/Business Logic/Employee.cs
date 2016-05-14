@@ -42,14 +42,6 @@ namespace Field_Sales_System.Business_Logic
             this.lastName = lastName;
 
         }
-        public void setEmpId(int empId) {
-            this.empId = empId;
-        }
-
-        public void setEmpNIC(int empNIC) {
-            this.empNIC = empNIC;
-        }
-
         public void setGender(bool gender) {
             this.gender = gender;
         }

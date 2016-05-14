@@ -444,9 +444,9 @@ namespace Field_Sales_System.Utility_Classes
                 string command = "update product set productName = @productName, product = @product  where productId = @productId; ";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
                 cmd.Parameters.Add("@productId", MySqlDbType.Int32);
-                cmd.Parameters["@productId"].Value = product.getProductID();
+                cmd.Parameters["@productId"].Value = product.ProductID;
                 cmd.Parameters.Add("@productName", MySqlDbType.VarChar);
-                cmd.Parameters["@productName"].Value = product.getProductName();
+                cmd.Parameters["@productName"].Value = product.ProductName;
                 MemoryStream ms = new MemoryStream();
                 BinaryFormatter bf = new BinaryFormatter();
                 bf.Serialize(ms, product);
@@ -620,7 +620,7 @@ namespace Field_Sales_System.Utility_Classes
                 cmd.Parameters.Add("@date", MySqlDbType.DateTime);
                 cmd.Parameters.Add("@orderEntry", MySqlDbType.MediumBlob);
                 cmd.Parameters.Add("@status", MySqlDbType.VarChar);
-                cmd.Parameters["@id"].Value = order.OrdererId;
+                cmd.Parameters["@id"].Value = order.OrderId;
                 cmd.Parameters["@date"].Value = order.OrderRequestedDate;
                 cmd.Parameters["@status"].Value = status;
                 MemoryStream ms = new MemoryStream();

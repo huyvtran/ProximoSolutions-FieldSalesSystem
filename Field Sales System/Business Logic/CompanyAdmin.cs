@@ -31,7 +31,7 @@ namespace Field_Sales_System.Business_Logic
             gotproduct.ProductName = productName;
             gotproduct.ProductDetails.BatchNO = batchNo;
             gotproduct.ProductDetails.Category = category;
-            Object.saveProduct(gotproduct);
+            Object.saveProduct(productId, productName, gotproduct);
         }
 
         public void updateUser(int userid) {
