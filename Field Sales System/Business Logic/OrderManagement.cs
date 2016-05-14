@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
-  
+
     interface OrderManagement
     {
         bool requestOrder(Order order);

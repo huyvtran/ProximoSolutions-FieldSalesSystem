@@ -152,8 +152,8 @@ namespace Field_Sales_System.Utility_Classes.Tests
             MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
             c.openConnection(connection);
             Product p = new Product();
-            p.setProductID(12451);
-            p.setProductName("testProduct");
+            p.ProductID=12451;
+            p.ProductName="testProduct";
             bool b = c.storeProduct(connection, 12451, "testProduct", p);
             Assert.IsTrue(b);
         }
@@ -178,7 +178,7 @@ namespace Field_Sales_System.Utility_Classes.Tests
             SalesReturn sr = new SalesReturn();
             ReturnEntry re = new ReturnEntry();
             Order newOrder = new Order();
-            newOrder.OrdererId = 4578;
+            newOrder.OrderId = 4578;
             newOrder.OrderRequestedDate = System.DateTime.Now;
             sr.addReturnEntry(re);
             sr.ReturnerID = 750;
@@ -240,7 +240,7 @@ namespace Field_Sales_System.Utility_Classes.Tests
             MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
             c.openConnection(connection);
             Order order = new Order();
-            order.OrdererId = 15451;
+            order.OrderId = 15451;
             order.OrderRequestedDate = System.DateTime.Now;
             bool b = c.storeOrder(connection, "New Order", order);
         }

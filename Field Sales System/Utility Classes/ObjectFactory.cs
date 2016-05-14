@@ -195,17 +195,30 @@ namespace Field_Sales_System.Utility_Classes
                     case "Representative":
                     
                         User rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
-                        ContactDetails c = new ContactDetails(mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
-                        UserRole ur = new UserRole();
-                        ur.setRoleName(userRole);
+                        ContactDetails contactRep = new ContactDetails(mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        UserRole urRep = new UserRole();
+                        urRep.setRoleName(userRole);
                         for (int i = 0; i < permissions.Count; i++)
                         {
-                            ur.addPermission(permissions[i]);
+                            urRep.addPermission(permissions[i]);
                         }
 
 
                         return rep;
-                    
+                    case "Agent":
+
+                        User agent = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        ContactDetails contactAgent = new ContactDetails(mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        UserRole urAgent = new UserRole();
+                        urAgent.setRoleName(userRole);
+                        for (int i = 0; i < permissions.Count; i++)
+                        {
+                            urAgent.addPermission(permissions[i]);
+                        }
+
+
+                        return agent;
+
                 }
                 return null;
             }
