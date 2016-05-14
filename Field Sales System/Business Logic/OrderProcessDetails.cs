@@ -10,19 +10,23 @@ namespace Field_Sales_System.Business_Logic
     public class OrderProcessDetails
     {
         private string orderStatus="Not Processed";
-        private string processedBy= "------";
+        private int processedBy;
         private OrderPickupSchedule OrderPickupSchedule;
         public void setOrderStatus(string orderStatus) {
             this.orderStatus = orderStatus;
         }
-        public void setProcessedBy(string processedBy) {
+        public void setProcessedBy(int processedBy) {
             this.processedBy = processedBy;
         }
         public string getOrderStatus() {
             return this.orderStatus;
         }
-        public string getProcessedBy() {
+        public int getProcessedBy() {
             return this.processedBy;
+        }
+        public OrderPickupSchedule getOrderPickupSchedule()
+        {
+            return OrderPickupSchedule;
         }
     }
 }

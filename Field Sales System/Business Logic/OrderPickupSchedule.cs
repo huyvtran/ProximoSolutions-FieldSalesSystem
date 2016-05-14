@@ -11,9 +11,9 @@ namespace Field_Sales_System.Business_Logic
     {
         
         private DateTime pickUpDateAndTime;
+        private String pickUpAgency;
         private int pickUpId;
-        private int pickUpNIC;
-        private String pickUpStatus;
+        private String pickUpStatus="Not yet";
 
         public DateTime PickUpDateAndTime
         {
@@ -41,19 +41,7 @@ namespace Field_Sales_System.Business_Logic
             }
         }
 
-        public int PickUpNIC
-        {
-            get
-            {
-                return pickUpNIC;
-            }
-
-            set
-            {
-                pickUpNIC = value;
-            }
-        }
-
+ 
         public string PickUpStatus
         {
             get
@@ -64,6 +52,18 @@ namespace Field_Sales_System.Business_Logic
             set
             {
                 pickUpStatus = value;
+            }
+        }
+
+        public String  PickUpAgency
+        {
+            get
+            {
+                return pickUpAgency;
+            }
+            set
+            {
+                pickUpAgency = value;
             }
         }
     }

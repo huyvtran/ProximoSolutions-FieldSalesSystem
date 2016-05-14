@@ -15,7 +15,8 @@ namespace Field_Sales_System.Business_Logic
         private OrderProcessDetails processDetails;
         private int ordererId;
         private DateTime orderRequestedDate;
-        public int OrdererId
+        private int placedempID;
+        public int OrderId
         {
             get
             {
@@ -28,7 +29,7 @@ namespace Field_Sales_System.Business_Logic
             }
         }
 
-        public DateTime OrderRequestedDate
+       public DateTime OrderRequestedDate
         {
             get
             {
@@ -58,17 +59,15 @@ namespace Field_Sales_System.Business_Logic
            return this.orders.Count;
 
         }
-        public void editordentryquantity(int entryid, int quantity)
-        {
-            //orders[entryid].setQuantity(quantity);
+        public void editordentryquantity(int entryid, int quantity, Product gotProdct)
+        {   
+            orders[entryid].Quantity = quantity;
+            orders[entryid].Product = gotProdct;
         }
-        public void editordentryproduct(int entryid, Product product)
+    
+        public void deleteorderentry(int orderEntryId)
         {
-            //orders[entryid].setProduct(product);
-        }
-        public void deleteorderentry(int orderentryid)
-        {
-            // Remove a record.
+            orders[orderEntryId].EntryState = "Cancelled";
         }
 
     }

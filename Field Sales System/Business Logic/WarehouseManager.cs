@@ -32,7 +32,7 @@ namespace Field_Sales_System.Business_Logic
                 for (int i = 0; i < storage.Count; i++) {
                     ArrayList category = (ArrayList)storage[i];
                     Product tmp = (Product)category[0];
-                    if (tmp.getProductName() == p.getProductName()) {
+                    if (tmp.ProductName == p.ProductName) {
                         category.Add(p);
                         products.Remove(p);
                         break;
@@ -53,7 +53,7 @@ namespace Field_Sales_System.Business_Logic
             {
                 ArrayList tmp = (ArrayList)inventory[i];
                 Product p = (Product)tmp[0];
-                if (p.getProductID().Equals(productId) || p.getProductName().Equals(productName)) {
+                if (p.ProductID.Equals(productId) || p.ProductID.Equals(productName)) {
                     tempList = tmp;
                     break;
                 }

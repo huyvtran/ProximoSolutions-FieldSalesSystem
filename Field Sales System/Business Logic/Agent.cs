@@ -7,6 +7,8 @@ using Field_Sales_System.Utility_Classes;
 using System.Collections;
 using System.Drawing;
 
+
+
 namespace Field_Sales_System.Business_Logic
 {
     class Agent : User, OrderManagement
@@ -14,7 +16,7 @@ namespace Field_Sales_System.Business_Logic
         private string agencyName;
         private string coverageArea;
         private List<Representative> registeredRepresentatives;
-       
+        ObjectFactory Object;
 
         public Agent(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1,string addressLine_2,string addressLine_3, Image img)
             : base(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1,addressLine_2,addressLine_3, img)
@@ -37,9 +39,9 @@ namespace Field_Sales_System.Business_Logic
             return this.coverageArea;
         }
 
-        public void placeOrder(int orderID, DateTime orderaddedtime, string orderproduct, List<int> quantity, List<int> productID)
+        public void placeOrder(int orderID, DateTime orderaddedTime, string orderproduct, List<int> quantity, List<int> productID)
         {
-           
+            int placedempID = this.getEmpId();
             String quantityString = "";
             for (int i = 0; i < quantity.Count; i++)
             {
@@ -53,59 +55,97 @@ namespace Field_Sales_System.Business_Logic
                 productIDString = productIDString + Convert.ToString(productID[i]);
                 productIDString = productIDString + ",";
             }
-
-            ArrayList inputset = new ArrayList();
-            inputset.Add(orderID);
-            inputset.Add(orderaddedtime);
-            inputset.Add(orderproduct);
-
-            inputset.Add(quantity);
-            inputset.Add(productID);
-            //Object.setObject(inputset);
-            //neworder.setOrderId(orderID);
-            //neworder.setOrderDate(ordertime);
-            //neworder.addorderentry(quantity, product);
+            int[] qunatityList = Array.ConvertAll((quantityString).Split(','), int.Parse);
+            int[] productIDList = Array.ConvertAll((productIDString).Split(','), int.Parse);
+            Object.neworder(orderID,orderaddedTime,orderaddedTime, qunatityList,productIDList, placedempID);
+        
 
         }
-        public void pickuporder(DateTime pickeduptime)
+        public void pickUpOrder(DateTime pickeduptime, int orderId)
         {
-            //orderpickedup.setPickedUpBy(this.agencyName);
-            //orderpickedup.setPickUpDateAndTime(pickeduptime); //ordertime has to be given 
-        }
-
-        public void requestOrder(int orderId)
-        {
-        }
-        public void editOrderquantity(int OrdereditID, int editorderquantity)
-        {
-            //Order editorder = getorder(OrdereditID); //Implement builder object
-            //editorder.editordentryquantity(OrdereditID, editorderquantity);
-            //editorder.passtobuilder(editorder);
-
+            Order pickUpOrderObject = Object.getOrder(orderId)[0];
+            pickUpOrderObject.getProcessDetails().getOrderPickupSchedule().PickUpAgency = this.getAgencyName();
+            pickUpOrderObject.getProcessDetails().getOrderPickupSchedule().PickUpId = this.getEmpId();
+            pickUpOrderObject.getProcessDetails().getOrderPickupSchedule().PickUpDateAndTime = pickeduptime;
+            pickUpOrderObject.getProcessDetails().getOrderPickupSchedule().PickUpStatus = "PickedUP";
+            Object.saveOrder(pickUpOrderObject);
 
         }
-        public void editOrderproduct(int OrdereditID, Product editorderproduct)
+
+        public List<Order> requestOrder(int orderId)
+            
         {
-            //Order editorder = getorder(OrdereditID); //Implement builder object
-            //editorder.editordentryproduct(OrdereditID, editorderproduct);
+            int placedEmpId;
+            if (orderId == -1)
+            {
+                 placedEmpId = this.getEmpId();
+            }
+        else
+            {
+                placedEmpId = -1;
+            }
+            List<Order> requestedList = Object.getOrder(orderId, placedEmpId);
+            if (requestedList.Count == 0)
+            {
+                if (orderId==-1)
+                {
+                    this.noOrdersHaveMade();
+                }
+                else
+                {
+                    this.requestOrderSuch(orderId);
+                }
+                return null;
+            }
+            return requestedList;
         }
+        public void editOrder(int orderEditID, int orderEntryId, int editorderquantity, int productId)
+        {
+            Product gotProduct = Object.getProduct(productId)[0];
+            Order editOrderObject = Object.getOrder(orderEditID)[0];
+            editOrderObject.editordentryquantity(orderEntryId, editorderquantity, gotProduct);
+            editOrderObject.getProcessDetails().setProcessedBy(this.getEmpId());
+            Object.saveOrder(editOrderObject);
+
+            
+        }
+
+        public void addEntry(int orderId, int quantity, int productId)
+        {
+            Order addEntryObject = Object.getOrder(orderId)[0];
+            int entryId = addEntryObject.getentrysize();
+            OrderEntry newOrderEntry = Object.setOrderEntry(entryId, quantity, productId);
+            addEntryObject.addorderentry(newOrderEntry);//Check whether it was done
+            addEntryObject.getProcessDetails().setProcessedBy(this.getEmpId());
+            Object.saveOrder(addEntryObject);
+        }       
         //public Order viewOrderSummary(int orderid)
         //{
             //return getorder(orderid);//Implement builder object
         //}
-        public void removeOrder(int orderid)
-        {//  remove a record 
-
-
-        }
-        public void removeOrderentry(int orderid, int orderentryid)
+        public Boolean removeOrder(int orderId)
         {
-            //Order editorder = getorder(OrdereditID); //Implement builder object
-            //editorder.deleteorderentry(orderentryid);
+            Order removeOrderObject = (Object.getOrder(orderId)[0]);
+           removeOrderObject.getProcessDetails().setOrderStatus("Cancelled");
+           removeOrderObject.getProcessDetails().setProcessedBy(this.getEmpId());
+           Object.saveOrder(removeOrderObject);
+            return true;
+        }
+        public Boolean removeOrderentry(int orderId, int orderEntryId)
+        {
+            Order removeOrderentryObject = (Object.getOrder(orderId)[0]);
+            removeOrderentryObject.deleteorderentry(orderEntryId);
+            removeOrderentryObject.getProcessDetails().setProcessedBy(this.getEmpId());
+            Object.saveOrder(removeOrderentryObject);
+            return true;
 
         }
 
-        public bool requestOrder(Order order)
+        public bool requestOrderSuch(int orderId)
+        {
+            throw new NotImplementedException();
+        }
+        public bool noOrdersHaveMade()
         {
             throw new NotImplementedException();
         }

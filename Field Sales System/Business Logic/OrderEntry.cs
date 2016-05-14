@@ -10,8 +10,8 @@ namespace Field_Sales_System.Business_Logic
     public class OrderEntry
     {
         private int quantity;
-        private List<Product> product;
-
+        private Product product;
+        private string entryState = "Active";
         public int Quantity
         {
             get
@@ -24,14 +24,33 @@ namespace Field_Sales_System.Business_Logic
                 quantity = value;
             }
         }
+        public Product Product
+        {
+            get
+            {
+                return product;
+            }
+            set
+            {
+                product = value;
+            }
+        }
 
-        public void addProduct(Product p) {
-            product.Add(p);
+        public string EntryState
+        {
+            get
+            {
+                return entryState;
+
+            }
+
+            set
+            {
+                entryState = value;
+            }
         }
-        public List<Product> getProductList() {
-            return this.product;
-        }
-    
+      
+      
     }
 }
 

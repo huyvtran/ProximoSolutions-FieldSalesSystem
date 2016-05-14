@@ -13,105 +13,52 @@ using System.Windows.Documents;
 namespace Field_Sales_System.Utility_Classes
 {
     class ObjectFactory
-    { ObjectExtractor chekcObjects;
-        ArrayList memoryStack = new ArrayList();
-
-        //Tracker Method
-        private StackTrace checker()
-    {
-        StackTrace stackTrace = new StackTrace();
-        return stackTrace;
-
-    }
-
-
-
-    // Method to set objects 
-        object send;
-        public Object setObject(ArrayList inputset)
-        {
-            // Get calling method name
-            Console.WriteLine(this.checker().GetFrame(1).GetMethod().Name);
-            String check = this.checker().GetFrame(1).GetMethod().Name;
-            switch (check)
-            {
-
-               case "placeorder":
-
-                    {
-                        int[] quantity = Array.ConvertAll((Convert.ToString(inputset[3])).Split(','), int.Parse);
-                        int[] productID = Array.ConvertAll((Convert.ToString(inputset[4])).Split(','), int.Parse);
-                  
-                        //object send = this.neworder(Convert.ToInt32(inputset[0]), Convert.ToDateTime(inputset[1]), Convert.ToDateTime(inputset[2]), quantity, productID);
-                        return send;
-                    }
-
-            }
-            return null;
-        }
-
-
-
-
-        
-
-
-        //Method to get objects
-        public Object getObject(ArrayList inputget)
-        {
-            Console.WriteLine(this.checker().GetFrame(1).GetMethod().Name);
-            String check = this.checker().GetFrame(1).GetMethod().Name;
-            switch (check)
-            {
-                case "addtext":
-                    {
-                        return null;
-                    }
-
-            }
-            return null;
-        }
+    { private List<Order> orderList = new List<Order>();
+      private List<Product> productList = new List<Product>();
 
 
 
 
 
 
-
-        /*
         //Create new order
-        private Object neworder(int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, int[] quantity, int[] productID)
+        public string neworder(int orderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, int[] quantity, int[] productID, int  placedEmpID)
         {
 
             OrderProcessDetails gotprocessDetails = getOrderProcessDetails();
-           // Order neworder = new Order(OrderID, OrderaddedDate, OrderRequestedDate, gotprocessDetails);
+            Order neworder = new Order();
+            neworder.OrderId = orderID;
+            neworder.OrderRequestedDate = OrderRequestedDate;
+            neworder.setProcessDetails(gotprocessDetails);
+
             for (int i = 0; i < quantity.Length; i++)
             {
                 int entryID = neworder.getentrysize();
-                //OrderEntry orderedProductEntry = this.setProductEntry(entryID, productID[i], quantity[i] );
-                //neworder.addorderentry(orderedProductEntry);
+                OrderEntry orderedProductEntry = this.setOrderEntry(entryID, productID[i], quantity[i] );
+                neworder.addorderentry(orderedProductEntry);
 
             }
-            return null;
+            return "neworder";
 
         }
-        */
-
+       
        
        
         //Create Orderentry
-        /*private OrderEntry setProductEntry(int entryID, int ProductID, int Quantity)
+        public  OrderEntry setOrderEntry(int entryID, int ProductID, int Quantity)
         {
             Product gotProduct = (getProduct(ProductID)[0]);
-            //OrderEntry newEntry= new OrderEntry(entryID, Quantity , gotProduct);
+            OrderEntry newEntry= new OrderEntry();
+            newEntry.Quantity = Quantity;
+            newEntry.Product = gotProduct;
             return newEntry;
-        }*/
+        }
 
 
 
 
       
-        //set OrderProcessDetails
+        //Create OrderProcessDetails
         private OrderProcessDetails getOrderProcessDetails()
         {
             OrderProcessDetails gotOrderProcessDetails = new OrderProcessDetails() ;
@@ -121,56 +68,120 @@ namespace Field_Sales_System.Utility_Classes
 
 
 
-        //Get Product Method
-        private List<Product> getProduct(int ProductID)
 
+
+        //get Order
+        public List<Order> getOrder(int ordereditID = -1, int placedEmpID = -1)
         {
-          
-            List<Product> gotproduct =(cache(ProductID)).Cast<Product>().ToList();
-            return gotproduct;
-        }
-
-
-
-
-        //Memory Stack and Connection
-        private List<Object> cache(int inputvalue=-1, String inputCode = "none")
-        {   if (inputCode.Equals("none"))
+            List<Order> gotOrders = new List<Order>();
+            if (placedEmpID == -1)
             {
-                inputCode = Convert.ToString(inputvalue);
-            }
-            List<Object> sendlist = new List<object>();
-            Type Mytype = Type.GetType("parminfo");
-            String check = this.checker().GetFrame(1).GetMethod().Name;
-            //Get and display the method.
-            MethodBase Mymethodbase = Mytype.GetMethod(check);
-        
-
-            //Get the ParameterInfo array.
-            ParameterInfo[] Myarray = Mymethodbase.GetParameters();
-
-            //Get and display the ParameterInfo of each parameter.
-            foreach (ParameterInfo Myparam in Myarray)
-            {
-                foreach (Object Obj in memoryStack)
+                foreach (Order ord in orderList)
                 {
-                    if (chekcObjects.Checkmatching(Obj, inputCode, Myparam.Name))
+                    if ((ord.OrderId).Equals(ordereditID))
                     {
-                        sendlist.Add(Obj);
+                        gotOrders.Add(ord);
                     }
                 }
-                //sendlist = Connect.Connect(sendlist, Myarray[0].Name, inputvalue, inputCode);
-                foreach (Object obj in sendlist)
+                if (gotOrders.Count == 0)
+                {//connect to the database and get objects
+                }
+
+            }
+            else {
+                foreach (Order ord in orderList)
                 {
-                    if (memoryStack.Contains(obj))
-                    { }
-                    else {
-                        memoryStack.Add(obj);
+                    if ((ord.OrderId).Equals(placedEmpID))
+                    {
+                        gotOrders.Add(ord);
                     }
+                }
+
+                //connect to the database and get objects
+            }
+
+
+            return gotOrders;
+        }
+
+
+        // Save Order
+        public void saveOrder(Order saveOrder)
+        {
+            //create connection and pass the object
+        }
+
+      
+
+        //Create Product 
+        public void newProduct(String productName, int productId, String productDescription, float pricePerUnit, DisplayPicture productPicture,String category, int batchNo )
+        {
+            Product newProduct = new Product();
+            newProduct.ProductID = productId;
+            newProduct.ProductName = productName;
+            newProduct.PricePerUnit = pricePerUnit;
+            newProduct.ProductDescription = productDescription;
+            newProduct.ProductDetails = newProductDetails(category, batchNo);
+            //Need to build the image
+        }
+
+
+
+        //create productDetails
+        public ProductDetails newProductDetails(String category, int batchNo)
+        {
+            ProductDetails newProductDetails = new ProductDetails();
+            newProductDetails.BatchNO = batchNo;
+            newProductDetails.Category = category;
+            return  newProductDetails;
+        }
+
+
+
+
+        //Get Product Method
+        public List<Product> getProduct(int productID=-1)
+        {
+            List<Product> gotProduct = new List<Product>();
+            if (productID == -1)
+            {
+                foreach (Product prd in productList)
+                {
+
+                    gotProduct.Add(prd);
+                }
+           //conect to the database and getobjects
+           
+            }
+
+            foreach (Product prd in productList)
+            {
+                if ((prd.ProductID).Equals(productID))
+                {
+                    gotProduct.Add(prd);
                 }
             }
-            return null;
+            if (gotProduct.Count == 0)
+            {//connect to the database and get objects
+            }
+
+
+            return gotProduct;
         }
+
+
+
+
+        //Save Product 
+        public void saveProduct(Product saveOrder)
+        {
+            //create connection and pass the object
+        }
+
+
+
+
+
 
 
 
