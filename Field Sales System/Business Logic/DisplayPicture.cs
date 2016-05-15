@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Field_Sales_System.Business_Logic
 {
     [Serializable]
-    class DisplayPicture
+    public class DisplayPicture
     {
         private Image displayPicture;
 

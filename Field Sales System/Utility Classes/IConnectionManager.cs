@@ -33,14 +33,14 @@ namespace Field_Sales_System.Utility_Classes
 
         bool storeProduct(MySqlConnection connection, int productId, string productName, Product product);
         bool modifyProduct(MySqlConnection connection, Product product);
-        List<Product> retrieveProduct(MySqlConnection connection, int productId = -1, string productName = "");
+        Product retrieveProduct(MySqlConnection connection, int productId = -1, string productName = "");
 
         bool storeEntry(MySqlConnection connection, object entry);
         List<object> retrieveEntry(MySqlConnection connection, DateTime beginDate, DateTime endDate, string entryType, int viewerId = 0);
 
         bool storeOrder(MySqlConnection connection, string status, Order order);
-        bool setOrderStatus(MySqlConnection connection, string status, DateTime orderDate);
-        List<Order> retrievOrdersByStatus(MySqlConnection connection, string status, int ordererId = 0);
+        bool setOrderStatus(MySqlConnection connection, String status, Order updatedOrder);
+        List<Order> retrieveOrdersByStatus(MySqlConnection connection, string status, int ordererId = 0);
 
         bool storeReport(MySqlConnection connection, object report);
         List<object> retrieveReport(MySqlConnection connection, DateTime beginDate, DateTime endDate, string reportType);    

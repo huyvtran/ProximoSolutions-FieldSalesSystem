@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Field_Sales_System.Utility_Classes;
 
 namespace Field_Sales_System.Business_Logic
 {
@@ -32,7 +33,7 @@ namespace Field_Sales_System.Business_Logic
                 for (int i = 0; i < storage.Count; i++) {
                     ArrayList category = (ArrayList)storage[i];
                     Product tmp = (Product)category[0];
-                    if (tmp.getProductName() == p.getProductName()) {
+                    if (tmp.ProductName == p.ProductName) {
                         category.Add(p);
                         products.Remove(p);
                         break;
@@ -53,7 +54,7 @@ namespace Field_Sales_System.Business_Logic
             {
                 ArrayList tmp = (ArrayList)inventory[i];
                 Product p = (Product)tmp[0];
-                if (p.getProductID().Equals(productId) || p.getProductName().Equals(productName)) {
+                if (p.ProductID.Equals(productId) || p.ProductID.Equals(productName)) {
                     tempList = tmp;
                     break;
                 }
@@ -67,5 +68,41 @@ namespace Field_Sales_System.Business_Logic
             return returnList;
         }
 
+        
+
+        public override string deactivateUser(SecurityManager securityManager, User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string activateUser(SecurityManager securityManager, User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string addRole(ObjectFactory factory, User user, UserRole newRole)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string removeRole(ObjectFactory factory, User user, string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string addOrder(ObjectFactory factory, Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<Order> viewOrder(ObjectFactory factory, DateTime beginDate, DateTime endDate, int ordererId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string cancelOrder(ObjectFactory factory, Order order)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

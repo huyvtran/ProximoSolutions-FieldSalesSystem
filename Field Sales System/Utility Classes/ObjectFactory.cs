@@ -9,199 +9,1124 @@ using System.Collections;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Documents;
+using MySql.Data.MySqlClient;
 
 namespace Field_Sales_System.Utility_Classes
 {
-    class ObjectFactory
-    { ObjectExtractor chekcObjects;
-        ArrayList memoryStack = new ArrayList();
+    public class ObjectFactory : IObjectFactory
 
-        //Tracker Method
-        private StackTrace checker()
     {
-        StackTrace stackTrace = new StackTrace();
-        return stackTrace;
 
-    }
+        //Cache list 
+        //private List<Order> orderList = new List<Order>();
+        private List<Product> productList = new List<Product>();
+        //private List<Agent> agentList = new List<Agent>();
+        //private List<Representative> representativeList = new List<Representative>();
+        private List<User> userList = new List<User>();
+        private ConnectionManager dbManager = new ConnectionManager();
+        private MySqlConnection connection = new MySqlConnection();
 
-
-
-    // Method to set objects 
-        object send;
-        public Object setObject(ArrayList inputset)
+        public ObjectFactory()
         {
-            // Get calling method name
-            Console.WriteLine(this.checker().GetFrame(1).GetMethod().Name);
-            String check = this.checker().GetFrame(1).GetMethod().Name;
-            switch (check)
-            {
-
-               case "placeorder":
-
-                    {
-                        int[] quantity = Array.ConvertAll((Convert.ToString(inputset[3])).Split(','), int.Parse);
-                        int[] productID = Array.ConvertAll((Convert.ToString(inputset[4])).Split(','), int.Parse);
-                  
-                        //object send = this.neworder(Convert.ToInt32(inputset[0]), Convert.ToDateTime(inputset[1]), Convert.ToDateTime(inputset[2]), quantity, productID);
-                        return send;
-                    }
-
-            }
-            return null;
+            connection = dbManager.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
         }
 
 
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        
+        //Object Create methods
 
-
-        //Method to get objects
-        public Object getObject(ArrayList inputget)
-        {
-            Console.WriteLine(this.checker().GetFrame(1).GetMethod().Name);
-            String check = this.checker().GetFrame(1).GetMethod().Name;
-            switch (check)
-            {
-                case "addtext":
-                    {
-                        return null;
-                    }
-
-            }
-            return null;
-        }
-
-
-
-
-
-
-
-        /*
         //Create new order
-        private Object neworder(int OrderID, DateTime OrderaddedDate, DateTime OrderRequestedDate, int[] quantity, int[] productID)
+
+        public string storeNewOrder(int orderID, DateTime OrderRequestedDate, List<OrderEntry> orderEntries, int placedEmpID)
         {
 
             OrderProcessDetails gotprocessDetails = getOrderProcessDetails();
-           // Order neworder = new Order(OrderID, OrderaddedDate, OrderRequestedDate, gotprocessDetails);
-            for (int i = 0; i < quantity.Length; i++)
+            Order newOrder = new Order();
+            newOrder.OrderId = orderID;
+            newOrder.OrderRequestedDate = OrderRequestedDate;
+            newOrder.Orders = orderEntries;
+            newOrder.setProcessDetails(gotprocessDetails);
+
+            //saveOrder(newOrder,orderID);
+            if (dbManager.isOnline())
             {
-                int entryID = neworder.getentrysize();
-                //OrderEntry orderedProductEntry = this.setProductEntry(entryID, productID[i], quantity[i] );
-                //neworder.addorderentry(orderedProductEntry);
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    bool b = dbManager.storeOrder(connection, "New Order", newOrder);
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        //orderList.Add(newOrder);
+                        return "Successfully stored the order!";
+                    }
+                    else {
+                        return "There was an error during the storage process. Please try again.";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
 
             }
-            return null;
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+
 
         }
-        */
 
-       
-       
+
+
         //Create Orderentry
-        /*private OrderEntry setProductEntry(int entryID, int ProductID, int Quantity)
+        public OrderEntry setOrderEntry(Product product, int Quantity)
         {
-            Product gotProduct = (getProduct(ProductID)[0]);
-            //OrderEntry newEntry= new OrderEntry(entryID, Quantity , gotProduct);
+            OrderEntry newEntry = new OrderEntry();
+            newEntry.Quantity = Quantity;
+            newEntry.Product = product;
             return newEntry;
-        }*/
+        }
 
 
-
-
-      
-        //set OrderProcessDetails
+        //Create OrderProcessDetails
+        //Cant understand the meaning of this method just to instantiate a ProcessDetails object
         private OrderProcessDetails getOrderProcessDetails()
         {
-            OrderProcessDetails gotOrderProcessDetails = new OrderProcessDetails() ;
+            OrderProcessDetails gotOrderProcessDetails = new OrderProcessDetails();
             return gotOrderProcessDetails;
         }
 
 
 
-
-        //Get Product Method
-        private List<Product> getProduct(int ProductID)
-
+        //Create Product 
+        public string storeNewProduct(String productName, int productId, String productDescription, float pricePerUnit, DisplayPicture productPicture, String category, int batchNo)
         {
-          
-            List<Product> gotproduct =(cache(ProductID)).Cast<Product>().ToList();
-            return gotproduct;
-        }
-
-
-
-
-        //Memory Stack and Connection
-        private List<Object> cache(int inputvalue=-1, String inputCode = "none")
-        {   if (inputCode.Equals("none"))
+            Product newProduct = new Product();
+            newProduct.ProductID = productId;
+            newProduct.ProductName = productName;
+            newProduct.PricePerUnit = pricePerUnit;
+            newProduct.ProductDescription = productDescription;
+            newProduct.ProductDetails = newProductDetails(category, batchNo);
+            newProduct.ProductPicture = productPicture;
+            if (dbManager.isOnline())
             {
-                inputCode = Convert.ToString(inputvalue);
-            }
-            List<Object> sendlist = new List<object>();
-            Type Mytype = Type.GetType("parminfo");
-            String check = this.checker().GetFrame(1).GetMethod().Name;
-            //Get and display the method.
-            MethodBase Mymethodbase = Mytype.GetMethod(check);
-        
-
-            //Get the ParameterInfo array.
-            ParameterInfo[] Myarray = Mymethodbase.GetParameters();
-
-            //Get and display the ParameterInfo of each parameter.
-            foreach (ParameterInfo Myparam in Myarray)
-            {
-                foreach (Object Obj in memoryStack)
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
                 {
-                    if (chekcObjects.Checkmatching(Obj, inputCode, Myparam.Name))
+                    bool b = dbManager.storeProduct(connection, productId, productName, newProduct);
+                    if (connection.State == System.Data.ConnectionState.Open)
                     {
-                        sendlist.Add(Obj);
+                        dbManager.closeConnection(connection);
                     }
-                }
-                //sendlist = Connect.Connect(sendlist, Myarray[0].Name, inputvalue, inputCode);
-                foreach (Object obj in sendlist)
-                {
-                    if (memoryStack.Contains(obj))
-                    { }
+
+                    if (b)
+                    {
+
+                        return "Successfully stored the product!";
+                    }
                     else {
-                        memoryStack.Add(obj);
+                        return "There was an error during the storage process. Please try again.";
                     }
+
                 }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
             }
-            return null;
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+
         }
 
 
+        //create productDetails
+        public ProductDetails newProductDetails(String category, int batchNo)
+        {
+            ProductDetails newProductDetails = new ProductDetails();
+            newProductDetails.BatchNO = batchNo;
+            newProductDetails.Category = category;
+            return newProductDetails;
+        }
 
-        public User crerateUser(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userRole, List<Permission> permissions)
+        public Product updateProcuctDetails(Product product, int batchNo, DateTime MFD, DateTime EXP, string category)
+        {
+            product.ProductDetails.BatchNO = batchNo;
+            product.ProductDetails.Category = category;
+            product.ProductDetails.ProductEXP = EXP;
+            product.ProductDetails.ProductMFD = MFD;
+            return product;
+        }
+
+        //Create UserRole
+        public UserRole createUserRole(string userRole, List<Permission> permissions)
+        {
+            UserRole user = new UserRole();
+            user.Permissions = permissions;
+            user.setRoleName(userRole);
+            return user;
+        }
+        //Create a permission
+        public Permission createPermission(string permName, int permId)
+        {
+            Permission p = new Permission();
+            p.PermName = permName;
+            p.PermId = permId;
+            return p;
+        }
+
+
+        //create ContactDetails
+        public ContactDetails createContactDetails(int empId, int mobileNo, int landNo, String email, String addressLine_1, String addressLine_2, String addressLine_3)
+        {
+            ContactDetails contactUser = new ContactDetails(mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+            return contactUser;
+
+        }
+
+        public string storeContactDetails(ContactDetails contact)
+        {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    bool b = dbManager.storeContactDetails(connection, contact.EmpId, contact);
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        return "Successfully stored the contact details!";
+                    }
+                    else {
+                        return "There was an error during the storage process. Please try again.";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
+        //create User
+        public string storeUser(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
         {
             try
             {
-
-                switch(userRole)
+                User user = null;
+                switch (userType)
                 {
                     case "Representative":
-                    
-                        User rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
-                        ContactDetails c = new ContactDetails(mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
-                        UserRole ur = new UserRole();
-                        ur.setRoleName(userRole);
-                        for (int i = 0; i < permissions.Count; i++)
+
+                        Representative rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        //ContactDetails contactRep = createContactDetails(empId, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        rep.UserRoles = roles;
+
+                        /*List<Permission> permissionsRep = getPermissionList(userRole);
+
+                        for (int i = 0; i < permissionsRep.Count; i++)
                         {
-                            ur.addPermission(permissions[i]);
+                            urRep.addPermission(permissionsRep[i]);
+                        }*/
+
+
+                        user = rep;
+                        break;
+                    case "Agent":
+
+                        Agent agent = new Agent(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        //ContactDetails contactAgent = setContactDetails(empId, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        agent.UserRoles = roles;
+                        user = agent;
+                        break;
+
+                    case "Company Admin":
+                        CompanyAdmin admin = new CompanyAdmin(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        //ContactDetails contactAgent = setContactDetails(empId, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        admin.UserRoles = roles;
+                        user = admin;
+                        break;
+                    case "Warehouse Manager":
+                        WarehouseManager wManager = new WarehouseManager(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        //ContactDetails contactAgent = setContactDetails(empId, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        wManager.UserRoles = roles;
+                        user = wManager;
+                        break;
+
+                }
+                if (!user.Equals(null))
+                {
+                    if (dbManager.isOnline())
+                    {
+                        connection = dbManager.openConnection(connection);
+                        if (!connection.Equals(null))
+                        {
+                            bool user_status = dbManager.storeUser(connection, user);
+                            bool contacts_status = dbManager.storeContactDetails(connection, empId, user.ContactDetails);
+                            bool dp_status = dbManager.storeImage(connection, user.getEmpId(), user.Dp.getPicture());
+                            if (connection.State == System.Data.ConnectionState.Open)
+                            {
+                                dbManager.closeConnection(connection);
+                            }
+
+                            if (user_status && contacts_status && dp_status)
+                            {
+
+                                return "Successfully stored the contact details!";
+                            }
+                            else {
+                                return "There was an error during the storage process. Please try again.";
+                            }
+
+                        }
+                        else {
+                            return "Error! Cannot establish a connection with database. Try again later.";
                         }
 
-
-                        return rep;
-                    
+                    }
+                    else {
+                        return "Error! No internet connection! Fix the internet connection and try again.";
+                    }
                 }
-                return null;
+                else {
+                    return "Error! There was something wrong with the inputs.";
+                }
             }
             catch (Exception e)
             {
+                return "Error! There was something wrong with the inputs.";
+            }
+        }
+
+
+
+        public string storeDailySalesDetails(DailySalesDetails dsd)
+        {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    bool b = dbManager.storeEntry(connection, dsd);
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        return "Successfully stored the daily sales details!";
+                    }
+                    else {
+                        return "There was an error during the storage process. Please try again.";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
+
+        public string storeSalesReturns(SalesReturn returns)
+        {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    bool b = dbManager.storeEntry(connection, returns);
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        return "Successfully stored the sales return entry!";
+                    }
+                    else {
+                        return "There was an error during the storage process. Please try again.";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
+
+        public string storeReport(object report)
+        {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    bool b = dbManager.storeReport(connection, report);
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        return "Successfully stored the report!";
+                    }
+                    else {
+                        return "There was an error during the storage process. Please try again.";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
+
+
+
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+        //Object get Methods
+
+        //get Order
+        public List<Order> getOrder(User validate_user,DateTime beginDate,DateTime endDate)
+        {
+            bool adminrights = false;
+            foreach (UserRole u in validate_user.UserRoles) {
+                foreach (Permission p in u.Permissions) {
+                    if (p.PermId == 1000) {
+                        adminrights = true;
+                    }
+                }
+            }
+            if (adminrights)
+            {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List <object> orders = dbManager.retrieveEntry(connection,beginDate,endDate,"orderEntry");
+                        List<Order> ret_orders = new List<Order>();
+                        foreach (object o in orders) {
+                            ret_orders.Add((Order)o);
+                        }
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return ret_orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+            else {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "orderEntry",validate_user.getEmpId());
+                        List<Order> ret_orders = new List<Order>();
+                        foreach (object o in orders)
+                        {
+                            ret_orders.Add((Order)o);
+                        }
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return ret_orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
+        public List<Order> getOrderByStatus(User validate_user, string status) {
+            bool adminrights = false;
+            foreach (UserRole u in validate_user.UserRoles)
+            {
+                foreach (Permission p in u.Permissions)
+                {
+                    if (p.PermId == 1000)
+                    {
+                        adminrights = true;
+                    }
+                }
+            }
+            if (adminrights)
+            {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List<Order> orders = dbManager.retrieveOrdersByStatus(connection,status);
+                        
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+            else {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List<Order> orders = dbManager.retrieveOrdersByStatus(connection, status,validate_user.getEmpId());
+             
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
+
+
+
+
+
+
+        //Get Product 
+        //Assumed that there are no two products with same product Id and product name
+        public Product getProduct(int productId = -1, string productName = "")
+        {
+            Product returnProduct = null;
+            foreach (Product p in productList) {
+                if (p.ProductID == productId || p.ProductName == productName) {
+                    returnProduct = p;
+                    break;
+                }
+            }
+            if (!returnProduct.Equals(null))
+            {
+                return returnProduct;
+            }
+            //if not found in the list
+            else {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        returnProduct = dbManager.retrieveProduct(connection, productId, productName);
+                        
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        return returnProduct;  
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
+
+        //Get permission
+        //removing since permission comes with user objects
+        /* public List<Permission> getPermissionList(string userRole)
+         {
+             List<Permission> PermissionList = new List<Permission>();
+             try
+             {
+
+                 switch (userRole)
+                 {
+                     case "Representative":
+                         //PermissionList;
+                         // get user role list
+                         return PermissionList;
+                     case "Agent":
+                         //PermissionList;
+                         // get user role list
+                         return PermissionList;
+
+                 }
+             }
+             catch (Exception e)
+             {
+                 return null;
+             }
+             return null;
+
+         }
+         */
+
+
+        //get Agent 
+
+        /* public Agent getAgent(int empId)
+         {
+             try
+             {
+                 //use the connection and get the agent 
+             }
+             catch (Exception e)
+             {
+                 return null;
+             }
+             return null;
+         }
+
+
+
+         //get Representative 
+         public Representative getRep(int empId)
+         {
+             try
+             {
+                 return null;
+                 //use the connection and get the agent 
+             }
+             catch (Exception e)
+             {
+                 return null;
+             }
+
+         }*/
+
+        public User getUser(int empId) {
+            User returnUser = null;
+            foreach (User u in userList) {
+                if (u.getEmpId() == empId) {
+                    returnUser = u;
+                    break;
+                }
+            }
+            if (!returnUser.Equals(null))
+            {
+                return returnUser;
+            }
+            else {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        returnUser = dbManager.retrieveUser(connection, empId)[0];
+                        returnUser.Dp = new DisplayPicture(dbManager.retrieveImage(connection, returnUser.getEmpId()));
+                        List<ContactDetails> contacts = dbManager.retrieveContactDetails(connection, returnUser.getEmpId());
+                        returnUser.ContactDetails = contacts[contacts.Count - 1];
+
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+                        userList.Add(returnUser);
+                        return returnUser;
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
+        public List<User> searchUser(int empId = 0, string firstName = "", string lastName = "") {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    List<User> returnUser = dbManager.retrieveUser(connection, empId, firstName, lastName);
+                    foreach (User u in returnUser) {
+                        if (connection.State.Equals(System.Data.ConnectionState.Open)) {
+                            u.Dp = new DisplayPicture(dbManager.retrieveImage(connection, u.getEmpId()));
+                            List<ContactDetails> contactList = dbManager.retrieveContactDetails(connection, u.getEmpId());
+                            u.ContactDetails = contactList[contactList.Count - 1];
+                            userList.Add(u);
+                        }        
+                    }
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    return returnUser;
+
+                }
+                else {
+                    return null;
+                }
+
+            }
+            else {
                 return null;
             }
         }
+
+        public List<DailySalesDetails> getDailySalesDetails(User validate_user,DateTime beginDate,DateTime endDate) {
+            bool adminrights = false;
+            foreach (UserRole u in validate_user.UserRoles)
+            {
+                foreach (Permission p in u.Permissions)
+                {
+                    if (p.PermId == 1001)
+                    {
+                        adminrights = true;
+                    }
+                }
+            }
+            if (adminrights)
+            {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "salesEntry");
+                        List<DailySalesDetails> ret_orders = new List<DailySalesDetails>();
+                        foreach (object o in orders) {
+                            ret_orders.Add((DailySalesDetails)o);
+                        }
+
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return ret_orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+            else {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "salesEntry",validate_user.getEmpId());
+                        List<DailySalesDetails> ret_orders = new List<DailySalesDetails>();
+                        foreach (object o in orders)
+                        {
+                            ret_orders.Add((DailySalesDetails)o);
+                        }
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return ret_orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+            }
+
+
+        public List<SalesReturn> getSalesReturns(User validate_user, DateTime beginDate, DateTime endDate)
+        {
+            bool adminrights = false;
+            foreach (UserRole u in validate_user.UserRoles)
+            {
+                foreach (Permission p in u.Permissions)
+                {
+                    if (p.PermId == 1002)
+                    {
+                        adminrights = true;
+                    }
+                }
+            }
+            if (adminrights)
+            {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "returnEntry");
+                        List<SalesReturn> ret_orders = new List<SalesReturn>();
+                        foreach (object o in orders)
+                        {
+                            ret_orders.Add((SalesReturn)o);
+                        }
+
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return ret_orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+            else {
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "returnEntry", validate_user.getEmpId());
+                        List<SalesReturn> ret_orders = new List<SalesReturn>();
+                        foreach (object o in orders)
+                        {
+                            ret_orders.Add((SalesReturn)o);
+                        }
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return ret_orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
+
+        public List<DailySalesReport> getDailyReport( DateTime beginDate, DateTime endDate) {
+            
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                    List<object> orders = dbManager.retrieveReport(connection, beginDate, endDate, "Daily Report");
+                        List<DailySalesReport> ret_orders = new List<DailySalesReport>();
+                        foreach (object o in orders)
+                        {
+                            ret_orders.Add((DailySalesReport)o);
+                        }
+
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (!orders.Equals(null))
+                        {
+
+                            return ret_orders;
+                        }
+                        else {
+                            return null;
+                        }
+
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            
+            
+        }
+
+        public List<WeeklySalesReport> getWeeklyReport(DateTime beginDate, DateTime endDate)
+        {
+
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    List<object> orders = dbManager.retrieveReport(connection, beginDate, endDate, "Weekly Report");
+                    List<WeeklySalesReport> ret_orders = new List<WeeklySalesReport>();
+                    foreach (object o in orders)
+                    {
+                        ret_orders.Add((WeeklySalesReport)o);
+                    }
+
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (!orders.Equals(null))
+                    {
+
+                        return ret_orders;
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+
+            }
+            else {
+                return null;
+            }
+        }
+
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        public string modifyUser(User user) {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    bool user_status = dbManager.modifyUser(connection, user);
+                    bool contacts_status = dbManager.storeContactDetails(connection, user.getEmpId(), user.ContactDetails);
+                    bool dp_status = dbManager.modifyImage(connection, user.Dp.getPicture(), user.getEmpId());
+                    
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (user_status && contacts_status && dp_status)
+                    {
+                        
+                        return "Successfully updated the details!";
+                    }
+                    else {
+                        return "There was an error during the storage process. Please try again.";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
+
+        public string modifyProduct(Product product) {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    bool product_status = dbManager.modifyProduct(connection, product);
+                    
+
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (product_status)
+                    {
+
+                        return "Successfully updated the details!";
+                    }
+                    else {
+                        return "There was an error during the storage process. Please try again.";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
+
+        
+
+
+                
+        
+
+
+
+
     }
+    
 }

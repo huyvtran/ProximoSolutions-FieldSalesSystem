@@ -90,6 +90,8 @@
     <Compile Include="Utility Classes\ConnectionManager.cs" />
     <Compile Include="Utility Classes\IConnectionManager.cs" />
     <Compile Include="Utility Classes\ImageHandler.cs" />
+    <Compile Include="Utility Classes\IObjectFactory.cs" />
+    <Compile Include="Utility Classes\ISecurityManager.cs" />
     <Compile Include="Utility Classes\ObjectExtractor.cs" />
     <Compile Include="Utility Classes\ObjectFactory.cs" />
     <Compile Include="Utility Classes\SecurityManager.cs" />

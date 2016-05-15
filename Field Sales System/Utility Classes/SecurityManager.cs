@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using Field_Sales_System.Business_Logic;
 
 namespace Field_Sales_System.Utility_Classes
 {
-    public class SecurityManager
+    public class SecurityManager : ISecurityManager
     {
+        private ConnectionManager dbManager = new ConnectionManager();
+        private MySqlConnection connection = new MySqlConnection();
+
+        public SecurityManager()
+        {
+            connection = dbManager.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
+        }
         ConnectionManager c = new ConnectionManager();
         public string computeHash(String pwd) {
             SHA256Cng hashFunction = new SHA256Cng();
@@ -25,67 +33,170 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         //following method is used to authenticate the login of a user
-        public bool login(int empId, string password) {
+        public string login(int empId, string password) {
             
-            MySqlConnection connection = c.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
-            c.openConnection(connection);
-            List<Object> arr = c.retrieveLoginInfo(connection,empId);
-            if (computeHash(password).Equals(arr[1].ToString()))
-            {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+                if (dbManager.isOnline())
+                {
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+                        List<Object> arr = c.retrieveLoginInfo(connection, empId);
+                        bool pwdMatch = computeHash(password).Equals(arr[1].ToString());
+                        bool isActive = (Int32)arr[2]==1;
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (pwdMatch && isActive)
+                        {
+
+                            return "Successfully logged in!";
+                        }
+                        else {
+                        if (isActive)
+                        {
+                            return "Wrong password! Try again!";
+                        }
+                        else {
+                            return "Requested user is not active. Contact administrator!";
+                        }
+                            
+                        }
+
+                    }
+                    else {
+                        return "Error! Cannot establish a connection with database. Try again later.";
+                    }
+
+                }
+                else {
+                    return "Error! No internet connection! Fix the internet connection and try again.";
+                }
+
+        
+    }
 
         //this method can be used to change the password of a user
         //return value determines the status of the operation
-        public int modifyPassword(int empId, string oldPassword, string newPassword) {
-            if (!login(empId, oldPassword))
+        public string modifyPassword(int empId, string oldPassword, string newPassword) {
+            if (login(empId, oldPassword).Equals("Successfully logged in!"))
             {
                 //old password is wrong
-                return 0;
+                return "Your old password is wrong!";
             }
             else {
-                try
+                if (dbManager.isOnline())
                 {
-                    string pwd = computeHash(newPassword);
-                    MySqlConnection connection = c.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
-                    c.openConnection(connection);
-                    ArrayList columns = new ArrayList();
-                    columns.Add("pwdHash");
-                    ArrayList values = new ArrayList();
-                    values.Add(computeHash(newPassword));
-                    //c.modifyRecord(empId, columns, values, "users", connection);
-                    return 1;
+                    connection = dbManager.openConnection(connection);
+                    if (!connection.Equals(null))
+                    {
+
+                        bool b = dbManager.modifyLoginInfo(connection, empId, computeHash(newPassword));
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            dbManager.closeConnection(connection);
+                        }
+
+                        if (b)
+                        {
+
+                            return "Successfully changed password!";
+                        }
+                        else {
+                            return "There was some error during password change. Try again!";
+                        }
+
+                    }
+                    else {
+                        return "Error! Cannot establish a connection with database. Try again later.";
+                    }
+
                 }
-                catch (Exception e) {
-                    //failed with exception
-                    return -1;
+                else {
+                    return "Error! No internet connection! Fix the internet connection and try again.";
                 }
 
+            }
+
+        }
+        
+
+        public string modifyStatus(int empId,int status) {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+
+                    bool b = dbManager.modifyLoginInfo(connection,empId,"",status);
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        return "Successfully changed password!";
+                    }
+                    else {
+                        return "There was some error during password change. Try again!";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
             }
         }
 
-        public bool modifyStatus(int empId,bool status) {
-            try
+        public string requestPasswordReset(int empId) {
+            if (dbManager.isOnline())
             {
-                MySqlConnection connection = c.connectDatabase(Properties.Settings.Default.dbServerConnectionString);
-                c.openConnection(connection);
-                ArrayList columns = new ArrayList();
-                columns.Add("status");
-                ArrayList values = new ArrayList();
-                values.Add(status);
-                //c.modifyRecord(empId, columns, values, "users", connection);
-                return true;
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+
+                    bool b = dbManager.modifyLoginInfo(connection, empId, "", -1, 1);
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        return "Successfully sent password reset request";
+                    }
+                    else {
+                        return "There was some error during the request. Try again!";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
             }
-            catch (Exception e) {
-                return false;
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
             }
+
         }
 
         
 
     }
-}
+
+
+    }
+
+        
+
+    
+

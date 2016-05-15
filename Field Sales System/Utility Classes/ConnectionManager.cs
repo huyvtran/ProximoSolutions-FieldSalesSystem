@@ -266,7 +266,7 @@ namespace Field_Sales_System.Utility_Classes
         {
             try
             {
-                string command = "INSERT INTO contact_details (empId,contactDetails) values(@empId,@contactDetails)";
+                string command = "INSERT INTO contactdetails (empId,contactDetails) values(@empId,@contactDetails)";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
                 cmd.Parameters.Add("@empId", MySqlDbType.Int64);
                 cmd.Parameters.Add("@contactDetails", MySqlDbType.MediumBlob);
@@ -290,7 +290,7 @@ namespace Field_Sales_System.Utility_Classes
         {
             try
             {
-                string command = "SELECT * FROM contact_details WHERE empId = @eId";
+                string command = "SELECT * FROM contactdetails WHERE empId = @eId";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
                 cmd.Parameters.Add("@eId", MySqlDbType.Int32);          
                 cmd.Parameters["@eId"].Value = empId;               
@@ -411,7 +411,7 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
         //retrieves a list of products for given product name or productId
-        public List<Product> retrieveProduct(MySqlConnection connection, int productId = -1, string productName = "") {
+        public Product retrieveProduct(MySqlConnection connection, int productId = -1, string productName = "") {
             try
             {
 
@@ -422,13 +422,13 @@ namespace Field_Sales_System.Utility_Classes
                 cmd.Parameters.Add("@productName", MySqlDbType.VarChar);
                 cmd.Parameters["@productName"].Value = productName;
                 MySqlDataReader reader = cmd.ExecuteReader();
-                List<Product> userData = new List<Product>();
+                Product userData = null;
                 while (reader.Read())
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     MemoryStream ms = new MemoryStream((byte[])reader[2]);
                     ms.Seek(0, SeekOrigin.Begin);
-                    userData.Add((Product)bin.Deserialize(ms));
+                    userData = ((Product)bin.Deserialize(ms));
                 }
                 return userData;
 
@@ -444,9 +444,9 @@ namespace Field_Sales_System.Utility_Classes
                 string command = "update product set productName = @productName, product = @product  where productId = @productId; ";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
                 cmd.Parameters.Add("@productId", MySqlDbType.Int32);
-                cmd.Parameters["@productId"].Value = product.getProductID();
+                cmd.Parameters["@productId"].Value = product.ProductID;
                 cmd.Parameters.Add("@productName", MySqlDbType.VarChar);
-                cmd.Parameters["@productName"].Value = product.getProductName();
+                cmd.Parameters["@productName"].Value = product.ProductName;
                 MemoryStream ms = new MemoryStream();
                 BinaryFormatter bf = new BinaryFormatter();
                 bf.Serialize(ms, product);
@@ -588,15 +588,21 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
 
-        public bool setOrderStatus(MySqlConnection connection, String status, DateTime orderDate) {
+        public bool setOrderStatus(MySqlConnection connection, String status, Order updatedOrder) {
             try
             {
-                string command = "update order_entries set orderStatus = @status where orderDate = @date";
+                DateTime orderDate = updatedOrder.OrderRequestedDate;
+                string command = "update order_entries set orderStatus = @status, orderEntry = @orderEntry where orderDate = @date";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
                 cmd.Parameters.Add("@status", MySqlDbType.VarChar);
                 cmd.Parameters.Add("@date", MySqlDbType.DateTime);
+                cmd.Parameters.Add("@orderEntry", MySqlDbType.MediumBlob);
                 cmd.Parameters["@status"].Value = status;
                 cmd.Parameters["@date"].Value = orderDate;
+                MemoryStream ms = new MemoryStream();
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(ms, updatedOrder);
+                cmd.Parameters["@orderEntry"].Value = ms.ToArray();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
@@ -620,7 +626,7 @@ namespace Field_Sales_System.Utility_Classes
                 cmd.Parameters.Add("@date", MySqlDbType.DateTime);
                 cmd.Parameters.Add("@orderEntry", MySqlDbType.MediumBlob);
                 cmd.Parameters.Add("@status", MySqlDbType.VarChar);
-                cmd.Parameters["@id"].Value = order.OrdererId;
+                cmd.Parameters["@id"].Value = order.OrderId;
                 cmd.Parameters["@date"].Value = order.OrderRequestedDate;
                 cmd.Parameters["@status"].Value = status;
                 MemoryStream ms = new MemoryStream();
@@ -643,7 +649,7 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
 
-        public List<Order> retrievOrdersByStatus(MySqlConnection connection,string status,int ordererId = 0) {
+        public List<Order> retrieveOrdersByStatus(MySqlConnection connection,string status,int ordererId = 0) {
            
             try
             {

@@ -9,8 +9,22 @@ namespace Field_Sales_System.Business_Logic
     public class UserRole
     {
 
-        private List<Permission> perms;
+        private List<Permission> permissions;
         private string roleName;
+
+        public List<Permission> Permissions
+        {
+            get
+            {
+                return permissions;
+            }
+
+            set
+            {
+                permissions = value;
+            }
+        }
+
         public void setRoleName(string name) {
             this.roleName = name;
         }
@@ -18,10 +32,10 @@ namespace Field_Sales_System.Business_Logic
             return this.roleName;
         }
         public void addPermission(Permission p) {
-            this.perms.Add(p);
+            this.Permissions.Add(p);
         }
         public void dropPermission(Permission p) {
-            this.perms.Remove(p);
+            this.Permissions.Remove(p);
         }
         
 

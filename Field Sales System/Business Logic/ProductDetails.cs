@@ -11,52 +11,61 @@ namespace Field_Sales_System.Business_Logic
     {
         private String category;
         private int batchNO;
-        private DateTime MFD;
-        private DateTime EXP;
+        private DateTime productMFD;
+        private DateTime productEXP;
 
-        public ProductDetails(String Category, int BatchNO, DateTime mfd, DateTime exp)
+      
+
+    
+
+        public String  Category
+        {   get
             {
-            category = Category;
-            batchNO = BatchNO;
-            MFD = mfd;
-            EXP = exp;
-    }
-
-        public void updateCategory(String category)
-        {   //get the object 
-            this.category = category;
-            // save the object
-        }
-        public String getCategory()
-        {
-            return category;
+                return category;
+            }
+            set
+            {
+                category = value;
+            }
         }
 
-        public void updateBatchNO(int batchNO)
+        public int BatchNO
         {
-            this.batchNO = batchNO;
-        }
-        public int getBatchNO()
-        {
-            return batchNO;
+          get
+            {
+                return batchNO;
+
+            }
+            set
+            {
+                batchNO = value;
+            }
         }
 
-        public void updateMFD(DateTime mfd)
+        public DateTime ProductMFD
         {
-            this.MFD =mfd;
-        }
-        public DateTime getMFD()
-        {
-            return MFD;
+            get
+            {
+                return productMFD;
+            }
+
+            set
+            {
+                productMFD = value;
+            }
         }
 
-        public void setEXP(DateTime exp)
+        public DateTime ProductEXP
         {
-            this.EXP = exp;
-        }
-        public DateTime getEXP()
-        {
-            return EXP;
+            get
+            {
+                return productEXP;
+            }
+
+            set
+            {
+                productEXP = value;
+            }
         }
     }
 }

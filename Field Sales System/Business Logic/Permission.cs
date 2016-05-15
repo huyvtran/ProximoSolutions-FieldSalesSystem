@@ -10,24 +10,31 @@ namespace Field_Sales_System.Business_Logic
     {
         private string permName;
         private int permId;
-        public void setPermName(string permName) {
-            this.permName = permName;
-        }
-        public void setPermId() {
-            this.permId = generatePermId();
-        }
-        private int generatePermId() {
-            int id = 0; //Temporary value untill the real implimentation 
-            return id;
+
+        public string PermName
+        {
+            get
+            {
+                return permName;
+            }
+
+            set
+            {
+                permName = value;
+            }
         }
 
-        public int getPermId() {
-            return this.permId;
-        }
+        public int PermId
+        {
+            get
+            {
+                return permId;
+            }
 
-        public string getPermName() {
-            return this.permName;
+            set
+            {
+                permId = value;
+            }
         }
-
     }
 }

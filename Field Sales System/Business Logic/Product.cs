@@ -16,49 +16,78 @@ namespace Field_Sales_System.Business_Logic
         private String productDescription;
         private ProductDetails productDetails;
         private float pricePerUnit;
-        DisplayPicture productPicture;
-        public void setProductName(String productName)
+        [NonSerialized]DisplayPicture productPicture;
+        public String ProductName
         {
-            this.productName = productName;
+            get
+            {
+                return productName;
+            }
+            set
+            {
+                productName = value;
+            }
         }
 
-        public String getProductName()
+        public int ProductID
         {
-            return productName;
+           get
+            {
+                return productID;
+            }
+
+            set
+            {
+                productID = value;
+            }
+        }
+        public float PricePerUnit
+        {
+            get
+            {
+                return pricePerUnit;
+            }
+            set
+            {
+                pricePerUnit = value;
+            }
+        }
+        public String ProductDescription
+        {
+            get
+            {
+                return productDescription;
+
+            }
+            set
+            {
+                productDescription = value;
+            }
         }
 
-        public void setProductID(int productID)
+        public ProductDetails ProductDetails
         {
-            this.productID = productID;
-        }
-        public int getProductID()
-        {
-            return productID;
+            get
+            {
+                return productDetails;
+            }
+            set
+            {
+                productDetails = value;
+            }
         }
 
-        public void setProductDescription()
+        public DisplayPicture ProductPicture
         {
-            
-        }
-        public String getProductDescription()
-        {
-            return productDescription;
-        }
-        public void setProductDetails(String Category, int BatchNO, DateTime MFD, DateTime EXP)
-        {//Pass to factory to creat the object
-         
-        }
-        public ProductDetails getProductDetails() {
-            return this.productDetails;
-        }
-        public void setPricePerUnit(float p)
-        {
-            this.pricePerUnit = p;
-        }
-        public float getPricePerUnit()
-        {
-            return pricePerUnit;
-        }
+            get
+            {
+                return productPicture;
+            }
 
+            set
+            {
+                productPicture = value;
+            }
+        }
     }
 }

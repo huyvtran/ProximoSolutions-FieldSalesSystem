@@ -14,8 +14,9 @@ namespace Field_Sales_System.Business_Logic
         private List<OrderEntry> orders;
         private OrderProcessDetails processDetails;
         private int ordererId;
-        private DateTime orderRequestedDate;
-        public int OrdererId
+        private string orderNote;
+        private DateTime orderRequestedDate;  
+        public int OrderId
         {
             get
             {
@@ -28,7 +29,7 @@ namespace Field_Sales_System.Business_Logic
             }
         }
 
-        public DateTime OrderRequestedDate
+       public DateTime OrderRequestedDate
         {
             get
             {
@@ -38,6 +39,32 @@ namespace Field_Sales_System.Business_Logic
             set
             {
                 orderRequestedDate = value;
+            }
+        }
+
+        public List<OrderEntry> Orders
+        {
+            get
+            {
+                return orders;
+            }
+
+            set
+            {
+                orders = value;
+            }
+        }
+
+        public string OrderNote
+        {
+            get
+            {
+                return orderNote;
+            }
+
+            set
+            {
+                orderNote = value;
             }
         }
 
@@ -52,23 +79,21 @@ namespace Field_Sales_System.Business_Logic
 
         public void addorderentry(OrderEntry orderedProductEntry)
         {
-            orders.Add(orderedProductEntry);
+            Orders.Add(orderedProductEntry);
         }
         public int getentrysize() {
-           return this.orders.Count;
+           return this.Orders.Count;
 
         }
-        public void editordentryquantity(int entryid, int quantity)
-        {
-            //orders[entryid].setQuantity(quantity);
+        public void editordentryquantity(int entryid, int quantity, Product gotProdct)
+        {   
+            Orders[entryid].Quantity = quantity;
+            Orders[entryid].Product = gotProdct;
         }
-        public void editordentryproduct(int entryid, Product product)
+    
+        public void deleteorderentry(int orderEntryId)
         {
-            //orders[entryid].setProduct(product);
-        }
-        public void deleteorderentry(int orderentryid)
-        {
-            // Remove a record.
+            Orders[orderEntryId].EntryState = "Cancelled";
         }
 
     }

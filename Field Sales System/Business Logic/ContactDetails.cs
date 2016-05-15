@@ -9,6 +9,7 @@ namespace Field_Sales_System.Business_Logic
     [Serializable()]
     public class ContactDetails
     {
+        private int empId;
         private int mobileNo;
         private int landNo;
         private string emailAddress;
@@ -91,6 +92,19 @@ namespace Field_Sales_System.Business_Logic
             set
             {
                 addressLine_3 = value;
+            }
+        }
+
+        public int EmpId
+        {
+            get
+            {
+                return empId;
+            }
+
+            set
+            {
+                empId = value;
             }
         }
 

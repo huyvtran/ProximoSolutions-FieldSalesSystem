@@ -32,24 +32,42 @@ namespace Field_Sales_System.Business_Logic
             }
         }
 
+        public DisplayPicture Dp
+        {
+            get
+            {
+                return dp;
+            }
+
+            set
+            {
+                dp = value;
+            }
+        }
+
+        public int EmpNIC
+        {
+            get
+            {
+                return empNIC;
+            }
+
+            set
+            {
+                empNIC = value;
+            }
+        }
+
         public Employee(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1,string addressLine_2,string addressLine_3,Image img) {
             this.ContactDetails = new ContactDetails(mobileNo, landNo, email, addressLine_1,addressLine_2,addressLine_3);
-            this.dp = new DisplayPicture(img);
+            this.Dp = new DisplayPicture(img);
             this.empId = empId;
-            this.empNIC = empNIC;
+            this.EmpNIC = empNIC;
             this.gender = gender;
             this.firstName = firstName;
             this.lastName = lastName;
 
         }
-        public void setEmpId(int empId) {
-            this.empId = empId;
-        }
-
-        public void setEmpNIC(int empNIC) {
-            this.empNIC = empNIC;
-        }
-
         public void setGender(bool gender) {
             this.gender = gender;
         }
@@ -67,7 +85,7 @@ namespace Field_Sales_System.Business_Logic
         }
 
         public int getEmpNIC() {
-            return this.empNIC;
+            return this.EmpNIC;
         }
 
         public bool getGender() {
