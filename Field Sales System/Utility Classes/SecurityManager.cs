@@ -120,7 +120,39 @@ namespace Field_Sales_System.Utility_Classes
             }
 
         }
-        
+
+        public string addUserLoginInformation(int empId, string password) {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    string pwdHash = computeHash(password);
+                    bool b = dbManager.storeLoginInfo(connection,empId,pwdHash);
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        return "Success!";
+                    }
+                    else {
+                        return "There was some error during password change. Try again!";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
 
         public string modifyStatus(int empId,int status) {
             if (dbManager.isOnline())
@@ -189,7 +221,62 @@ namespace Field_Sales_System.Utility_Classes
 
         }
 
-        
+        public string modifyPasswordAdmin(int empId, string newPassword) {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+
+                    bool b = dbManager.modifyLoginInfo(connection, empId, computeHash(newPassword));
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    if (b)
+                    {
+
+                        return "Successfully changed password!";
+                    }
+                    else {
+                        return "There was some error during password change. Try again!";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
+
+        public List<int> getPasswordResetRequests() {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (!connection.Equals(null))
+                {
+                    List<int> arr = dbManager.retrievePasswordResetRequests(connection); 
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+                    return arr;
+                    
+                }
+                else {
+                    return null;
+                }
+
+            }
+            else {
+                return null;
+            }
+        }
 
     }
 

@@ -18,6 +18,7 @@ namespace Field_Sales_System.Utility_Classes
         List<SalesReturn> getSalesReturns(User validate_user, DateTime beginDate, DateTime endDate);
         User getUser(int empId);
         List<WeeklySalesReport> getWeeklyReport(DateTime beginDate, DateTime endDate);
+        string modifyOrderStatus(Order updatedOrder, string orderStatus);
         string modifyProduct(Product product);
         string modifyUser(User user);
         ProductDetails newProductDetails(string category, int batchNo);
@@ -32,5 +33,7 @@ namespace Field_Sales_System.Utility_Classes
         string storeUser(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles);
         Product updateProcuctDetails(Product product, int batchNo, DateTime MFD, DateTime EXP, string category);
         
+
+
     }
 }

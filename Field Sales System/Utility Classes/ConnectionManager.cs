@@ -770,10 +770,27 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
 
-        
+        public List<int> retrievePasswordResetRequests(MySqlConnection connection) {
+            try
+            {
+                string command = "select empId from user where pwdReset = 1";
 
-        //Need similar methods to store, retrieve, modify for displayPicture, Contact details, DailySalesReport, WeeklySalesReport,
-        //Order,Warehouse, etc.. Assume there are such methods when you code for ObjectFactory
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                List<int> returnEntries = new List<int>();
+                while (reader.Read())
+                {                   
+                    returnEntries.Add((int)reader[0]);
+                }
+                return returnEntries;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+       
 
 
 

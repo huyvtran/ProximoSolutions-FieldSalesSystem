@@ -9,7 +9,7 @@ using Field_Sales_System.Utility_Classes;
 
 namespace Field_Sales_System.Business_Logic
 {
-    [Serializable()]
+    [Serializable]
     public class Representative : User
     {
 
@@ -36,9 +36,7 @@ namespace Field_Sales_System.Business_Logic
             throw new NotImplementedException();
         }
 
-        
-
-        public override string cancelOrder(ObjectFactory factory, Order order)
+        public override string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password)
         {
             throw new NotImplementedException();
         }
@@ -60,11 +58,7 @@ namespace Field_Sales_System.Business_Logic
             throw new NotImplementedException();
         }
 
-        public override List<Order> viewOrder(ObjectFactory factory, DateTime beginDate, DateTime endDate, int ordererId)
-        {
-            throw new NotImplementedException();
-        }
-
+       
                 
     }
 }

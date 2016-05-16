@@ -14,9 +14,10 @@ namespace Field_Sales_System.Business_Logic
         private List<OrderEntry> orders;
         private OrderProcessDetails processDetails;
         private int ordererId;
+        private int orderId;
         private string orderNote;
         private DateTime orderRequestedDate;  
-        public int OrderId
+        public int OrdererId
         {
             get
             {
@@ -65,6 +66,19 @@ namespace Field_Sales_System.Business_Logic
             set
             {
                 orderNote = value;
+            }
+        }
+
+        public int OrderId
+        {
+            get
+            {
+                return orderId;
+            }
+
+            set
+            {
+                orderId = value;
             }
         }
 

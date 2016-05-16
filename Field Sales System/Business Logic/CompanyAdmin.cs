@@ -9,69 +9,51 @@ using Field_Sales_System.Utility_Classes;
 
 namespace Field_Sales_System.Business_Logic
 {
-    class CompanyAdmin : User, UserManagement
+    [Serializable]
+    public class CompanyAdmin : User
     {
         //ObjectFactory Object;
         public CompanyAdmin(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1,string addressLine_2,string addressLine_3, Image img):base(empId,empNIC,gender,firstName,lastName,mobileNo,landNo,email,addressLine_1,addressLine_2,addressLine_3,img)
         {
         }
-        public void addRepresentative(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address) {
-            string url="have to build"; // Create url 
-            //Representative newrep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, address, url);
-        }
-        public void addAgent(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string address)
+
+        public override string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password)
         {
-            string url = "have to build"; // Create url
-                                          //Agent newagent = new Agent(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, address, url);
-        }
-        
-        public void updateProduct(String productName, int productId, String productDescription, float pricePerUnit, DisplayPicture productPicture, String category, int batchNo) {
-            /*Product gotproduct = Object.getProduct(productId)[0];
-            gotproduct.PricePerUnit = pricePerUnit;
-            gotproduct.ProductDescription = productDescription;
-            gotproduct.ProductName = productName;
-            gotproduct.ProductDetails.BatchNO = batchNo;
-            gotproduct.ProductDetails.Category = category;
-            Object.saveProduct(productId, productName, gotproduct);*/
-        }
+            string securityManagerStatus = securityManager.addUserLoginInformation(empId,password);
+            if (securityManagerStatus == "Success!")
+            {
+                return factory.storeUser(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, rolesList);
 
-        public void updateUser(int userid) {
-            //get object from database
-           
-
-
-        }
-        public void deactivateUser(User user) { }
-        public void activateUser(User user) { }
-        public void changePassword(User user) { }
-        public void reviewUpdate() { }
-        public void acceptUpdate() { }
-
-
-
-        public string addUser(ObjectFactory factory, int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType,List<UserRole> rolesList)
-        {
-            return factory.storeUser(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, rolesList);
+            }
+            else {
+                return "Can't create the profile right now. Try again later!";
+            }
         }
 
         public override string deactivateUser(SecurityManager securityManager, User user)
         {
-            throw new NotImplementedException();
+            return securityManager.modifyStatus(user.getEmpId(), 0);
         }
 
         public override string activateUser(SecurityManager securityManager, User user)
         {
-            throw new NotImplementedException();
+            return securityManager.modifyStatus(user.getEmpId(), 1);
         }
 
         public override string addRole(ObjectFactory factory, User user, UserRole newRole)
         {
-            throw new NotImplementedException();
+            user.UserRoles.Add(newRole);
+            return factory.modifyUser(user);
         }
 
         public override string removeRole(ObjectFactory factory, User user, string roleName)
         {
-            throw new NotImplementedException();
+            foreach (UserRole role in user.UserRoles) {
+                if (role.getRoleName().Equals(roleName)) {
+                    user.UserRoles.Remove(role);
+                }
+            }
+            return factory.modifyUser(user);
         }
 
         public override string addOrder(ObjectFactory factory, Order order)
@@ -79,14 +61,18 @@ namespace Field_Sales_System.Business_Logic
             throw new NotImplementedException();
         }
 
-        public override List<Order> viewOrder(ObjectFactory factory, DateTime beginDate, DateTime endDate, int ordererId)
-        {
-            throw new NotImplementedException();
+        public string resetEmployeePassword(SecurityManager securityManager,int empId,string newPassword) {
+            return securityManager.modifyPasswordAdmin(empId, newPassword);
         }
 
-        public override string cancelOrder(ObjectFactory factory, Order order)
-        {
-            throw new NotImplementedException();
+        public List<int> viewPasswordResetRequests(SecurityManager securityManager) {
+            return securityManager.getPasswordResetRequests();
         }
+
+        public string updateProduct(ObjectFactory factory, Product newProduct) {
+            return factory.modifyProduct(newProduct);
+        }
+
+        
     }
 }

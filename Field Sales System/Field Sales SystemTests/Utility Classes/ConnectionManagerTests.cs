@@ -152,8 +152,8 @@ namespace Field_Sales_System.Utility_Classes.Tests
             MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
             c.openConnection(connection);
             Product p = new Product();
-            p.ProductID=12451;
-            p.ProductName="testProduct";
+            p.ProductID = 12451;
+            p.ProductName = "testProduct";
             bool b = c.storeProduct(connection, 12451, "testProduct", p);
             Assert.IsTrue(b);
         }
@@ -294,6 +294,15 @@ namespace Field_Sales_System.Utility_Classes.Tests
             DateTime dt2 = new DateTime(2017, 01, 01);
             c.openConnection(connection);
             List<object> l = c.retrieveReport(connection, dt1, dt2, "Weekly Report");
+        }
+
+        [TestMethod()]
+        public void retrievePasswordResetRequestsTest()
+        {
+            ConnectionManager c = new ConnectionManager();
+            MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
+            c.openConnection(connection);
+            List<int> i = c.retrievePasswordResetRequests(connection);
         }
     }
 }

@@ -50,39 +50,13 @@ namespace Field_Sales_System.Business_Logic
 
 
 
-        public string addUser(ObjectFactory factory, int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img,string userType) {
-            List<Permission> basicPermission = new List<Permission>();
-            List<UserRole> basicUserRoleList = new List<UserRole>();
-            basicPermission.Add(factory.createPermission("Minimum Permission", 500));
-            UserRole basicRole = factory.createUserRole("Basic Role",basicPermission );
-            basicUserRoleList.Add(basicRole);
-            bool adminRights = false;
-            foreach (UserRole role in this.userRoles)
-            {
-                foreach (Permission perm in role.Permissions)
-                {
-                    if (perm.PermId == 2500)
-                    {
-                        adminRights = true;
-                    }
-                }
-            }
-            if (adminRights)
-            {
-
-                return factory.storeUser(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, basicUserRoleList);
-            }
-            else {
-                return "You do not have permission to perform the action!";
-            }
-            
-        }
+        public abstract string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password);
         public List<User> searchUser(ObjectFactory factory, int empId = 0, string firstName = "", string lastName = "") {
             return factory.searchUser(empId, firstName, lastName);
         }
         public string changeUsername(ObjectFactory factory, User user, string firstName, string lastName) {
             bool adminRights = false;
-            foreach (UserRole role in user.userRoles) {
+            foreach (UserRole role in this.userRoles) {
                 foreach (Permission perm in role.Permissions) {
                     if (perm.PermId == 2000) {
                         adminRights = true;
@@ -112,7 +86,7 @@ namespace Field_Sales_System.Business_Logic
         }
         public string changeNIC(ObjectFactory factory, User user, int newNIC) {
             bool adminRights = false;
-            foreach (UserRole role in user.userRoles)
+            foreach (UserRole role in this.userRoles)
             {
                 foreach (Permission perm in role.Permissions)
                 {
@@ -212,122 +186,161 @@ namespace Field_Sales_System.Business_Logic
 
         }
         public string updateLandNo(ObjectFactory factory, User user, int newLandNo) {
-            return "";//tbi later
+            bool adminRights = false;
+            foreach (UserRole role in user.userRoles)
+            {
+                foreach (Permission perm in role.Permissions)
+                {
+                    if (perm.PermId == 2000)
+                    {
+                        adminRights = true;
+                    }
+                }
+            }
+            if (adminRights)
+            {
+
+                user.ContactDetails.LandNo = newLandNo;
+                factory.modifyUser(user);
+                return "Successfully changed the Land number";
+            }
+            else {
+                if (this.getEmpId() == user.getEmpId())
+                {
+                    user.ContactDetails.LandNo = newLandNo;
+                    factory.modifyUser(user);
+                    return "Successfully changed the Land number";
+                }
+                else {
+                    return "You do not have permission to perform the action!";
+                }
+            }
         }
         public string updateEmail(ObjectFactory factory, User user, string newEmail) {
-            return "";//tbi later
+            bool adminRights = false;
+            foreach (UserRole role in user.userRoles)
+            {
+                foreach (Permission perm in role.Permissions)
+                {
+                    if (perm.PermId == 2000)
+                    {
+                        adminRights = true;
+                    }
+                }
+            }
+            if (adminRights)
+            {
+
+                user.ContactDetails.EmailAddress = newEmail;
+                factory.modifyUser(user);
+                return "Successfully changed the email address";
+            }
+            else {
+                if (this.getEmpId() == user.getEmpId())
+                {
+                    user.ContactDetails.EmailAddress = newEmail;
+                    factory.modifyUser(user);
+                    return "Successfully changed the email address";
+                }
+                else {
+                    return "You do not have permission to perform the action!";
+                }
+            }
         }
         public string updateAddress(ObjectFactory factory, User user, string addressLine_1, string addressLine_2, string addressLine_3) {
-            return "";//tbi later
+            bool adminRights = false;
+            foreach (UserRole role in user.userRoles)
+            {
+                foreach (Permission perm in role.Permissions)
+                {
+                    if (perm.PermId == 2000)
+                    {
+                        adminRights = true;
+                    }
+                }
+            }
+            if (adminRights)
+            {
+
+                user.ContactDetails.AddressLine_1 = addressLine_1;
+                user.ContactDetails.AddressLine_2 = addressLine_2;
+                user.ContactDetails.AddressLine_3 = addressLine_3;
+                factory.modifyUser(user);
+                return "Successfully changed the address";
+            }
+            else {
+                if (this.getEmpId() == user.getEmpId())
+                {
+                    user.ContactDetails.AddressLine_1 = addressLine_1;
+                    user.ContactDetails.AddressLine_2 = addressLine_2;
+                    user.ContactDetails.AddressLine_3 = addressLine_3;
+                    factory.modifyUser(user);
+                    return "Successfully changed the address";
+                }
+                else {
+                    return "You do not have permission to perform the action!";
+                }
+            }
         }
 
         public abstract string addOrder(ObjectFactory factory, Order order);
-        public abstract List<Order> viewOrder(ObjectFactory factory, DateTime beginDate, DateTime endDate, int ordererId);
-        public abstract string cancelOrder(ObjectFactory factory, Order order);
-
-
-        //public UserRole getRole() {
-        //return }
-        /*
-                public bool activateUser(User user)
+        public List<Order> viewOrder(ObjectFactory factory, DateTime beginDate, DateTime endDate, int ordererId) {
+            return factory.getOrder(this, beginDate, endDate);
+        }
+        public List<Order> viewOrderByStatus(ObjectFactory factory, string status) {
+            return factory.getOrderByStatus(this, status);
+        }
+        public string updateOrder(ObjectFactory factory, Order order,string newStatus) {
+            bool adminRights = false;
+            foreach (UserRole role in this.userRoles)
+            {
+                foreach (Permission perm in role.Permissions)
                 {
-                    try
+                    if (perm.PermId == 2020)
                     {
-                        user.isActive = true;
-                        return true;
+                        adminRights = true;
                     }
-                    catch (Exception e) {
-                        return false;
-                    }
-
                 }
-
-                public bool addRole(User user, UserRole newRole)
+            }
+            if (adminRights)
+            {
+                return factory.modifyOrderStatus(order, newStatus);
+            }
+            else {
+                
+                return "You do not have permissions to perform this action!";
+                
+            }
+        }
+        public string cancelOrder(ObjectFactory factory, Order order) {
+            bool adminRights = false;
+            foreach (UserRole role in this.userRoles)
+            {
+                foreach (Permission perm in role.Permissions)
                 {
-                    try
+                    if (perm.PermId == 2010)
                     {
-                        user.userRoles.Add(newRole);
-                        return true;
+                        adminRights = true;
                     }
-                    catch (Exception e)
-                    {
-                        return false;
-                    }
-
                 }
-
-                public void addUser(User user)
-                {
-
+            }
+            if (adminRights)
+            {
+                return factory.modifyOrderStatus(order, "Cancelled!");
+            }
+            else {
+                if (order.OrdererId == this.getEmpId()) {
+                    return factory.modifyOrderStatus(order, "Cancelled!");
                 }
-
-                public bool changeGender(User user, bool gender)
-                {
-                    throw new NotImplementedException();
+                else {
+                    return "You do not have permissions to perform this action!";
                 }
-
-                public bool changeNIC(User user, int newNIC)
-                {
-                    throw new NotImplementedException();
-                }
-
-                public bool changePassword(User user, string oldPassword, string newPassword)
-                {
-                    throw new NotImplementedException();
-                }
-
-                public bool changePicture(User user, Image image)
-                {
-                    throw new NotImplementedException();
-                }
-
-                public bool changeUsername(User user, string firstName, string lastName)
-                {
-                    throw new NotImplementedException();
-                }
-
-                public void deactivateUser(User user)
-                {
-                    user.isActive = false;
-                }
-
-                public bool removeRole(User user, string roleName)
-                {
-                    throw new NotImplementedException();
-                }
-
-                public List<User> searchUser(int empId = 0, string firstName = "", string lastName = "")
-                {
-                    throw new NotImplementedException();
-                }
-
-                public bool updateEmail(User user, string newEmail)
-                {
-                    throw new NotImplementedException();
-                }
-
-                public bool updateLandNo(User user, int newLandNo)
-                {
-                    throw new NotImplementedException();
-                }
-
-                public bool updateMobileNo(User user, int newMobileNo)
-                {
-                    throw new NotImplementedException();
-                }
-
-                bool UserManagement.addUser(User user)
-                {
-                    throw new NotImplementedException();
-                }
-
-                bool UserManagement.deactivateUser(User user)
-                {
-                    throw new NotImplementedException();
-                }
+            }
             
+        }
 
-            */
+
+        
 
     }
 }
