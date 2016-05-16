@@ -15,13 +15,8 @@ namespace Field_Sales_System.Utility_Classes
 {
     public class ObjectFactory : IObjectFactory
 
-    {
-
-        //Cache list 
-        //private List<Order> orderList = new List<Order>();
+    {     
         private List<Product> productList = new List<Product>();
-        //private List<Agent> agentList = new List<Agent>();
-        //private List<Representative> representativeList = new List<Representative>();
         private List<User> userList = new List<User>();
         private ConnectionManager dbManager = new ConnectionManager();
         private MySqlConnection connection = new MySqlConnection();
@@ -39,21 +34,22 @@ namespace Field_Sales_System.Utility_Classes
 
         //Create new order
 
-        public string storeNewOrder(int orderID, DateTime OrderRequestedDate, List<OrderEntry> orderEntries, int placedEmpID)
+        public string storeNewOrder(int orderId, DateTime OrderRequestedDate, List<OrderEntry> orderEntries,int ordererId)
         {
-
+           
             OrderProcessDetails gotprocessDetails = getOrderProcessDetails();
             Order newOrder = new Order();
-            newOrder.OrderId = orderID;
+            newOrder.OrderId = orderId;
+            newOrder.OrdererId = ordererId;
             newOrder.OrderRequestedDate = OrderRequestedDate;
             newOrder.Orders = orderEntries;
             newOrder.setProcessDetails(gotprocessDetails);
 
-            //saveOrder(newOrder,orderID);
+            
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     bool b = dbManager.storeOrder(connection, "New Order", newOrder);
                     if (connection.State == System.Data.ConnectionState.Open)
@@ -119,7 +115,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     bool b = dbManager.storeProduct(connection, productId, productName, newProduct);
                     if (connection.State == System.Data.ConnectionState.Open)
@@ -198,7 +194,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     bool b = dbManager.storeContactDetails(connection, contact.EmpId, contact);
                     if (connection.State == System.Data.ConnectionState.Open)
@@ -236,47 +232,41 @@ namespace Field_Sales_System.Utility_Classes
                     case "Representative":
 
                         Representative rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
-                        //ContactDetails contactRep = createContactDetails(empId, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        
                         rep.UserRoles = roles;
 
-                        /*List<Permission> permissionsRep = getPermissionList(userRole);
-
-                        for (int i = 0; i < permissionsRep.Count; i++)
-                        {
-                            urRep.addPermission(permissionsRep[i]);
-                        }*/
-
+                        
 
                         user = rep;
                         break;
                     case "Agent":
 
                         Agent agent = new Agent(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
-                        //ContactDetails contactAgent = setContactDetails(empId, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        
                         agent.UserRoles = roles;
                         user = agent;
                         break;
 
-                    case "Company Admin":
+                    case "CompanyAdmin":
                         CompanyAdmin admin = new CompanyAdmin(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
-                        //ContactDetails contactAgent = setContactDetails(empId, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        
                         admin.UserRoles = roles;
                         user = admin;
                         break;
-                    case "Warehouse Manager":
+                    case "WarehouseManager":
                         WarehouseManager wManager = new WarehouseManager(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
-                        //ContactDetails contactAgent = setContactDetails(empId, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3);
+                        
                         wManager.UserRoles = roles;
                         user = wManager;
                         break;
 
                 }
-                if (!user.Equals(null))
+                if (user!=null)
                 {
                     if (dbManager.isOnline())
                     {
                         connection = dbManager.openConnection(connection);
-                        if (!connection.Equals(null))
+                        if (connection != null)
                         {
                             bool user_status = dbManager.storeUser(connection, user);
                             bool contacts_status = dbManager.storeContactDetails(connection, empId, user.ContactDetails);
@@ -322,7 +312,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     bool b = dbManager.storeEntry(connection, dsd);
                     if (connection.State == System.Data.ConnectionState.Open)
@@ -355,7 +345,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection!=null)
                 {
                     bool b = dbManager.storeEntry(connection, returns);
                     if (connection.State == System.Data.ConnectionState.Open)
@@ -388,7 +378,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     bool b = dbManager.storeReport(connection, report);
                     if (connection.State == System.Data.ConnectionState.Open)
@@ -448,7 +438,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         List <object> orders = dbManager.retrieveEntry(connection,beginDate,endDate,"orderEntry");
                         List<Order> ret_orders = new List<Order>();
@@ -460,7 +450,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return ret_orders;
@@ -483,7 +473,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "orderEntry",validate_user.getEmpId());
                         List<Order> ret_orders = new List<Order>();
@@ -496,7 +486,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return ret_orders;
@@ -534,7 +524,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         List<Order> orders = dbManager.retrieveOrdersByStatus(connection,status);
                         
@@ -543,7 +533,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return orders;
@@ -566,7 +556,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         List<Order> orders = dbManager.retrieveOrdersByStatus(connection, status,validate_user.getEmpId());
              
@@ -575,7 +565,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return orders;
@@ -613,7 +603,7 @@ namespace Field_Sales_System.Utility_Classes
                     break;
                 }
             }
-            if (!returnProduct.Equals(null))
+            if (returnProduct!=null)
             {
                 return returnProduct;
             }
@@ -622,7 +612,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         returnProduct = dbManager.retrieveProduct(connection, productId, productName);
                         
@@ -646,68 +636,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
 
-        //Get permission
-        //removing since permission comes with user objects
-        /* public List<Permission> getPermissionList(string userRole)
-         {
-             List<Permission> PermissionList = new List<Permission>();
-             try
-             {
-
-                 switch (userRole)
-                 {
-                     case "Representative":
-                         //PermissionList;
-                         // get user role list
-                         return PermissionList;
-                     case "Agent":
-                         //PermissionList;
-                         // get user role list
-                         return PermissionList;
-
-                 }
-             }
-             catch (Exception e)
-             {
-                 return null;
-             }
-             return null;
-
-         }
-         */
-
-
-        //get Agent 
-
-        /* public Agent getAgent(int empId)
-         {
-             try
-             {
-                 //use the connection and get the agent 
-             }
-             catch (Exception e)
-             {
-                 return null;
-             }
-             return null;
-         }
-
-
-
-         //get Representative 
-         public Representative getRep(int empId)
-         {
-             try
-             {
-                 return null;
-                 //use the connection and get the agent 
-             }
-             catch (Exception e)
-             {
-                 return null;
-             }
-
-         }*/
+        
 
         public User getUser(int empId) {
             User returnUser = null;
@@ -717,7 +646,7 @@ namespace Field_Sales_System.Utility_Classes
                     break;
                 }
             }
-            if (!returnUser.Equals(null))
+            if (returnUser!=null)
             {
                 return returnUser;
             }
@@ -725,10 +654,15 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection!=null)
                     {
                         returnUser = dbManager.retrieveUser(connection, empId)[0];
-                        returnUser.Dp = new DisplayPicture(dbManager.retrieveImage(connection, returnUser.getEmpId()));
+                        dbManager.closeConnection(connection);
+                        dbManager.openConnection(connection);
+                        Image i = dbManager.retrieveImage(connection, returnUser.getEmpId());
+                        dbManager.closeConnection(connection);
+                        dbManager.openConnection(connection);
+                        returnUser.Dp = new DisplayPicture(i);
                         List<ContactDetails> contacts = dbManager.retrieveContactDetails(connection, returnUser.getEmpId());
                         returnUser.ContactDetails = contacts[contacts.Count - 1];
 
@@ -755,7 +689,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     List<User> returnUser = dbManager.retrieveUser(connection, empId, firstName, lastName);
                     foreach (User u in returnUser) {
@@ -784,6 +718,8 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
 
+        //returns a list of daily sales details
+
         public List<DailySalesDetails> getDailySalesDetails(User validate_user,DateTime beginDate,DateTime endDate) {
             bool adminrights = false;
             foreach (UserRole u in validate_user.UserRoles)
@@ -801,7 +737,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "salesEntry");
                         List<DailySalesDetails> ret_orders = new List<DailySalesDetails>();
@@ -814,7 +750,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return ret_orders;
@@ -837,7 +773,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "salesEntry",validate_user.getEmpId());
                         List<DailySalesDetails> ret_orders = new List<DailySalesDetails>();
@@ -850,7 +786,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return ret_orders;
@@ -890,7 +826,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "returnEntry");
                         List<SalesReturn> ret_orders = new List<SalesReturn>();
@@ -904,7 +840,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return ret_orders;
@@ -927,7 +863,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                         List<object> orders = dbManager.retrieveEntry(connection, beginDate, endDate, "returnEntry", validate_user.getEmpId());
                         List<SalesReturn> ret_orders = new List<SalesReturn>();
@@ -940,7 +876,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return ret_orders;
@@ -967,7 +903,7 @@ namespace Field_Sales_System.Utility_Classes
                 if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                    if (connection != null)
                     {
                     List<object> orders = dbManager.retrieveReport(connection, beginDate, endDate, "Daily Report");
                         List<DailySalesReport> ret_orders = new List<DailySalesReport>();
@@ -981,7 +917,7 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                         }
 
-                        if (!orders.Equals(null))
+                        if (orders!=null)
                         {
 
                             return ret_orders;
@@ -1009,7 +945,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     List<object> orders = dbManager.retrieveReport(connection, beginDate, endDate, "Weekly Report");
                     List<WeeklySalesReport> ret_orders = new List<WeeklySalesReport>();
@@ -1023,7 +959,7 @@ namespace Field_Sales_System.Utility_Classes
                         dbManager.closeConnection(connection);
                     }
 
-                    if (!orders.Equals(null))
+                    if (orders!=null)
                     {
 
                         return ret_orders;
@@ -1053,7 +989,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     bool user_status = dbManager.modifyUser(connection, user);
                     bool contacts_status = dbManager.storeContactDetails(connection, user.getEmpId(), user.ContactDetails);
@@ -1088,7 +1024,7 @@ namespace Field_Sales_System.Utility_Classes
             if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
-                if (!connection.Equals(null))
+                if (connection != null)
                 {
                     bool product_status = dbManager.modifyProduct(connection, product);
                     
@@ -1118,13 +1054,39 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
 
-        
+        public string modifyOrderStatus(Order updatedOrder,string orderStatus) {
+            if (dbManager.isOnline())
+            {
+                connection = dbManager.openConnection(connection);
+                if (connection != null)
+                {
+                    bool product_status = dbManager.setOrderStatus(connection,orderStatus,updatedOrder);
 
 
-                
-        
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
 
+                    if (product_status)
+                    {
 
+                        return "Successfully updated the details!";
+                    }
+                    else {
+                        return "There was an error during the storage process. Please try again.";
+                    }
+
+                }
+                else {
+                    return "Error! Cannot establish a connection with database. Try again later.";
+                }
+
+            }
+            else {
+                return "Error! No internet connection! Fix the internet connection and try again.";
+            }
+        }
 
 
     }

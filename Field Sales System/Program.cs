@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql;
+using Field_Sales_System.ControlLogic;
 
 namespace Field_Sales_System
 {
@@ -16,7 +17,8 @@ namespace Field_Sales_System
         [STAThread]
         static void Main()
         {
-            
+            Controller controller = new Controller();
+            controller.initilizer();
         }
             
         
