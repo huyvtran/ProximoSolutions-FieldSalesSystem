@@ -54,21 +54,20 @@ namespace GUINew
             string employeeIDtext = empLastNameText.Text;
             string empFirstName = empFirstNameText.Text;
             string empLastName = empLastNameText.Text;
-            if ()
-          controller.adminSearchEmploee(empId)
+
+            //controller.adminSearchEmploee(empId);
         }
-<<<<<<< HEAD
+
 
         private void empIDText_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
-=======
->>>>>>> 1e4ef3ff4b8c1a637a426bbce4a3f5d81e322dfa
+
     }
 }

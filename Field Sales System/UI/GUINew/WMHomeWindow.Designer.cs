@@ -263,20 +263,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label photoLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button goodsReceiveNoteButton;
-        private System.Windows.Forms.Button myProfileButton;
-        private System.Windows.Forms.Button logoutButton;
-        private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label nameLabel;
+        public System.Windows.Forms.Label photoLabel;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button button4;
+        public System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Button goodsReceiveNoteButton;
+        public System.Windows.Forms.Button myProfileButton;
+        public System.Windows.Forms.Button logoutButton;
+        public System.Windows.Forms.Panel panel2;
     }
 }

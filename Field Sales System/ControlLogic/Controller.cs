@@ -28,7 +28,7 @@ namespace Field_Sales_System.ControlLogic
         public Controller()
         { objectFactory = new ObjectFactory();
             securityManager = new SecurityManager();
-            openingDialogBox = new SignIn(this);
+            openingDialogBox = new SignIn();
         }
         public void initilizer()
         {

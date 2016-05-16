@@ -172,15 +172,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox usernameText;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button signInButton;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox passwordText;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.TextBox usernameText;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button signInButton;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox passwordText;
     }
 }
 

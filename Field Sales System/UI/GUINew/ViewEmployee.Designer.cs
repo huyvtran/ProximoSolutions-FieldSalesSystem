@@ -176,15 +176,15 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mobile;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn region;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jobTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewImageColumn photo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn empNo;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridViewTextBoxColumn email;
+        public System.Windows.Forms.DataGridViewTextBoxColumn mobile;
+        public System.Windows.Forms.DataGridViewTextBoxColumn address;
+        public System.Windows.Forms.DataGridViewTextBoxColumn status;
+        public System.Windows.Forms.DataGridViewTextBoxColumn region;
+        public System.Windows.Forms.DataGridViewTextBoxColumn jobTitle;
+        public System.Windows.Forms.DataGridViewTextBoxColumn name;
+        public System.Windows.Forms.DataGridViewImageColumn photo;
+        public System.Windows.Forms.DataGridViewTextBoxColumn empNo;
     }
 }

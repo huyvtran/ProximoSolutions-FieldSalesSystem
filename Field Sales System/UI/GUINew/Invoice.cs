@@ -25,7 +25,6 @@ namespace GUINew
             customerContactText.Text = "";
             productNameCombo.Text = "Product Name";
             productIDLabel.Text = "Product ID";
-            batchNoCombo.Text = "Batch No";
             unitPriceLabel.Text = "Unit Price";
             qtyText.Text = "Quantity";
 
