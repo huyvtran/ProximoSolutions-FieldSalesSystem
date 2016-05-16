@@ -41,7 +41,7 @@
             this.goodsReceiveNoteButton = new System.Windows.Forms.Button();
             this.myProfileButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.repMainPannel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -220,12 +220,14 @@
             this.label2.Text = " UPALI FOODS AND BEVERAGES (PVT.) LTD.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel1
+            // repMainPannel
             // 
-            this.panel1.Location = new System.Drawing.Point(279, 103);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1080, 600);
-            this.panel1.TabIndex = 55;
+            this.repMainPannel.AccessibleName = "repMainPannel";
+            this.repMainPannel.Location = new System.Drawing.Point(279, 103);
+            this.repMainPannel.Name = "repMainPannel";
+            this.repMainPannel.Size = new System.Drawing.Size(1080, 600);
+            this.repMainPannel.TabIndex = 55;
+            this.repMainPannel.Paint += new System.Windows.Forms.PaintEventHandler(this.repMainPannel_Paint);
             // 
             // label4
             // 
@@ -295,7 +297,7 @@
             this.Controls.Add(this.goodsReceiveNoteButton);
             this.Controls.Add(this.myProfileButton);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.repMainPannel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nameLabel);
@@ -326,7 +328,7 @@
         private System.Windows.Forms.Button goodsReceiveNoteButton;
         private System.Windows.Forms.Button myProfileButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel repMainPannel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label nameLabel;

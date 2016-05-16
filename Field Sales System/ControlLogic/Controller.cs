@@ -22,11 +22,13 @@ namespace Field_Sales_System.ControlLogic
         User currentUSer;
         AddEmployee newEmployee;
         ViewEmployee viewEmployee;
+        EmployeeProfile profile;
 
         public Controller()
         { objectFactory = new ObjectFactory();
             securityManager = new SecurityManager();
             openingDialogBox = new SignIn(this);
+            profile = new EmployeeProfile();
         }
         public void initilizer()
         {
@@ -43,23 +45,27 @@ namespace Field_Sales_System.ControlLogic
                 if (u is CompanyAdmin)
                 {
                     adminHW = new AdminHomeWindow();
-                    adminHW.ShowDialog();
+                    adminHW.TopLevel = false;
                     adminHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     adminHW.photoLabel.Image = u.Dp.getPicture();
+                    adminHW.ShowDialog();
+                    
                 }
                 else if (u is Agent)
                 {
                     agentHW = new AgentHomeWindow();
-                    agentHW.Show();
                     agentHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     agentHW.photoLabel.Image = u.Dp.getPicture();
+                    agentHW.ShowDialog();
+
                 }
                 else if (u is Representative)
                 {
-                    repHW = new RepHomeWindow();
-                    repHW.Show();
+                    repHW = new RepHomeWindow(this);
                     repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     repHW.photoLabel.Image = u.Dp.getPicture();
+                    openingDialogBox.Hide();
+                    repHW.ShowDialog();
                 }
                 else if (u is WarehouseManager)
                 {
@@ -86,11 +92,27 @@ namespace Field_Sales_System.ControlLogic
             viewEmployee.ShowDialog();
         }
         public void adminSearchEmploee(int empId=0, string empFirstName="", string empLastName="")
-        {
-            
-            
+        {         
             viewEmployee.ShowDialog();
             viewEmployee.setData(objectFactory.searchUser(empId, empFirstName, empLastName));
+        }
+
+        public void setMyHome_Representative() {
+            profile.TopLevel = false;
+            repHW.TopLevel = true;
+            profile.AutoScroll = true;
+            
+            profile.addressLabel.Text = currentUSer.ContactDetails.AddressLine_1;
+            profile.cityLabel.Text = currentUSer.ContactDetails.AddressLine_2;
+            profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
+            profile.mobileLabel.Text = currentUSer.ContactDetails.MobileNo.ToString();
+            profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
+            profile.nameLabel.Text = currentUSer.getFirstName() + currentUSer.getLastName();
+            profile.regionLabel.Text = "---";
+            profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
+            repHW.repMainPannel.Controls.Add(profile);
+            profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            profile.Show();
         }
     }
 }

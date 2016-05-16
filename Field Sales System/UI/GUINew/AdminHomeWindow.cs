@@ -31,6 +31,7 @@ namespace GUINew
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
+
             this.IsMdiContainer = true;
             addEmployee = new AddEmployee();
             addEmployee.MdiParent = this;
@@ -57,6 +58,11 @@ namespace GUINew
         }
 
         private void empIDText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

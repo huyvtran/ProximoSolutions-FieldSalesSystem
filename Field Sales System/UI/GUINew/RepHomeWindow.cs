@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,21 @@ namespace GUINew
 {
     public partial class RepHomeWindow : Form
     {
-        public RepHomeWindow()
+        Controller controller;
+        public RepHomeWindow(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void myProfileButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void repMainPannel_Paint(object sender, PaintEventArgs e)
+        {
+            controller.setMyHome_Representative();
         }
     }
 }

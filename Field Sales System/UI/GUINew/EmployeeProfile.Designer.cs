@@ -100,7 +100,6 @@
             this.photoLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.photoLabel.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.photoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.photoLabel.Image = global::GUINew.Properties.Resources.Camera;
             this.photoLabel.Location = new System.Drawing.Point(236, 21);
             this.photoLabel.Name = "photoLabel";
             this.photoLabel.Size = new System.Drawing.Size(150, 150);
@@ -191,7 +190,7 @@
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Image = global::GUINew.Properties.Resources.bday;
+       //     this.label9.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.bday;
             this.label9.Location = new System.Drawing.Point(584, 306);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 50);
@@ -202,7 +201,7 @@
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label10.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Image = global::GUINew.Properties.Resources.fax;
+       //     this.label10.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.fax;
             this.label10.Location = new System.Drawing.Point(584, 201);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 50);
@@ -213,7 +212,7 @@
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Image = global::GUINew.Properties.Resources.email;
+     //       this.label11.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.email;
             this.label11.Location = new System.Drawing.Point(584, 253);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 50);
@@ -224,7 +223,7 @@
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label12.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Image = global::GUINew.Properties.Resources.address;
+     //       this.label12.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.address;
             this.label12.Location = new System.Drawing.Point(103, 329);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 50);
@@ -235,7 +234,7 @@
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label13.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Image = global::GUINew.Properties.Resources.land_phone;
+     //       this.label13.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.land_phone;
             this.label13.Location = new System.Drawing.Point(103, 201);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(50, 50);
@@ -246,7 +245,7 @@
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label14.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Image = global::GUINew.Properties.Resources.mobile;
+       //     this.label14.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.mobile;
             this.label14.Location = new System.Drawing.Point(103, 254);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(50, 50);
@@ -335,7 +334,7 @@
             this.Controls.Add(this.photoLabel);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmployeeProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Profile";
@@ -345,28 +344,28 @@
 
         #endregion
 
-        private System.Windows.Forms.Label jobTitleLabel;
-        private System.Windows.Forms.Label regionLabel;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label ststusLabel;
-        private System.Windows.Forms.Label photoLabel;
-        private System.Windows.Forms.Label homeTelLabel;
-        private System.Windows.Forms.Label mobileLabel;
-        private System.Windows.Forms.Label addressLabel;
-        private System.Windows.Forms.Label cityLabel;
-        private System.Windows.Forms.Label bdayLabel;
-        private System.Windows.Forms.Label stateLabel;
-        private System.Windows.Forms.Label faxLabel;
-        private System.Windows.Forms.Label emailLabel;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button updateButton;
-        private System.Windows.Forms.Button changePwdButton;
+        public System.Windows.Forms.Label jobTitleLabel;
+        public System.Windows.Forms.Label regionLabel;
+        public System.Windows.Forms.Label nameLabel;
+        public System.Windows.Forms.Label ststusLabel;
+        public System.Windows.Forms.Label photoLabel;
+        public System.Windows.Forms.Label homeTelLabel;
+        public System.Windows.Forms.Label mobileLabel;
+        public System.Windows.Forms.Label addressLabel;
+        public System.Windows.Forms.Label cityLabel;
+        public System.Windows.Forms.Label bdayLabel;
+        public System.Windows.Forms.Label stateLabel;
+        public System.Windows.Forms.Label faxLabel;
+        public System.Windows.Forms.Label emailLabel;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.RichTextBox richTextBox1;
+        public System.Windows.Forms.Button updateButton;
+        public System.Windows.Forms.Button changePwdButton;
     }
 }

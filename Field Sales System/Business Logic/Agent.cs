@@ -16,7 +16,19 @@ namespace Field_Sales_System.Business_Logic
     {
         private string agencyName;
         private string coverageArea;
-        
+
+        public string CoverageArea
+        {
+            get
+            {
+                return coverageArea;
+            }
+
+            set
+            {
+                coverageArea = value;
+            }
+        }
 
         public Agent(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img)
             : base(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img)
@@ -28,7 +40,7 @@ namespace Field_Sales_System.Business_Logic
         }
         public void setCoverageArea(string coverageArea)
         {
-            this.coverageArea = coverageArea;
+            this.CoverageArea = coverageArea;
         }
         public string getAgencyName()
         {
@@ -36,7 +48,7 @@ namespace Field_Sales_System.Business_Logic
         }
         public string getCoverageArea()
         {
-            return this.coverageArea;
+            return this.CoverageArea;
         }
 
   

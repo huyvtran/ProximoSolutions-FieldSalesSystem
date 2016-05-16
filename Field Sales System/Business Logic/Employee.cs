@@ -16,6 +16,7 @@ namespace Field_Sales_System.Business_Logic
         private bool gender;
         private string firstName;
         private string lastName;
+
         [NonSerialized()] private DisplayPicture dp;
         [NonSerialized()] private ContactDetails contactDetails;
 

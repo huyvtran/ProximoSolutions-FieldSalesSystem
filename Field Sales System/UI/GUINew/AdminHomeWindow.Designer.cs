@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.addEmployeeButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainPannel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.viewReportsButton = new System.Windows.Forms.Button();
             this.itemDispatchButton = new System.Windows.Forms.Button();
@@ -99,12 +99,13 @@
             this.addEmployeeButton.UseVisualStyleBackColor = false;
             this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
-            // panel1
+            // mainPannel
             // 
-            this.panel1.Location = new System.Drawing.Point(279, 113);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1080, 600);
-            this.panel1.TabIndex = 11;
+            this.mainPannel.Location = new System.Drawing.Point(279, 113);
+            this.mainPannel.Name = "mainPannel";
+            this.mainPannel.Size = new System.Drawing.Size(1080, 600);
+            this.mainPannel.TabIndex = 11;
+            this.mainPannel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -231,7 +232,7 @@
             this.Controls.Add(this.itemDispatchButton);
             this.Controls.Add(this.viewReportsButton);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.mainPannel);
             this.Controls.Add(this.addEmployeeButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -256,7 +257,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button addEmployeeButton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel mainPannel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button viewReportsButton;
         private System.Windows.Forms.Button itemDispatchButton;
