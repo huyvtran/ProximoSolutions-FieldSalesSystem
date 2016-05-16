@@ -41,12 +41,24 @@ namespace Field_Sales_System.Utility_Classes
                     if (!connection.Equals(null))
                     {
                         List<Object> arr = c.retrieveLoginInfo(connection, empId);
-                        bool pwdMatch = computeHash(password).Equals(arr[1].ToString());
-                        bool isActive = (Int32)arr[2]==1;
+                    bool pwdMatch = false;
+                    bool isActive= false;
+                    bool userNotExisting = false;
+                    if (arr!=null)
+                    {
+                        pwdMatch = computeHash(password).Equals(arr[1].ToString());
+                        isActive = (bool)arr[2];
+                    }
+                    else {
+                        pwdMatch = false;
+                        userNotExisting = true;           
+                    }
+                        
                         if (connection.State == System.Data.ConnectionState.Open)
                         {
                             dbManager.closeConnection(connection);
                         }
+
 
                         if (pwdMatch && isActive)
                         {
@@ -59,7 +71,14 @@ namespace Field_Sales_System.Utility_Classes
                             return "Wrong password! Try again!";
                         }
                         else {
-                            return "Requested user is not active. Contact administrator!";
+                            if (userNotExisting)
+                            {
+                                return "Requested user is not existing. Contact administrator!";
+                            }
+                            else {
+                                return "Requested user is not active. Contact administrator!";
+                            }
+                            
                         }
                             
                         }

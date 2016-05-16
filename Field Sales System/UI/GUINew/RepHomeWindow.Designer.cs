@@ -206,6 +206,7 @@
             this.myProfileButton.TabIndex = 57;
             this.myProfileButton.Text = "My Profile";
             this.myProfileButton.UseVisualStyleBackColor = false;
+            this.myProfileButton.Click += new System.EventHandler(this.myProfileButton_Click);
             // 
             // label2
             // 
@@ -301,7 +302,7 @@
             this.Controls.Add(this.photoLabel);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RepHomeWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -328,8 +329,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label photoLabel;
+        public System.Windows.Forms.Label nameLabel;
+        public  System.Windows.Forms.Label photoLabel;
         private System.Windows.Forms.Button logoutButton;
     }
 }

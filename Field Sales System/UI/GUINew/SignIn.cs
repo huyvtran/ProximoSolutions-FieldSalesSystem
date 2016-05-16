@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,12 @@ namespace GUINew
     public partial class SignIn : Form
     {
         private ForgotPassword forgotPassword;
+        Controller controller;
 
-        public SignIn()
+        public SignIn(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -34,6 +37,11 @@ namespace GUINew
         private void signInButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void signInButton_Click(object sender, EventArgs e)
+        {
+            controller.logIn(Int32.Parse(usernameText.Text), passwordText.Text);
         }
     }
 }

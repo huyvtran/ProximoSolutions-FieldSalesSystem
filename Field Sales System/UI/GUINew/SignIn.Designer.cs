@@ -60,7 +60,8 @@
             this.passwordText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordText.Location = new System.Drawing.Point(20, 167);
             this.passwordText.Name = "passwordText";
-            this.passwordText.Size = new System.Drawing.Size(269, 28);
+            this.passwordText.PasswordChar = '*';
+            this.passwordText.Size = new System.Drawing.Size(269, 27);
             this.passwordText.TabIndex = 8;
             // 
             // usernameText
@@ -68,7 +69,7 @@
             this.usernameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameText.Location = new System.Drawing.Point(20, 103);
             this.usernameText.Name = "usernameText";
-            this.usernameText.Size = new System.Drawing.Size(269, 28);
+            this.usernameText.Size = new System.Drawing.Size(269, 27);
             this.usernameText.TabIndex = 7;
             // 
             // button2
@@ -102,7 +103,10 @@
             this.signInButton.TabIndex = 4;
             this.signInButton.Text = "Sign In";
             this.signInButton.UseVisualStyleBackColor = false;
+<<<<<<< HEAD
+=======
             this.signInButton.UseWaitCursor = true;
+>>>>>>> 800d958af49006cd97f34672ea507693dce71b6b
             this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // label4
@@ -173,14 +177,19 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+<<<<<<< HEAD
+        public  System.Windows.Forms.TextBox usernameText;
+        private System.Windows.Forms.ProgressBar progressBar1;
+=======
         private System.Windows.Forms.TextBox usernameText;
+>>>>>>> 800d958af49006cd97f34672ea507693dce71b6b
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button signInButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox passwordText;
+        public System.Windows.Forms.TextBox passwordText;
     }
 }
 

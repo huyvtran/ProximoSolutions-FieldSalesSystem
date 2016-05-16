@@ -80,6 +80,7 @@
     <Compile Include="Business Logic\Warehouse.cs" />
     <Compile Include="Business Logic\WarehouseManager.cs" />
     <Compile Include="Business Logic\WeeklySalesReport.cs" />
+    <Compile Include="ControlLogic\Controller.cs" />
     <Compile Include="dbServerDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,6 +88,102 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\GUINew\AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\AdminHomeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\AdminHomeWindow.Designer.cs">
+      <DependentUpon>AdminHomeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\AgentHomeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\AgentHomeWindow.Designer.cs">
+      <DependentUpon>AgentHomeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\ChangePasswordAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\ChangePasswordAdmin.Designer.cs">
+      <DependentUpon>ChangePasswordAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\EmployeeProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\EmployeeProfile.Designer.cs">
+      <DependentUpon>EmployeeProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\Invoice.Designer.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="UI\GUINew\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="UI\GUINew\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="UI\GUINew\Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\GUINew\Properties\Resources.Designer.cs" />
+    <Compile Include="UI\GUINew\Properties\Settings.Designer.cs" />
+    <Compile Include="UI\GUINew\proxmain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\proxmain.Designer.cs">
+      <DependentUpon>proxmain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\RepHomeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\RepHomeWindow.Designer.cs">
+      <DependentUpon>RepHomeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\ReportsHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\ReportsHome.Designer.cs">
+      <DependentUpon>ReportsHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\UpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\UpdateEmployee.Designer.cs">
+      <DependentUpon>UpdateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\ViewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\ViewEmployee.Designer.cs">
+      <DependentUpon>ViewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\WMHomeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\WMHomeWindow.Designer.cs">
+      <DependentUpon>WMHomeWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility Classes\ConnectionManager.cs" />
     <Compile Include="Utility Classes\IConnectionManager.cs" />
     <Compile Include="Utility Classes\ImageHandler.cs" />
@@ -103,6 +200,62 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\GUINew\AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\AdminHomeWindow.resx">
+      <DependentUpon>AdminHomeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\AgentHomeWindow.resx">
+      <DependentUpon>AgentHomeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\ChangePasswordAdmin.resx">
+      <DependentUpon>ChangePasswordAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\EmployeeProfile.resx">
+      <DependentUpon>EmployeeProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\Invoice.resx">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.AddEmployee.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.AdminHomeWindow.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.AgentHomeWindow.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.ChangePassword.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.ChangePasswordAdmin.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.ForgotPassword.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.Properties.Resources.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.RepHomeWindow.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.SignIn.resources" />
+    <EmbeddedResource Include="UI\GUINew\obj\Debug\GUINew.WMHomeWindow.resources" />
+    <EmbeddedResource Include="UI\GUINew\Properties\Resources.resx" />
+    <EmbeddedResource Include="UI\GUINew\proxmain.resx">
+      <DependentUpon>proxmain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\RepHomeWindow.resx">
+      <DependentUpon>RepHomeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\ReportsHome.resx">
+      <DependentUpon>ReportsHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\UpdateEmployee.resx">
+      <DependentUpon>UpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\ViewEmployee.resx">
+      <DependentUpon>ViewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\WMHomeWindow.resx">
+      <DependentUpon>WMHomeWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="dbServerDataSet.xsc">
       <DependentUpon>dbServerDataSet.xsd</DependentUpon>
     </None>
@@ -123,9 +276,48 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="UI\GUINew\App.config" />
+    <None Include="UI\GUINew\bin\Debug\GUINew.exe.config" />
+    <None Include="UI\GUINew\bin\Debug\GUINew.vshost.exe.config" />
+    <None Include="UI\GUINew\bin\Debug\GUINew.vshost.exe.manifest" />
+    <None Include="UI\GUINew\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="UI\GUINew\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="UI\GUINew\obj\Debug\GUINew.csproj.GenerateResource.Cache" />
+    <None Include="UI\GUINew\obj\Debug\GUINew.csprojResolveAssemblyReference.cache" />
+    <None Include="UI\GUINew\Properties\Settings.settings" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UI\GUINew\bin\Debug\GUINew.exe" />
+    <Content Include="UI\GUINew\bin\Debug\GUINew.pdb" />
+    <Content Include="UI\GUINew\bin\Debug\GUINew.vshost.exe" />
+    <Content Include="UI\GUINew\GUINew.csproj" />
+    <Content Include="UI\GUINew\Images\address.jpg" />
+    <Content Include="UI\GUINew\Images\AukhrwKPo8ZiStMvcJ8N5cU5PgfCGVRrSGmGeJJO7UdT.jpg" />
+    <Content Include="UI\GUINew\Images\bday.jpg" />
+    <Content Include="UI\GUINew\Images\Camera.jpg" />
+    <Content Include="UI\GUINew\Images\email.jpg" />
+    <Content Include="UI\GUINew\Images\fax.jpg" />
+    <Content Include="UI\GUINew\Images\Home.jpg" />
+    <Content Include="UI\GUINew\Images\land phone.jpg" />
+    <Content Include="UI\GUINew\Images\Logout.jpg" />
+    <Content Include="UI\GUINew\Images\mobile.jpg" />
+    <Content Include="UI\GUINew\obj\Debug\GUINew.csproj.FileListAbsolute.txt" />
+    <Content Include="UI\GUINew\obj\Debug\GUINew.exe" />
+    <Content Include="UI\GUINew\obj\Debug\GUINew.pdb" />
+    <Content Include="UI\GUINew\obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="UI\GUINew\Resources\address.jpg" />
+    <Content Include="UI\GUINew\Resources\AukhrwKPo8ZiStMvcJ8N5cU5PgfCGVRrSGmGeJJO7UdT.jpg" />
+    <Content Include="UI\GUINew\Resources\bday.jpg" />
+    <Content Include="UI\GUINew\Resources\Camera.jpg" />
+    <Content Include="UI\GUINew\Resources\email.jpg" />
+    <Content Include="UI\GUINew\Resources\fax.jpg" />
+    <Content Include="UI\GUINew\Resources\Home.jpg" />
+    <Content Include="UI\GUINew\Resources\land phone.jpg" />
+    <Content Include="UI\GUINew\Resources\Logout.jpg" />
+    <Content Include="UI\GUINew\Resources\mobile.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

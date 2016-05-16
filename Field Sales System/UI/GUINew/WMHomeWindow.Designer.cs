@@ -265,8 +265,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label photoLabel;
+        public System.Windows.Forms.Label nameLabel;
+        public System.Windows.Forms.Label photoLabel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
