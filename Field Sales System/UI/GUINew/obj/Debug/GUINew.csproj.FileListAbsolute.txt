@@ -15,3 +15,9 @@ E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUIN
 E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\GUINew.csproj.GenerateResource.Cache
 E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\GUINew.exe
 E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\GUINew.pdb
+E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\GUINew.EmployeeProfile.resources
+E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\GUINew.Invoice.resources
+E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\prox.proxmain.resources
+E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\GUINew.ReportsHome.resources
+E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\GUINew.UpdateEmployee.resources
+E:\Shona\University of Moratuwa\3rd Semester\OOSD\Semester Project\aaaa\GUI\GUINew\GUINew\obj\Debug\GUINew.ViewEmployee.resources
