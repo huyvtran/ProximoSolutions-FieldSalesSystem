@@ -93,7 +93,7 @@ namespace Field_Sales_System.Utility_Classes.Tests
             ConnectionManager c = new ConnectionManager();
             MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
             c.openConnection(connection);
-            List<ContactDetails> cnt = c.retrieveContactDetails(connection, 1212);
+            List<ContactDetails> cnt = c.retrieveContactDetails(connection, 2222);
         }
 
         [TestMethod()]

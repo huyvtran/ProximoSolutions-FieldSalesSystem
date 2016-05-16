@@ -40,7 +40,7 @@ namespace Field_Sales_System.Utility_Classes
                     connection = dbManager.openConnection(connection);
                     if (!connection.Equals(null))
                     {
-                        List<Object> arr = c.retrieveLoginInfo(connection, empId);
+                        List<object> arr = c.retrieveLoginInfo(connection, empId);
                     bool pwdMatch = false;
                     bool isActive= false;
                     bool userNotExisting = false;
@@ -48,6 +48,14 @@ namespace Field_Sales_System.Utility_Classes
                     {
                         pwdMatch = computeHash(password).Equals(arr[1].ToString());
                         isActive = (bool)arr[2];
+                        /*if ((int)arr[2] == 1)
+                        {
+                            isActive = true;
+                        }
+                        else {
+                            isActive = true;
+                        }
+                         */
                     }
                     else {
                         pwdMatch = false;

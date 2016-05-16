@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{575B5779-2F8E-4E09-BE80-AD8A3E684597}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Field_Sales_System</RootNamespace>
+    <AssemblyName>Field Sales System</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business Logic\Agent.cs" />
+    <Compile Include="Business Logic\CompanyAdmin.cs" />
+    <Compile Include="Business Logic\ContactDetails.cs" />
+    <Compile Include="Business Logic\ContactsManagement.cs" />
+    <Compile Include="Business Logic\DailySalesDetails.cs" />
+    <Compile Include="Business Logic\DailySalesReport.cs" />
+    <Compile Include="Business Logic\DisplayPicture.cs" />
+    <Compile Include="Business Logic\Employee.cs" />
+    <Compile Include="Business Logic\UserManagement.cs" />
+    <Compile Include="Business Logic\Order.cs" />
+    <Compile Include="Business Logic\OrderManagement.cs" />
+    <Compile Include="Business Logic\Representative.cs" />
+    <Compile Include="Business Logic\OrderPickupSchedule.cs" />
+    <Compile Include="Business Logic\OrderProcessDetails.cs" />
+    <Compile Include="Business Logic\Product.cs" />
+    <Compile Include="Business Logic\ProductDetails.cs" />
+    <Compile Include="Business Logic\SalesEntry.cs" />
+    <Compile Include="Business Logic\UserRole.cs" />
+    <Compile Include="Business Logic\OrderEntry.cs" />
+    <Compile Include="Business Logic\Permission.cs" />
+    <Compile Include="Business Logic\ReturnEntry.cs" />
+    <Compile Include="Business Logic\SalesReturn.cs" />
+    <Compile Include="Business Logic\User.cs" />
+    <Compile Include="Business Logic\Warehouse.cs" />
+    <Compile Include="Business Logic\WarehouseManager.cs" />
+    <Compile Include="Business Logic\WeeklySalesReport.cs" />
+    <Compile Include="dbServerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbServerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AddEmployee.Designer.cs" />
+    <Compile Include="UI\AdminHomeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AdminHomeWindow.Designer.cs" />
+    <Compile Include="UI\AgentHomeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AgentHomeWindow.Designer.cs" />
+    <Compile Include="UI\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ChangePassword.Designer.cs" />
+    <Compile Include="UI\ChangePasswordAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ChangePasswordAdmin.Designer.cs" />
+    <Compile Include="UI\EmployeeProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeProfile.Designer.cs" />
+    <Compile Include="UI\ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ForgotPassword.Designer.cs" />
+    <Compile Include="UI\Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Invoice.Designer.cs" />
+    <Compile Include="UI\Program.cs" />
+    <Compile Include="UI\proxmain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\proxmain.Designer.cs" />
+    <Compile Include="UI\RepHomeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RepHomeWindow.Designer.cs" />
+    <Compile Include="UI\ReportsHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ReportsHome.Designer.cs" />
+    <Compile Include="UI\SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SignIn.Designer.cs" />
+    <Compile Include="UI\UpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdateEmployee.Designer.cs" />
+    <Compile Include="UI\ViewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ViewEmployee.Designer.cs" />
+    <Compile Include="UI\WMHomeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\WMHomeWindow.Designer.cs" />
+    <Compile Include="Utility Classes\ConnectionManager.cs" />
+    <Compile Include="Utility Classes\IConnectionManager.cs" />
+    <Compile Include="Utility Classes\ImageHandler.cs" />
+    <Compile Include="Utility Classes\IObjectFactory.cs" />
+    <Compile Include="Utility Classes\ISecurityManager.cs" />
+    <Compile Include="Utility Classes\ObjectFactory.cs" />
+    <Compile Include="Utility Classes\SecurityManager.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\AddEmployee.resx" />
+    <EmbeddedResource Include="UI\AdminHomeWindow.resx" />
+    <EmbeddedResource Include="UI\AgentHomeWindow.resx" />
+    <EmbeddedResource Include="UI\ChangePassword.resx" />
+    <EmbeddedResource Include="UI\ChangePasswordAdmin.resx" />
+    <EmbeddedResource Include="UI\EmployeeProfile.resx" />
+    <EmbeddedResource Include="UI\ForgotPassword.resx" />
+    <EmbeddedResource Include="UI\Invoice.resx" />
+    <EmbeddedResource Include="UI\proxmain.resx" />
+    <EmbeddedResource Include="UI\RepHomeWindow.resx" />
+    <EmbeddedResource Include="UI\ReportsHome.resx" />
+    <EmbeddedResource Include="UI\SignIn.resx" />
+    <EmbeddedResource Include="UI\UpdateEmployee.resx" />
+    <EmbeddedResource Include="UI\ViewEmployee.resx" />
+    <EmbeddedResource Include="UI\WMHomeWindow.resx" />
+    <None Include="dbServerDataSet.xsc">
+      <DependentUpon>dbServerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbServerDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbServerDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbServerDataSet.xss">
+      <DependentUpon>dbServerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
