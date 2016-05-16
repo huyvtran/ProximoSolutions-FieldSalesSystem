@@ -10,20 +10,18 @@ using System.Windows.Forms;
 
 namespace GUINew
 {
-    public partial class ForgotPassword : Form
+    public partial class OrderDetails : Form
     {
-        public ForgotPassword()
+        public OrderDetails()
         {
             InitializeComponent();
         }
 
-        private SignIn signIn;
-
-        private void label3_Click(object sender, EventArgs e)
+        private ViewOrders viewOrders;
+        private void doneButton_Click(object sender, EventArgs e)
         {
-            signIn = new SignIn();
-            this.Hide();
-            signIn.ShowDialog();
+            this.Close();
+            viewOrders.ShowDialog();
         }
     }
 }

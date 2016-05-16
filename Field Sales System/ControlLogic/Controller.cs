@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Drawing;
+
 
 namespace Field_Sales_System.ControlLogic
 {
@@ -27,8 +29,12 @@ namespace Field_Sales_System.ControlLogic
         public Controller()
         { objectFactory = new ObjectFactory();
             securityManager = new SecurityManager();
+<<<<<<< HEAD
             openingDialogBox = new SignIn(this);
             profile = new EmployeeProfile();
+=======
+            openingDialogBox = new SignIn();
+>>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
         }
         public void initilizer()
         {
@@ -45,6 +51,7 @@ namespace Field_Sales_System.ControlLogic
                 if (u is CompanyAdmin)
                 {
                     adminHW = new AdminHomeWindow();
+<<<<<<< HEAD
                     adminHW.TopLevel = false;
                     adminHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     adminHW.photoLabel.Image = u.Dp.getPicture();
@@ -65,14 +72,35 @@ namespace Field_Sales_System.ControlLogic
                     repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     repHW.photoLabel.Image = u.Dp.getPicture();
                     openingDialogBox.Hide();
+=======
+                    adminHW.nameLabel.Text = u.getFirstName()+ " "+ u.getLastName();
+                    adminHW.photoLabel.Image = u.Dp.getPicture();
+                    adminHW.ShowDialog();
+                }   
+                else if (u is Agent)
+                {
+                    agentHW = new AgentHomeWindow();
+                    
+                    agentHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
+                    agentHW.photoLabel.Image = u.Dp.getPicture();
+                    agentHW.ShowDialog();
+                }
+                else if (u is Representative)
+                {
+                    repHW = new RepHomeWindow();
+                   
+                    repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
+                    repHW.photoLabel.Image = u.Dp.getPicture();
+>>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
                     repHW.ShowDialog();
                 }
                 else if (u is WarehouseManager)
                 {
                     wmHW = new WMHomeWindow();
-                    wmHW.Show();
+                   
                     wmHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     wmHW.photoLabel.Image = u.Dp.getPicture();
+                    wmHW.ShowDialog();
                 }
             }
             else
@@ -92,9 +120,17 @@ namespace Field_Sales_System.ControlLogic
             viewEmployee.ShowDialog();
         }
         public void adminSearchEmploee(int empId=0, string empFirstName="", string empLastName="")
+<<<<<<< HEAD
         {         
             viewEmployee.ShowDialog();
+=======
+        {
+            
+>>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
             viewEmployee.setData(objectFactory.searchUser(empId, empFirstName, empLastName));
+  
+            viewEmployee.ShowDialog();
+
         }
 
         public void setMyHome_Representative() {
