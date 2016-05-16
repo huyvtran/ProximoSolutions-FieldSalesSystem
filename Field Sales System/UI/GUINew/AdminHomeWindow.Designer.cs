@@ -99,7 +99,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(279, 113);
+            this.panel1.Location = new System.Drawing.Point(279, 119);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1080, 600);
             this.panel1.TabIndex = 11;
@@ -191,7 +191,9 @@
             this.logoutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoutButton.BackgroundImage")));
             this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutButton.Location = new System.Drawing.Point(1300, 12);
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Location = new System.Drawing.Point(1300, 18);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(50, 50);
             this.logoutButton.TabIndex = 18;
