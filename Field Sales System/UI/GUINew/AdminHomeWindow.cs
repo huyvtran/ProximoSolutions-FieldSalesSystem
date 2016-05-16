@@ -57,6 +57,7 @@ namespace GUINew
             if ()
           controller.adminSearchEmploee(empId)
         }
+<<<<<<< HEAD
 
         private void empIDText_TextChanged(object sender, EventArgs e)
         {
@@ -67,5 +68,7 @@ namespace GUINew
         {
 
         }
+=======
+>>>>>>> 1e4ef3ff4b8c1a637a426bbce4a3f5d81e322dfa
     }
 }

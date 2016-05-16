@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace GUINew
 {
-    public partial class ViewEmployee : Form
+    public partial class ViewOrders : Form
     {
-        public ViewEmployee()
+        public ViewOrders()
         {
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewOrder_Click(object sender, EventArgs e)
         {
 
         }

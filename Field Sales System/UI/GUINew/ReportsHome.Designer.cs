@@ -359,6 +359,8 @@
             this.homeButton.BackgroundImage = global::GUINew.Properties.Resources.Home;
             this.homeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.homeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeButton.FlatAppearance.BorderSize = 0;
+            this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.homeButton.Location = new System.Drawing.Point(1288, 12);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(50, 50);

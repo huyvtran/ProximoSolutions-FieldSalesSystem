@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace GUINew
 {
-    public partial class ViewEmployee : Form
+    public partial class OrderDetails : Form
     {
-        public ViewEmployee()
+        public OrderDetails()
         {
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private ViewOrders viewOrders;
+        private void doneButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            viewOrders.ShowDialog();
         }
     }
 }

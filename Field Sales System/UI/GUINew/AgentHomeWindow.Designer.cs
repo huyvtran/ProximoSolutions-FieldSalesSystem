@@ -268,6 +268,8 @@
             this.logoutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoutButton.BackgroundImage")));
             this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Location = new System.Drawing.Point(1300, 12);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(50, 50);
@@ -315,8 +317,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label nameLabel;
-        public System.Windows.Forms.Label photoLabel;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label photoLabel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button goodsReceiveNoteButton;
         private System.Windows.Forms.Button myProfileButton;

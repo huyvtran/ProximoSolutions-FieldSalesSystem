@@ -42,8 +42,11 @@
             this.viewEmployeesButton = new System.Windows.Forms.Button();
             this.empLastNameText = new System.Windows.Forms.TextBox();
             this.logoutButton = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.empFirstNameText = new System.Windows.Forms.TextBox();
             this.employeeIDText = new System.Windows.Forms.TextBox();
+=======
+>>>>>>> 1e4ef3ff4b8c1a637a426bbce4a3f5d81e322dfa
             this.SuspendLayout();
             // 
             // photoLabel
@@ -101,7 +104,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(279, 113);
+            this.panel1.Location = new System.Drawing.Point(279, 119);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1080, 600);
             this.panel1.TabIndex = 11;
@@ -156,7 +159,7 @@
             this.searchEmployeeButton.FlatAppearance.BorderSize = 0;
             this.searchEmployeeButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEmployeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 394);
+            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 373);
             this.searchEmployeeButton.Name = "searchEmployeeButton";
             this.searchEmployeeButton.Size = new System.Drawing.Size(236, 30);
             this.searchEmployeeButton.TabIndex = 15;
@@ -182,23 +185,34 @@
             // 
             // empLastNameText
             // 
+<<<<<<< HEAD
             this.empLastNameText.Location = new System.Drawing.Point(16, 362);
             this.empLastNameText.Name = "empLastNameText";
             this.empLastNameText.Size = new System.Drawing.Size(236, 26);
             this.empLastNameText.TabIndex = 17;
             this.empLastNameText.Text = "Employee Last Name";
+=======
+            this.empNameText.Location = new System.Drawing.Point(16, 346);
+            this.empNameText.Name = "empNameText";
+            this.empNameText.Size = new System.Drawing.Size(236, 26);
+            this.empNameText.TabIndex = 17;
+            this.empNameText.Text = "Employee Name";
+>>>>>>> 1e4ef3ff4b8c1a637a426bbce4a3f5d81e322dfa
             // 
             // logoutButton
             // 
             this.logoutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoutButton.BackgroundImage")));
             this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutButton.Location = new System.Drawing.Point(1300, 12);
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Location = new System.Drawing.Point(1300, 18);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(50, 50);
             this.logoutButton.TabIndex = 18;
             this.logoutButton.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
             // empFirstNameText
             // 
             this.empFirstNameText.Location = new System.Drawing.Point(16, 330);
@@ -217,14 +231,19 @@
             this.employeeIDText.Text = "Employee ID";
             this.employeeIDText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+=======
+>>>>>>> 1e4ef3ff4b8c1a637a426bbce4a3f5d81e322dfa
             // AdminHomeWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1362, 741);
+<<<<<<< HEAD
             this.Controls.Add(this.employeeIDText);
             this.Controls.Add(this.empFirstNameText);
+=======
+>>>>>>> 1e4ef3ff4b8c1a637a426bbce4a3f5d81e322dfa
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.empLastNameText);
             this.Controls.Add(this.viewEmployeesButton);
@@ -252,8 +271,8 @@
 
         #endregion
 
-        public System.Windows.Forms.Label photoLabel;
-        public System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label photoLabel;
+        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button addEmployeeButton;
@@ -265,7 +284,10 @@
         private System.Windows.Forms.Button viewEmployeesButton;
         private System.Windows.Forms.TextBox empLastNameText;
         private System.Windows.Forms.Button logoutButton;
+<<<<<<< HEAD
         private System.Windows.Forms.TextBox empFirstNameText;
         private System.Windows.Forms.TextBox employeeIDText;
+=======
+>>>>>>> 1e4ef3ff4b8c1a637a426bbce4a3f5d81e322dfa
     }
 }
