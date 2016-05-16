@@ -103,11 +103,8 @@
             this.signInButton.TabIndex = 4;
             this.signInButton.Text = "Sign In";
             this.signInButton.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
-=======
             this.signInButton.UseWaitCursor = true;
->>>>>>> 800d958af49006cd97f34672ea507693dce71b6b
-            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click_1);
             // 
             // label4
             // 
@@ -177,12 +174,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-<<<<<<< HEAD
         public  System.Windows.Forms.TextBox usernameText;
         private System.Windows.Forms.ProgressBar progressBar1;
-=======
-        private System.Windows.Forms.TextBox usernameText;
->>>>>>> 800d958af49006cd97f34672ea507693dce71b6b
+
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button signInButton;
         private System.Windows.Forms.Label label4;

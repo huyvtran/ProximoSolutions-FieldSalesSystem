@@ -646,7 +646,7 @@ namespace Field_Sales_System.Utility_Classes
                     break;
                 }
             }
-            if (!returnUser.Equals(null))
+            if (returnUser!=null)
             {
                 return returnUser;
             }
@@ -657,7 +657,12 @@ namespace Field_Sales_System.Utility_Classes
                     if (!connection.Equals(null))
                     {
                         returnUser = dbManager.retrieveUser(connection, empId)[0];
-                        returnUser.Dp = new DisplayPicture(dbManager.retrieveImage(connection, returnUser.getEmpId()));
+                        dbManager.closeConnection(connection);
+                        dbManager.openConnection(connection);
+                        Image i = dbManager.retrieveImage(connection, returnUser.getEmpId());
+                        dbManager.closeConnection(connection);
+                        dbManager.openConnection(connection);
+                        returnUser.Dp = new DisplayPicture(i);
                         List<ContactDetails> contacts = dbManager.retrieveContactDetails(connection, returnUser.getEmpId());
                         returnUser.ContactDetails = contacts[contacts.Count - 1];
 

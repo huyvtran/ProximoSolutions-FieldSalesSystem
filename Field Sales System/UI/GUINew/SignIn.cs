@@ -34,12 +34,14 @@ namespace GUINew
             forgotPassword.ShowDialog();
         }
 
+       
+
         private void signInButton_Click(object sender, EventArgs e)
         {
-
+            //controller.logIn(Int32.Parse(usernameText.Text), passwordText.Text);
         }
 
-        private void signInButton_Click(object sender, EventArgs e)
+        private void signInButton_Click_1(object sender, EventArgs e)
         {
             controller.logIn(Int32.Parse(usernameText.Text), passwordText.Text);
         }

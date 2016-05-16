@@ -67,9 +67,9 @@
     <Compile Include="Utility Classes\SecurityManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Field Sales System_CrashRecovery.csproj">
+    <ProjectReference Include="..\Field Sales System2.csproj">
       <Project>{575B5779-2F8E-4E09-BE80-AD8A3E684597}</Project>
-      <Name>Field Sales System_CrashRecovery</Name>
+      <Name>Field Sales System2</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
