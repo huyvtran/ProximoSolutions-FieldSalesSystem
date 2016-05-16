@@ -30,7 +30,13 @@ namespace GUINew
         private void button2_Click(object sender, EventArgs e)
         {
             forgotPassword = new ForgotPassword();
-            forgotPassword.Show();
+            this.Hide();
+            forgotPassword.ShowDialog();
+        }
+
+        private void signInButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void signInButton_Click(object sender, EventArgs e)

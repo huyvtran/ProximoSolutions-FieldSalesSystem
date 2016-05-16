@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.passwordText = new System.Windows.Forms.TextBox();
             this.usernameText = new System.Windows.Forms.TextBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button2 = new System.Windows.Forms.Button();
             this.signInButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@
             // 
             this.panel1.Controls.Add(this.passwordText);
             this.panel1.Controls.Add(this.usernameText);
-            this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.signInButton);
             this.panel1.Controls.Add(this.label4);
@@ -74,13 +72,6 @@
             this.usernameText.Size = new System.Drawing.Size(269, 27);
             this.usernameText.TabIndex = 7;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(-1, 347);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(318, 10);
-            this.progressBar1.TabIndex = 6;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
@@ -101,7 +92,7 @@
             // signInButton
             // 
             this.signInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.signInButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signInButton.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.signInButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.signInButton.FlatAppearance.BorderSize = 0;
             this.signInButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,6 +103,10 @@
             this.signInButton.TabIndex = 4;
             this.signInButton.Text = "Sign In";
             this.signInButton.UseVisualStyleBackColor = false;
+<<<<<<< HEAD
+=======
+            this.signInButton.UseWaitCursor = true;
+>>>>>>> 800d958af49006cd97f34672ea507693dce71b6b
             this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // label4
@@ -141,7 +136,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label2.Location = new System.Drawing.Point(63, 330);
+            this.label2.Location = new System.Drawing.Point(50, 330);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(252, 14);
             this.label2.TabIndex = 1;
@@ -182,8 +177,12 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+<<<<<<< HEAD
         public  System.Windows.Forms.TextBox usernameText;
         private System.Windows.Forms.ProgressBar progressBar1;
+=======
+        private System.Windows.Forms.TextBox usernameText;
+>>>>>>> 800d958af49006cd97f34672ea507693dce71b6b
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button signInButton;
         private System.Windows.Forms.Label label4;

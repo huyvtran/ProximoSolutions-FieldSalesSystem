@@ -218,6 +218,7 @@
     <Content Include="Images\land phone.jpg" />
     <Content Include="Images\Logout.jpg" />
     <Content Include="Images\mobile.jpg" />
+    <None Include="Resources\back.jpg" />
     <None Include="Resources\mobile.jpg" />
     <None Include="Resources\Logout.jpg" />
     <None Include="Resources\Home.jpg" />
