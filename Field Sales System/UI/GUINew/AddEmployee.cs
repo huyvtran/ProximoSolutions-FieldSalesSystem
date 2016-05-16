@@ -21,5 +21,10 @@ namespace GUINew
         {
 
         }
+
+        internal static void showDialog()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
