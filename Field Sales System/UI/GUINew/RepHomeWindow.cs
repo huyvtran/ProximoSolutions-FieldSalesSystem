@@ -16,10 +16,5 @@ namespace GUINew
         {
             InitializeComponent();
         }
-
-        private void myProfileButton_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

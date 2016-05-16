@@ -42,8 +42,6 @@
             this.viewEmployeesButton = new System.Windows.Forms.Button();
             this.empNameText = new System.Windows.Forms.TextBox();
             this.logoutButton = new System.Windows.Forms.Button();
-            this.empIDText = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // photoLabel
@@ -156,7 +154,7 @@
             this.searchEmployeeButton.FlatAppearance.BorderSize = 0;
             this.searchEmployeeButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEmployeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 394);
+            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 373);
             this.searchEmployeeButton.Name = "searchEmployeeButton";
             this.searchEmployeeButton.Size = new System.Drawing.Size(236, 30);
             this.searchEmployeeButton.TabIndex = 15;
@@ -182,11 +180,11 @@
             // 
             // empNameText
             // 
-            this.empNameText.Location = new System.Drawing.Point(16, 362);
+            this.empNameText.Location = new System.Drawing.Point(16, 346);
             this.empNameText.Name = "empNameText";
             this.empNameText.Size = new System.Drawing.Size(236, 26);
             this.empNameText.TabIndex = 17;
-            this.empNameText.Text = "Employee Last Name";
+            this.empNameText.Text = "Employee Name";
             // 
             // logoutButton
             // 
@@ -201,31 +199,12 @@
             this.logoutButton.TabIndex = 18;
             this.logoutButton.UseVisualStyleBackColor = true;
             // 
-            // empIDText
-            // 
-            this.empIDText.Location = new System.Drawing.Point(16, 330);
-            this.empIDText.Name = "empIDText";
-            this.empIDText.Size = new System.Drawing.Size(236, 26);
-            this.empIDText.TabIndex = 19;
-            this.empIDText.Text = "Employee First Name";
-            this.empIDText.TextChanged += new System.EventHandler(this.empIDText_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(16, 298);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 26);
-            this.textBox1.TabIndex = 20;
-            this.textBox1.Text = "Employee ID";
-            // 
             // AdminHomeWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1362, 741);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.empIDText);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.empNameText);
             this.Controls.Add(this.viewEmployeesButton);
@@ -253,8 +232,8 @@
 
         #endregion
 
-        public System.Windows.Forms.Label photoLabel;
-        public System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label photoLabel;
+        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button addEmployeeButton;
@@ -266,7 +245,5 @@
         private System.Windows.Forms.Button viewEmployeesButton;
         private System.Windows.Forms.TextBox empNameText;
         private System.Windows.Forms.Button logoutButton;
-        private System.Windows.Forms.TextBox empIDText;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

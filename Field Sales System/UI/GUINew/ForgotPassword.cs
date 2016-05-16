@@ -21,9 +21,9 @@ namespace GUINew
 
         private void label3_Click(object sender, EventArgs e)
         {
-            //signIn = new SignIn();
-            //this.Hide();
-            //signIn.ShowDialog();
+            signIn = new SignIn();
+            this.Hide();
+            signIn.ShowDialog();
         }
     }
 }

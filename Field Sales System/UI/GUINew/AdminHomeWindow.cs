@@ -55,10 +55,5 @@ namespace GUINew
             employeeProfile.Show();
             employeeProfile.Location = new Point(279, 113);
         }
-
-        private void empIDText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

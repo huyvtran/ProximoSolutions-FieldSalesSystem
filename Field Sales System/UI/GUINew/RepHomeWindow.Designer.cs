@@ -206,7 +206,6 @@
             this.myProfileButton.TabIndex = 57;
             this.myProfileButton.Text = "My Profile";
             this.myProfileButton.UseVisualStyleBackColor = false;
-            this.myProfileButton.Click += new System.EventHandler(this.myProfileButton_Click);
             // 
             // label2
             // 
@@ -331,8 +330,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label nameLabel;
-        public  System.Windows.Forms.Label photoLabel;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label photoLabel;
         private System.Windows.Forms.Button logoutButton;
     }
 }
