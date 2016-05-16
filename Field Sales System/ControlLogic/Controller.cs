@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Drawing;
+
 
 namespace Field_Sales_System.ControlLogic
 {
@@ -43,30 +45,33 @@ namespace Field_Sales_System.ControlLogic
                 if (u is CompanyAdmin)
                 {
                     adminHW = new AdminHomeWindow();
-                    adminHW.ShowDialog();
-                    adminHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
+                    adminHW.nameLabel.Text = u.getFirstName()+ " "+ u.getLastName();
                     adminHW.photoLabel.Image = u.Dp.getPicture();
-                }
+                    adminHW.ShowDialog();
+                }   
                 else if (u is Agent)
                 {
                     agentHW = new AgentHomeWindow();
-                    agentHW.Show();
+                    
                     agentHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     agentHW.photoLabel.Image = u.Dp.getPicture();
+                    agentHW.ShowDialog();
                 }
                 else if (u is Representative)
                 {
                     repHW = new RepHomeWindow();
-                    repHW.Show();
+                   
                     repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     repHW.photoLabel.Image = u.Dp.getPicture();
+                    repHW.ShowDialog();
                 }
                 else if (u is WarehouseManager)
                 {
                     wmHW = new WMHomeWindow();
-                    wmHW.Show();
+                   
                     wmHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     wmHW.photoLabel.Image = u.Dp.getPicture();
+                    wmHW.ShowDialog();
                 }
             }
             else
@@ -88,9 +93,10 @@ namespace Field_Sales_System.ControlLogic
         public void adminSearchEmploee(int empId=0, string empFirstName="", string empLastName="")
         {
             
-            
-            viewEmployee.ShowDialog();
             viewEmployee.setData(objectFactory.searchUser(empId, empFirstName, empLastName));
+  
+            viewEmployee.ShowDialog();
+
         }
     }
 }
