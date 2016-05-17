@@ -30,13 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RepHomeWindow));
             this.requestNewOrderButton = new System.Windows.Forms.Button();
-            this.invoiceButton = new System.Windows.Forms.Button();
             this.viewReportsButton = new System.Windows.Forms.Button();
-            this.itemDispatchButton = new System.Windows.Forms.Button();
             this.lastNameText = new System.Windows.Forms.TextBox();
             this.searchRepsButton = new System.Windows.Forms.Button();
-            this.viewInventoryButton = new System.Windows.Forms.Button();
-            this.goodsReceiveNoteButton = new System.Windows.Forms.Button();
             this.myProfileButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.repMainPannel = new System.Windows.Forms.Panel();
@@ -57,27 +53,12 @@
             this.requestNewOrderButton.FlatAppearance.BorderSize = 0;
             this.requestNewOrderButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestNewOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.requestNewOrderButton.Location = new System.Drawing.Point(16, 336);
+            this.requestNewOrderButton.Location = new System.Drawing.Point(16, 367);
             this.requestNewOrderButton.Name = "requestNewOrderButton";
             this.requestNewOrderButton.Size = new System.Drawing.Size(236, 30);
             this.requestNewOrderButton.TabIndex = 67;
             this.requestNewOrderButton.Text = "Request New Order";
             this.requestNewOrderButton.UseVisualStyleBackColor = false;
-            // 
-            // invoiceButton
-            // 
-            this.invoiceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.invoiceButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.invoiceButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.invoiceButton.FlatAppearance.BorderSize = 0;
-            this.invoiceButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoiceButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.invoiceButton.Location = new System.Drawing.Point(16, 465);
-            this.invoiceButton.Name = "invoiceButton";
-            this.invoiceButton.Size = new System.Drawing.Size(236, 30);
-            this.invoiceButton.TabIndex = 66;
-            this.invoiceButton.Text = "Invoice";
-            this.invoiceButton.UseVisualStyleBackColor = false;
             // 
             // viewReportsButton
             // 
@@ -87,31 +68,16 @@
             this.viewReportsButton.FlatAppearance.BorderSize = 0;
             this.viewReportsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewReportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewReportsButton.Location = new System.Drawing.Point(16, 663);
+            this.viewReportsButton.Location = new System.Drawing.Point(16, 461);
             this.viewReportsButton.Name = "viewReportsButton";
             this.viewReportsButton.Size = new System.Drawing.Size(236, 30);
             this.viewReportsButton.TabIndex = 63;
             this.viewReportsButton.Text = "View Reports";
             this.viewReportsButton.UseVisualStyleBackColor = false;
             // 
-            // itemDispatchButton
-            // 
-            this.itemDispatchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.itemDispatchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.itemDispatchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.itemDispatchButton.FlatAppearance.BorderSize = 0;
-            this.itemDispatchButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemDispatchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.itemDispatchButton.Location = new System.Drawing.Point(16, 531);
-            this.itemDispatchButton.Name = "itemDispatchButton";
-            this.itemDispatchButton.Size = new System.Drawing.Size(236, 30);
-            this.itemDispatchButton.TabIndex = 64;
-            this.itemDispatchButton.Text = "Item Dispatch Note";
-            this.itemDispatchButton.UseVisualStyleBackColor = false;
-            // 
             // lastNameText
             // 
-            this.lastNameText.Location = new System.Drawing.Point(16, 247);
+            this.lastNameText.Location = new System.Drawing.Point(16, 255);
             this.lastNameText.Name = "lastNameText";
             this.lastNameText.Size = new System.Drawing.Size(236, 26);
             this.lastNameText.TabIndex = 62;
@@ -127,44 +93,13 @@
             this.searchRepsButton.FlatAppearance.BorderSize = 0;
             this.searchRepsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchRepsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchRepsButton.Location = new System.Drawing.Point(16, 274);
+            this.searchRepsButton.Location = new System.Drawing.Point(16, 282);
             this.searchRepsButton.Name = "searchRepsButton";
             this.searchRepsButton.Size = new System.Drawing.Size(236, 30);
             this.searchRepsButton.TabIndex = 60;
             this.searchRepsButton.Text = "Search Users";
             this.searchRepsButton.UseVisualStyleBackColor = false;
             this.searchRepsButton.Click += new System.EventHandler(this.searchRepsButton_Click);
-            // 
-            // viewInventoryButton
-            // 
-            this.viewInventoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.viewInventoryButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.viewInventoryButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewInventoryButton.FlatAppearance.BorderSize = 0;
-            this.viewInventoryButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewInventoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewInventoryButton.Location = new System.Drawing.Point(16, 403);
-            this.viewInventoryButton.Name = "viewInventoryButton";
-            this.viewInventoryButton.Size = new System.Drawing.Size(236, 30);
-            this.viewInventoryButton.TabIndex = 59;
-            this.viewInventoryButton.Text = "View Orders";
-            this.viewInventoryButton.UseVisualStyleBackColor = false;
-            this.viewInventoryButton.Click += new System.EventHandler(this.viewInventoryButton_Click);
-            // 
-            // goodsReceiveNoteButton
-            // 
-            this.goodsReceiveNoteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.goodsReceiveNoteButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.goodsReceiveNoteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.goodsReceiveNoteButton.FlatAppearance.BorderSize = 0;
-            this.goodsReceiveNoteButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goodsReceiveNoteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.goodsReceiveNoteButton.Location = new System.Drawing.Point(16, 599);
-            this.goodsReceiveNoteButton.Name = "goodsReceiveNoteButton";
-            this.goodsReceiveNoteButton.Size = new System.Drawing.Size(236, 30);
-            this.goodsReceiveNoteButton.TabIndex = 58;
-            this.goodsReceiveNoteButton.Text = "Goods Receive Note";
-            this.goodsReceiveNoteButton.UseVisualStyleBackColor = false;
             // 
             // myProfileButton
             // 
@@ -253,7 +188,7 @@
             // 
             // firstNameText
             // 
-            this.firstNameText.Location = new System.Drawing.Point(16, 219);
+            this.firstNameText.Location = new System.Drawing.Point(16, 227);
             this.firstNameText.Name = "firstNameText";
             this.firstNameText.Size = new System.Drawing.Size(236, 26);
             this.firstNameText.TabIndex = 69;
@@ -263,7 +198,7 @@
             // 
             // empIdText
             // 
-            this.empIdText.Location = new System.Drawing.Point(16, 191);
+            this.empIdText.Location = new System.Drawing.Point(16, 199);
             this.empIdText.Name = "empIdText";
             this.empIdText.Size = new System.Drawing.Size(236, 26);
             this.empIdText.TabIndex = 70;
@@ -278,17 +213,13 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1354, 733);
-            this.Controls.Add(this.goodsReceiveNoteButton);
             this.Controls.Add(this.empIdText);
             this.Controls.Add(this.firstNameText);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.requestNewOrderButton);
-            this.Controls.Add(this.invoiceButton);
             this.Controls.Add(this.viewReportsButton);
-            this.Controls.Add(this.itemDispatchButton);
             this.Controls.Add(this.lastNameText);
             this.Controls.Add(this.searchRepsButton);
-            this.Controls.Add(this.viewInventoryButton);
             this.Controls.Add(this.myProfileButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.repMainPannel);
@@ -317,13 +248,9 @@
 
 
         public System.Windows.Forms.Button requestNewOrderButton;
-        public System.Windows.Forms.Button invoiceButton;
         public System.Windows.Forms.Button viewReportsButton;
-        public System.Windows.Forms.Button itemDispatchButton;
         public System.Windows.Forms.TextBox lastNameText;
         public System.Windows.Forms.Button searchRepsButton;
-        public System.Windows.Forms.Button viewInventoryButton;
-        public System.Windows.Forms.Button goodsReceiveNoteButton;
         public System.Windows.Forms.Button myProfileButton;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Panel panel1;
