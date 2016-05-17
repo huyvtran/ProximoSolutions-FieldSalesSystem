@@ -57,7 +57,7 @@ namespace GUINew
             {
                 int employeeID = int.Parse(employeeIDtext);
             }
-            catch (FormatException e)
+            catch (FormatException ae)
             {
                 MessageBox.Show("invalid input,enter numbers only");
             }

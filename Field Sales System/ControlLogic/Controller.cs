@@ -120,10 +120,10 @@ namespace Field_Sales_System.ControlLogic
             userRoleList.Add(userRole);
             return userRoleList;
         }
-        public string addAdminEmployerSave(int empId, int empNIC,DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType)
+        public string addAdminEmployerSave(int empId, int empNIC,DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType,int empIdPass)
         {
             List<UserRole> roles = addUserRole(userType);
-             return objectFactory.storeUser(empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles);
+             return ((CompanyAdmin)currentUser).addUser(objectFactory,securityManager, empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles, Convert.ToString(empIdPass));
         }
       
         public void adminViewEmployer()
@@ -143,6 +143,17 @@ namespace Field_Sales_System.ControlLogic
             profile.TopLevel = false;
             repHW.TopLevel = true;
             profile.AutoScroll = true;
+<<<<<<< HEAD
+            profile.updateButton.Visible = false;
+            profile.addressLabel.Text = currentUSer.ContactDetails.AddressLine_1;
+            profile.cityLabel.Text = currentUSer.ContactDetails.AddressLine_2;
+            profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
+            profile.mobileLabel.Text = currentUSer.ContactDetails.MobileNo.ToString();
+            profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
+            profile.nameLabel.Text = currentUSer.getFirstName() + currentUSer.getLastName();
+            profile.regionLabel.Text = "---";
+            //profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
+=======
             
             profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
             profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
@@ -152,6 +163,7 @@ namespace Field_Sales_System.ControlLogic
             profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
             profile.regionLabel.Text = "---";
             profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+>>>>>>> 70d7d524e93ac88b526aac86ee99c5029a42853f
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();

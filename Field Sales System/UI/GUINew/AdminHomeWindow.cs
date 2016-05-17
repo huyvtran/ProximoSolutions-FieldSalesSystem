@@ -23,11 +23,10 @@ namespace GUINew
         {
             controller = controll;
             InitializeComponent();
-<<<<<<< HEAD
-=======
+
             this.controller = controller;
             searchEmployeeButton.Enabled = false;
->>>>>>> 8cc8e2452166f4e3da5d629ab3986bb2d3df4426
+
         }
 
         private void viewReportsButton_Click(object sender, EventArgs e)
@@ -54,23 +53,22 @@ namespace GUINew
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
-
-            this.IsMdiContainer = true;
-            employeeProfile = new EmployeeProfile(controller);
-            employeeProfile.MdiParent = this;
-            employeeProfile.Show();
-            employeeProfile.Location = new Point(279, 113);
 
 
+            //.IsMdiContainer = true;
+           // employeeProfile = new EmployeeProfile(controller);
+           // employeeProfile.MdiParent = this;
+          //  employeeProfile.Show();
+            //employeeProfile.Location = new Point(279, 113);
 
->>>>>>> 8cc8e2452166f4e3da5d629ab3986bb2d3df4426
+
+
+
             string employeeIDtext = empLastNameText.Text;
             try {
                 int employeeID = int.Parse(employeeIDtext);
                 }
-            catch(FormatException e)
+            catch(FormatException a)
             {
                 MessageBox.Show("invalid input,enter numbers only");
             }

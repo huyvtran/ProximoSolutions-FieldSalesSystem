@@ -134,6 +134,7 @@
             this.employeeFirstNameText.Size = new System.Drawing.Size(236, 26);
             this.employeeFirstNameText.TabIndex = 37;
             this.employeeFirstNameText.Text = "Employee First Name";
+            this.employeeFirstNameText.TextChanged += new System.EventHandler(this.employeeFirstNameText_TextChanged);
             // 
             // button3
             // 
