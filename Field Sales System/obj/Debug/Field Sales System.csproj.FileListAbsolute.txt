@@ -50,8 +50,7 @@ H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csprojResolveAssemblyReference.cache
-<<<<<<< HEAD
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.Inventory.resources
-=======
 >>>>>>> 70d7d524e93ac88b526aac86ee99c5029a42853f
 >>>>>>> a6a071cc7e96a5471a88d71d5421d75965c75db5
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.Inventory.resources
