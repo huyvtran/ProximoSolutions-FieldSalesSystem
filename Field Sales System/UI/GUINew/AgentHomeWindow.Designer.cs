@@ -37,7 +37,7 @@
             this.photoLabel = new System.Windows.Forms.Label();
             this.viewReportsButton = new System.Windows.Forms.Button();
             this.itemDispatchButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.empFirstName = new System.Windows.Forms.TextBox();
             this.viewRepsButton = new System.Windows.Forms.Button();
             this.searchRepsButton = new System.Windows.Forms.Button();
             this.viewInventoryButton = new System.Windows.Forms.Button();
@@ -47,16 +47,18 @@
             this.salesReturnButton = new System.Windows.Forms.Button();
             this.changeOrderButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.empLastName = new System.Windows.Forms.TextBox();
+            this.empID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.label2.Location = new System.Drawing.Point(1107, 712);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(252, 14);
+            this.label2.Size = new System.Drawing.Size(295, 15);
             this.label2.TabIndex = 37;
             this.label2.Text = " UPALI FOODS AND BEVERAGES (PVT.) LTD.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -111,7 +113,7 @@
             this.viewReportsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewReportsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.viewReportsButton.FlatAppearance.BorderSize = 0;
-            this.viewReportsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewReportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewReportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.viewReportsButton.Location = new System.Drawing.Point(16, 667);
             this.viewReportsButton.Name = "viewReportsButton";
@@ -126,7 +128,7 @@
             this.itemDispatchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.itemDispatchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.itemDispatchButton.FlatAppearance.BorderSize = 0;
-            this.itemDispatchButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemDispatchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemDispatchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.itemDispatchButton.Location = new System.Drawing.Point(16, 445);
             this.itemDispatchButton.Name = "itemDispatchButton";
@@ -135,13 +137,13 @@
             this.itemDispatchButton.Text = "Item Dispatch";
             this.itemDispatchButton.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // empFirstName
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 242);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 26);
-            this.textBox1.TabIndex = 45;
-            this.textBox1.Text = "Employee Name";
+            this.empFirstName.Location = new System.Drawing.Point(16, 239);
+            this.empFirstName.Name = "empFirstName";
+            this.empFirstName.Size = new System.Drawing.Size(232, 26);
+            this.empFirstName.TabIndex = 45;
+            this.empFirstName.Text = "Employee First Name";
             // 
             // viewRepsButton
             // 
@@ -149,9 +151,9 @@
             this.viewRepsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewRepsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.viewRepsButton.FlatAppearance.BorderSize = 0;
-            this.viewRepsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewRepsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewRepsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewRepsButton.Location = new System.Drawing.Point(16, 182);
+            this.viewRepsButton.Location = new System.Drawing.Point(15, 163);
             this.viewRepsButton.Name = "viewRepsButton";
             this.viewRepsButton.Size = new System.Drawing.Size(236, 30);
             this.viewRepsButton.TabIndex = 44;
@@ -164,9 +166,9 @@
             this.searchRepsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchRepsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.searchRepsButton.FlatAppearance.BorderSize = 0;
-            this.searchRepsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchRepsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchRepsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchRepsButton.Location = new System.Drawing.Point(16, 269);
+            this.searchRepsButton.Location = new System.Drawing.Point(16, 303);
             this.searchRepsButton.Name = "searchRepsButton";
             this.searchRepsButton.Size = new System.Drawing.Size(236, 30);
             this.searchRepsButton.TabIndex = 43;
@@ -179,9 +181,9 @@
             this.viewInventoryButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewInventoryButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.viewInventoryButton.FlatAppearance.BorderSize = 0;
-            this.viewInventoryButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewInventoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewInventoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewInventoryButton.Location = new System.Drawing.Point(16, 328);
+            this.viewInventoryButton.Location = new System.Drawing.Point(16, 351);
             this.viewInventoryButton.Name = "viewInventoryButton";
             this.viewInventoryButton.Size = new System.Drawing.Size(236, 30);
             this.viewInventoryButton.TabIndex = 42;
@@ -194,7 +196,7 @@
             this.goodsReceiveNoteButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goodsReceiveNoteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.goodsReceiveNoteButton.FlatAppearance.BorderSize = 0;
-            this.goodsReceiveNoteButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goodsReceiveNoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goodsReceiveNoteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.goodsReceiveNoteButton.Location = new System.Drawing.Point(16, 387);
             this.goodsReceiveNoteButton.Name = "goodsReceiveNoteButton";
@@ -209,7 +211,7 @@
             this.myProfileButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.myProfileButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.myProfileButton.FlatAppearance.BorderSize = 0;
-            this.myProfileButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.myProfileButton.Location = new System.Drawing.Point(16, 127);
             this.myProfileButton.Name = "myProfileButton";
@@ -224,7 +226,7 @@
             this.requestNewOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.requestNewOrderButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.requestNewOrderButton.FlatAppearance.BorderSize = 0;
-            this.requestNewOrderButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.requestNewOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestNewOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.requestNewOrderButton.Location = new System.Drawing.Point(16, 612);
             this.requestNewOrderButton.Name = "requestNewOrderButton";
@@ -239,7 +241,7 @@
             this.salesReturnButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.salesReturnButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.salesReturnButton.FlatAppearance.BorderSize = 0;
-            this.salesReturnButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesReturnButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.salesReturnButton.Location = new System.Drawing.Point(16, 499);
             this.salesReturnButton.Name = "salesReturnButton";
@@ -254,7 +256,7 @@
             this.changeOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.changeOrderButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.changeOrderButton.FlatAppearance.BorderSize = 0;
-            this.changeOrderButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.changeOrderButton.Location = new System.Drawing.Point(16, 557);
             this.changeOrderButton.Name = "changeOrderButton";
@@ -276,20 +278,38 @@
             this.logoutButton.TabIndex = 51;
             this.logoutButton.UseVisualStyleBackColor = true;
             // 
+            // empLastName
+            // 
+            this.empLastName.Location = new System.Drawing.Point(15, 271);
+            this.empLastName.Name = "empLastName";
+            this.empLastName.Size = new System.Drawing.Size(233, 26);
+            this.empLastName.TabIndex = 52;
+            this.empLastName.Text = "Employee last name";
+            // 
+            // empID
+            // 
+            this.empID.Location = new System.Drawing.Point(16, 207);
+            this.empID.Name = "empID";
+            this.empID.Size = new System.Drawing.Size(232, 26);
+            this.empID.TabIndex = 53;
+            this.empID.Text = "Employee ID";
+            // 
             // AgentHomeWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.Controls.Add(this.empID);
+            this.Controls.Add(this.empLastName);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.requestNewOrderButton);
             this.Controls.Add(this.salesReturnButton);
             this.Controls.Add(this.changeOrderButton);
             this.Controls.Add(this.viewReportsButton);
             this.Controls.Add(this.itemDispatchButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.empFirstName);
             this.Controls.Add(this.viewRepsButton);
             this.Controls.Add(this.searchRepsButton);
             this.Controls.Add(this.viewInventoryButton);
@@ -319,7 +339,7 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label nameLabel;
         public System.Windows.Forms.Label photoLabel;
-        public  System.Windows.Forms.TextBox textBox1;
+        public  System.Windows.Forms.TextBox empFirstName;
         public System.Windows.Forms.Button goodsReceiveNoteButton;
         public System.Windows.Forms.Button myProfileButton;
         public System.Windows.Forms.Button requestNewOrderButton;
@@ -331,5 +351,7 @@
       public System.Windows.Forms.Button itemDispatchButton;
         public System.Windows.Forms.Button viewReportsButton;
         public System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.TextBox empLastName;
+        private System.Windows.Forms.TextBox empID;
     }
 }
