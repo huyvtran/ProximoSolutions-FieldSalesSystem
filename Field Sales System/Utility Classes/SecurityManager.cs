@@ -34,17 +34,13 @@ namespace Field_Sales_System.Utility_Classes
 
         //following method is used to authenticate the login of a user
         public string login(int empId, string password) {
-
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
-
-            {
+            
+                if (dbManager.isOnline())
+                {
                     connection = dbManager.openConnection(connection);
                     if (!connection.Equals(null))
                     {
-                    
-                    List<object> arr = c.retrieveLoginInfo(connection, empId);
+                        List<object> arr = c.retrieveLoginInfo(connection, empId);
                     bool pwdMatch = false;
                     bool isActive= false;
                     bool userNotExisting = false;
@@ -111,19 +107,13 @@ namespace Field_Sales_System.Utility_Classes
         //this method can be used to change the password of a user
         //return value determines the status of the operation
         public string modifyPassword(int empId, string oldPassword, string newPassword) {
-            if (connection.State == System.Data.ConnectionState.Open)
-            {
-                dbManager.closeConnection(connection);
-            }
-            string loginMsg = login(empId, oldPassword);
-            if (loginMsg != "Successfully logged in!")
+            if (login(empId, oldPassword).Equals("Successfully logged in!"))
             {
                 //old password is wrong
                 return "Your old password is wrong!";
             }
             else {
-                
-                if (true)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (!connection.Equals(null))
@@ -159,9 +149,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public string addUserLoginInformation(int empId, string password) {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (!connection.Equals(null))
@@ -194,9 +182,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public string modifyStatus(int empId,int status) {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (!connection.Equals(null))
@@ -211,7 +197,7 @@ namespace Field_Sales_System.Utility_Classes
                     if (b)
                     {
 
-                        return "Successfully changed status!";
+                        return "Successfully changed password!";
                     }
                     else {
                         return "There was some error during password change. Try again!";
@@ -229,9 +215,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public string requestPasswordReset(int empId) {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (!connection.Equals(null))
@@ -265,9 +249,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public string modifyPasswordAdmin(int empId, string newPassword) {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (!connection.Equals(null))
@@ -300,9 +282,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public List<int> getPasswordResetRequests() {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (!connection.Equals(null))
