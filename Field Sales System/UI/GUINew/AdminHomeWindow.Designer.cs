@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.addEmployeeButton = new System.Windows.Forms.Button();
-            this.mainPannel = new System.Windows.Forms.Panel();
+            this.adminMainPanel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.viewReportsButton = new System.Windows.Forms.Button();
             this.itemDispatchButton = new System.Windows.Forms.Button();
@@ -42,10 +42,8 @@
             this.viewEmployeesButton = new System.Windows.Forms.Button();
             this.empLastNameText = new System.Windows.Forms.TextBox();
             this.logoutButton = new System.Windows.Forms.Button();
-
             this.empFirstNameText = new System.Windows.Forms.TextBox();
             this.employeeIDText = new System.Windows.Forms.TextBox();
-
             this.SuspendLayout();
             // 
             // photoLabel
@@ -101,20 +99,13 @@
             this.addEmployeeButton.UseVisualStyleBackColor = false;
             this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
-            // mainPannel
+            // panel1
             // 
-<<<<<<< HEAD
-            this.mainPannel.Location = new System.Drawing.Point(279, 113);
-            this.mainPannel.Name = "mainPannel";
-            this.mainPannel.Size = new System.Drawing.Size(1080, 600);
-            this.mainPannel.TabIndex = 11;
-            this.mainPannel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-=======
-            this.panel1.Location = new System.Drawing.Point(279, 119);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1080, 600);
-            this.panel1.TabIndex = 11;
->>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
+            this.adminMainPanel1.Location = new System.Drawing.Point(279, 119);
+            this.adminMainPanel1.Name = "panel1";
+            this.adminMainPanel1.Size = new System.Drawing.Size(1080, 600);
+            this.adminMainPanel1.TabIndex = 11;
+            this.adminMainPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
             // label2
             // 
@@ -192,15 +183,11 @@
             // 
             // empLastNameText
             // 
-
             this.empLastNameText.Location = new System.Drawing.Point(16, 362);
             this.empLastNameText.Name = "empLastNameText";
             this.empLastNameText.Size = new System.Drawing.Size(236, 26);
             this.empLastNameText.TabIndex = 17;
             this.empLastNameText.Text = "Employee Last Name";
-
-         
-
             // 
             // logoutButton
             // 
@@ -215,7 +202,6 @@
             this.logoutButton.TabIndex = 18;
             this.logoutButton.UseVisualStyleBackColor = true;
             // 
-
             // empFirstNameText
             // 
             this.empFirstNameText.Location = new System.Drawing.Point(16, 330);
@@ -234,17 +220,14 @@
             this.employeeIDText.Text = "Employee ID";
             this.employeeIDText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-
             // AdminHomeWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1362, 741);
-
             this.Controls.Add(this.employeeIDText);
             this.Controls.Add(this.empFirstNameText);
-
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.empLastNameText);
             this.Controls.Add(this.viewEmployeesButton);
@@ -252,7 +235,7 @@
             this.Controls.Add(this.itemDispatchButton);
             this.Controls.Add(this.viewReportsButton);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.mainPannel);
+            this.Controls.Add(this.adminMainPanel1);
             this.Controls.Add(this.addEmployeeButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -274,26 +257,10 @@
 
         public  System.Windows.Forms.Label photoLabel;
         public System.Windows.Forms.Label nameLabel;
-<<<<<<< HEAD
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button addEmployeeButton;
-        private System.Windows.Forms.Panel mainPannel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button viewReportsButton;
-        private System.Windows.Forms.Button itemDispatchButton;
-        private System.Windows.Forms.Button searchEmployeeButton;
-        private System.Windows.Forms.Button viewEmployeesButton;
-        private System.Windows.Forms.TextBox empNameText;
-        private System.Windows.Forms.Button logoutButton;
-        private System.Windows.Forms.TextBox empIDText;
-        private System.Windows.Forms.TextBox textBox1;
-    }
-=======
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Button addEmployeeButton;
-        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel adminMainPanel1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button viewReportsButton;
         public System.Windows.Forms.Button itemDispatchButton;
@@ -304,5 +271,4 @@
         public System.Windows.Forms.TextBox empFirstNameText;
         public System.Windows.Forms.TextBox employeeIDText;
 }
->>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
 }

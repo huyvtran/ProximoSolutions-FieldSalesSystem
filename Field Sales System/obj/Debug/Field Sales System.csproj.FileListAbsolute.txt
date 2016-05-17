@@ -7,30 +7,6 @@ C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Deb
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csprojResolveAssemblyReference.cache
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe.config
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csprojResolveAssemblyReference.cache
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.Properties.Resources.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csproj.GenerateResource.Cache
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.pdb
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AddEmployee.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AdminHomeWindow.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AgentHomeWindow.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ChangePassword.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ChangePasswordAdmin.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.EmployeeProfile.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ForgotPassword.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.Invoice.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.UI.GUINew.Properties.Resources.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\prox.proxmain.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.RepHomeWindow.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ReportsHome.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.SignIn.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.UpdateEmployee.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ViewEmployee.resources
-H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.WMHomeWindow.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AddEmployee.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AdminHomeWindow.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AgentHomeWindow.resources
@@ -47,3 +23,25 @@ C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Deb
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.UpdateEmployee.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ViewEmployee.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.WMHomeWindow.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe.config
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.pdb
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.Properties.Resources.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AddEmployee.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AdminHomeWindow.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AgentHomeWindow.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ChangePassword.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ChangePasswordAdmin.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.EmployeeProfile.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ForgotPassword.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.Invoice.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.UI.GUINew.Properties.Resources.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.RepHomeWindow.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ReportsHome.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.SignIn.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.UpdateEmployee.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ViewEmployee.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.WMHomeWindow.resources
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csproj.GenerateResource.Cache
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
+H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb

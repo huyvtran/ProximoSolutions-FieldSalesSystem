@@ -19,35 +19,36 @@ namespace GUINew
         private ViewEmployee viewEmployee;
         private EmployeeProfile employeeProfile;
 
-        public AdminHomeWindow()
+        public AdminHomeWindow(Controller controll)
         {
+            controller = controll;
             InitializeComponent();
         }
 
         private void viewReportsButton_Click(object sender, EventArgs e)
         {
-            reportsHome = new ReportsHome();
-            this.Close();
-            reportsHome.Show();
+            //reportsHome = new ReportsHome();
+            //this.Close();
+            //reportsHome.Show();
         }
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
 
-            this.IsMdiContainer = true;
-            addEmployee = new AddEmployee();
-            addEmployee.MdiParent = this;
-            addEmployee.Show();
-            addEmployee.Location = new Point(279, 113);
+            //this.IsMdiContainer = true;
+            //addEmployee = new AddEmployee();
+            //addEmployee.MdiParent = this;
+            //addEmployee.Show();
+            //addEmployee.Location = new Point(279, 113);
         }
 
         private void viewEmployeesButton_Click(object sender, EventArgs e)
         {
-            this.IsMdiContainer = true;
-            viewEmployee = new ViewEmployee();
-            viewEmployee.MdiParent = this;
-            viewEmployee.Show();
-            viewEmployee.Location = new Point(279, 113);
+            //this.IsMdiContainer = true;
+            //viewEmployee = new ViewEmployee();
+            //viewEmployee.MdiParent = this;
+            //viewEmployee.Show();
+            //viewEmployee.Location = new Point(279, 113);
         }
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace GUINew
             string empFirstName = empFirstNameText.Text;
             string empLastName = empLastNameText.Text;
 
-            //controller.adminSearchEmploee(empId);
+            //controller.adminSearchEmploee(employee);
         }
 
 
@@ -65,17 +66,19 @@ namespace GUINew
 
         }
 
-<<<<<<< HEAD
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void adminaMainPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-=======
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
->>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+            controller.setMyHome_Admin();
+        }
     }
 }

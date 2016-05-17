@@ -12,16 +12,15 @@ namespace GUINew
 {
     public partial class ForgotPassword : Form
     {
+        SignIn signIn;
         public ForgotPassword()
         {
             InitializeComponent();
         }
 
-        private SignIn signIn;
-
         private void label3_Click(object sender, EventArgs e)
         {
-            signIn = new SignIn();
+         
             this.Hide();
             signIn.ShowDialog();
         }

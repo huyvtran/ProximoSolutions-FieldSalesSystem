@@ -60,7 +60,7 @@
             this.passwordText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordText.Location = new System.Drawing.Point(20, 167);
             this.passwordText.Name = "passwordText";
-            this.passwordText.Size = new System.Drawing.Size(269, 28);
+            this.passwordText.Size = new System.Drawing.Size(269, 27);
             this.passwordText.TabIndex = 8;
             // 
             // usernameText
@@ -68,8 +68,9 @@
             this.usernameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameText.Location = new System.Drawing.Point(20, 103);
             this.usernameText.Name = "usernameText";
-            this.usernameText.Size = new System.Drawing.Size(269, 28);
+            this.usernameText.Size = new System.Drawing.Size(269, 27);
             this.usernameText.TabIndex = 7;
+       
             // 
             // button2
             // 
@@ -91,7 +92,7 @@
             // signInButton
             // 
             this.signInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.signInButton.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.signInButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signInButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.signInButton.FlatAppearance.BorderSize = 0;
             this.signInButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -102,7 +103,7 @@
             this.signInButton.TabIndex = 4;
             this.signInButton.Text = "Sign In";
             this.signInButton.UseVisualStyleBackColor = false;
-            this.signInButton.UseWaitCursor = true;
+     
             this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // label4
