@@ -16,7 +16,8 @@ namespace Field_Sales_System.Business_Logic
         private int ordererId;
         private int orderId;
         private string orderNote;
-        private DateTime orderRequestedDate;  
+        private DateTime orderRequestedDate;
+        private string orderRegion;  
         public int OrdererId
         {
             get
@@ -79,6 +80,19 @@ namespace Field_Sales_System.Business_Logic
             set
             {
                 orderId = value;
+            }
+        }
+
+        public string OrderRegion
+        {
+            get
+            {
+                return orderRegion;
+            }
+
+            set
+            {
+                orderRegion = value;
             }
         }
 

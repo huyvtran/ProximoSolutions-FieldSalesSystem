@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,15 +15,17 @@ namespace GUINew
     {
         private ChangePassword changePassword;
         private UpdateEmployee updateEmployee;
+        private Controller controller;
 
-        public EmployeeProfile()
+        public EmployeeProfile(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void changePwdButton_Click(object sender, EventArgs e)
         {
-            changePassword = new ChangePassword();
+            changePassword = new ChangePassword(controller);
             changePassword.Show();
         }
 
@@ -30,6 +33,7 @@ namespace GUINew
         {
             updateEmployee = new UpdateEmployee();
             updateEmployee.Show();
+
         }
     }
 }

@@ -63,7 +63,7 @@
             this.adminPwdText.Name = "adminPwdText";
             this.adminPwdText.Size = new System.Drawing.Size(269, 26);
             this.adminPwdText.TabIndex = 21;
-            this.adminPwdText.TextChanged += new System.EventHandler(this.adminPwdText_TextChanged);
+            
             // 
             // changePwdButton
             // 

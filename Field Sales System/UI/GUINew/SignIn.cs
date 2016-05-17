@@ -28,7 +28,7 @@ namespace GUINew
 
         private void button2_Click(object sender, EventArgs e)
         {
-            forgotPassword = new ForgotPassword();
+            forgotPassword = new ForgotPassword(controller);
             this.Hide();
             forgotPassword.ShowDialog();
         }

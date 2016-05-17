@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace GUINew
 {
     public partial class ChangePassword : Form
     {
-        public ChangePassword()
+        private Controller controller;
+        public ChangePassword(Controller controller)
         {
             InitializeComponent();
+
             changePwdButton.Enabled = false;
             confirmPwdText.Enabled = false;
         }
@@ -40,18 +43,31 @@ namespace GUINew
         private void changePwdButton_Click(object sender, EventArgs e)
         {
             string currentPassword = currentPwdText.Text;
-            
-            string newPassword = newPwdText.Text;
-            string confirmedPassword= confirmPwdText.Text;
 
-            if (newPassword != confirmedPassword)
+            string newPassword = newPwdText.Text;
+            string confirmedPassword = confirmPwdText.Text;
+
+            if (String.IsNullOrEmpty(currentPassword) && (String.IsNullOrEmpty(newPassword)) && (String.IsNullOrEmpty(confirmedPassword)))
             {
-                MessageBox.Show("passwords do not match");
-                newPwdText.Text = string.Empty;
-                confirmPwdText.Text = string.Empty;
+                MessageBox.Show("Enter all required data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
 
 
+
+            else {
+                if (newPassword != confirmedPassword)
+                {
+                    MessageBox.Show("passwords do not match");
+                    newPwdText.Text = string.Empty;
+                    confirmPwdText.Text = string.Empty;
+                }
+
+            }
+
+
+
+            
         }
     }
 }
