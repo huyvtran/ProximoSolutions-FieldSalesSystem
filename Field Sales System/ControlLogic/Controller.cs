@@ -120,10 +120,10 @@ namespace Field_Sales_System.ControlLogic
             userRoleList.Add(userRole);
             return userRoleList;
         }
-        public string addAdminEmployerSave(int empId, int empNIC,DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType)
+        public string addAdminEmployerSave(int empId, int empNIC,DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType,int empIdPass)
         {
             List<UserRole> roles = addUserRole(userType);
-             return objectFactory.storeUser(empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles);
+             return ((CompanyAdmin)currentUser).addUser(objectFactory,securityManager, empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles, Convert.ToString(empIdPass));
         }
       
         public void adminViewEmployer()
