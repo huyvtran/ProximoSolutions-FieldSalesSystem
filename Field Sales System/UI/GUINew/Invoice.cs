@@ -38,7 +38,8 @@ namespace GUINew
         }
 
         float price;
-       
+
+
         private void addItemButton_Click(object sender, EventArgs e)
         {           
             price = (float.Parse(unitPriceLabel.Text)) * (float.Parse(qtyText.Text));
@@ -74,15 +75,18 @@ namespace GUINew
             }
         }
 
+
+
+        double sum = 0;
         private void finishButton_Click(object sender, EventArgs e)
         {
-            float sum = 0;
+            
             for (int i = 0; i < invoiceDataGrid.Rows.Count; ++i)
             {
-                //sum += Convert.ToDouble(invoiceDataGrid.Rows[i].Cells["Value"].Value);
+                sum += Convert.ToDouble(invoiceDataGrid.Rows[i].Cells["Value"].Value);
             }
 
-            //totalText.Text = sum.ToString();
+            totalText.Text = sum.ToString();
         }
 
         private void qtyText_Click(object sender, EventArgs e)

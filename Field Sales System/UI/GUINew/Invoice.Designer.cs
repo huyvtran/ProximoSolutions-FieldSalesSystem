@@ -137,8 +137,12 @@
             this.productNameCombo.Name = "productNameCombo";
             this.productNameCombo.Size = new System.Drawing.Size(315, 28);
             this.productNameCombo.TabIndex = 65;
+
             this.productNameCombo.Text = "Product Name";
             this.productNameCombo.SelectedIndexChanged += new System.EventHandler(this.productNameCombo_SelectedIndexChanged);
+
+            this.productNameCombo.Text = "--Product Name--";
+
             // 
             // addItemButton
             // 
@@ -198,7 +202,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(42, 25);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 23);
+            this.label7.Size = new System.Drawing.Size(121, 23);
             this.label7.TabIndex = 72;
             this.label7.Text = "Invoice Number";
             // 
@@ -226,9 +230,9 @@
             // 
             this.dateLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.Black;
-            this.dateLabel.Location = new System.Drawing.Point(897, 26);
+            this.dateLabel.Location = new System.Drawing.Point(797, 26);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(108, 23);
+            this.dateLabel.Size = new System.Drawing.Size(208, 23);
             this.dateLabel.TabIndex = 75;
             this.dateLabel.Text = "Set Date Here";
             this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -247,9 +251,10 @@
             // invoiceNumberText
             // 
             this.invoiceNumberText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoiceNumberText.Location = new System.Drawing.Point(158, 22);
+            this.invoiceNumberText.Location = new System.Drawing.Point(172, 22);
             this.invoiceNumberText.Name = "invoiceNumberText";
-            this.invoiceNumberText.Size = new System.Drawing.Size(180, 27);
+
+            this.invoiceNumberText.Size = new System.Drawing.Size(166, 28);
             this.invoiceNumberText.TabIndex = 77;
             // 
             // empIDText
@@ -263,9 +268,10 @@
             // customerNameText
             // 
             this.customerNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerNameText.Location = new System.Drawing.Point(158, 59);
+            this.customerNameText.Location = new System.Drawing.Point(172, 59);
             this.customerNameText.Name = "customerNameText";
-            this.customerNameText.Size = new System.Drawing.Size(298, 27);
+
+            this.customerNameText.Size = new System.Drawing.Size(284, 28);
             this.customerNameText.TabIndex = 79;
             // 
             // customerContactText

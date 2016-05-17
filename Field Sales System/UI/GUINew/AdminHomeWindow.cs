@@ -43,25 +43,11 @@ namespace GUINew
 
         private void viewEmployeesButton_Click(object sender, EventArgs e)
         {
-            //this.IsMdiContainer = true;
-            //viewEmployee = new ViewEmployee();
-            //viewEmployee.MdiParent = this;
-            //viewEmployee.Show();
-            //viewEmployee.Location = new Point(279, 113);
         }
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
-
-
-            //.IsMdiContainer = true;
-           // employeeProfile = new EmployeeProfile(controller);
-           // employeeProfile.MdiParent = this;
-          //  employeeProfile.Show();
-            //employeeProfile.Location = new Point(279, 113);
-
-
-
+            
 
             string employeeIDtext = empLastNameText.Text;
             try {
@@ -90,15 +76,7 @@ namespace GUINew
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            searchEmployeeButton.Enabled = true;
-            if (!System.Text.RegularExpressions.Regex.IsMatch(empFirstNameText.Text, "^[a-zA-Z_-]"))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters");
-                empFirstNameText.Text.Remove(empFirstNameText.Text.Length - 1);
-            }
-
-
-
+            searchEmployeeButton.Enabled = true;                      
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
@@ -109,15 +87,37 @@ namespace GUINew
         private void empLastNameText_TextChanged(object sender, EventArgs e)
         {
             searchEmployeeButton.Enabled = true;
-            if (!System.Text.RegularExpressions.Regex.IsMatch(empLastNameText.Text, "^[a-zA-Z_-]"))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters");
-                empLastNameText.Text.Remove(empLastNameText.Text.Length - 1);
-            }
 
+        }
 
+        private void employeeIDText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
 
+        private void employeeIDText_Click(object sender, EventArgs e)
+        {
+            employeeIDText.Text = "";
+        }
 
+        private void empFirstNameText_Click(object sender, EventArgs e)
+        {
+            empFirstNameText.Text = "";
+        }
+
+        private void empFirstNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void empLastNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void empLastNameText_Click(object sender, EventArgs e)
+        {
+            empLastNameText.Text = "";
         }
     }
 }

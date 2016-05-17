@@ -39,26 +39,27 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.bdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.salesFromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.salesToDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.salesRetToDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.salesRetFromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.orderToDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.orderFromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.weklyReportDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dailyReportDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.orderStatusCombo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.homeButton = new System.Windows.Forms.Button();
             this.photoLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // salesReturnsButton
@@ -69,7 +70,7 @@
             this.salesReturnsButton.FlatAppearance.BorderSize = 0;
             this.salesReturnsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesReturnsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.salesReturnsButton.Location = new System.Drawing.Point(10, 311);
+            this.salesReturnsButton.Location = new System.Drawing.Point(11, 295);
             this.salesReturnsButton.Name = "salesReturnsButton";
             this.salesReturnsButton.Size = new System.Drawing.Size(236, 30);
             this.salesReturnsButton.TabIndex = 29;
@@ -84,7 +85,7 @@
             this.orderDetailsButton.FlatAppearance.BorderSize = 0;
             this.orderDetailsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderDetailsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.orderDetailsButton.Location = new System.Drawing.Point(10, 474);
+            this.orderDetailsButton.Location = new System.Drawing.Point(10, 445);
             this.orderDetailsButton.Name = "orderDetailsButton";
             this.orderDetailsButton.Size = new System.Drawing.Size(236, 30);
             this.orderDetailsButton.TabIndex = 28;
@@ -99,7 +100,7 @@
             this.weeklyReportButton.FlatAppearance.BorderSize = 0;
             this.weeklyReportButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weeklyReportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.weeklyReportButton.Location = new System.Drawing.Point(15, 573);
+            this.weeklyReportButton.Location = new System.Drawing.Point(12, 536);
             this.weeklyReportButton.Name = "weeklyReportButton";
             this.weeklyReportButton.Size = new System.Drawing.Size(236, 30);
             this.weeklyReportButton.TabIndex = 27;
@@ -148,7 +149,7 @@
             this.salesDetailsButton.FlatAppearance.BorderSize = 0;
             this.salesDetailsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesDetailsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.salesDetailsButton.Location = new System.Drawing.Point(10, 186);
+            this.salesDetailsButton.Location = new System.Drawing.Point(10, 183);
             this.salesDetailsButton.Name = "salesDetailsButton";
             this.salesDetailsButton.Size = new System.Drawing.Size(236, 30);
             this.salesDetailsButton.TabIndex = 23;
@@ -162,7 +163,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(7, 639);
             this.label4.TabIndex = 22;
-            this.label4.Text = "label4";
             // 
             // label3
             // 
@@ -171,7 +171,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(1355, 7);
             this.label3.TabIndex = 21;
-            this.label3.Text = "label3";
             // 
             // nameLabel
             // 
@@ -183,13 +182,13 @@
             this.nameLabel.Text = "Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // bdayDateTimePicker
+            // salesFromDateTimePicker
             // 
-            this.bdayDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdayDateTimePicker.Location = new System.Drawing.Point(60, 122);
-            this.bdayDateTimePicker.Name = "bdayDateTimePicker";
-            this.bdayDateTimePicker.Size = new System.Drawing.Size(186, 28);
-            this.bdayDateTimePicker.TabIndex = 44;
+            this.salesFromDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesFromDateTimePicker.Location = new System.Drawing.Point(60, 122);
+            this.salesFromDateTimePicker.Name = "salesFromDateTimePicker";
+            this.salesFromDateTimePicker.Size = new System.Drawing.Size(186, 28);
+            this.salesFromDateTimePicker.TabIndex = 44;
             // 
             // label7
             // 
@@ -211,81 +210,81 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "To";
             // 
-            // dateTimePicker1
+            // salesToDateTimePicker
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(60, 152);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(186, 28);
-            this.dateTimePicker1.TabIndex = 47;
+            this.salesToDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesToDateTimePicker.Location = new System.Drawing.Point(60, 152);
+            this.salesToDateTimePicker.Name = "salesToDateTimePicker";
+            this.salesToDateTimePicker.Size = new System.Drawing.Size(186, 28);
+            this.salesToDateTimePicker.TabIndex = 47;
             // 
-            // dateTimePicker2
+            // salesRetToDateTimePicker
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(60, 277);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(186, 28);
-            this.dateTimePicker2.TabIndex = 51;
+            this.salesRetToDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesRetToDateTimePicker.Location = new System.Drawing.Point(60, 264);
+            this.salesRetToDateTimePicker.Name = "salesRetToDateTimePicker";
+            this.salesRetToDateTimePicker.Size = new System.Drawing.Size(186, 28);
+            this.salesRetToDateTimePicker.TabIndex = 51;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(11, 250);
+            this.label5.Location = new System.Drawing.Point(11, 237);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 23);
             this.label5.TabIndex = 49;
             this.label5.Text = "From";
             // 
-            // dateTimePicker3
+            // salesRetFromDateTimePicker
             // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(60, 247);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(186, 28);
-            this.dateTimePicker3.TabIndex = 48;
+            this.salesRetFromDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesRetFromDateTimePicker.Location = new System.Drawing.Point(60, 234);
+            this.salesRetFromDateTimePicker.Name = "salesRetFromDateTimePicker";
+            this.salesRetFromDateTimePicker.Size = new System.Drawing.Size(186, 28);
+            this.salesRetFromDateTimePicker.TabIndex = 48;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(11, 282);
+            this.label6.Location = new System.Drawing.Point(11, 269);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 23);
             this.label6.TabIndex = 50;
             this.label6.Text = "To";
             // 
-            // dateTimePicker4
+            // orderToDateTimePicker
             // 
-            this.dateTimePicker4.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker4.Location = new System.Drawing.Point(60, 440);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(186, 28);
-            this.dateTimePicker4.TabIndex = 55;
+            this.orderToDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderToDateTimePicker.Location = new System.Drawing.Point(60, 414);
+            this.orderToDateTimePicker.Name = "orderToDateTimePicker";
+            this.orderToDateTimePicker.Size = new System.Drawing.Size(186, 28);
+            this.orderToDateTimePicker.TabIndex = 55;
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(11, 413);
+            this.label8.Location = new System.Drawing.Point(11, 387);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 23);
             this.label8.TabIndex = 53;
             this.label8.Text = "From";
             // 
-            // dateTimePicker5
+            // orderFromDateTimePicker
             // 
-            this.dateTimePicker5.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker5.Location = new System.Drawing.Point(60, 410);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(186, 28);
-            this.dateTimePicker5.TabIndex = 52;
+            this.orderFromDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderFromDateTimePicker.Location = new System.Drawing.Point(60, 384);
+            this.orderFromDateTimePicker.Name = "orderFromDateTimePicker";
+            this.orderFromDateTimePicker.Size = new System.Drawing.Size(186, 28);
+            this.orderFromDateTimePicker.TabIndex = 52;
             // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(11, 445);
+            this.label9.Location = new System.Drawing.Point(11, 419);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 23);
             this.label9.TabIndex = 54;
@@ -295,19 +294,19 @@
             // 
             this.label10.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(11, 541);
+            this.label10.Location = new System.Drawing.Point(11, 507);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 23);
             this.label10.TabIndex = 57;
             this.label10.Text = "From";
             // 
-            // dateTimePicker6
+            // weklyReportDateTimePicker
             // 
-            this.dateTimePicker6.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker6.Location = new System.Drawing.Point(60, 539);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(186, 28);
-            this.dateTimePicker6.TabIndex = 56;
+            this.weklyReportDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weklyReportDateTimePicker.Location = new System.Drawing.Point(60, 505);
+            this.weklyReportDateTimePicker.Name = "weklyReportDateTimePicker";
+            this.weklyReportDateTimePicker.Size = new System.Drawing.Size(186, 28);
+            this.weklyReportDateTimePicker.TabIndex = 56;
             // 
             // label11
             // 
@@ -319,36 +318,36 @@
             this.label11.TabIndex = 59;
             this.label11.Text = "From";
             // 
-            // dateTimePicker7
+            // dailyReportDateTimePicker
             // 
-            this.dateTimePicker7.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker7.Location = new System.Drawing.Point(60, 636);
-            this.dateTimePicker7.Name = "dateTimePicker7";
-            this.dateTimePicker7.Size = new System.Drawing.Size(186, 28);
-            this.dateTimePicker7.TabIndex = 58;
+            this.dailyReportDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dailyReportDateTimePicker.Location = new System.Drawing.Point(60, 636);
+            this.dailyReportDateTimePicker.Name = "dailyReportDateTimePicker";
+            this.dailyReportDateTimePicker.Size = new System.Drawing.Size(186, 28);
+            this.dailyReportDateTimePicker.TabIndex = 58;
             // 
-            // comboBox1
+            // orderStatusCombo
             // 
-            this.comboBox1.AllowDrop = true;
-            this.comboBox1.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.orderStatusCombo.AllowDrop = true;
+            this.orderStatusCombo.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderStatusCombo.FormattingEnabled = true;
+            this.orderStatusCombo.Items.AddRange(new object[] {
             "New Orders",
             "Pending Orders",
             "Delivered Orders",
             "Accepted Orders",
             "Rejected Orders"});
-            this.comboBox1.Location = new System.Drawing.Point(105, 377);
-            this.comboBox1.MaxDropDownItems = 5;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 28);
-            this.comboBox1.TabIndex = 60;
+            this.orderStatusCombo.Location = new System.Drawing.Point(105, 351);
+            this.orderStatusCombo.MaxDropDownItems = 5;
+            this.orderStatusCombo.Name = "orderStatusCombo";
+            this.orderStatusCombo.Size = new System.Drawing.Size(141, 28);
+            this.orderStatusCombo.TabIndex = 60;
             // 
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(11, 381);
+            this.label12.Location = new System.Drawing.Point(11, 355);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(88, 23);
             this.label12.TabIndex = 61;
@@ -356,11 +355,14 @@
             // 
             // homeButton
             // 
+
+            this.homeButton.BackgroundImage = global::Field_Sales_System.Properties.Resources.Home;
+
             this.homeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.homeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeButton.FlatAppearance.BorderSize = 0;
             this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeButton.Location = new System.Drawing.Point(1288, 12);
+            this.homeButton.Location = new System.Drawing.Point(1288, 20);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(50, 50);
             this.homeButton.TabIndex = 31;
@@ -375,6 +377,21 @@
             this.photoLabel.Size = new System.Drawing.Size(50, 50);
             this.photoLabel.TabIndex = 19;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.button1.Location = new System.Drawing.Point(15, 572);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(236, 30);
+            this.button1.TabIndex = 62;
+            this.button1.Text = "Weekly Report";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // ReportsHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -382,23 +399,24 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.orderStatusCombo);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.dateTimePicker7);
+            this.Controls.Add(this.dailyReportDateTimePicker);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker6);
-            this.Controls.Add(this.dateTimePicker4);
+            this.Controls.Add(this.weklyReportDateTimePicker);
+            this.Controls.Add(this.orderToDateTimePicker);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker5);
+            this.Controls.Add(this.orderFromDateTimePicker);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.salesRetToDateTimePicker);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker3);
+            this.Controls.Add(this.salesRetFromDateTimePicker);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.salesToDateTimePicker);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.bdayDateTimePicker);
+            this.Controls.Add(this.salesFromDateTimePicker);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.homeButton);
             this.Controls.Add(this.salesReturnsButton);
@@ -436,23 +454,24 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label photoLabel;
-        private System.Windows.Forms.DateTimePicker bdayDateTimePicker;
+        private System.Windows.Forms.DateTimePicker salesFromDateTimePicker;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker salesToDateTimePicker;
+        private System.Windows.Forms.DateTimePicker salesRetToDateTimePicker;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker salesRetFromDateTimePicker;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker orderToDateTimePicker;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker orderFromDateTimePicker;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.DateTimePicker weklyReportDateTimePicker;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker dateTimePicker7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dailyReportDateTimePicker;
+        private System.Windows.Forms.ComboBox orderStatusCombo;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button1;
     }
 }

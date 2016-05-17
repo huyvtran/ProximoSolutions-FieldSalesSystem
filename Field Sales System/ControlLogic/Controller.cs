@@ -340,7 +340,7 @@ namespace Field_Sales_System.ControlLogic
         }
 
         public void viewOrder() {
-            List<Order> orderList = objectFactory.
+           // List<Order> orderList = objectFactory.
         }
 
 

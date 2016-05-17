@@ -17,7 +17,41 @@ namespace GUINew
         public ChangePasswordAdmin(Controller controller)
         {
             InitializeComponent();
+
+            changePwdButton.Enabled = false;
+        }
+
+        private void usernameText_TextChanged(object sender, EventArgs e)
+        {
+            changePwdButton.Enabled = true;
+        }
+
+        private void adminPwdText_TextChanged(object sender, EventArgs e)
+        {
+            changePwdButton.Enabled = true;
+        }
+
+
+
+        private void changePwdButton_Click(object sender, EventArgs e)
+        {
+            string username = usernameText.Text;
+            string adminPassword = adminPwdText.Text;
+
+            if (String.IsNullOrEmpty(usernameText.Text) && (String.IsNullOrEmpty(adminPwdText.Text)))
+            {
+                MessageBox.Show("Enter all required data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+            }
+
+            //meke admin password eka log wela inna admin ge pwd ekata samana nam username eke inna employee 
+            //ge password eka username ekama enna change karnna one...
+
+
+
+
             this.controller = controller;
+
         }
     }
 }

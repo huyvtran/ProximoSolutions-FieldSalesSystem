@@ -30,7 +30,19 @@ namespace GUINew
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            //controller.addAdminEmployerSave(0003, Convert.ToInt32(nicText.Text), Convert.ToDateTime(bdayDateTimePicker.Text), gender, firstNameText.Text + " " + middleNameText.Text,lastNameText.Text, Convert.ToInt32(mobileText.Text), Convert.ToInt32(homeTelText.Text), emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image, userType,0003);
+            if (firstNameText.Text == null || lastNameText.Text == null || nicText.Text == null || addressText.Text == null || stateText.Text == null || mobileText.Text == null || regionText.Text == null)
+            {
+                MessageBox.Show("Fill in the required fields");
+            }
+            else if (!(emailText.Text.Contains("@")))
+            {
+                MessageBox.Show("Invalid e-mail address");
+                emailText.Text = "";
+            }
+            else
+            {
+                //controller.addAdminEmployerSave(0003, Convert.ToInt32(nicText.Text), Convert.ToDateTime(bdayDateTimePicker.Text), gender, firstNameText.Text + " " + middleNameText.Text,lastNameText.Text, Convert.ToInt32(mobileText.Text), Convert.ToInt32(homeTelText.Text), emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image, userType,0003);
+            }
         }
 
         private void mrsRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -144,6 +156,21 @@ namespace GUINew
         private void lastNameText_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void nicText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void homeTelText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void mobileText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
         }
     }
 }

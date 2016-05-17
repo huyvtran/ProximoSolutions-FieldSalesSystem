@@ -40,11 +40,11 @@ namespace GUINew
         private void empFirstName_TextChanged(object sender, EventArgs e)
         {
             searchEmployeeButton.Enabled = true;
-            if (!System.Text.RegularExpressions.Regex.IsMatch(empFirstName.Text, "^[a-zA-Z_-]"))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters");
-                empFirstName.Text.Remove(empFirstName.Text.Length - 1);
-            }
+            //if (!System.Text.RegularExpressions.Regex.IsMatch(empFirstName.Text, "^[a-zA-Z_-]"))
+            //{
+            //    MessageBox.Show("This textbox accepts only alphabetical characters");
+            //    empFirstName.Text.Remove(empFirstName.Text.Length - 1);
+            //}
 
 
         }
@@ -52,7 +52,7 @@ namespace GUINew
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
 
-            string employeeIDtext = empID.Text;
+            string employeeIDtext = empIdText.Text;
             try
             {
                 int employeeID = int.Parse(employeeIDtext);
@@ -61,8 +61,8 @@ namespace GUINew
             {
                 MessageBox.Show("invalid input,enter numbers only");
             }
-            string empFirstNametext = empFirstName.Text;
-            string empLastNametext = empLastName.Text;
+            string empFirstNametext = empFirstNameText.Text;
+            //string empLastNametext = empLastNametext.Text;
         }
 
         private void viewInventoryButton_Click(object sender, EventArgs e)
@@ -73,6 +73,11 @@ namespace GUINew
         private void searchRepsButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void empIdText_Click(object sender, EventArgs e)
+        {
+            empIdText.Text = "";
         }
     }
 }

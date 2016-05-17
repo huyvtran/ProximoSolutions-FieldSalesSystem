@@ -35,18 +35,18 @@
             this.customerNameText = new System.Windows.Forms.TextBox();
             this.empIDText = new System.Windows.Forms.TextBox();
             this.invoiceNumberText = new System.Windows.Forms.TextBox();
-            this.timeLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateLabel = new System.Windows.Forms.Label();
+            this.dateAndTimeLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.invoiceDataGrid = new System.Windows.Forms.DataGridView();
-            this.doneButton = new System.Windows.Forms.Button();
             this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doneButton = new System.Windows.Forms.Button();
+            this.dispatchOrderButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             this.rejectOrderButton.FlatAppearance.BorderSize = 0;
             this.rejectOrderButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rejectOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.rejectOrderButton.Location = new System.Drawing.Point(431, 496);
+            this.rejectOrderButton.Location = new System.Drawing.Point(303, 498);
             this.rejectOrderButton.Name = "rejectOrderButton";
             this.rejectOrderButton.Size = new System.Drawing.Size(213, 30);
             this.rejectOrderButton.TabIndex = 103;
@@ -73,7 +73,7 @@
             this.acceptOrderButton.FlatAppearance.BorderSize = 0;
             this.acceptOrderButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acceptOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.acceptOrderButton.Location = new System.Drawing.Point(165, 496);
+            this.acceptOrderButton.Location = new System.Drawing.Point(60, 498);
             this.acceptOrderButton.Name = "acceptOrderButton";
             this.acceptOrderButton.Size = new System.Drawing.Size(213, 30);
             this.acceptOrderButton.TabIndex = 102;
@@ -85,6 +85,7 @@
             this.customerContactText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerContactText.Location = new System.Drawing.Point(571, 73);
             this.customerContactText.Name = "customerContactText";
+            this.customerContactText.ReadOnly = true;
             this.customerContactText.Size = new System.Drawing.Size(180, 28);
             this.customerContactText.TabIndex = 101;
             // 
@@ -103,6 +104,7 @@
             this.customerNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerNameText.Location = new System.Drawing.Point(172, 73);
             this.customerNameText.Name = "customerNameText";
+            this.customerNameText.ReadOnly = true;
             this.customerNameText.Size = new System.Drawing.Size(298, 28);
             this.customerNameText.TabIndex = 99;
             // 
@@ -111,6 +113,7 @@
             this.empIDText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empIDText.Location = new System.Drawing.Point(571, 36);
             this.empIDText.Name = "empIDText";
+            this.empIDText.ReadOnly = true;
             this.empIDText.Size = new System.Drawing.Size(180, 28);
             this.empIDText.TabIndex = 98;
             // 
@@ -119,19 +122,9 @@
             this.invoiceNumberText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceNumberText.Location = new System.Drawing.Point(172, 36);
             this.invoiceNumberText.Name = "invoiceNumberText";
+            this.invoiceNumberText.ReadOnly = true;
             this.invoiceNumberText.Size = new System.Drawing.Size(180, 28);
             this.invoiceNumberText.TabIndex = 97;
-            // 
-            // timeLabel
-            // 
-            this.timeLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLabel.ForeColor = System.Drawing.Color.Black;
-            this.timeLabel.Location = new System.Drawing.Point(911, 77);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(108, 23);
-            this.timeLabel.TabIndex = 96;
-            this.timeLabel.Text = "Set Time Here";
-            this.timeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -143,16 +136,16 @@
             this.label2.TabIndex = 94;
             this.label2.Text = "Customer";
             // 
-            // dateLabel
+            // dateAndTimeLabel
             // 
-            this.dateLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.ForeColor = System.Drawing.Color.Black;
-            this.dateLabel.Location = new System.Drawing.Point(911, 40);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(108, 23);
-            this.dateLabel.TabIndex = 95;
-            this.dateLabel.Text = "Set Date Here";
-            this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.dateAndTimeLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateAndTimeLabel.ForeColor = System.Drawing.Color.Black;
+            this.dateAndTimeLabel.Location = new System.Drawing.Point(831, 40);
+            this.dateAndTimeLabel.Name = "dateAndTimeLabel";
+            this.dateAndTimeLabel.Size = new System.Drawing.Size(188, 23);
+            this.dateAndTimeLabel.TabIndex = 95;
+            this.dateAndTimeLabel.Text = "Set Date-Time Here";
+            this.dateAndTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -162,7 +155,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 23);
             this.label7.TabIndex = 92;
-            this.label7.Text = "Invoice Number";
+            this.label7.Text = "Invoice No.";
             // 
             // label1
             // 
@@ -192,22 +185,6 @@
             this.invoiceDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.invoiceDataGrid.Size = new System.Drawing.Size(959, 350);
             this.invoiceDataGrid.TabIndex = 91;
-            // 
-            // doneButton
-            // 
-            this.doneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.doneButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.doneButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.doneButton.FlatAppearance.BorderSize = 0;
-            this.doneButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doneButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.doneButton.Location = new System.Drawing.Point(699, 496);
-            this.doneButton.Name = "doneButton";
-            this.doneButton.Size = new System.Drawing.Size(213, 30);
-            this.doneButton.TabIndex = 104;
-            this.doneButton.Text = "Done";
-            this.doneButton.UseVisualStyleBackColor = false;
-            this.doneButton.Click += new System.EventHandler(this.doneButton_Click);
             // 
             // productID
             // 
@@ -254,6 +231,37 @@
             this.value.ReadOnly = true;
             this.value.Width = 130;
             // 
+            // doneButton
+            // 
+            this.doneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
+            this.doneButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.doneButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.doneButton.FlatAppearance.BorderSize = 0;
+            this.doneButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doneButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.doneButton.Location = new System.Drawing.Point(806, 498);
+            this.doneButton.Name = "doneButton";
+            this.doneButton.Size = new System.Drawing.Size(213, 30);
+            this.doneButton.TabIndex = 104;
+            this.doneButton.Text = "Done";
+            this.doneButton.UseVisualStyleBackColor = false;
+            this.doneButton.Click += new System.EventHandler(this.doneButton_Click);
+            // 
+            // dispatchOrderButton
+            // 
+            this.dispatchOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
+            this.dispatchOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dispatchOrderButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.dispatchOrderButton.FlatAppearance.BorderSize = 0;
+            this.dispatchOrderButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dispatchOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.dispatchOrderButton.Location = new System.Drawing.Point(555, 498);
+            this.dispatchOrderButton.Name = "dispatchOrderButton";
+            this.dispatchOrderButton.Size = new System.Drawing.Size(213, 30);
+            this.dispatchOrderButton.TabIndex = 105;
+            this.dispatchOrderButton.Text = "Dispatch Order";
+            this.dispatchOrderButton.UseVisualStyleBackColor = false;
+            // 
             // OrderDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -261,6 +269,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.Controls.Add(this.dispatchOrderButton);
             this.Controls.Add(this.doneButton);
             this.Controls.Add(this.rejectOrderButton);
             this.Controls.Add(this.acceptOrderButton);
@@ -269,15 +278,14 @@
             this.Controls.Add(this.customerNameText);
             this.Controls.Add(this.empIDText);
             this.Controls.Add(this.invoiceNumberText);
-            this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateLabel);
+            this.Controls.Add(this.dateAndTimeLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.invoiceDataGrid);
             this.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Order Details";
@@ -296,9 +304,8 @@
         private System.Windows.Forms.TextBox customerNameText;
         private System.Windows.Forms.TextBox empIDText;
         private System.Windows.Forms.TextBox invoiceNumberText;
-        private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label dateAndTimeLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView invoiceDataGrid;
@@ -308,5 +315,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn productName;
         private System.Windows.Forms.DataGridViewTextBoxColumn productID;
+        private System.Windows.Forms.Button dispatchOrderButton;
     }
 }
