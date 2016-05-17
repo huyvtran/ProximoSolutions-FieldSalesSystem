@@ -28,132 +28,110 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.empNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeGrid = new System.Windows.Forms.DataGridView();
+            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.photo = new System.Windows.Forms.DataGridViewImageColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jobTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.region = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.batchNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mFD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eXP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.employeGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // employeGrid
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.empNo,
+            this.employeGrid.AllowUserToDeleteRows = false;
+            this.employeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productID,
             this.photo,
-            this.name,
-            this.jobTitle,
-            this.region,
-            this.status,
-            this.address,
-            this.mobile,
-            this.email});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1064, 561);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.batchNo,
+            this.productName,
+            this.category,
+            this.unitPrice,
+            this.mFD,
+            this.eXP,
+            this.quantity});
+            this.employeGrid.GridColor = System.Drawing.SystemColors.Info;
+            this.employeGrid.Location = new System.Drawing.Point(31, 33);
+            this.employeGrid.Name = "employeGrid";
+            this.employeGrid.ReadOnly = true;
+            this.employeGrid.Size = new System.Drawing.Size(1003, 495);
+            this.employeGrid.TabIndex = 2;
             // 
-            // empNo
+            // productID
             // 
-            this.empNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.empNo.Frozen = true;
-            this.empNo.HeaderText = "Emp No:";
-            this.empNo.MinimumWidth = 60;
-            this.empNo.Name = "empNo";
-            this.empNo.ReadOnly = true;
-            this.empNo.Width = 60;
+            this.productID.HeaderText = "PID";
+            this.productID.MinimumWidth = 60;
+            this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
+            this.productID.Width = 60;
             // 
             // photo
             // 
-            this.photo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.photo.FillWeight = 150F;
-            this.photo.Frozen = true;
             this.photo.HeaderText = "Photo";
             this.photo.MinimumWidth = 150;
             this.photo.Name = "photo";
             this.photo.ReadOnly = true;
-            this.photo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.photo.Width = 150;
             // 
-            // name
+            // batchNo
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.name.Frozen = true;
-            this.name.HeaderText = "Name";
-            this.name.MinimumWidth = 200;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 200;
+            this.batchNo.HeaderText = "Batch No.";
+            this.batchNo.MinimumWidth = 60;
+            this.batchNo.Name = "batchNo";
+            this.batchNo.ReadOnly = true;
+            this.batchNo.Width = 60;
             // 
-            // jobTitle
+            // productName
             // 
-            this.jobTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.jobTitle.Frozen = true;
-            this.jobTitle.HeaderText = "Job Title";
-            this.jobTitle.MinimumWidth = 30;
-            this.jobTitle.Name = "jobTitle";
-            this.jobTitle.ReadOnly = true;
-            this.jobTitle.Width = 30;
+            this.productName.HeaderText = "Product Name";
+            this.productName.MinimumWidth = 250;
+            this.productName.Name = "productName";
+            this.productName.ReadOnly = true;
+            this.productName.Width = 250;
             // 
-            // region
+            // category
             // 
-            this.region.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.region.Frozen = true;
-            this.region.HeaderText = "Region";
-            this.region.MinimumWidth = 50;
-            this.region.Name = "region";
-            this.region.ReadOnly = true;
-            this.region.Width = 50;
+            this.category.HeaderText = "Category";
+            this.category.MinimumWidth = 110;
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Width = 110;
             // 
-            // status
+            // unitPrice
             // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.status.Frozen = true;
-            this.status.HeaderText = "Status";
-            this.status.MinimumWidth = 30;
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Width = 30;
+            this.unitPrice.HeaderText = "Unit Price";
+            this.unitPrice.MinimumWidth = 75;
+            this.unitPrice.Name = "unitPrice";
+            this.unitPrice.ReadOnly = true;
+            this.unitPrice.Width = 75;
             // 
-            // address
+            // mFD
             // 
-            this.address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.address.Frozen = true;
-            this.address.HeaderText = "Address";
-            this.address.MinimumWidth = 300;
-            this.address.Name = "address";
-            this.address.ReadOnly = true;
-            this.address.Width = 300;
+            this.mFD.HeaderText = "MFD";
+            this.mFD.MinimumWidth = 80;
+            this.mFD.Name = "mFD";
+            this.mFD.ReadOnly = true;
+            this.mFD.Width = 80;
             // 
-            // mobile
+            // eXP
             // 
-            this.mobile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.mobile.Frozen = true;
-            this.mobile.HeaderText = "Mobile";
-            this.mobile.MinimumWidth = 60;
-            this.mobile.Name = "mobile";
-            this.mobile.ReadOnly = true;
-            this.mobile.Width = 60;
+            this.eXP.HeaderText = "EXP";
+            this.eXP.MinimumWidth = 80;
+            this.eXP.Name = "eXP";
+            this.eXP.ReadOnly = true;
+            this.eXP.Width = 80;
             // 
-            // email
+            // quantity
             // 
-            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.email.Frozen = true;
-            this.email.HeaderText = "E-mail";
-            this.email.MinimumWidth = 150;
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 150;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.MinimumWidth = 100;
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
             // 
             // ViewEmployee
             // 
@@ -162,29 +140,29 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1064, 561);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.employeGrid);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "View Employee";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dataGridView1;
-        public System.Windows.Forms.DataGridViewTextBoxColumn email;
-        public System.Windows.Forms.DataGridViewTextBoxColumn mobile;
-        public System.Windows.Forms.DataGridViewTextBoxColumn address;
-        public System.Windows.Forms.DataGridViewTextBoxColumn status;
-        public System.Windows.Forms.DataGridViewTextBoxColumn region;
-        public System.Windows.Forms.DataGridViewTextBoxColumn jobTitle;
-        public System.Windows.Forms.DataGridViewTextBoxColumn name;
-        public System.Windows.Forms.DataGridViewImageColumn photo;
-        public System.Windows.Forms.DataGridViewTextBoxColumn empNo;
+        private System.Windows.Forms.DataGridView employeGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batchNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mFD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eXP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewImageColumn photo;
     }
 }
