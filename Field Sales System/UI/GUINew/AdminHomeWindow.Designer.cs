@@ -99,10 +99,10 @@
             this.addEmployeeButton.UseVisualStyleBackColor = false;
             this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
-            // panel1
+            // adminMainPanel1
             // 
             this.adminMainPanel1.Location = new System.Drawing.Point(279, 119);
-            this.adminMainPanel1.Name = "panel1";
+            this.adminMainPanel1.Name = "adminMainPanel1";
             this.adminMainPanel1.Size = new System.Drawing.Size(1080, 600);
             this.adminMainPanel1.TabIndex = 11;
             this.adminMainPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
@@ -157,7 +157,7 @@
             this.searchEmployeeButton.FlatAppearance.BorderSize = 0;
             this.searchEmployeeButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEmployeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 373);
+            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 407);
             this.searchEmployeeButton.Name = "searchEmployeeButton";
             this.searchEmployeeButton.Size = new System.Drawing.Size(236, 30);
             this.searchEmployeeButton.TabIndex = 15;

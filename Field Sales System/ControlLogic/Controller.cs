@@ -21,7 +21,7 @@ namespace Field_Sales_System.ControlLogic
         AgentHomeWindow agentHW;
         RepHomeWindow repHW;
         WMHomeWindow wmHW;
-        User currentUSer;
+        User currentUser;
         AddEmployee newEmployee;
         ViewEmployee viewEmployee;
         EmployeeProfile profile;
@@ -29,7 +29,6 @@ namespace Field_Sales_System.ControlLogic
         public Controller()
         { objectFactory = new ObjectFactory();
             securityManager = new SecurityManager();
-
             openingDialogBox = new SignIn(this);
             profile = new EmployeeProfile();
 
@@ -45,7 +44,7 @@ namespace Field_Sales_System.ControlLogic
             {
                 MessageBox.Show(check);
                 User u = objectFactory.getUser(empId);
-                currentUSer = u;
+                currentUser = u;
                 if (u is CompanyAdmin)
                 {
                     adminHW = new AdminHomeWindow(this);
@@ -72,6 +71,7 @@ namespace Field_Sales_System.ControlLogic
                     repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     repHW.photoLabel.Image = u.Dp.getPicture();
                     openingDialogBox.Hide();
+                    repHW.ShowDialog();
 
                 }   
                 else if (u is Agent)
@@ -82,15 +82,7 @@ namespace Field_Sales_System.ControlLogic
                     agentHW.photoLabel.Image = u.Dp.getPicture();
                     agentHW.ShowDialog();
                 }
-                else if (u is Representative)
-                {
-                    repHW = new RepHomeWindow(this);
-                   
-                    repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
-                    repHW.photoLabel.Image = u.Dp.getPicture();
-
-                    repHW.ShowDialog();
-                }
+              
                 else if (u is WarehouseManager)
                 {
                     wmHW = new WMHomeWindow();
@@ -110,7 +102,12 @@ namespace Field_Sales_System.ControlLogic
         }
         public void adminAddemployer()
         {
+            newEmployee = new AddEmployee(this);
             newEmployee.ShowDialog();
+        }
+        public string addadminemployersave(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
+        {
+             return objectFactory.storeUser(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles);
         }
         public void adminViewEmployer()
         {
@@ -130,14 +127,14 @@ namespace Field_Sales_System.ControlLogic
             repHW.TopLevel = true;
             profile.AutoScroll = true;
             
-            profile.addressLabel.Text = currentUSer.ContactDetails.AddressLine_1;
-            profile.cityLabel.Text = currentUSer.ContactDetails.AddressLine_2;
-            profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
-            profile.mobileLabel.Text = currentUSer.ContactDetails.MobileNo.ToString();
-            profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
-            profile.nameLabel.Text = currentUSer.getFirstName() + currentUSer.getLastName();
+            profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
+            profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
+            profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
+            profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
+            profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
+            profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
             profile.regionLabel.Text = "---";
-            profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
+            profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
@@ -149,14 +146,14 @@ namespace Field_Sales_System.ControlLogic
             adminHW.TopLevel = true;
             profile.AutoScroll = true;
 
-            profile.addressLabel.Text = currentUSer.ContactDetails.AddressLine_1;
-            profile.cityLabel.Text = currentUSer.ContactDetails.AddressLine_2;
-            profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
-            profile.mobileLabel.Text = currentUSer.ContactDetails.MobileNo.ToString();
-            profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
-            profile.nameLabel.Text = currentUSer.getFirstName() +" "+ currentUSer.getLastName();
+            profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
+            profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
+            profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
+            profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
+            profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
+            profile.nameLabel.Text = currentUser.getFirstName() +" "+ currentUser.getLastName();
             profile.regionLabel.Text = "---";
-            profile.jobTitleLabel.Text = "ioio";// currentUSer.UserRoles[0].getRoleName();
+            profile.jobTitleLabel.Text = "ioio";// currentUser.UserRoles[0].getRoleName();
             adminHW.adminMainPanel1.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();

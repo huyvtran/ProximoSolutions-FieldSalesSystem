@@ -34,12 +34,8 @@ namespace GUINew
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
-
-            //this.IsMdiContainer = true;
-            //addEmployee = new AddEmployee();
-            //addEmployee.MdiParent = this;
-            //addEmployee.Show();
-            //addEmployee.Location = new Point(279, 113);
+            controller.adminAddemployer();
+            
         }
 
         private void viewEmployeesButton_Click(object sender, EventArgs e)
