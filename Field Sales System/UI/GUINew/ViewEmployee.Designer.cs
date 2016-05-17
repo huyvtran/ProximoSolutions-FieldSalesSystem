@@ -31,6 +31,7 @@
             this.employeGrid = new System.Windows.Forms.DataGridView();
             this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.photo = new System.Windows.Forms.DataGridViewImageColumn();
+<<<<<<< HEAD
             this.batchNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,10 +40,19 @@
             this.eXP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.employeGrid)).BeginInit();
+=======
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+>>>>>>> fcb33e7c63b9e32796192b8623168f1e3f8827d1
             this.SuspendLayout();
             // 
             // employeGrid
             // 
+<<<<<<< HEAD
             this.employeGrid.AllowUserToDeleteRows = false;
             this.employeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -69,6 +79,39 @@
             this.productID.Name = "productID";
             this.productID.ReadOnly = true;
             this.productID.Width = 60;
+=======
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.empNo,
+            this.photo,
+            this.name,
+            this.jobTitle,
+            this.status,
+            this.mobile,
+            this.email});
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 150;
+            this.dataGridView1.RowTemplate.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.Size = new System.Drawing.Size(1010, 510);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // empNo
+            // 
+            this.empNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.empNo.Frozen = true;
+            this.empNo.HeaderText = "Emp No:";
+            this.empNo.MinimumWidth = 60;
+            this.empNo.Name = "empNo";
+            this.empNo.ReadOnly = true;
+            this.empNo.Width = 60;
+>>>>>>> fcb33e7c63b9e32796192b8623168f1e3f8827d1
             // 
             // photo
             // 
@@ -78,6 +121,7 @@
             this.photo.ReadOnly = true;
             this.photo.Width = 150;
             // 
+<<<<<<< HEAD
             // batchNo
             // 
             this.batchNo.HeaderText = "Batch No.";
@@ -132,6 +176,57 @@
             this.quantity.MinimumWidth = 100;
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
+=======
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.name.Frozen = true;
+            this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 200;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 200;
+            // 
+            // jobTitle
+            // 
+            this.jobTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.jobTitle.Frozen = true;
+            this.jobTitle.HeaderText = "Job Title";
+            this.jobTitle.MinimumWidth = 30;
+            this.jobTitle.Name = "jobTitle";
+            this.jobTitle.ReadOnly = true;
+            this.jobTitle.Width = 95;
+            // 
+            // status
+            // 
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.status.Frozen = true;
+            this.status.HeaderText = "Status";
+            this.status.MinimumWidth = 30;
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 80;
+            // 
+            // mobile
+            // 
+            this.mobile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.mobile.Frozen = true;
+            this.mobile.HeaderText = "Mobile";
+            this.mobile.MinimumWidth = 60;
+            this.mobile.Name = "mobile";
+            this.mobile.ReadOnly = true;
+            this.mobile.Width = 84;
+            // 
+            // email
+            // 
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.email.Frozen = true;
+            this.email.HeaderText = "E-mail";
+            this.email.MinimumWidth = 150;
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 150;
+>>>>>>> fcb33e7c63b9e32796192b8623168f1e3f8827d1
             // 
             // ViewEmployee
             // 
@@ -154,6 +249,7 @@
 
         #endregion
 
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridView employeGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn productID;
         private System.Windows.Forms.DataGridViewTextBoxColumn batchNo;
@@ -164,5 +260,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eXP;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewImageColumn photo;
+=======
+        public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mobile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jobTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewImageColumn photo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empNo;
+>>>>>>> fcb33e7c63b9e32796192b8623168f1e3f8827d1
     }
 }

@@ -351,8 +351,7 @@ namespace Field_Sales_System.Utility_Classes
                 cmd.Parameters["@eId"].Value = empId;
                 MySqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
-                MemoryStream ms = new MemoryStream((byte [])reader[0]);
-                
+                MemoryStream ms = new MemoryStream((byte [])reader[0]);       
                 return Image.FromStream(ms);
             }
             catch (Exception e)
