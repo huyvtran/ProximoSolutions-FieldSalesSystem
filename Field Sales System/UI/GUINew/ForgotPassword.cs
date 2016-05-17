@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,18 +13,24 @@ namespace GUINew
 {
     public partial class ForgotPassword : Form
     {
-        public ForgotPassword()
+        private Controller controller;
+        public ForgotPassword(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
-        private SignIn signIn;
 
         private void label3_Click(object sender, EventArgs e)
         {
-            //signIn = new SignIn();
-            //this.Hide();
-            //signIn.ShowDialog();
+            this.Hide();
+            controller.OpeningDialogBox.Show();
+            
+        }
+
+        private void requestNewPasswordButton_Click(object sender, EventArgs e)
+        {
+            controller.resetPassword(Int32.Parse(usernameText.Text));
         }
     }
 }

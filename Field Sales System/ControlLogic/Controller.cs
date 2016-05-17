@@ -23,16 +23,45 @@ namespace Field_Sales_System.ControlLogic
         AddEmployee newEmployee;
         ViewEmployee viewEmployee;
         EmployeeProfile profile;
+        ForgotPassword forgotPassword;
+
+        public ForgotPassword ForgotPassword
+        {
+            get
+            {
+                return forgotPassword;
+            }
+
+            set
+            {
+                forgotPassword = value;
+            }
+        }
+
+        public SignIn OpeningDialogBox
+        {
+            get
+            {
+                return openingDialogBox;
+            }
+
+            set
+            {
+                openingDialogBox = value;
+            }
+        }
 
         public Controller()
-        { objectFactory = new ObjectFactory();
+        {
+            objectFactory = new ObjectFactory();
             securityManager = new SecurityManager();
-            openingDialogBox = new SignIn(this);
+            OpeningDialogBox = new SignIn(this);
             profile = new EmployeeProfile();
+            ForgotPassword = new ForgotPassword(this);
         }
         public void initilizer()
         {
-            openingDialogBox.ShowDialog();
+            OpeningDialogBox.ShowDialog();
         }
         public void logIn(int empId, string password)
         {
@@ -64,7 +93,7 @@ namespace Field_Sales_System.ControlLogic
                     repHW = new RepHomeWindow(this);
                     repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     repHW.photoLabel.Image = u.Dp.getPicture();
-                    openingDialogBox.Hide();
+                    OpeningDialogBox.Hide();
                     repHW.ShowDialog();
                 }
                 else if (u is WarehouseManager)
@@ -78,8 +107,8 @@ namespace Field_Sales_System.ControlLogic
             else
             {
                 MessageBox.Show(check);
-                openingDialogBox.usernameText.Text = "";
-                openingDialogBox.passwordText.Text = "";
+                OpeningDialogBox.usernameText.Text = "";
+                OpeningDialogBox.passwordText.Text = "";
             }
 
         }
@@ -101,7 +130,7 @@ namespace Field_Sales_System.ControlLogic
             profile.TopLevel = false;
             repHW.TopLevel = true;
             profile.AutoScroll = true;
-            
+            profile.updateButton.Visible = false;
             profile.addressLabel.Text = currentUSer.ContactDetails.AddressLine_1;
             profile.cityLabel.Text = currentUSer.ContactDetails.AddressLine_2;
             profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
@@ -109,10 +138,30 @@ namespace Field_Sales_System.ControlLogic
             profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
             profile.nameLabel.Text = currentUSer.getFirstName() + currentUSer.getLastName();
             profile.regionLabel.Text = "---";
-            profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
+            //profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
+            profile.stateLabel.Text = isActive(currentUSer);
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
         }
+
+        public string isActive(User u) {
+            if (u.IsActive)
+            {
+                return "Active";
+            }
+            else {
+                return "Temporarily restricted access";
+            }
+        }
+
+        public void resetPassword(int empId) {
+            string s = securityManager.requestPasswordReset(empId);
+            MessageBox.Show(s);
+        }
+
+        
+
+        
     }
 }
