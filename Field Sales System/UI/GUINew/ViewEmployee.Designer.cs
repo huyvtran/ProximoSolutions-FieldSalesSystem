@@ -33,9 +33,7 @@
             this.photo = new System.Windows.Forms.DataGridViewImageColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.region = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -43,6 +41,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -50,16 +49,17 @@
             this.photo,
             this.name,
             this.jobTitle,
-            this.region,
             this.status,
-            this.address,
             this.mobile,
             this.email});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1064, 561);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 150;
+            this.dataGridView1.RowTemplate.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.Size = new System.Drawing.Size(1010, 510);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -87,7 +87,7 @@
             // 
             // name
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.name.Frozen = true;
             this.name.HeaderText = "Name";
             this.name.MinimumWidth = 200;
@@ -97,57 +97,37 @@
             // 
             // jobTitle
             // 
-            this.jobTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.jobTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.jobTitle.Frozen = true;
             this.jobTitle.HeaderText = "Job Title";
             this.jobTitle.MinimumWidth = 30;
             this.jobTitle.Name = "jobTitle";
             this.jobTitle.ReadOnly = true;
-            this.jobTitle.Width = 30;
-            // 
-            // region
-            // 
-            this.region.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.region.Frozen = true;
-            this.region.HeaderText = "Region";
-            this.region.MinimumWidth = 50;
-            this.region.Name = "region";
-            this.region.ReadOnly = true;
-            this.region.Width = 50;
+            this.jobTitle.Width = 95;
             // 
             // status
             // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.status.Frozen = true;
             this.status.HeaderText = "Status";
             this.status.MinimumWidth = 30;
             this.status.Name = "status";
             this.status.ReadOnly = true;
-            this.status.Width = 30;
-            // 
-            // address
-            // 
-            this.address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.address.Frozen = true;
-            this.address.HeaderText = "Address";
-            this.address.MinimumWidth = 300;
-            this.address.Name = "address";
-            this.address.ReadOnly = true;
-            this.address.Width = 300;
+            this.status.Width = 80;
             // 
             // mobile
             // 
-            this.mobile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.mobile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.mobile.Frozen = true;
             this.mobile.HeaderText = "Mobile";
             this.mobile.MinimumWidth = 60;
             this.mobile.Name = "mobile";
             this.mobile.ReadOnly = true;
-            this.mobile.Width = 60;
+            this.mobile.Width = 84;
             // 
             // email
             // 
-            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.email.Frozen = true;
             this.email.HeaderText = "E-mail";
             this.email.MinimumWidth = 150;
@@ -177,14 +157,12 @@
         #endregion
 
         public System.Windows.Forms.DataGridView dataGridView1;
-        public System.Windows.Forms.DataGridViewTextBoxColumn email;
-        public System.Windows.Forms.DataGridViewTextBoxColumn mobile;
-        public System.Windows.Forms.DataGridViewTextBoxColumn address;
-        public System.Windows.Forms.DataGridViewTextBoxColumn status;
-        public System.Windows.Forms.DataGridViewTextBoxColumn region;
-        public System.Windows.Forms.DataGridViewTextBoxColumn jobTitle;
-        public System.Windows.Forms.DataGridViewTextBoxColumn name;
-        public System.Windows.Forms.DataGridViewImageColumn photo;
-        public System.Windows.Forms.DataGridViewTextBoxColumn empNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mobile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jobTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewImageColumn photo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empNo;
     }
 }

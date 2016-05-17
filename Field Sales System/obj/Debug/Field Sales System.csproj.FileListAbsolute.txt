@@ -51,6 +51,19 @@ H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csprojResolveAssemblyReference.cache
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.Inventory.resources
+<<<<<<< HEAD
+=======
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.OrderDetails.resources
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ViewOrders.resources
+>>>>>>> fcb33e7c63b9e32796192b8623168f1e3f8827d1
 >>>>>>> 70d7d524e93ac88b526aac86ee99c5029a42853f
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe.config
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
 >>>>>>> a6a071cc7e96a5471a88d71d5421d75965c75db5
+<<<<<<< HEAD
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.Inventory.resources
+=======
+>>>>>>> 829c4b1d7148a39b08c1999b908365ad64b0540f
+>>>>>>> b4a28c9907e09e9be27682460e4896ad2b2196ff
+>>>>>>> fcb33e7c63b9e32796192b8623168f1e3f8827d1

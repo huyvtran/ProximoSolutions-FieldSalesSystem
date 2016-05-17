@@ -34,74 +34,70 @@ namespace Field_Sales_System.Utility_Classes
 
         //following method is used to authenticate the login of a user
         public string login(int empId, string password) {
-            
-                if (dbManager.isOnline())
-                {
-                    connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+
+
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
                     {
-                        List<object> arr = c.retrieveLoginInfo(connection, empId);
-                    bool pwdMatch = false;
-                    bool isActive= false;
-                    bool userNotExisting = false;
-                    if (arr!=null)
-                    {
-                        pwdMatch = computeHash(password).Equals(arr[1].ToString());
-                        isActive = (bool)arr[2];
-                        /*if ((int)arr[2] == 1)
-                        {
-                            isActive = true;
-                        }
-                        else {
-                            isActive = true;
-                        }
-                         */
-                    }
-                    else {
-                        pwdMatch = false;
-                        userNotExisting = true;           
-                    }
-                        
-                        if (connection.State == System.Data.ConnectionState.Open)
-                        {
-                            dbManager.closeConnection(connection);
-                        }
+                        connection = dbManager.openConnection(connection);
+                        if (!connection.Equals(null))
 
-
-                        if (pwdMatch && isActive)
                         {
-
-                            return "Successfully logged in!";
-                        }
-                        else {
-                        if (isActive)
-                        {
-                            return "Wrong password! Try again!";
-                        }
-                        else {
-                            if (userNotExisting)
+                            List<object> arr = c.retrieveLoginInfo(connection, empId);
+                            bool pwdMatch = false;
+                            bool isActive = false;
+                            bool userNotExisting = false;
+                            if (arr != null)
                             {
-                                return "Requested user is not existing. Contact administrator!";
+                                pwdMatch = computeHash(password).Equals(arr[1].ToString());
+                                isActive = (bool)arr[2];
                             }
                             else {
-                                return "Requested user is not active. Contact administrator!";
+                                pwdMatch = false;
+                                userNotExisting = true;
                             }
-                            
+
+                            if (connection.State == System.Data.ConnectionState.Open)
+                            {
+                                dbManager.closeConnection(connection);
+                            }
+
+
+                            if (pwdMatch && isActive)
+                            {
+
+                                return "Successfully logged in!";
+                            }
+                            else {
+                                if (isActive)
+                                {
+                                    return "Wrong password! Try again!";
+                                }
+                                else {
+                                    if (userNotExisting)
+                                    {
+                                        return "Requested user is not existing. Contact administrator!";
+                                    }
+                                    else {
+                                        return "Requested user is not active. Contact administrator!";
+                                    }
+
+                                }
+
+                            }
+
                         }
-                            
+                        else {
+                            return "Error! Cannot establish a connection with database. Try again later.";
                         }
 
                     }
                     else {
-                        return "Error! Cannot establish a connection with database. Try again later.";
+                        return "Error! No internet connection! Fix the internet connection and try again.";
                     }
-
-                }
-                else {
-                    return "Error! No internet connection! Fix the internet connection and try again.";
-                }
-
-        
+                       
+                
     }
 
         //this method can be used to change the password of a user
