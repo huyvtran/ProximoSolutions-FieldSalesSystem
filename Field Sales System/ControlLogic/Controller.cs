@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
@@ -147,7 +146,14 @@ namespace Field_Sales_System.ControlLogic
         public void adminAddemployer()
         {
             newEmployee = new AddEmployee(this);
-            newEmployee.ShowDialog();
+            
+            newEmployee.TopLevel = false;
+            newEmployee.AutoScroll = true;
+            adminHW.TopLevel = true;
+            adminHW.adminMainPanel1.Controls.Add(newEmployee);
+            newEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+            newEmployee.Show();
         }
         public List<Permission> permission()
         { List<Permission> permissionList = new List<Permission>();

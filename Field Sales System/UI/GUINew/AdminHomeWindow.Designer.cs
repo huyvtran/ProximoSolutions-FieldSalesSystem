@@ -37,7 +37,6 @@
             this.adminMainPanel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.viewReportsButton = new System.Windows.Forms.Button();
-            this.itemDispatchButton = new System.Windows.Forms.Button();
             this.searchEmployeeButton = new System.Windows.Forms.Button();
             this.viewEmployeesButton = new System.Windows.Forms.Button();
             this.empLastNameText = new System.Windows.Forms.TextBox();
@@ -132,21 +131,6 @@
             this.viewReportsButton.Text = "View Reports";
             this.viewReportsButton.UseVisualStyleBackColor = false;
             // 
-            // itemDispatchButton
-            // 
-            this.itemDispatchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.itemDispatchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.itemDispatchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.itemDispatchButton.FlatAppearance.BorderSize = 0;
-            this.itemDispatchButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemDispatchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.itemDispatchButton.Location = new System.Drawing.Point(16, 514);
-            this.itemDispatchButton.Name = "itemDispatchButton";
-            this.itemDispatchButton.Size = new System.Drawing.Size(236, 30);
-            this.itemDispatchButton.TabIndex = 14;
-            this.itemDispatchButton.Text = "Authenticate Item Dispatch";
-            this.itemDispatchButton.UseVisualStyleBackColor = false;
-            // 
             // searchEmployeeButton
             // 
             this.searchEmployeeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
@@ -187,13 +171,9 @@
             this.empLastNameText.Size = new System.Drawing.Size(236, 27);
             this.empLastNameText.TabIndex = 17;
             this.empLastNameText.Text = "Employee Last Name";
-<<<<<<< HEAD
-      
-=======
             this.empLastNameText.Click += new System.EventHandler(this.empLastNameText_Click);
             this.empLastNameText.TextChanged += new System.EventHandler(this.empLastNameText_TextChanged);
             this.empLastNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.empLastNameText_KeyPress);
->>>>>>> 910d73690d76255d5ee2e70e3d4b46b59576632b
             // 
             // logoutButton
             // 
@@ -228,13 +208,9 @@
             this.employeeIDText.Size = new System.Drawing.Size(236, 27);
             this.employeeIDText.TabIndex = 20;
             this.employeeIDText.Text = "Employee ID";
-<<<<<<< HEAD
-
-=======
             this.employeeIDText.Click += new System.EventHandler(this.employeeIDText_Click);
             this.employeeIDText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.employeeIDText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.employeeIDText_KeyPress);
->>>>>>> 910d73690d76255d5ee2e70e3d4b46b59576632b
             // 
             // AdminHomeWindow
             // 
@@ -248,7 +224,6 @@
             this.Controls.Add(this.empLastNameText);
             this.Controls.Add(this.viewEmployeesButton);
             this.Controls.Add(this.searchEmployeeButton);
-            this.Controls.Add(this.itemDispatchButton);
             this.Controls.Add(this.viewReportsButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.adminMainPanel1);
@@ -279,7 +254,6 @@
         public System.Windows.Forms.Panel adminMainPanel1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button viewReportsButton;
-        public System.Windows.Forms.Button itemDispatchButton;
         public System.Windows.Forms.Button searchEmployeeButton;
         public System.Windows.Forms.Button viewEmployeesButton;
         public System.Windows.Forms.TextBox empLastNameText;
