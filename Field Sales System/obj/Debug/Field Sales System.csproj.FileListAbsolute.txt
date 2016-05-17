@@ -61,3 +61,4 @@ C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System
 >>>>>>> a6a071cc7e96a5471a88d71d5421d75965c75db5
 >>>>>>> 829c4b1d7148a39b08c1999b908365ad64b0540f
 >>>>>>> b4a28c9907e09e9be27682460e4896ad2b2196ff
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.UI.GUINew.AddProduct.resources

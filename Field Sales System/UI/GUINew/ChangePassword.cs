@@ -17,7 +17,57 @@ namespace GUINew
         public ChangePassword(Controller controller)
         {
             InitializeComponent();
-            this.controller = controller;
+
+            changePwdButton.Enabled = false;
+            confirmPwdText.Enabled = false;
+        }
+
+        private void usernameText_TextChanged(object sender, EventArgs e)
+        {
+            changePwdButton.Enabled = true;
+        }
+
+        private void adminPwdText_TextChanged(object sender, EventArgs e)
+        {
+            changePwdButton.Enabled = true;
+            confirmPwdText.Enabled = false;
+        }
+
+        private void confirmPwdText_TextChanged(object sender, EventArgs e)
+        {
+            changePwdButton.Enabled = true;
+        }
+
+
+
+        private void changePwdButton_Click(object sender, EventArgs e)
+        {
+            string currentPassword = currentPwdText.Text;
+
+            string newPassword = newPwdText.Text;
+            string confirmedPassword = confirmPwdText.Text;
+
+            if (String.IsNullOrEmpty(currentPassword) && (String.IsNullOrEmpty(newPassword)) && (String.IsNullOrEmpty(confirmedPassword)))
+            {
+                MessageBox.Show("Enter all required data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+
+
+            else {
+                if (newPassword != confirmedPassword)
+                {
+                    MessageBox.Show("passwords do not match");
+                    newPwdText.Text = string.Empty;
+                    confirmPwdText.Text = string.Empty;
+                }
+
+            }
+
+
+
+            
         }
     }
 }
