@@ -19,9 +19,8 @@ namespace GUINew
         private ViewEmployee viewEmployee;
         private EmployeeProfile employeeProfile;
 
-        public AdminHomeWindow(Controller controll)
+        public AdminHomeWindow(Controller controller)
         {
-            controller = controll;
             InitializeComponent();
 
             this.controller = controller;
