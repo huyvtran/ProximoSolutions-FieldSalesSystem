@@ -17,6 +17,7 @@ namespace Field_Sales_System.Business_Logic
         private ProductDetails productDetails;
         private float pricePerUnit;
         [NonSerialized]DisplayPicture productPicture;
+
         public String ProductName
         {
             get

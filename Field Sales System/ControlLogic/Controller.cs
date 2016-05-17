@@ -143,18 +143,7 @@ namespace Field_Sales_System.ControlLogic
             profile.TopLevel = false;
             repHW.TopLevel = true;
             profile.AutoScroll = true;
-<<<<<<< HEAD
             profile.updateButton.Visible = false;
-            profile.addressLabel.Text = currentUSer.ContactDetails.AddressLine_1;
-            profile.cityLabel.Text = currentUSer.ContactDetails.AddressLine_2;
-            profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
-            profile.mobileLabel.Text = currentUSer.ContactDetails.MobileNo.ToString();
-            profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
-            profile.nameLabel.Text = currentUSer.getFirstName() + currentUSer.getLastName();
-            profile.regionLabel.Text = "---";
-            //profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
-=======
-            
             profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
             profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
             profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
@@ -163,7 +152,6 @@ namespace Field_Sales_System.ControlLogic
             profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
             profile.regionLabel.Text = "---";
             profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
->>>>>>> 70d7d524e93ac88b526aac86ee99c5029a42853f
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();

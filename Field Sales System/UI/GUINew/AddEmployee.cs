@@ -77,5 +77,73 @@ namespace GUINew
         {
 
         }
+
+        private void firstNameText_Click(object sender, EventArgs e)
+        {
+            if (firstNameText.Text == "First Name")
+            {
+                firstNameText.Text = "";
+            }
+        }
+
+        private void middleNameText_Click(object sender, EventArgs e)
+        {
+            if (middleNameText.Text == "Middle Name(s)")
+            {
+                middleNameText.Text = "";
+            }
+        }
+
+        private void lastNameText_Click(object sender, EventArgs e)
+        {
+            if (lastNameText.Text == "Last Name")
+            {
+                lastNameText.Text = "";
+            }
+        }
+
+        private void addressText_Click(object sender, EventArgs e)
+        {
+            if (addressText.Text == "Address")
+            {
+                addressText.Text = "";
+            }
+        }
+
+        private void cityText_Click(object sender, EventArgs e)
+        {
+            if (cityText.Text == "City")
+            {
+                cityText.Text = "";
+            }
+        }
+
+        private void stateText_Click(object sender, EventArgs e)
+        {
+            if (stateText.Text == "State")
+            {
+                stateText.Text = "";
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void firstNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void middleNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete || e.KeyChar == (char)Keys.Space);
+        }
+
+        private void lastNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
     }
 }
