@@ -48,5 +48,21 @@ namespace GUINew
 
 
         }
+
+        private void searchEmployeeButton_Click(object sender, EventArgs e)
+        {
+
+            string employeeIDtext = empID.Text;
+            try
+            {
+                int employeeID = int.Parse(employeeIDtext);
+            }
+            catch (FormatException e)
+            {
+                MessageBox.Show("invalid input,enter numbers only");
+            }
+            string empFirstNametext = empFirstName.Text;
+            string empLastNametext = empLastName.Text;
+        }
     }
 }

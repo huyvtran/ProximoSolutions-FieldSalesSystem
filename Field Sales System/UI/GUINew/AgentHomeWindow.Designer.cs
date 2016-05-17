@@ -175,6 +175,7 @@
             this.searchEmployeeButton.TabIndex = 43;
             this.searchEmployeeButton.Text = "Search  Employees";
             this.searchEmployeeButton.UseVisualStyleBackColor = false;
+            this.searchEmployeeButton.Click += new System.EventHandler(this.searchEmployeeButton_Click);
             // 
             // viewInventoryButton
             // 
