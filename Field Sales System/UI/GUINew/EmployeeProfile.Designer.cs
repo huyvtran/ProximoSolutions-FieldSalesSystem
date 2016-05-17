@@ -190,7 +190,7 @@
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-       //     this.label9.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.bday;
+            this.label9.Image = global::Field_Sales_System.Properties.Resources.bday;
             this.label9.Location = new System.Drawing.Point(584, 306);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 50);
@@ -201,7 +201,7 @@
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label10.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-       //     this.label10.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.fax;
+            this.label10.Image = global::Field_Sales_System.Properties.Resources.fax;
             this.label10.Location = new System.Drawing.Point(584, 201);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 50);
@@ -212,7 +212,7 @@
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-     //       this.label11.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.email;
+            this.label11.Image = global::Field_Sales_System.Properties.Resources.email;
             this.label11.Location = new System.Drawing.Point(584, 253);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 50);
@@ -223,7 +223,7 @@
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label12.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-     //       this.label12.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.address;
+            this.label12.Image = global::Field_Sales_System.Properties.Resources.address;
             this.label12.Location = new System.Drawing.Point(103, 329);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 50);
@@ -234,7 +234,7 @@
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label13.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-     //       this.label13.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.land_phone;
+            this.label13.Image = global::Field_Sales_System.Properties.Resources.land_phone;
             this.label13.Location = new System.Drawing.Point(103, 201);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(50, 50);
@@ -245,7 +245,7 @@
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label14.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-       //     this.label14.Image = global::Field_Sales_System.UI.GUINew.Properties.Resources.mobile;
+            this.label14.Image = global::Field_Sales_System.Properties.Resources.mobile;
             this.label14.Location = new System.Drawing.Point(103, 254);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(50, 50);

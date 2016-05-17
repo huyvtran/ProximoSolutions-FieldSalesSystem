@@ -54,7 +54,7 @@ namespace GUINew
             else {
                 if (confirmedPassword != newPassword)
                 {
-                    MessageBox.Show("passwords do not match");
+                    MessageBox.Show("Passwords do not match");
                     newPwdText.Text = string.Empty;
                     confirmPwdText.Text = string.Empty;
                 }

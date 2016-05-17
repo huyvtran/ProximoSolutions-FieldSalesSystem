@@ -43,11 +43,6 @@ namespace GUINew
 
         private void viewEmployeesButton_Click(object sender, EventArgs e)
         {
-            //this.IsMdiContainer = true;
-            //viewEmployee = new ViewEmployee();
-            //viewEmployee.MdiParent = this;
-            //viewEmployee.Show();
-            //viewEmployee.Location = new Point(279, 113);
         }
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)

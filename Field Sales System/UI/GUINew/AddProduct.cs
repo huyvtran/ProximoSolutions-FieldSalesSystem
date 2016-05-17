@@ -38,5 +38,20 @@ namespace Field_Sales_System.UI.GUINew
                 productNameText.Enabled = true;
             }
         }
+
+        private void productIDText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void batchNoText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -44,6 +44,9 @@ namespace GUINew
                 
             }
 
+            //meke admin password eka log wela inna admin ge pwd ekata samana nam username eke inna employee 
+            //ge password eka username ekama enna change karnna one...
+
 
 
 

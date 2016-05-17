@@ -40,18 +40,20 @@
             // 
             // confirmPwdText
             // 
-            this.confirmPwdText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPwdText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPwdText.Location = new System.Drawing.Point(23, 225);
             this.confirmPwdText.Name = "confirmPwdText";
-            this.confirmPwdText.Size = new System.Drawing.Size(269, 26);
+            this.confirmPwdText.PasswordChar = '*';
+            this.confirmPwdText.Size = new System.Drawing.Size(269, 27);
             this.confirmPwdText.TabIndex = 14;
             // 
             // newPwdText
             // 
-            this.newPwdText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPwdText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPwdText.Location = new System.Drawing.Point(23, 173);
             this.newPwdText.Name = "newPwdText";
-            this.newPwdText.Size = new System.Drawing.Size(269, 26);
+            this.newPwdText.PasswordChar = '*';
+            this.newPwdText.Size = new System.Drawing.Size(269, 27);
             this.newPwdText.TabIndex = 13;
             // 
             // changePwdButton
@@ -60,7 +62,7 @@
             this.changePwdButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.changePwdButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.changePwdButton.FlatAppearance.BorderSize = 0;
-            this.changePwdButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changePwdButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changePwdButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.changePwdButton.Location = new System.Drawing.Point(23, 287);
             this.changePwdButton.Name = "changePwdButton";
@@ -73,11 +75,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.label4.Location = new System.Drawing.Point(19, 205);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 20);
+            this.label4.Size = new System.Drawing.Size(131, 19);
             this.label4.TabIndex = 11;
             this.label4.Text = "Confirm Password";
             // 
@@ -95,30 +97,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.label1.Location = new System.Drawing.Point(19, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
+            this.label1.Size = new System.Drawing.Size(105, 19);
             this.label1.TabIndex = 9;
             this.label1.Text = "New Password";
             // 
             // currentPwdText
             // 
-            this.currentPwdText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentPwdText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPwdText.Location = new System.Drawing.Point(23, 107);
             this.currentPwdText.Name = "currentPwdText";
-            this.currentPwdText.Size = new System.Drawing.Size(269, 26);
+            this.currentPwdText.PasswordChar = '*';
+            this.currentPwdText.Size = new System.Drawing.Size(269, 27);
             this.currentPwdText.TabIndex = 16;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.label2.Location = new System.Drawing.Point(19, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 20);
+            this.label2.Size = new System.Drawing.Size(128, 19);
             this.label2.TabIndex = 15;
             this.label2.Text = "Current Password";
             // 

@@ -34,22 +34,22 @@ namespace GUINew
         }
 
         float price;
-
+        DataTable table = new DataTable();
         private void addItemButton_Click(object sender, EventArgs e)
         {
             price = (float.Parse(unitPriceLabel.Text)) * (float.Parse(qtyText.Text));
-            this.invoiceDataGrid.Rows.Add(productIDLabel.Text, productNameCombo.GetItemText(productNameCombo.SelectedItem), unitPriceLabel.Text, qtyText.Text, price);
-        }
+            table.Rows.Add(productIDLabel.Text, productNameCombo.GetItemText(productNameCombo.SelectedItem), unitPriceLabel.Text, qtyText.Text, price);
+
+            invoiceDataGrid.DataSource = table;
+        }        
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            if (this.invoiceDataGrid.SelectedRows.Count > 0)
-            {
-                invoiceDataGrid.Rows.RemoveAt(this.invoiceDataGrid.SelectedRows[0].Index);
-            }
+            int rowIndex = invoiceDataGrid.CurrentCell.RowIndex;
+            invoiceDataGrid.Rows.RemoveAt(rowIndex);
         }
 
-        double sum, discount;
+        double sum;
 
         private void finishButton_Click(object sender, EventArgs e)
         {

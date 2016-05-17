@@ -325,6 +325,7 @@
     <Content Include="UI\GUINew\GUINew.csproj" />
     <Content Include="UI\GUINew\Images\address.jpg" />
     <Content Include="UI\GUINew\Images\AukhrwKPo8ZiStMvcJ8N5cU5PgfCGVRrSGmGeJJO7UdT.jpg" />
+    <None Include="UI\GUINew\Images\back.jpg" />
     <Content Include="UI\GUINew\Images\bday.jpg" />
     <Content Include="UI\GUINew\Images\Camera.jpg" />
     <Content Include="UI\GUINew\Images\email.jpg" />
@@ -339,6 +340,7 @@
     <Content Include="UI\GUINew\obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="UI\GUINew\Resources\address.jpg" />
     <Content Include="UI\GUINew\Resources\AukhrwKPo8ZiStMvcJ8N5cU5PgfCGVRrSGmGeJJO7UdT.jpg" />
+    <None Include="UI\GUINew\Resources\back.jpg" />
     <Content Include="UI\GUINew\Resources\bday.jpg" />
     <Content Include="UI\GUINew\Resources\Camera.jpg" />
     <Content Include="UI\GUINew\Resources\email.jpg" />

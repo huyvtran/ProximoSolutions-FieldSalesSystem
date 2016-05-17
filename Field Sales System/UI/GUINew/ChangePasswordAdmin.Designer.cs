@@ -38,32 +38,32 @@
             // 
             // usernameText
             // 
-            this.usernameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameText.Location = new System.Drawing.Point(22, 119);
             this.usernameText.Name = "usernameText";
-            this.usernameText.Size = new System.Drawing.Size(269, 26);
+            this.usernameText.Size = new System.Drawing.Size(269, 27);
             this.usernameText.TabIndex = 24;
             this.usernameText.TextChanged += new System.EventHandler(this.usernameText_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.label2.Location = new System.Drawing.Point(18, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
+            this.label2.Size = new System.Drawing.Size(76, 19);
             this.label2.TabIndex = 23;
             this.label2.Text = "Username";
             // 
             // adminPwdText
             // 
-            this.adminPwdText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminPwdText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminPwdText.Location = new System.Drawing.Point(22, 185);
             this.adminPwdText.Name = "adminPwdText";
-            this.adminPwdText.Size = new System.Drawing.Size(269, 26);
+            this.adminPwdText.PasswordChar = '*';
+            this.adminPwdText.Size = new System.Drawing.Size(269, 27);
             this.adminPwdText.TabIndex = 21;
-            
             // 
             // changePwdButton
             // 
@@ -71,7 +71,7 @@
             this.changePwdButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.changePwdButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.changePwdButton.FlatAppearance.BorderSize = 0;
-            this.changePwdButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changePwdButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changePwdButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.changePwdButton.Location = new System.Drawing.Point(22, 262);
             this.changePwdButton.Name = "changePwdButton";
@@ -95,11 +95,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.label1.Location = new System.Drawing.Point(18, 166);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 20);
+            this.label1.Size = new System.Drawing.Size(121, 19);
             this.label1.TabIndex = 17;
             this.label1.Text = "Admin Password";
             // 

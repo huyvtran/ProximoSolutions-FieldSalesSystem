@@ -18,6 +18,7 @@ namespace GUINew
         {
             InitializeComponent();
             this.controller = controller;
+            searchRepsButton.Enabled = false;
         }
 
 
@@ -74,6 +75,34 @@ namespace GUINew
         private void viewInventoryButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void empIdText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (empIdText.Text.Length>=1)
+            {
+                searchRepsButton.Enabled = true;
+            }
+
+            e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void firstNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (firstNameText.Text.Length >= 1)
+            {
+                searchRepsButton.Enabled = true;
+            }
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        private void lastNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (lastNameText.Text.Length >= 1)
+            {
+                searchRepsButton.Enabled = true;
+            }
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
         }
     }
 }

@@ -30,12 +30,17 @@ namespace GUINew
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (!(emailText.Text.Contains("@")))
+            if (firstNameText.Text == null || lastNameText.Text == null || nicText.Text == null || addressText.Text == null || stateText.Text == null || mobileText.Text == null || regionText.Text == null)
+            {
+                MessageBox.Show("Fill in the required fields");
+            }
+            else if (!(emailText.Text.Contains("@")))
             {
                 MessageBox.Show("Invalid e-mail address");
                 emailText.Text = "";
             }
-            else {
+            else
+            {
                 //controller.addAdminEmployerSave(0003, Convert.ToInt32(nicText.Text), Convert.ToDateTime(bdayDateTimePicker.Text), gender, firstNameText.Text + " " + middleNameText.Text,lastNameText.Text, Convert.ToInt32(mobileText.Text), Convert.ToInt32(homeTelText.Text), emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image, userType,0003);
             }
         }

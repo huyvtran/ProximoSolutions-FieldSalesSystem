@@ -96,6 +96,7 @@
             this.productIDText.Name = "productIDText";
             this.productIDText.Size = new System.Drawing.Size(135, 28);
             this.productIDText.TabIndex = 42;
+            this.productIDText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productIDText_KeyPress);
             // 
             // batchNoText
             // 
@@ -104,6 +105,7 @@
             this.batchNoText.Name = "batchNoText";
             this.batchNoText.Size = new System.Drawing.Size(122, 28);
             this.batchNoText.TabIndex = 41;
+            this.batchNoText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.batchNoText_KeyPress);
             // 
             // productNameText
             // 
@@ -125,7 +127,7 @@
             this.productNameCombo.Name = "productNameCombo";
             this.productNameCombo.Size = new System.Drawing.Size(334, 28);
             this.productNameCombo.TabIndex = 66;
-            this.productNameCombo.Text = "Product Name";
+            this.productNameCombo.Text = "--Product Name--";
             this.productNameCombo.SelectedIndexChanged += new System.EventHandler(this.productNameCombo_SelectedIndexChanged);
             // 
             // label2
@@ -161,7 +163,7 @@
             this.categoryCombo.Name = "categoryCombo";
             this.categoryCombo.Size = new System.Drawing.Size(154, 28);
             this.categoryCombo.TabIndex = 70;
-            this.categoryCombo.Text = "Category";
+            this.categoryCombo.Text = "--Category--";
             // 
             // label3
             // 
@@ -239,6 +241,7 @@
             this.addButton.TabIndex = 76;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // AddProduct
             // 

@@ -27,5 +27,11 @@ namespace GUINew
             this.Hide();
             signIn.ShowDialog();
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            signIn.ShowDialog();
+            this.Close();
+        }
     }
 }
