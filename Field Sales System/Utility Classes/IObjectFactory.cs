@@ -30,7 +30,7 @@ namespace Field_Sales_System.Utility_Classes
         string storeNewProduct(string productName, int productId, string productDescription, float pricePerUnit, DisplayPicture productPicture, string category, int batchNo);
         string storeReport(object report);
         string storeSalesReturns(SalesReturn returns);
-        string storeUser(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles);
+        string storeUser(int empId, int empNIC, DateTime DOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles);
         Product updateProcuctDetails(Product product, int batchNo, DateTime MFD, DateTime EXP, string category);
         
 

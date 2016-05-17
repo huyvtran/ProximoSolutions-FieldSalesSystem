@@ -58,8 +58,8 @@ namespace Field_Sales_System.Utility_Classes.Tests
 
             c.openConnection(connection);
             Image image = ih.openImage("C:/testImg/1515.jpg");
-            WarehouseManager manager = new WarehouseManager(1212, 454545, true, "fName", "sName", 0775487515, 112451414, "email@asd", "Add1", "add2", "add3", image);
-            c.storeUser(connection, manager);
+           // WarehouseManager manager = new WarehouseManager(1212, 454545, true, "fName", "sName", 0775487515, 112451414, "email@asd", "Add1", "add2", "add3", image);
+           // c.storeUser(connection, manager);
             List<User> u = c.retrieveUser(connection, 1212);
 
 
@@ -105,8 +105,8 @@ namespace Field_Sales_System.Utility_Classes.Tests
 
             c.openConnection(connection);
             Image image = ih.openImage("C:/testImg/1515.jpg");
-            WarehouseManager manager = new WarehouseManager(1212, 454545, true, "fName", "sName", 0775487515, 112451414, "email@asd", "Add1", "add2", "add3", image);
-            c.storeUser(connection, manager);
+            //WarehouseManager manager = new WarehouseManager(1212, 454545, true, "fName", "sName", 0775487515, 112451414, "email@asd", "Add1", "add2", "add3", image);
+            //c.storeUser(connection, manager);
             List<User> u = c.retrieveUser(connection, 1212);
             u[0].setFirstName("Izzzzzzzzz");
             c.modifyUser(connection, u[0]);

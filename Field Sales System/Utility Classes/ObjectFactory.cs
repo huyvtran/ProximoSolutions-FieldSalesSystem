@@ -228,7 +228,7 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
         //create User
-        public string storeUser(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
+        public string storeUser(int empId, int empNIC, DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
         {
             try
             {
@@ -237,7 +237,7 @@ namespace Field_Sales_System.Utility_Classes
                 {
                     case "Representative":
 
-                        Representative rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        Representative rep = new Representative(empId, empNIC, dOB,gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                         
                         rep.UserRoles = roles;
 
@@ -247,20 +247,20 @@ namespace Field_Sales_System.Utility_Classes
                         break;
                     case "Agent":
 
-                        Agent agent = new Agent(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        Agent agent = new Agent(empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                         
                         agent.UserRoles = roles;
                         user = agent;
                         break;
 
                     case "CompanyAdmin":
-                        CompanyAdmin admin = new CompanyAdmin(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        CompanyAdmin admin = new CompanyAdmin(empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                         
                         admin.UserRoles = roles;
                         user = admin;
                         break;
                     case "WarehouseManager":
-                        WarehouseManager wManager = new WarehouseManager(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        WarehouseManager wManager = new WarehouseManager(empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                         
                         wManager.UserRoles = roles;
                         user = wManager;
