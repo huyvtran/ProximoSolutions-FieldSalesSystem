@@ -188,7 +188,7 @@
             this.empLastNameText.Size = new System.Drawing.Size(236, 26);
             this.empLastNameText.TabIndex = 17;
             this.empLastNameText.Text = "Employee Last Name";
-            this.empLastNameText.TextChanged += new System.EventHandler(this.empLastNameText_TextChanged);
+      
             // 
             // logoutButton
             // 
@@ -219,7 +219,7 @@
             this.employeeIDText.Size = new System.Drawing.Size(236, 26);
             this.employeeIDText.TabIndex = 20;
             this.employeeIDText.Text = "Employee ID";
-            this.employeeIDText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             // 
             // AdminHomeWindow
             // 

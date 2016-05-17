@@ -30,7 +30,7 @@ namespace GUINew
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            //controller.addAdminEmployerSave(0003, Convert.ToInt32(nicText.Text), Convert.ToDateTime(bdayDateTimePicker.Text), gender, firstNameText.Text + " " + middleNameText.Text,lastNameText.Text, Convert.ToInt32(mobileText.Text), Convert.ToInt32(homeTelText.Text), emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image, userType,0003);
+            controller.addAdminEmployerSave(11, Convert.ToInt32(nicText.Text), Convert.ToDateTime(bdayDateTimePicker.Text), gender, firstNameText.Text + " " + middleNameText.Text,lastNameText.Text, Convert.ToInt32(mobileText.Text), Convert.ToInt32(homeTelText.Text), emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image, userType);
         }
 
         private void mrsRadioButton_CheckedChanged(object sender, EventArgs e)

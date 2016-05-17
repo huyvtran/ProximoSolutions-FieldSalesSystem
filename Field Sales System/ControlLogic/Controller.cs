@@ -146,21 +146,47 @@ namespace Field_Sales_System.ControlLogic
             newEmployee = new AddEmployee(this);
             newEmployee.ShowDialog();
         }
-        public string addadminemployersave(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
-        {
-             return objectFactory.storeUser(empId, empNIC, DateTime.Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles);
+        public List<Permission> permission()
+        { List<Permission> permissionList = new List<Permission>();
+            Permission permission = objectFactory.createPermission("blah", 1);
+            permissionList.Add(permission);
+            return permissionList;
         }
-        public void adminViewEmployer()
-        {
-            viewEmployee.ShowDialog();
-        }
-        public void adminSearchEmploee(int empId=0, string empFirstName="", string empLastName="")
+        public List<UserRole> userRole(string type)
+        { List<Permission> permissionListSent = permission();
+            List<UserRole> userRoleList = new List<UserRole>();
 
-        {         
-            viewEmployee.setData(objectFactory.searchUser(empId, empFirstName, empLastName));
-            viewEmployee.ShowDialog();
+            UserRole userRole = objectFactory.createUserRole(type, permissionListSent);
+            userRoleList.Add(userRole);
+            return userRoleList;
 
         }
+        public void addAdminEmployerSave(int empId, int empNIC, DateTime Now, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType)
+        {
+            List<UserRole> roles = userRole(userType);
+             MessageBox.Show( ((CompanyAdmin)currentUser).addUser(objectFactory,securityManager,empId, empNIC, Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles,"cat"));
+        }
+        public void searchEmployee_Admin(int empId, string firstName, string lastName)
+        {
+            adminHW.adminMainPanel1.Controls.Clear();
+            List<User> searchResult = objectFactory.searchUser(empId, firstName, lastName);
+            //this.viewEmployee.dataGridView1 = new System.Windows.Forms.DataGridView();
+
+            foreach (User user in searchResult)
+            {
+                Image pic = user.Dp.getPicture();
+                this.viewEmployee.dataGridView1.Rows.Add(user.getEmpId(), user.Dp.getPicture(), user.getFirstName() + " " + user.getLastName(), user.GetType().ToString(), checkState(user.IsActive), user.ContactDetails.MobileNo, user.ContactDetails.EmailAddress);
+
+            }
+            viewEmployee.TopLevel = false;
+            viewEmployee.AutoScroll = true;
+           adminHW.TopLevel = true;
+            adminHW.adminMainPanel1.Controls.Add(viewEmployee);
+            viewEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+            viewEmployee.Show();
+        }
+   
 
         public void setMyHome_Representative() {
             profile.TopLevel = false;
