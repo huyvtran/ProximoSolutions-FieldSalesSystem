@@ -28,9 +28,8 @@ namespace GUINew
         }
 
         private void updateButton_Click(object sender, EventArgs e)
-        {
-           
-            updateEmployee.Show();
+        {         
+           //controller.upd
         }
     }
 }

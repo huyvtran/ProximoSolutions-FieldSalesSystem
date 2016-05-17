@@ -34,7 +34,7 @@ namespace Field_Sales_System.Utility_Classes
 
         //Create new order
 
-        public string storeNewOrder(int orderId, DateTime OrderRequestedDate, List<OrderEntry> orderEntries,int ordererId)
+        public string storeNewOrder(int orderId, DateTime OrderRequestedDate, List<OrderEntry> orderEntries,int ordererId,string )
         {
            
             OrderProcessDetails gotprocessDetails = getOrderProcessDetails();
@@ -273,9 +273,11 @@ namespace Field_Sales_System.Utility_Classes
                     isOnline = dbManager.isOnline();
                     if (isOnline)
                     {
+                        dbManager.closeConnection(connection);
                         connection = dbManager.openConnection(connection);
                         if (connection != null)
                         {
+
                             user.IsActive = true;
                             bool user_status = dbManager.storeUser(connection, user);
                             dbManager.closeConnection(connection);
@@ -687,22 +689,30 @@ namespace Field_Sales_System.Utility_Classes
                     connection = dbManager.openConnection(connection);
                     if (connection!=null)
                     {
-                        returnUser = dbManager.retrieveUser(connection, empId)[0];
-                        dbManager.closeConnection(connection);
-                        dbManager.openConnection(connection);
-                        Image i = dbManager.retrieveImage(connection, returnUser.getEmpId());
-                        dbManager.closeConnection(connection);
-                        dbManager.openConnection(connection);
-                        returnUser.Dp = new DisplayPicture(i);
-                        List<ContactDetails> contacts = dbManager.retrieveContactDetails(connection, returnUser.getEmpId());
-                        returnUser.ContactDetails = contacts[contacts.Count - 1];
-
-                        if (connection.State == System.Data.ConnectionState.Open)
+                        List<User> uList = dbManager.retrieveUser(connection, empId);
+                        if (uList != null)
                         {
+                            returnUser = uList[0];
                             dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
+                            Image i = dbManager.retrieveImage(connection, returnUser.getEmpId());
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
+                            returnUser.Dp = new DisplayPicture(i);
+                            List<ContactDetails> contacts = dbManager.retrieveContactDetails(connection, returnUser.getEmpId());
+                            returnUser.ContactDetails = contacts[contacts.Count - 1];
+
+                            if (connection.State == System.Data.ConnectionState.Open)
+                            {
+                                dbManager.closeConnection(connection);
+                            }
+                            userList.Add(returnUser);
+                            return returnUser;
                         }
-                        userList.Add(returnUser);
-                        return returnUser;
+                        else {
+                            return null;
+                        }
+                        
 
                     }
                     else {
@@ -718,9 +728,9 @@ namespace Field_Sales_System.Utility_Classes
 
         public List<User> searchUser(int empId = 0, string firstName = "", string lastName = "") {
 
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            //bool isOnline = false;
+            //isOnline = dbManager.isOnline();
+            if (true)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -728,8 +738,14 @@ namespace Field_Sales_System.Utility_Classes
                     List<User> returnUser = dbManager.retrieveUser(connection, empId, firstName, lastName);
                     foreach (User u in returnUser) {
                         if (connection.State.Equals(System.Data.ConnectionState.Open)) {
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
                             u.Dp = new DisplayPicture(dbManager.retrieveImage(connection, u.getEmpId()));
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
                             List<ContactDetails> contactList = dbManager.retrieveContactDetails(connection, u.getEmpId());
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
                             u.ContactDetails = contactList[contactList.Count - 1];
                             userList.Add(u);
                         }        

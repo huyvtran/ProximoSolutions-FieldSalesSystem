@@ -30,6 +30,7 @@ namespace Field_Sales_System.ControlLogic
         ChangePasswordAdmin changePasswordAdminForm;
         UpdateEmployee updateEmployee;
 
+
         public ForgotPassword ForgotPassword
         {
             get
@@ -64,6 +65,7 @@ namespace Field_Sales_System.ControlLogic
             profile = new EmployeeProfile(this);
             ForgotPassword = new ForgotPassword(this);
             updateEmployee = new UpdateEmployee();
+            viewEmployee = new ViewEmployee(this);
 
         }
         public void initilizer()
@@ -77,58 +79,64 @@ namespace Field_Sales_System.ControlLogic
             {
                 MessageBox.Show(check);
                 User u = objectFactory.getUser(empId);
-                currentUser = u;
-                if (u is CompanyAdmin)
+                if (u != null)
                 {
-                    adminHW = new AdminHomeWindow(this);
-                   // adminHW.TopLevel = false;
-                    adminHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
-                    adminHW.photoLabel.Image = u.Dp.getPicture();
-                    openingDialogBox.changeCurser();
-                    openingDialogBox.Hide();
-                    adminHW.ShowDialog();
+                    currentUser = u;
+                    if (u is CompanyAdmin)
+                    {
+                        adminHW = new AdminHomeWindow(this);
+                        // adminHW.TopLevel = false;
+                        adminHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
+                        adminHW.photoLabel.Image = u.Dp.getPicture();
+                        openingDialogBox.changeCurser();
+                        openingDialogBox.Hide();
+                        adminHW.ShowDialog();
 
-                }
-                else if (u is Agent)
-                {
-                    agentHW = new AgentHomeWindow();
-                    agentHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
-                    agentHW.photoLabel.Image = u.Dp.getPicture();
-                    agentHW.ShowDialog();
+                    }
+                    else if (u is Agent)
+                    {
+                        agentHW = new AgentHomeWindow();
+                        agentHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
+                        agentHW.photoLabel.Image = u.Dp.getPicture();
+                        agentHW.ShowDialog();
 
-                }
-                else if (u is Representative)
-                {
-                    repHW = new RepHomeWindow(this);
-                    repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
-                    repHW.photoLabel.Image = u.Dp.getPicture();
-                    OpeningDialogBox.Hide();
-                    repHW.ShowDialog();
+                    }
+                    else if (u is Representative)
+                    {
+                        repHW = new RepHomeWindow(this);
+                        repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
+                        repHW.photoLabel.Image = u.Dp.getPicture();
+                        OpeningDialogBox.Hide();
+                        repHW.ShowDialog();
 
-                }   
-                else if (u is Agent)
-                {
-                    agentHW = new AgentHomeWindow();
-                    
-                    agentHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
-                    agentHW.photoLabel.Image = u.Dp.getPicture();
-                    agentHW.ShowDialog();
+                    }
+                    else if (u is Agent)
+                    {
+                        agentHW = new AgentHomeWindow();
+
+                        agentHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
+                        agentHW.photoLabel.Image = u.Dp.getPicture();
+                        agentHW.ShowDialog();
+                    }
+
+                    else if (u is WarehouseManager)
+                    {
+                        wmHW = new WMHomeWindow();
+
+                        wmHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
+                        wmHW.photoLabel.Image = u.Dp.getPicture();
+                        wmHW.ShowDialog();
+                    }
                 }
-              
-                else if (u is WarehouseManager)
+                else
                 {
-                    wmHW = new WMHomeWindow();
-                   
-                    wmHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
-                    wmHW.photoLabel.Image = u.Dp.getPicture();
-                    wmHW.ShowDialog();
+                    MessageBox.Show(check);
+                    OpeningDialogBox.usernameText.Text = "";
+                    OpeningDialogBox.passwordText.Text = "";
                 }
             }
-            else
-            {
-                MessageBox.Show(check);
-                OpeningDialogBox.usernameText.Text = "";
-                OpeningDialogBox.passwordText.Text = "";
+            else {
+                
             }
 
         }
@@ -148,7 +156,6 @@ namespace Field_Sales_System.ControlLogic
         public void adminSearchEmploee(int empId=0, string empFirstName="", string empLastName="")
 
         {         
-
             viewEmployee.setData(objectFactory.searchUser(empId, empFirstName, empLastName));
             viewEmployee.ShowDialog();
 
@@ -185,8 +192,6 @@ namespace Field_Sales_System.ControlLogic
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
         }
-
-
         public string isActive(User u) {
             if (u.IsActive)
             {
@@ -196,12 +201,10 @@ namespace Field_Sales_System.ControlLogic
                 return "Temporarily restricted access";
             }
         }
-
         public void resetPassword(int empId) {
             string s = securityManager.requestPasswordReset(empId);
             MessageBox.Show(s);
         }
-
         public void changeEmployeePassword() {
             if (currentUser is CompanyAdmin)
             {
@@ -213,22 +216,16 @@ namespace Field_Sales_System.ControlLogic
                 changePasswordForm.Show();
             }
         }
-
         public void changePasswordNonAdmin(string oldPassword,string newPassword) {
             string status = securityManager.modifyPassword(currentUser.getEmpId(), oldPassword, newPassword);
             MessageBox.Show(status);
             changePasswordForm.Hide();
         }
-
         public void changePasswordAdmin(int empId, string newPassword) {
             string status = securityManager.modifyPasswordAdmin(empId, newPassword);
             MessageBox.Show(status);
             changePasswordForm.Hide();
-        }
-        
-
-        
-
+        }        
         public void setMyHome_Admin()
         {
             profile.TopLevel = false;
@@ -247,6 +244,57 @@ namespace Field_Sales_System.ControlLogic
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
         }
+
+        public void searchEmployee_Rep(int empId, string firstName,string lastName) {
+            repHW.repMainPannel.Controls.Clear();
+            List<User> searchResult = objectFactory.searchUser(empId,firstName,lastName);
+            //this.viewEmployee.dataGridView1 = new System.Windows.Forms.DataGridView();
+            
+            foreach (User user in searchResult)
+            {
+                Image pic = user.Dp.getPicture();
+                this.viewEmployee.dataGridView1.Rows.Add(user.getEmpId(), user.Dp.getPicture(), user.getFirstName() + " " + user.getLastName(), user.GetType().ToString(), checkState(user.IsActive), user.ContactDetails.MobileNo, user.ContactDetails.EmailAddress);
+                       
+            }
+            viewEmployee.TopLevel = false;
+            viewEmployee.AutoScroll = true;
+            repHW.TopLevel = true;
+            repHW.repMainPannel.Controls.Add(viewEmployee);
+            viewEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            
+            viewEmployee.Show();
+        }
+
+        public string checkState(bool b)
+        {
+            if (b)
+            {
+                return "Active";
+            }
+            else
+            {
+                return "Removed";
+
+            }
+
+        }
+        public string getUserRegion(User user)
+        {
+            string region = "";
+            if (user is Agent)
+            {
+                Agent agent = (Agent)user;
+                region = agent.getCoverageArea();
+            }
+            else
+            {
+                region = "Not assigned";
+            }
+            return region;
+        }
+
+
+
 
 
 

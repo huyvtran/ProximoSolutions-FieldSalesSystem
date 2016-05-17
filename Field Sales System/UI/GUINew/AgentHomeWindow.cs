@@ -16,5 +16,10 @@ namespace GUINew
         {
             InitializeComponent();
         }
+
+        private void searchRepsButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -14,8 +14,8 @@ namespace Field_Sales_System.Utility_Classes
         public Image resizeImage(Image image) {
             try
             {
-                Rectangle destRectangle = new Rectangle(0, 0, 400, 400);
-                Bitmap destImage = new Bitmap(400, 400);
+                Rectangle destRectangle = new Rectangle(0, 0, 150, 150);
+                Bitmap destImage = new Bitmap(150, 150);
                 destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
                 Graphics graphics = Graphics.FromImage(destImage);
                 var wrapMode = new ImageAttributes();

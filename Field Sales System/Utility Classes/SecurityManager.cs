@@ -40,8 +40,9 @@ namespace Field_Sales_System.Utility_Classes
             if (isOnline)
 
             {
-                    connection = dbManager.openConnection(connection);
-                    if (!connection.Equals(null))
+                dbManager.closeConnection(connection);
+                connection = dbManager.openConnection(connection);
+                    if (connection != null)
                     {
                     
                     List<object> arr = c.retrieveLoginInfo(connection, empId);

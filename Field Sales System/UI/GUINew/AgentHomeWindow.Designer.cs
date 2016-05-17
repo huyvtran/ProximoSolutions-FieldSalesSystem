@@ -34,11 +34,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.photoLabel = new System.Windows.Forms.Label();
             this.viewReportsButton = new System.Windows.Forms.Button();
             this.itemDispatchButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.viewRepsButton = new System.Windows.Forms.Button();
+            this.empLastNameText = new System.Windows.Forms.TextBox();
             this.searchRepsButton = new System.Windows.Forms.Button();
             this.viewInventoryButton = new System.Windows.Forms.Button();
             this.goodsReceiveNoteButton = new System.Windows.Forms.Button();
@@ -46,7 +44,10 @@
             this.requestNewOrderButton = new System.Windows.Forms.Button();
             this.salesReturnButton = new System.Windows.Forms.Button();
             this.changeOrderButton = new System.Windows.Forms.Button();
+            this.empFirstNameText = new System.Windows.Forms.TextBox();
+            this.empIdText = new System.Windows.Forms.TextBox();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.photoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -96,15 +97,6 @@
             this.nameLabel.Text = "Name";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // photoLabel
-            // 
-            this.photoLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.photoLabel.Image = ((System.Drawing.Image)(resources.GetObject("photoLabel.Image")));
-            this.photoLabel.Location = new System.Drawing.Point(16, 8);
-            this.photoLabel.Name = "photoLabel";
-            this.photoLabel.Size = new System.Drawing.Size(50, 50);
-            this.photoLabel.TabIndex = 31;
-            // 
             // viewReportsButton
             // 
             this.viewReportsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
@@ -135,28 +127,13 @@
             this.itemDispatchButton.Text = "Item Dispatch";
             this.itemDispatchButton.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // empLastNameText
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 242);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 26);
-            this.textBox1.TabIndex = 45;
-            this.textBox1.Text = "Employee Name";
-            // 
-            // viewRepsButton
-            // 
-            this.viewRepsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.viewRepsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.viewRepsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewRepsButton.FlatAppearance.BorderSize = 0;
-            this.viewRepsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewRepsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewRepsButton.Location = new System.Drawing.Point(16, 182);
-            this.viewRepsButton.Name = "viewRepsButton";
-            this.viewRepsButton.Size = new System.Drawing.Size(236, 30);
-            this.viewRepsButton.TabIndex = 44;
-            this.viewRepsButton.Text = "View Sales Representatives";
-            this.viewRepsButton.UseVisualStyleBackColor = false;
+            this.empLastNameText.Location = new System.Drawing.Point(16, 242);
+            this.empLastNameText.Name = "empLastNameText";
+            this.empLastNameText.Size = new System.Drawing.Size(236, 26);
+            this.empLastNameText.TabIndex = 45;
+            this.empLastNameText.Text = "Employee Name";
             // 
             // searchRepsButton
             // 
@@ -172,6 +149,7 @@
             this.searchRepsButton.TabIndex = 43;
             this.searchRepsButton.Text = "Search Sales Representatives";
             this.searchRepsButton.UseVisualStyleBackColor = false;
+            this.searchRepsButton.Click += new System.EventHandler(this.searchRepsButton_Click);
             // 
             // viewInventoryButton
             // 
@@ -263,6 +241,22 @@
             this.changeOrderButton.Text = "Change Order";
             this.changeOrderButton.UseVisualStyleBackColor = false;
             // 
+            // empFirstNameText
+            // 
+            this.empFirstNameText.Location = new System.Drawing.Point(16, 210);
+            this.empFirstNameText.Name = "empFirstNameText";
+            this.empFirstNameText.Size = new System.Drawing.Size(236, 26);
+            this.empFirstNameText.TabIndex = 52;
+            this.empFirstNameText.Text = "Employee Name";
+            // 
+            // empIdText
+            // 
+            this.empIdText.Location = new System.Drawing.Point(16, 178);
+            this.empIdText.Name = "empIdText";
+            this.empIdText.Size = new System.Drawing.Size(236, 26);
+            this.empIdText.TabIndex = 53;
+            this.empIdText.Text = "Employee ID";
+            // 
             // logoutButton
             // 
             this.logoutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoutButton.BackgroundImage")));
@@ -276,6 +270,15 @@
             this.logoutButton.TabIndex = 51;
             this.logoutButton.UseVisualStyleBackColor = true;
             // 
+            // photoLabel
+            // 
+            this.photoLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.photoLabel.Image = ((System.Drawing.Image)(resources.GetObject("photoLabel.Image")));
+            this.photoLabel.Location = new System.Drawing.Point(16, 8);
+            this.photoLabel.Name = "photoLabel";
+            this.photoLabel.Size = new System.Drawing.Size(50, 50);
+            this.photoLabel.TabIndex = 31;
+            // 
             // AgentHomeWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -283,14 +286,15 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.empIdText);
+            this.Controls.Add(this.empFirstNameText);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.requestNewOrderButton);
             this.Controls.Add(this.salesReturnButton);
             this.Controls.Add(this.changeOrderButton);
             this.Controls.Add(this.viewReportsButton);
             this.Controls.Add(this.itemDispatchButton);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.viewRepsButton);
+            this.Controls.Add(this.empLastNameText);
             this.Controls.Add(this.searchRepsButton);
             this.Controls.Add(this.viewInventoryButton);
             this.Controls.Add(this.goodsReceiveNoteButton);
@@ -319,7 +323,7 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label nameLabel;
         public System.Windows.Forms.Label photoLabel;
-        public  System.Windows.Forms.TextBox textBox1;
+        public  System.Windows.Forms.TextBox empLastNameText;
         public System.Windows.Forms.Button goodsReceiveNoteButton;
         public System.Windows.Forms.Button myProfileButton;
         public System.Windows.Forms.Button requestNewOrderButton;
@@ -327,9 +331,10 @@
         public  System.Windows.Forms.Button changeOrderButton;
         public System.Windows.Forms.Button viewInventoryButton;
         public System.Windows.Forms.Button searchRepsButton;
-       public System.Windows.Forms.Button viewRepsButton;
       public System.Windows.Forms.Button itemDispatchButton;
         public System.Windows.Forms.Button viewReportsButton;
         public System.Windows.Forms.Button logoutButton;
+        public System.Windows.Forms.TextBox empFirstNameText;
+        public System.Windows.Forms.TextBox empIdText;
     }
 }
