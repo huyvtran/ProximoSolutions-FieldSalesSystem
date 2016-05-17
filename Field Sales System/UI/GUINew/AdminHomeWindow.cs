@@ -91,6 +91,14 @@ namespace GUINew
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             searchEmployeeButton.Enabled = true;
+            if (!System.Text.RegularExpressions.Regex.IsMatch(empFirstNameText.Text, "^[a-zA-Z_-]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters");
+                empFirstNameText.Text.Remove(empFirstNameText.Text.Length - 1);
+            }
+
+
+
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
@@ -101,6 +109,15 @@ namespace GUINew
         private void empLastNameText_TextChanged(object sender, EventArgs e)
         {
             searchEmployeeButton.Enabled = true;
+            if (!System.Text.RegularExpressions.Regex.IsMatch(empLastNameText.Text, "^[a-zA-Z_-]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters");
+                empLastNameText.Text.Remove(empLastNameText.Text.Length - 1);
+            }
+
+
+
+
         }
     }
 }
