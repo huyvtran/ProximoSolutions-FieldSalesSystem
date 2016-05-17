@@ -21,24 +21,54 @@ namespace Field_Sales_System.ControlLogic
         AgentHomeWindow agentHW;
         RepHomeWindow repHW;
         WMHomeWindow wmHW;
-        User currentUSer;
+        User currentUser;
         AddEmployee newEmployee;
         ViewEmployee viewEmployee;
         EmployeeProfile profile;
+        ForgotPassword forgotPassword;
+        ChangePassword changePasswordForm;
+        ChangePasswordAdmin changePasswordAdminForm;
+        UpdateEmployee updateEmployee;
+
+        public ForgotPassword ForgotPassword
+        {
+            get
+            {
+                return forgotPassword;
+            }
+
+            set
+            {
+                forgotPassword = value;
+            }
+        }
+
+        public SignIn OpeningDialogBox
+        {
+            get
+            {
+                return openingDialogBox;
+            }
+
+            set
+            {
+                openingDialogBox = value;
+            }
+        }
 
         public Controller()
-        { objectFactory = new ObjectFactory();
+        {
+            objectFactory = new ObjectFactory();
             securityManager = new SecurityManager();
-<<<<<<< HEAD
-            openingDialogBox = new SignIn(this);
-            profile = new EmployeeProfile();
-=======
-            openingDialogBox = new SignIn();
->>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
+            this.openingDialogBox = new SignIn(this);
+            profile = new EmployeeProfile(this);
+            ForgotPassword = new ForgotPassword(this);
+            updateEmployee = new UpdateEmployee();
+
         }
         public void initilizer()
         {
-            openingDialogBox.ShowDialog();
+            OpeningDialogBox.ShowDialog();
         }
         public void logIn(int empId, string password)
         {
@@ -47,16 +77,17 @@ namespace Field_Sales_System.ControlLogic
             {
                 MessageBox.Show(check);
                 User u = objectFactory.getUser(empId);
-                currentUSer = u;
+                currentUser = u;
                 if (u is CompanyAdmin)
                 {
-                    adminHW = new AdminHomeWindow();
-<<<<<<< HEAD
-                    adminHW.TopLevel = false;
+                    adminHW = new AdminHomeWindow(this);
+                   // adminHW.TopLevel = false;
                     adminHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     adminHW.photoLabel.Image = u.Dp.getPicture();
+                    openingDialogBox.changeCurser();
+                    openingDialogBox.Hide();
                     adminHW.ShowDialog();
-                    
+
                 }
                 else if (u is Agent)
                 {
@@ -71,11 +102,9 @@ namespace Field_Sales_System.ControlLogic
                     repHW = new RepHomeWindow(this);
                     repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     repHW.photoLabel.Image = u.Dp.getPicture();
-                    openingDialogBox.Hide();
-=======
-                    adminHW.nameLabel.Text = u.getFirstName()+ " "+ u.getLastName();
-                    adminHW.photoLabel.Image = u.Dp.getPicture();
-                    adminHW.ShowDialog();
+                    OpeningDialogBox.Hide();
+                    repHW.ShowDialog();
+
                 }   
                 else if (u is Agent)
                 {
@@ -85,15 +114,7 @@ namespace Field_Sales_System.ControlLogic
                     agentHW.photoLabel.Image = u.Dp.getPicture();
                     agentHW.ShowDialog();
                 }
-                else if (u is Representative)
-                {
-                    repHW = new RepHomeWindow();
-                   
-                    repHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
-                    repHW.photoLabel.Image = u.Dp.getPicture();
->>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
-                    repHW.ShowDialog();
-                }
+              
                 else if (u is WarehouseManager)
                 {
                     wmHW = new WMHomeWindow();
@@ -106,29 +127,29 @@ namespace Field_Sales_System.ControlLogic
             else
             {
                 MessageBox.Show(check);
-                openingDialogBox.usernameText.Text = "";
-                openingDialogBox.passwordText.Text = "";
+                OpeningDialogBox.usernameText.Text = "";
+                OpeningDialogBox.passwordText.Text = "";
             }
 
         }
         public void adminAddemployer()
         {
+            newEmployee = new AddEmployee(this);
             newEmployee.ShowDialog();
+        }
+        public string addadminemployersave(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
+        {
+             return objectFactory.storeUser(empId, empNIC, DateTime.Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles);
         }
         public void adminViewEmployer()
         {
             viewEmployee.ShowDialog();
         }
         public void adminSearchEmploee(int empId=0, string empFirstName="", string empLastName="")
-<<<<<<< HEAD
+
         {         
-            viewEmployee.ShowDialog();
-=======
-        {
-            
->>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
+
             viewEmployee.setData(objectFactory.searchUser(empId, empFirstName, empLastName));
-  
             viewEmployee.ShowDialog();
 
         }
@@ -137,18 +158,97 @@ namespace Field_Sales_System.ControlLogic
             profile.TopLevel = false;
             repHW.TopLevel = true;
             profile.AutoScroll = true;
-            
-            profile.addressLabel.Text = currentUSer.ContactDetails.AddressLine_1;
-            profile.cityLabel.Text = currentUSer.ContactDetails.AddressLine_2;
-            profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
-            profile.mobileLabel.Text = currentUSer.ContactDetails.MobileNo.ToString();
-            profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
-            profile.nameLabel.Text = currentUSer.getFirstName() + currentUSer.getLastName();
+
+            profile.updateButton.Visible = false;
+            profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
+            profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
+            profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
+            profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
+            profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
+            profile.nameLabel.Text = currentUser.getFirstName() +" "+ currentUser.getLastName();
             profile.regionLabel.Text = "---";
-            profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
+            profile.photoLabel.Image = currentUser.Dp.getPicture();
+            //profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+            profile.statusLabel.Text = isActive(currentUser);
+            profile.jobTitleLabel.Text = currentUser.GetType().ToString();
+
+            
+           // profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
+            //profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
+            //profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
+            //profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
+            //profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
+           // profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
+           // profile.regionLabel.Text = "---";
+           // profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
         }
+
+
+        public string isActive(User u) {
+            if (u.IsActive)
+            {
+                return "Active";
+            }
+            else {
+                return "Temporarily restricted access";
+            }
+        }
+
+        public void resetPassword(int empId) {
+            string s = securityManager.requestPasswordReset(empId);
+            MessageBox.Show(s);
+        }
+
+        public void changeEmployeePassword() {
+            if (currentUser is CompanyAdmin)
+            {
+                changePasswordAdminForm = new ChangePasswordAdmin(this);
+                changePasswordAdminForm.Show();
+            }
+            else {
+                changePasswordForm = new ChangePassword(this);
+                changePasswordForm.Show();
+            }
+        }
+
+        public void changePasswordNonAdmin(string oldPassword,string newPassword) {
+            string status = securityManager.modifyPassword(currentUser.getEmpId(), oldPassword, newPassword);
+            MessageBox.Show(status);
+            changePasswordForm.Hide();
+        }
+
+        public void changePasswordAdmin(int empId, string newPassword) {
+            string status = securityManager.modifyPasswordAdmin(empId, newPassword);
+            MessageBox.Show(status);
+            changePasswordForm.Hide();
+        }
+        
+
+        
+
+        public void setMyHome_Admin()
+        {
+            profile.TopLevel = false;
+            adminHW.TopLevel = true;
+            profile.AutoScroll = true;
+
+            profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
+            profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
+            profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
+            profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
+            profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
+            profile.nameLabel.Text = currentUser.getFirstName() +" "+ currentUser.getLastName();
+            profile.regionLabel.Text = "---";
+            profile.jobTitleLabel.Text = "ioio";// currentUser.UserRoles[0].getRoleName();
+            adminHW.adminMainPanel1.Controls.Add(profile);
+            profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            profile.Show();
+        }
+
+
+
     }
 }

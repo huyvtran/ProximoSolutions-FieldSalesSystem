@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace GUINew
 {
     public partial class ChangePasswordAdmin : Form
     {
-        public ChangePasswordAdmin()
+        private Controller controller;
+        public ChangePasswordAdmin(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
+            adminPwdText .PasswordChar = '*';
+        }
+
+        private void changePwdButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

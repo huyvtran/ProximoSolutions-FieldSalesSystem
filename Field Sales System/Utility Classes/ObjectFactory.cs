@@ -45,8 +45,10 @@ namespace Field_Sales_System.Utility_Classes
             newOrder.Orders = orderEntries;
             newOrder.setProcessDetails(gotprocessDetails);
 
-            
-            if (dbManager.isOnline())
+
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -112,7 +114,9 @@ namespace Field_Sales_System.Utility_Classes
             newProduct.ProductDescription = productDescription;
             newProduct.ProductDetails = newProductDetails(category, batchNo);
             newProduct.ProductPicture = productPicture;
-            if (dbManager.isOnline())
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -191,7 +195,9 @@ namespace Field_Sales_System.Utility_Classes
 
         public string storeContactDetails(ContactDetails contact)
         {
-            if (dbManager.isOnline())
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -222,7 +228,7 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
         //create User
-        public string storeUser(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
+        public string storeUser(int empId, int empNIC, DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
         {
             try
             {
@@ -231,7 +237,7 @@ namespace Field_Sales_System.Utility_Classes
                 {
                     case "Representative":
 
-                        Representative rep = new Representative(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        Representative rep = new Representative(empId, empNIC, dOB,gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                         
                         rep.UserRoles = roles;
 
@@ -241,20 +247,20 @@ namespace Field_Sales_System.Utility_Classes
                         break;
                     case "Agent":
 
-                        Agent agent = new Agent(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        Agent agent = new Agent(empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                         
                         agent.UserRoles = roles;
                         user = agent;
                         break;
 
                     case "CompanyAdmin":
-                        CompanyAdmin admin = new CompanyAdmin(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        CompanyAdmin admin = new CompanyAdmin(empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                         
                         admin.UserRoles = roles;
                         user = admin;
                         break;
                     case "WarehouseManager":
-                        WarehouseManager wManager = new WarehouseManager(empId, empNIC, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
+                        WarehouseManager wManager = new WarehouseManager(empId, empNIC, dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img);
                         
                         wManager.UserRoles = roles;
                         user = wManager;
@@ -263,13 +269,20 @@ namespace Field_Sales_System.Utility_Classes
                 }
                 if (user!=null)
                 {
-                    if (dbManager.isOnline())
+                    bool isOnline = false;
+                    isOnline = dbManager.isOnline();
+                    if (isOnline)
                     {
                         connection = dbManager.openConnection(connection);
                         if (connection != null)
                         {
+                            user.IsActive = true;
                             bool user_status = dbManager.storeUser(connection, user);
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
                             bool contacts_status = dbManager.storeContactDetails(connection, empId, user.ContactDetails);
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
                             bool dp_status = dbManager.storeImage(connection, user.getEmpId(), user.Dp.getPicture());
                             if (connection.State == System.Data.ConnectionState.Open)
                             {
@@ -279,7 +292,7 @@ namespace Field_Sales_System.Utility_Classes
                             if (user_status && contacts_status && dp_status)
                             {
 
-                                return "Successfully stored the contact details!";
+                                return "Successfully stored the user!";
                             }
                             else {
                                 return "There was an error during the storage process. Please try again.";
@@ -309,7 +322,9 @@ namespace Field_Sales_System.Utility_Classes
 
         public string storeDailySalesDetails(DailySalesDetails dsd)
         {
-            if (dbManager.isOnline())
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -342,7 +357,9 @@ namespace Field_Sales_System.Utility_Classes
 
         public string storeSalesReturns(SalesReturn returns)
         {
-            if (dbManager.isOnline())
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection!=null)
@@ -375,7 +392,9 @@ namespace Field_Sales_System.Utility_Classes
 
         public string storeReport(object report)
         {
-            if (dbManager.isOnline())
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -435,7 +454,9 @@ namespace Field_Sales_System.Utility_Classes
             }
             if (adminrights)
             {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -470,7 +491,9 @@ namespace Field_Sales_System.Utility_Classes
                 }
             }
             else {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -521,7 +544,9 @@ namespace Field_Sales_System.Utility_Classes
             }
             if (adminrights)
             {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -553,7 +578,9 @@ namespace Field_Sales_System.Utility_Classes
                 }
             }
             else {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -609,7 +636,9 @@ namespace Field_Sales_System.Utility_Classes
             }
             //if not found in the list
             else {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -651,7 +680,9 @@ namespace Field_Sales_System.Utility_Classes
                 return returnUser;
             }
             else {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection!=null)
@@ -686,7 +717,10 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public List<User> searchUser(int empId = 0, string firstName = "", string lastName = "") {
-            if (dbManager.isOnline())
+
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -734,7 +768,9 @@ namespace Field_Sales_System.Utility_Classes
             }
             if (adminrights)
             {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -770,7 +806,9 @@ namespace Field_Sales_System.Utility_Classes
                 }
             }
             else {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -823,7 +861,9 @@ namespace Field_Sales_System.Utility_Classes
             }
             if (adminrights)
             {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -860,7 +900,9 @@ namespace Field_Sales_System.Utility_Classes
                 }
             }
             else {
-                if (dbManager.isOnline())
+                bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -899,9 +941,11 @@ namespace Field_Sales_System.Utility_Classes
 
 
         public List<DailySalesReport> getDailyReport( DateTime beginDate, DateTime endDate) {
-            
-                if (dbManager.isOnline())
-                {
+
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
+            {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
                     {
@@ -942,7 +986,9 @@ namespace Field_Sales_System.Utility_Classes
         public List<WeeklySalesReport> getWeeklyReport(DateTime beginDate, DateTime endDate)
         {
 
-            if (dbManager.isOnline())
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -986,7 +1032,9 @@ namespace Field_Sales_System.Utility_Classes
 
 
         public string modifyUser(User user) {
-            if (dbManager.isOnline())
+            bool isOnline = false;
+                isOnline = dbManager.isOnline();
+                if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -1021,7 +1069,9 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public string modifyProduct(Product product) {
-            if (dbManager.isOnline())
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -1055,7 +1105,9 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public string modifyOrderStatus(Order updatedOrder,string orderStatus) {
-            if (dbManager.isOnline())
+            bool isOnline = false;
+            isOnline = dbManager.isOnline();
+            if (isOnline)
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)

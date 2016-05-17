@@ -21,7 +21,7 @@ namespace Field_Sales_System.Utility_Classes
     {
         public bool isOnline()
         {
-            string url = "http://www.google.com";
+            string url = "http://www.google.lk";
             try
             {
                 WebRequest myRequest = WebRequest.Create(url);

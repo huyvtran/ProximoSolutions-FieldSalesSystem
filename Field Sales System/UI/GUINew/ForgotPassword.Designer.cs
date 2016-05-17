@@ -39,9 +39,9 @@
             // 
             this.usernameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameText.Location = new System.Drawing.Point(13, 82);
-            this.usernameText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usernameText.Margin = new System.Windows.Forms.Padding(4);
             this.usernameText.Name = "usernameText";
-            this.usernameText.Size = new System.Drawing.Size(269, 28);
+            this.usernameText.Size = new System.Drawing.Size(269, 27);
             this.usernameText.TabIndex = 10;
             // 
             // requestNewPasswordButton
@@ -53,12 +53,13 @@
             this.requestNewPasswordButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestNewPasswordButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.requestNewPasswordButton.Location = new System.Drawing.Point(13, 134);
-            this.requestNewPasswordButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.requestNewPasswordButton.Margin = new System.Windows.Forms.Padding(4);
             this.requestNewPasswordButton.Name = "requestNewPasswordButton";
             this.requestNewPasswordButton.Size = new System.Drawing.Size(269, 30);
             this.requestNewPasswordButton.TabIndex = 9;
             this.requestNewPasswordButton.Text = "Request New Password";
             this.requestNewPasswordButton.UseVisualStyleBackColor = false;
+            this.requestNewPasswordButton.Click += new System.EventHandler(this.requestNewPasswordButton_Click);
             // 
             // label1
             // 
@@ -90,7 +91,9 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label3.Image = global::GUINew.Properties.Resources.back;
+
+         //   this.label3.Image = global::GUINew.Properties.Resources.back;
+
             this.label3.Location = new System.Drawing.Point(9, 9);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -113,7 +116,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ForgotPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgot Password";

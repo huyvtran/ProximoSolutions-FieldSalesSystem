@@ -45,7 +45,6 @@
             this.middleNameText = new System.Windows.Forms.TextBox();
             this.mrRadioButton = new System.Windows.Forms.RadioButton();
             this.mrsRadioButton = new System.Windows.Forms.RadioButton();
-            this.missRadioButton = new System.Windows.Forms.RadioButton();
             this.bdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -75,7 +74,7 @@
             this.firstNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameText.Location = new System.Drawing.Point(260, 66);
             this.firstNameText.Name = "firstNameText";
-            this.firstNameText.Size = new System.Drawing.Size(224, 28);
+            this.firstNameText.Size = new System.Drawing.Size(224, 27);
             this.firstNameText.TabIndex = 29;
             this.firstNameText.Text = "First Name";
             // 
@@ -94,7 +93,7 @@
             this.nicText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nicText.Location = new System.Drawing.Point(159, 257);
             this.nicText.Name = "nicText";
-            this.nicText.Size = new System.Drawing.Size(325, 28);
+            this.nicText.Size = new System.Drawing.Size(325, 27);
             this.nicText.TabIndex = 27;
             // 
             // addButton
@@ -111,6 +110,7 @@
             this.addButton.TabIndex = 26;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // label1
             // 
@@ -197,7 +197,7 @@
             this.lastNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastNameText.Location = new System.Drawing.Point(260, 128);
             this.lastNameText.Name = "lastNameText";
-            this.lastNameText.Size = new System.Drawing.Size(224, 28);
+            this.lastNameText.Size = new System.Drawing.Size(224, 27);
             this.lastNameText.TabIndex = 38;
             this.lastNameText.Text = "Last Name";
             // 
@@ -206,7 +206,7 @@
             this.middleNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.middleNameText.Location = new System.Drawing.Point(260, 97);
             this.middleNameText.Name = "middleNameText";
-            this.middleNameText.Size = new System.Drawing.Size(224, 28);
+            this.middleNameText.Size = new System.Drawing.Size(224, 27);
             this.middleNameText.TabIndex = 39;
             this.middleNameText.Text = "Middle Name(s)";
             // 
@@ -220,6 +220,7 @@
             this.mrRadioButton.TabStop = true;
             this.mrRadioButton.Text = "Mr.";
             this.mrRadioButton.UseVisualStyleBackColor = true;
+            this.mrRadioButton.CheckedChanged += new System.EventHandler(this.mrRadioButton_CheckedChanged);
             // 
             // mrsRadioButton
             // 
@@ -229,26 +230,16 @@
             this.mrsRadioButton.Size = new System.Drawing.Size(60, 23);
             this.mrsRadioButton.TabIndex = 41;
             this.mrsRadioButton.TabStop = true;
-            this.mrsRadioButton.Text = "Mrs.";
+            this.mrsRadioButton.Text = "MS.";
             this.mrsRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // missRadioButton
-            // 
-            this.missRadioButton.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.missRadioButton.Location = new System.Drawing.Point(424, 173);
-            this.missRadioButton.Name = "missRadioButton";
-            this.missRadioButton.Size = new System.Drawing.Size(60, 23);
-            this.missRadioButton.TabIndex = 42;
-            this.missRadioButton.TabStop = true;
-            this.missRadioButton.Text = "Miss";
-            this.missRadioButton.UseVisualStyleBackColor = true;
+            this.mrsRadioButton.CheckedChanged += new System.EventHandler(this.mrsRadioButton_CheckedChanged);
             // 
             // bdayDateTimePicker
             // 
             this.bdayDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bdayDateTimePicker.Location = new System.Drawing.Point(160, 224);
             this.bdayDateTimePicker.Name = "bdayDateTimePicker";
-            this.bdayDateTimePicker.Size = new System.Drawing.Size(325, 28);
+            this.bdayDateTimePicker.Size = new System.Drawing.Size(325, 27);
             this.bdayDateTimePicker.TabIndex = 43;
             // 
             // label11
@@ -296,7 +287,7 @@
             this.cityText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cityText.Location = new System.Drawing.Point(159, 369);
             this.cityText.Name = "cityText";
-            this.cityText.Size = new System.Drawing.Size(325, 28);
+            this.cityText.Size = new System.Drawing.Size(325, 27);
             this.cityText.TabIndex = 50;
             this.cityText.Text = "City";
             // 
@@ -305,7 +296,7 @@
             this.stateText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stateText.Location = new System.Drawing.Point(159, 400);
             this.stateText.Name = "stateText";
-            this.stateText.Size = new System.Drawing.Size(325, 28);
+            this.stateText.Size = new System.Drawing.Size(325, 27);
             this.stateText.TabIndex = 49;
             this.stateText.Text = "State";
             // 
@@ -314,7 +305,7 @@
             this.addressText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressText.Location = new System.Drawing.Point(159, 338);
             this.addressText.Name = "addressText";
-            this.addressText.Size = new System.Drawing.Size(325, 28);
+            this.addressText.Size = new System.Drawing.Size(325, 27);
             this.addressText.TabIndex = 48;
             this.addressText.Text = "Address";
             // 
@@ -323,7 +314,7 @@
             this.mobileText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mobileText.Location = new System.Drawing.Point(159, 474);
             this.mobileText.Name = "mobileText";
-            this.mobileText.Size = new System.Drawing.Size(325, 28);
+            this.mobileText.Size = new System.Drawing.Size(325, 27);
             this.mobileText.TabIndex = 53;
             // 
             // emailText
@@ -331,7 +322,7 @@
             this.emailText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailText.Location = new System.Drawing.Point(159, 509);
             this.emailText.Name = "emailText";
-            this.emailText.Size = new System.Drawing.Size(325, 28);
+            this.emailText.Size = new System.Drawing.Size(325, 27);
             this.emailText.TabIndex = 52;
             this.emailText.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -340,7 +331,7 @@
             this.homeTelText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeTelText.Location = new System.Drawing.Point(159, 438);
             this.homeTelText.Name = "homeTelText";
-            this.homeTelText.Size = new System.Drawing.Size(325, 28);
+            this.homeTelText.Size = new System.Drawing.Size(325, 27);
             this.homeTelText.TabIndex = 51;
             // 
             // label15
@@ -411,7 +402,7 @@
             this.nameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameText.Location = new System.Drawing.Point(689, 169);
             this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(325, 28);
+            this.nameText.Size = new System.Drawing.Size(325, 27);
             this.nameText.TabIndex = 61;
             // 
             // hireDateDateTimePicker2
@@ -419,7 +410,7 @@
             this.hireDateDateTimePicker2.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hireDateDateTimePicker2.Location = new System.Drawing.Point(689, 204);
             this.hireDateDateTimePicker2.Name = "hireDateDateTimePicker2";
-            this.hireDateDateTimePicker2.Size = new System.Drawing.Size(324, 28);
+            this.hireDateDateTimePicker2.Size = new System.Drawing.Size(324, 27);
             this.hireDateDateTimePicker2.TabIndex = 62;
             // 
             // notesRichTextBox
@@ -485,7 +476,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.bdayDateTimePicker);
-            this.Controls.Add(this.missRadioButton);
             this.Controls.Add(this.mrsRadioButton);
             this.Controls.Add(this.mrRadioButton);
             this.Controls.Add(this.middleNameText);
@@ -518,44 +508,43 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox firstNameText;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox nicText;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox lastNameText;
-        private System.Windows.Forms.TextBox middleNameText;
-        private System.Windows.Forms.RadioButton mrRadioButton;
-        private System.Windows.Forms.RadioButton mrsRadioButton;
-        private System.Windows.Forms.RadioButton missRadioButton;
-        private System.Windows.Forms.DateTimePicker bdayDateTimePicker;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox cityText;
-        private System.Windows.Forms.TextBox stateText;
-        private System.Windows.Forms.TextBox addressText;
-        private System.Windows.Forms.TextBox mobileText;
-        private System.Windows.Forms.TextBox emailText;
-        private System.Windows.Forms.TextBox homeTelText;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.RadioButton repRadio;
-        private System.Windows.Forms.RadioButton agentRadio;
-        private System.Windows.Forms.RadioButton wmRadio;
-        private System.Windows.Forms.TextBox nameText;
-        private System.Windows.Forms.DateTimePicker hireDateDateTimePicker2;
-        private System.Windows.Forms.RichTextBox notesRichTextBox;
-        private System.Windows.Forms.Button clearButton;
+        public System.Windows.Forms.TextBox firstNameText;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox nicText;
+        public System.Windows.Forms.Button addButton;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox lastNameText;
+        public System.Windows.Forms.TextBox middleNameText;
+        public System.Windows.Forms.RadioButton mrRadioButton;
+        public System.Windows.Forms.RadioButton mrsRadioButton;
+        public System.Windows.Forms.DateTimePicker bdayDateTimePicker;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.TextBox cityText;
+        public System.Windows.Forms.TextBox stateText;
+        public System.Windows.Forms.TextBox addressText;
+        public System.Windows.Forms.TextBox mobileText;
+        public System.Windows.Forms.TextBox emailText;
+        public System.Windows.Forms.TextBox homeTelText;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.Label label16;
+        public System.Windows.Forms.Label label17;
+        public System.Windows.Forms.RadioButton repRadio;
+        public System.Windows.Forms.RadioButton agentRadio;
+        public System.Windows.Forms.RadioButton wmRadio;
+        public System.Windows.Forms.TextBox nameText;
+        public System.Windows.Forms.DateTimePicker hireDateDateTimePicker2;
+        public System.Windows.Forms.RichTextBox notesRichTextBox;
+        public System.Windows.Forms.Button clearButton;
     }
 }

@@ -19,7 +19,7 @@ namespace GUINew
             InitializeComponent();
             this.controller = controller;
         }
-<<<<<<< HEAD
+
 
         private void myProfileButton_Click(object sender, EventArgs e)
         {
@@ -30,7 +30,7 @@ namespace GUINew
         {
             controller.setMyHome_Representative();
         }
-=======
->>>>>>> d6aefedffd0523b7f221b64f52ead1f663ac6841
+
+
     }
 }
