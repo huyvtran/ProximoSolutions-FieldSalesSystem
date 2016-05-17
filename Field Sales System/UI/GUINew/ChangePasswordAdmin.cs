@@ -15,6 +15,12 @@ namespace GUINew
         public ChangePasswordAdmin()
         {
             InitializeComponent();
+            changePwdButton.Enabled = false;
+        }
+
+        private void changePwdButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
