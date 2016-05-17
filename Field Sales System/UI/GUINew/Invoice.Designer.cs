@@ -38,7 +38,6 @@
             this.productNameCombo = new System.Windows.Forms.ComboBox();
             this.addItemButton = new System.Windows.Forms.Button();
             this.qtyText = new System.Windows.Forms.TextBox();
-            this.batchNoCombo = new System.Windows.Forms.ComboBox();
             this.unitPriceLabel = new System.Windows.Forms.Label();
             this.productIDLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,11 +51,7 @@
             this.customerContactText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.finishButton = new System.Windows.Forms.Button();
-            this.discountText = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.totalText = new System.Windows.Forms.TextBox();
-            this.subTotalText = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
@@ -78,7 +73,7 @@
             this.invoiceDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.invoiceDataGrid.Name = "invoiceDataGrid";
             this.invoiceDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.invoiceDataGrid.Size = new System.Drawing.Size(959, 188);
+            this.invoiceDataGrid.Size = new System.Drawing.Size(959, 220);
             this.invoiceDataGrid.TabIndex = 2;
             // 
             // select
@@ -135,7 +130,7 @@
             // productNameCombo
             // 
             this.productNameCombo.AllowDrop = true;
-            this.productNameCombo.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productNameCombo.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productNameCombo.FormattingEnabled = true;
             this.productNameCombo.Items.AddRange(new object[] {
             "New Orders",
@@ -146,7 +141,7 @@
             this.productNameCombo.Location = new System.Drawing.Point(46, 128);
             this.productNameCombo.MaxDropDownItems = 5;
             this.productNameCombo.Name = "productNameCombo";
-            this.productNameCombo.Size = new System.Drawing.Size(283, 28);
+            this.productNameCombo.Size = new System.Drawing.Size(315, 28);
             this.productNameCombo.TabIndex = 65;
             this.productNameCombo.Text = "Product Name";
             // 
@@ -158,7 +153,7 @@
             this.addItemButton.FlatAppearance.BorderSize = 0;
             this.addItemButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addItemButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.addItemButton.Location = new System.Drawing.Point(869, 128);
+            this.addItemButton.Location = new System.Drawing.Point(869, 127);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(136, 30);
             this.addItemButton.TabIndex = 62;
@@ -168,40 +163,22 @@
             // 
             // qtyText
             // 
-            this.qtyText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtyText.Location = new System.Drawing.Point(760, 129);
+            this.qtyText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qtyText.Location = new System.Drawing.Point(734, 128);
             this.qtyText.Name = "qtyText";
-            this.qtyText.Size = new System.Drawing.Size(92, 28);
+            this.qtyText.Size = new System.Drawing.Size(106, 28);
             this.qtyText.TabIndex = 66;
             this.qtyText.Text = "Quantity";
-            // 
-            // batchNoCombo
-            // 
-            this.batchNoCombo.AllowDrop = true;
-            this.batchNoCombo.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.batchNoCombo.FormattingEnabled = true;
-            this.batchNoCombo.Items.AddRange(new object[] {
-            "New Orders",
-            "Pending Orders",
-            "Delivered Orders",
-            "Accepted Orders",
-            "Rejected Orders"});
-            this.batchNoCombo.Location = new System.Drawing.Point(503, 128);
-            this.batchNoCombo.MaxDropDownItems = 5;
-            this.batchNoCombo.Name = "batchNoCombo";
-            this.batchNoCombo.Size = new System.Drawing.Size(106, 28);
-            this.batchNoCombo.TabIndex = 69;
-            this.batchNoCombo.Text = "Batch No";
             // 
             // unitPriceLabel
             // 
             this.unitPriceLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.unitPriceLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unitPriceLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unitPriceLabel.ForeColor = System.Drawing.Color.Black;
             this.unitPriceLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.unitPriceLabel.Location = new System.Drawing.Point(633, 128);
+            this.unitPriceLabel.Location = new System.Drawing.Point(573, 127);
             this.unitPriceLabel.Name = "unitPriceLabel";
-            this.unitPriceLabel.Size = new System.Drawing.Size(104, 28);
+            this.unitPriceLabel.Size = new System.Drawing.Size(128, 28);
             this.unitPriceLabel.TabIndex = 70;
             this.unitPriceLabel.Text = "Unit Price";
             this.unitPriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -209,19 +186,19 @@
             // productIDLabel
             // 
             this.productIDLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.productIDLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productIDLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productIDLabel.ForeColor = System.Drawing.Color.Black;
             this.productIDLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.productIDLabel.Location = new System.Drawing.Point(354, 128);
+            this.productIDLabel.Location = new System.Drawing.Point(390, 129);
             this.productIDLabel.Name = "productIDLabel";
-            this.productIDLabel.Size = new System.Drawing.Size(123, 28);
+            this.productIDLabel.Size = new System.Drawing.Size(151, 28);
             this.productIDLabel.TabIndex = 71;
             this.productIDLabel.Text = "Product ID";
             this.productIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(42, 25);
             this.label7.Name = "label7";
@@ -231,7 +208,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(480, 25);
             this.label1.Name = "label1";
@@ -241,7 +218,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(42, 64);
             this.label2.Name = "label2";
@@ -251,7 +228,7 @@
             // 
             // dateLabel
             // 
-            this.dateLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.Black;
             this.dateLabel.Location = new System.Drawing.Point(897, 26);
             this.dateLabel.Name = "dateLabel";
@@ -262,7 +239,7 @@
             // 
             // timeLabel
             // 
-            this.timeLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.ForeColor = System.Drawing.Color.Black;
             this.timeLabel.Location = new System.Drawing.Point(897, 63);
             this.timeLabel.Name = "timeLabel";
@@ -273,7 +250,7 @@
             // 
             // invoiceNumberText
             // 
-            this.invoiceNumberText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invoiceNumberText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceNumberText.Location = new System.Drawing.Point(158, 22);
             this.invoiceNumberText.Name = "invoiceNumberText";
             this.invoiceNumberText.Size = new System.Drawing.Size(180, 28);
@@ -281,7 +258,7 @@
             // 
             // empIDText
             // 
-            this.empIDText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empIDText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empIDText.Location = new System.Drawing.Point(557, 22);
             this.empIDText.Name = "empIDText";
             this.empIDText.Size = new System.Drawing.Size(180, 28);
@@ -289,7 +266,7 @@
             // 
             // customerNameText
             // 
-            this.customerNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerNameText.Location = new System.Drawing.Point(158, 59);
             this.customerNameText.Name = "customerNameText";
             this.customerNameText.Size = new System.Drawing.Size(298, 28);
@@ -297,7 +274,7 @@
             // 
             // customerContactText
             // 
-            this.customerContactText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerContactText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerContactText.Location = new System.Drawing.Point(557, 59);
             this.customerContactText.Name = "customerContactText";
             this.customerContactText.Size = new System.Drawing.Size(180, 28);
@@ -305,7 +282,7 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(479, 64);
             this.label3.Name = "label3";
@@ -321,65 +298,26 @@
             this.finishButton.FlatAppearance.BorderSize = 0;
             this.finishButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.finishButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.finishButton.Location = new System.Drawing.Point(869, 358);
+            this.finishButton.Location = new System.Drawing.Point(868, 390);
             this.finishButton.Name = "finishButton";
             this.finishButton.Size = new System.Drawing.Size(136, 30);
             this.finishButton.TabIndex = 82;
             this.finishButton.Text = "Finish";
             this.finishButton.UseVisualStyleBackColor = false;
             // 
-            // discountText
-            // 
-            this.discountText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discountText.Location = new System.Drawing.Point(869, 435);
-            this.discountText.Name = "discountText";
-            this.discountText.Size = new System.Drawing.Size(136, 28);
-            this.discountText.TabIndex = 88;
-            this.discountText.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(782, 440);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 23);
-            this.label4.TabIndex = 87;
-            this.label4.Text = "Discount";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // totalText
             // 
-            this.totalText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalText.Location = new System.Drawing.Point(869, 399);
+            this.totalText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalText.Location = new System.Drawing.Point(868, 434);
             this.totalText.Name = "totalText";
             this.totalText.Size = new System.Drawing.Size(136, 28);
             this.totalText.TabIndex = 86;
             // 
-            // subTotalText
-            // 
-            this.subTotalText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalText.Location = new System.Drawing.Point(869, 470);
-            this.subTotalText.Name = "subTotalText";
-            this.subTotalText.Size = new System.Drawing.Size(136, 28);
-            this.subTotalText.TabIndex = 85;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(786, 475);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 23);
-            this.label5.TabIndex = 83;
-            this.label5.Text = "Sub Total";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(782, 404);
+            this.label6.Location = new System.Drawing.Point(781, 439);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 23);
             this.label6.TabIndex = 84;
@@ -394,7 +332,7 @@
             this.clearButton.FlatAppearance.BorderSize = 0;
             this.clearButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.clearButton.Location = new System.Drawing.Point(46, 372);
+            this.clearButton.Location = new System.Drawing.Point(45, 390);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(213, 30);
             this.clearButton.TabIndex = 89;
@@ -410,7 +348,7 @@
             this.removeButton.FlatAppearance.BorderSize = 0;
             this.removeButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.removeButton.Location = new System.Drawing.Point(284, 372);
+            this.removeButton.Location = new System.Drawing.Point(283, 390);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(213, 30);
             this.removeButton.TabIndex = 90;
@@ -426,11 +364,7 @@
             this.ClientSize = new System.Drawing.Size(1064, 533);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.discountText);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.totalText);
-            this.Controls.Add(this.subTotalText);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.finishButton);
             this.Controls.Add(this.customerContactText);
@@ -445,7 +379,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.productIDLabel);
             this.Controls.Add(this.unitPriceLabel);
-            this.Controls.Add(this.batchNoCombo);
             this.Controls.Add(this.qtyText);
             this.Controls.Add(this.productNameCombo);
             this.Controls.Add(this.addItemButton);
@@ -467,7 +400,6 @@
         private System.Windows.Forms.ComboBox productNameCombo;
         private System.Windows.Forms.Button addItemButton;
         private System.Windows.Forms.TextBox qtyText;
-        private System.Windows.Forms.ComboBox batchNoCombo;
         private System.Windows.Forms.Label unitPriceLabel;
         private System.Windows.Forms.Label productIDLabel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn select;
@@ -487,11 +419,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button finishButton;
-        private System.Windows.Forms.TextBox discountText;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox totalText;
-        private System.Windows.Forms.TextBox subTotalText;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button removeButton;

@@ -16,6 +16,7 @@ namespace Field_Sales_System.Business_Logic
         private bool gender;
         private string firstName;
         private string lastName;
+        private DateTime dOB;
 
         [NonSerialized()] private DisplayPicture dp;
         [NonSerialized()] private ContactDetails contactDetails;
@@ -59,7 +60,7 @@ namespace Field_Sales_System.Business_Logic
             }
         }
 
-        public Employee(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1,string addressLine_2,string addressLine_3,Image img) {
+        public Employee(int empId, int empNIC ,DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1,string addressLine_2,string addressLine_3,Image img) {
             this.ContactDetails = new ContactDetails(mobileNo, landNo, email, addressLine_1,addressLine_2,addressLine_3);
             this.Dp = new DisplayPicture(img);
             this.empId = empId;
@@ -67,6 +68,7 @@ namespace Field_Sales_System.Business_Logic
             this.gender = gender;
             this.firstName = firstName;
             this.lastName = lastName;
+            this.dOB = dOB;
 
         }
         public void setGender(bool gender) {
@@ -79,6 +81,10 @@ namespace Field_Sales_System.Business_Logic
 
         public void setLastName(string lastName) {
             this.lastName = lastName;
+        }
+        public void setDOB(DateTime dOB)
+        {
+            this.dOB = dOB;
         }
 
         public int getEmpId() {
@@ -100,7 +106,11 @@ namespace Field_Sales_System.Business_Logic
         public string getLastName() {
             return this.lastName;
         }
-        
+        public DateTime getDOB()
+        {
+            return this.dOB;
+        }
+
 
     }
 }

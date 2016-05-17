@@ -29,7 +29,7 @@ namespace GUINew
 
 
 
-                this.dataGridView1.Rows.Add(user.ContactDetails.EmailAddress, user.ContactDetails.MobileNo, user.ContactDetails.AddressLine_1 + "," + user.ContactDetails.AddressLine_2 + "," + user.ContactDetails.AddressLine_3, checkState(user.IsActive), getUserRegion(user), user.GetType(), user.getFirstName() + " " + user.getLastName(), user.Dp.getPicture(), user.getEmpId());  
+                this.dataGridView1.Rows.Add(user.ContactDetails.EmailAddress, user.ContactDetails.MobileNo, user.ContactDetails.AddressLine_1 + "," + user.ContactDetails.AddressLine_2 + "," + user.ContactDetails.AddressLine_3, checkState(user.IsActive), getUserRegion(user), user.GetType(), user.getFirstName() + " " + user.getLastName(), user.Dp.getPicture(), user.getEmpId());
             }
         }
         private string checkState(bool b)

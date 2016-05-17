@@ -20,6 +20,7 @@ namespace GUINew
             this.controller = controller;
         }
 
+
         private void myProfileButton_Click(object sender, EventArgs e)
         {
 
@@ -29,5 +30,7 @@ namespace GUINew
         {
             controller.setMyHome_Representative();
         }
+
+
     }
 }

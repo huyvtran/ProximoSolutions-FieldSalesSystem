@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WMHomeWindow));
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.goodsReceiveNoteButton = new System.Windows.Forms.Button();
             this.myProfileButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label2
@@ -57,13 +57,6 @@
             this.label2.TabIndex = 25;
             this.label2.Text = " UPALI FOODS AND BEVERAGES (PVT.) LTD.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(279, 107);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1080, 600);
-            this.panel1.TabIndex = 24;
             // 
             // label4
             // 
@@ -220,11 +213,20 @@
             this.logoutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoutButton.BackgroundImage")));
             this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Location = new System.Drawing.Point(1300, 15);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(50, 50);
             this.logoutButton.TabIndex = 40;
             this.logoutButton.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(280, 107);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1080, 600);
+            this.panel2.TabIndex = 0;
             // 
             // WMHomeWindow
             // 
@@ -233,6 +235,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -243,14 +246,13 @@
             this.Controls.Add(this.goodsReceiveNoteButton);
             this.Controls.Add(this.myProfileButton);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.photoLabel);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WMHomeWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -261,20 +263,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label nameLabel;
         public System.Windows.Forms.Label photoLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button goodsReceiveNoteButton;
-        private System.Windows.Forms.Button myProfileButton;
-        private System.Windows.Forms.Button logoutButton;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button button4;
+        public System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Button goodsReceiveNoteButton;
+        public System.Windows.Forms.Button myProfileButton;
+        public System.Windows.Forms.Button logoutButton;
+        public System.Windows.Forms.Panel panel2;
     }
 }

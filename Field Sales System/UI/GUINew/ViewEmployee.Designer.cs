@@ -176,7 +176,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.DataGridViewTextBoxColumn email;
         public System.Windows.Forms.DataGridViewTextBoxColumn mobile;
         public System.Windows.Forms.DataGridViewTextBoxColumn address;

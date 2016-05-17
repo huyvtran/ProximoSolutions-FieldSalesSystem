@@ -15,11 +15,10 @@ namespace GUINew
     {
         private ForgotPassword forgotPassword;
         Controller controller;
-
-        public SignIn(Controller controller)
+        public SignIn(Controller controll)
         {
             InitializeComponent();
-            this.controller = controller;
+            this.controller = controll;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -34,16 +33,16 @@ namespace GUINew
             forgotPassword.ShowDialog();
         }
 
-       
-
         private void signInButton_Click(object sender, EventArgs e)
         {
-            //controller.logIn(Int32.Parse(usernameText.Text), passwordText.Text);
+            Cursor.Current = Cursors.WaitCursor;
+            controller.logIn(Convert.ToInt32(usernameText.Text),passwordText.Text);
+        }
+        public void changeCurser()
+        {
+            Cursor.Current = Cursors.Default;
         }
 
-        private void signInButton_Click_1(object sender, EventArgs e)
-        {
-            controller.logIn(Int32.Parse(usernameText.Text), passwordText.Text);
-        }
+       
     }
 }

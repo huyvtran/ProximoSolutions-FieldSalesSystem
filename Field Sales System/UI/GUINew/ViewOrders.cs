@@ -10,19 +10,26 @@ using System.Windows.Forms;
 
 namespace GUINew
 {
-    public partial class ForgotPassword : Form
+    public partial class ViewOrders : Form
     {
-        SignIn signIn;
-        public ForgotPassword()
+        public ViewOrders()
         {
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-         
-            this.Hide();
-            signIn.ShowDialog();
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewOrder_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
