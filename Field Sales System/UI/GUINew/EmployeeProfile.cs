@@ -14,7 +14,6 @@ namespace GUINew
     public partial class EmployeeProfile : Form
     {
         private Controller controller;
-        private UpdateEmployee updateEmployee;
 
         public EmployeeProfile(Controller controller)
         {      
@@ -30,7 +29,7 @@ namespace GUINew
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            updateEmployee = new UpdateEmployee();
+           
             updateEmployee.Show();
         }
     }

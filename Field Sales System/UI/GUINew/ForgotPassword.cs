@@ -34,7 +34,7 @@ namespace GUINew
         {
          
             this.Hide();
-            controller.OpeningDialogBox.ShowDialog();
+            controller.OpeningDialogBox.Show();
 
         }
     }

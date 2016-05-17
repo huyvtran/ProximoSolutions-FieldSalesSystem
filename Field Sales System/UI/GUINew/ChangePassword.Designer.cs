@@ -32,7 +32,7 @@
             this.newPwdText = new System.Windows.Forms.TextBox();
             this.changePwdButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.empName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.currentPwdText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,16 +82,16 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Confirm Password";
             // 
-            // label3
+            // empName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label3.Location = new System.Drawing.Point(70, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 45);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Full Name";
+            this.empName.AutoSize = true;
+            this.empName.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.empName.Location = new System.Drawing.Point(70, 21);
+            this.empName.Name = "empName";
+            this.empName.Size = new System.Drawing.Size(170, 45);
+            this.empName.TabIndex = 10;
+            this.empName.Text = "Full Name";
             // 
             // label1
             // 
@@ -136,7 +136,7 @@
             this.Controls.Add(this.newPwdText);
             this.Controls.Add(this.changePwdButton);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.empName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -155,7 +155,7 @@
         public System.Windows.Forms.TextBox newPwdText;
         public System.Windows.Forms.Button changePwdButton;
         public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label empName;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox currentPwdText;
         public System.Windows.Forms.Label label2;

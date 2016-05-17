@@ -17,6 +17,7 @@ namespace Field_Sales_System.Business_Logic
         private string firstName;
         private string lastName;
         private DateTime dOB;
+        private string specialNotes;
 
         [NonSerialized()] private DisplayPicture dp;
         [NonSerialized()] private ContactDetails contactDetails;
@@ -57,6 +58,19 @@ namespace Field_Sales_System.Business_Logic
             set
             {
                 empNIC = value;
+            }
+        }
+
+        public string SpecialNotes
+        {
+            get
+            {
+                return specialNotes;
+            }
+
+            set
+            {
+                specialNotes = value;
             }
         }
 

@@ -28,6 +28,7 @@ namespace Field_Sales_System.ControlLogic
         ForgotPassword forgotPassword;
         ChangePassword changePasswordForm;
         ChangePasswordAdmin changePasswordAdminForm;
+        UpdateEmployee updateEmployee;
 
         public ForgotPassword ForgotPassword
         {
@@ -62,6 +63,7 @@ namespace Field_Sales_System.ControlLogic
             this.openingDialogBox = new SignIn(this);
             profile = new EmployeeProfile(this);
             ForgotPassword = new ForgotPassword(this);
+            updateEmployee = new UpdateEmployee();
 
         }
         public void initilizer()
@@ -171,13 +173,13 @@ namespace Field_Sales_System.ControlLogic
             profile.jobTitleLabel.Text = currentUser.GetType().ToString();
 
             
-            profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
-            profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
-            profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
-            profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
-            profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
-            profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
-            profile.regionLabel.Text = "---";
+           // profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
+            //profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
+            //profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
+            //profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
+            //profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
+           // profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
+           // profile.regionLabel.Text = "---";
            // profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
