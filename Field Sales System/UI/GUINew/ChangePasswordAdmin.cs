@@ -18,12 +18,6 @@ namespace GUINew
         {
             InitializeComponent();
             this.controller = controller;
-            adminPwdText .PasswordChar = '*';
-        }
-
-        private void changePwdButton_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -13,19 +13,19 @@ namespace GUINew
 {
     public partial class AdminHomeWindow : Form
     {
+        Controller controller;
         private ReportsHome reportsHome;
         private AddEmployee addEmployee;
         private ViewEmployee viewEmployee;
         private EmployeeProfile employeeProfile;
-        private Controller controller;
-
-
 
         public AdminHomeWindow(Controller controller)
-
         {
             InitializeComponent();
+
             this.controller = controller;
+            searchEmployeeButton.Enabled = false;
+
         }
 
         private void viewReportsButton_Click(object sender, EventArgs e)
@@ -53,24 +53,34 @@ namespace GUINew
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
 
-            this.IsMdiContainer = true;
-            employeeProfile = new EmployeeProfile(controller);
-            employeeProfile.MdiParent = this;
-            employeeProfile.Show();
-            employeeProfile.Location = new Point(279, 113);
+
+            //.IsMdiContainer = true;
+           // employeeProfile = new EmployeeProfile(controller);
+           // employeeProfile.MdiParent = this;
+          //  employeeProfile.Show();
+            //employeeProfile.Location = new Point(279, 113);
+
+
+
 
             string employeeIDtext = empLastNameText.Text;
+            try {
+                int employeeID = int.Parse(employeeIDtext);
+                }
+            catch(FormatException a)
+            {
+                MessageBox.Show("invalid input,enter numbers only");
+            }
             string empFirstName = empFirstNameText.Text;
             string empLastName = empLastNameText.Text;
 
             //controller.adminSearchEmploee(employee);
-
         }
 
 
         private void empIDText_TextChanged(object sender, EventArgs e)
         {
-
+            searchEmployeeButton.Enabled = true;
         }
 
         private void adminaMainPanel1_Paint(object sender, PaintEventArgs e)
@@ -80,12 +90,34 @@ namespace GUINew
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            searchEmployeeButton.Enabled = true;
+            if (!System.Text.RegularExpressions.Regex.IsMatch(empFirstNameText.Text, "^[a-zA-Z_-]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters");
+                empFirstNameText.Text.Remove(empFirstNameText.Text.Length - 1);
+            }
+
+
 
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
             controller.setMyHome_Admin();
+        }
+
+        private void empLastNameText_TextChanged(object sender, EventArgs e)
+        {
+            searchEmployeeButton.Enabled = true;
+            if (!System.Text.RegularExpressions.Regex.IsMatch(empLastNameText.Text, "^[a-zA-Z_-]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters");
+                empLastNameText.Text.Remove(empLastNameText.Text.Length - 1);
+            }
+
+
+
+
         }
     }
 }

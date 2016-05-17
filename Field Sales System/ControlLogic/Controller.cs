@@ -29,6 +29,7 @@ namespace Field_Sales_System.ControlLogic
         ChangePassword changePasswordForm;
         ChangePasswordAdmin changePasswordAdminForm;
         UpdateEmployee updateEmployee;
+        Invoice createOrder;
 
 
         public ForgotPassword ForgotPassword
@@ -176,7 +177,7 @@ namespace Field_Sales_System.ControlLogic
             profile.regionLabel.Text = "---";
             profile.photoLabel.Image = currentUser.Dp.getPicture();
             //profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
-            profile.statusLabel.Text = isActive(currentUser);
+            //profile.statusLabel.Text = isActive(currentUser);
             profile.jobTitleLabel.Text = currentUser.GetType().ToString();
 
             
@@ -291,6 +292,10 @@ namespace Field_Sales_System.ControlLogic
                 region = "Not assigned";
             }
             return region;
+        }
+
+        public void createNewOrder_Rep() {
+            //List<Product> products = 
         }
 
 

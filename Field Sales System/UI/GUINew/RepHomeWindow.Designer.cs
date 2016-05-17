@@ -58,7 +58,7 @@
             this.requestNewOrderButton.FlatAppearance.BorderSize = 0;
             this.requestNewOrderButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestNewOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.requestNewOrderButton.Location = new System.Drawing.Point(16, 612);
+            this.requestNewOrderButton.Location = new System.Drawing.Point(16, 324);
             this.requestNewOrderButton.Name = "requestNewOrderButton";
             this.requestNewOrderButton.Size = new System.Drawing.Size(236, 30);
             this.requestNewOrderButton.TabIndex = 67;
@@ -73,7 +73,7 @@
             this.invoiceButton.FlatAppearance.BorderSize = 0;
             this.invoiceButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.invoiceButton.Location = new System.Drawing.Point(16, 442);
+            this.invoiceButton.Location = new System.Drawing.Point(16, 435);
             this.invoiceButton.Name = "invoiceButton";
             this.invoiceButton.Size = new System.Drawing.Size(236, 30);
             this.invoiceButton.TabIndex = 66;
@@ -158,7 +158,7 @@
             this.viewInventoryButton.FlatAppearance.BorderSize = 0;
             this.viewInventoryButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewInventoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewInventoryButton.Location = new System.Drawing.Point(16, 328);
+            this.viewInventoryButton.Location = new System.Drawing.Point(16, 377);
             this.viewInventoryButton.Name = "viewInventoryButton";
             this.viewInventoryButton.Size = new System.Drawing.Size(236, 30);
             this.viewInventoryButton.TabIndex = 59;
@@ -174,7 +174,7 @@
             this.goodsReceiveNoteButton.FlatAppearance.BorderSize = 0;
             this.goodsReceiveNoteButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goodsReceiveNoteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.goodsReceiveNoteButton.Location = new System.Drawing.Point(16, 387);
+            this.goodsReceiveNoteButton.Location = new System.Drawing.Point(16, 605);
             this.goodsReceiveNoteButton.Name = "goodsReceiveNoteButton";
             this.goodsReceiveNoteButton.Size = new System.Drawing.Size(236, 30);
             this.goodsReceiveNoteButton.TabIndex = 58;
@@ -293,6 +293,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.goodsReceiveNoteButton);
             this.Controls.Add(this.empIdText);
             this.Controls.Add(this.firstNameText);
             this.Controls.Add(this.logoutButton);
@@ -304,7 +305,6 @@
             this.Controls.Add(this.lastNameText);
             this.Controls.Add(this.searchRepsButton);
             this.Controls.Add(this.viewInventoryButton);
-            this.Controls.Add(this.goodsReceiveNoteButton);
             this.Controls.Add(this.myProfileButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.repMainPannel);

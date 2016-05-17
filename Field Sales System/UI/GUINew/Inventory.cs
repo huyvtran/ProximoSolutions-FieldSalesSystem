@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace GUINew
 {
     public partial class Inventory : Form
     {
-        public Inventory()
+        Controller controller;
+        public Inventory(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
     }
 }

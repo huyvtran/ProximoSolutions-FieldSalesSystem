@@ -13,23 +13,27 @@ namespace GUINew
 {
     public partial class EmployeeProfile : Form
     {
+        private ChangePassword changePassword;
+        private UpdateEmployee updateEmployee;
         private Controller controller;
 
         public EmployeeProfile(Controller controller)
-        {      
+        {
             InitializeComponent();
             this.controller = controller;
-
         }
 
         private void changePwdButton_Click(object sender, EventArgs e)
         {
-            controller.changeEmployeePassword();
+            changePassword = new ChangePassword(controller);
+            changePassword.Show();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
-        {         
-           //controller.upd
+        {
+            updateEmployee = new UpdateEmployee();
+            updateEmployee.Show();
+
         }
     }
 }

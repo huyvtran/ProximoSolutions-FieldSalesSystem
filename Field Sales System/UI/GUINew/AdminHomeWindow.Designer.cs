@@ -89,7 +89,7 @@
             this.addEmployeeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addEmployeeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.addEmployeeButton.FlatAppearance.BorderSize = 0;
-            this.addEmployeeButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addEmployeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addEmployeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.addEmployeeButton.Location = new System.Drawing.Point(16, 152);
             this.addEmployeeButton.Name = "addEmployeeButton";
@@ -110,11 +110,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.label2.Location = new System.Drawing.Point(1107, 722);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(252, 14);
+            this.label2.Size = new System.Drawing.Size(295, 15);
             this.label2.TabIndex = 12;
             this.label2.Text = " UPALI FOODS AND BEVERAGES (PVT.) LTD.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -125,7 +125,7 @@
             this.viewReportsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewReportsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.viewReportsButton.FlatAppearance.BorderSize = 0;
-            this.viewReportsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewReportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewReportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.viewReportsButton.Location = new System.Drawing.Point(16, 576);
             this.viewReportsButton.Name = "viewReportsButton";
@@ -140,7 +140,7 @@
             this.itemDispatchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.itemDispatchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.itemDispatchButton.FlatAppearance.BorderSize = 0;
-            this.itemDispatchButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemDispatchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemDispatchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.itemDispatchButton.Location = new System.Drawing.Point(16, 475);
             this.itemDispatchButton.Name = "itemDispatchButton";
@@ -155,7 +155,7 @@
             this.searchEmployeeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchEmployeeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.searchEmployeeButton.FlatAppearance.BorderSize = 0;
-            this.searchEmployeeButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchEmployeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEmployeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.searchEmployeeButton.Location = new System.Drawing.Point(16, 407);
             this.searchEmployeeButton.Name = "searchEmployeeButton";
@@ -171,7 +171,7 @@
             this.viewEmployeesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.viewEmployeesButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.viewEmployeesButton.FlatAppearance.BorderSize = 0;
-            this.viewEmployeesButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewEmployeesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewEmployeesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.viewEmployeesButton.Location = new System.Drawing.Point(16, 250);
             this.viewEmployeesButton.Name = "viewEmployeesButton";
@@ -188,6 +188,7 @@
             this.empLastNameText.Size = new System.Drawing.Size(236, 26);
             this.empLastNameText.TabIndex = 17;
             this.empLastNameText.Text = "Employee Last Name";
+            this.empLastNameText.TextChanged += new System.EventHandler(this.empLastNameText_TextChanged);
             // 
             // logoutButton
             // 
@@ -225,7 +226,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
             this.Controls.Add(this.employeeIDText);
             this.Controls.Add(this.empFirstNameText);
             this.Controls.Add(this.logoutButton);

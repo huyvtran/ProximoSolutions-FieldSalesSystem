@@ -34,12 +34,13 @@ namespace Field_Sales_System.Utility_Classes
 
         //Create new order
 
-        public string storeNewOrder(int orderId, DateTime OrderRequestedDate, List<OrderEntry> orderEntries,int ordererId,string )
+        public string storeNewOrder(int orderId, DateTime OrderRequestedDate, List<OrderEntry> orderEntries,int ordererId,string region)
         {
            
             OrderProcessDetails gotprocessDetails = getOrderProcessDetails();
             Order newOrder = new Order();
             newOrder.OrderId = orderId;
+            newOrder.OrderRegion = region;
             newOrder.OrdererId = ordererId;
             newOrder.OrderRequestedDate = OrderRequestedDate;
             newOrder.Orders = orderEntries;

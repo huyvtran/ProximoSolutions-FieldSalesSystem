@@ -13,29 +13,19 @@ namespace GUINew
 {
     public partial class ForgotPassword : Form
     {
-
+        SignIn signIn;
         private Controller controller;
         public ForgotPassword(Controller controller)
-
         {
             InitializeComponent();
             this.controller = controller;
-        }
-
-
-
-
-        private void requestNewPasswordButton_Click(object sender, EventArgs e)
-        {
-            controller.resetPassword(Int32.Parse(usernameText.Text));
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
          
             this.Hide();
-            controller.OpeningDialogBox.Show();
-
+            signIn.ShowDialog();
         }
     }
 }

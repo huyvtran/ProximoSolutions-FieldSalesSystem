@@ -26,7 +26,7 @@ namespace Field_Sales_System.Utility_Classes
         OrderEntry setOrderEntry(Product product, int Quantity);
         string storeContactDetails(ContactDetails contact);
         string storeDailySalesDetails(DailySalesDetails dsd);
-        string storeNewOrder(int orderID, DateTime OrderRequestedDate, List<OrderEntry> orderEntries, int placedEmpID);
+        string storeNewOrder(int orderID, DateTime OrderRequestedDate, List<OrderEntry> orderEntries, int placedEmpID,string region);
         string storeNewProduct(string productName, int productId, string productDescription, float pricePerUnit, DisplayPicture productPicture, string category, int batchNo);
         string storeReport(object report);
         string storeSalesReturns(SalesReturn returns);

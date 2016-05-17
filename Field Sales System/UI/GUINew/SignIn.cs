@@ -13,14 +13,9 @@ namespace GUINew
 {
     public partial class SignIn : Form
     {
-
-        
-        private Controller controller;
-
-
         private ForgotPassword forgotPassword;
+        Controller controller;
         public SignIn(Controller controll)
-
         {
             InitializeComponent();
             this.controller = controll;
@@ -33,8 +28,9 @@ namespace GUINew
 
         private void button2_Click(object sender, EventArgs e)
         {
+            forgotPassword = new ForgotPassword(controller);
             this.Hide();
-            controller.ForgotPassword.ShowDialog();
+            forgotPassword.ShowDialog();
         }
 
         private void signInButton_Click(object sender, EventArgs e)

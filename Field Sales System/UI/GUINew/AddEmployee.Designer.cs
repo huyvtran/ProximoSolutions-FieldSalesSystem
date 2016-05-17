@@ -43,8 +43,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lastNameText = new System.Windows.Forms.TextBox();
             this.middleNameText = new System.Windows.Forms.TextBox();
-            this.mrRadioButton = new System.Windows.Forms.RadioButton();
-            this.mrsRadioButton = new System.Windows.Forms.RadioButton();
             this.bdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -59,14 +57,24 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.repRadio = new System.Windows.Forms.RadioButton();
-            this.agentRadio = new System.Windows.Forms.RadioButton();
-            this.wmRadio = new System.Windows.Forms.RadioButton();
             this.nameText = new System.Windows.Forms.TextBox();
             this.hireDateDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.notesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.clearButton = new System.Windows.Forms.Button();
+            this.pickBox = new System.Windows.Forms.PictureBox();
+            this.zoomSlider = new System.Windows.Forms.TrackBar();
             this.label6 = new System.Windows.Forms.Label();
+            this.titleGroup = new System.Windows.Forms.GroupBox();
+            this.msRadio = new System.Windows.Forms.RadioButton();
+            this.mrRadio = new System.Windows.Forms.RadioButton();
+            this.jobTitleGroup = new System.Windows.Forms.GroupBox();
+            this.repRadio = new System.Windows.Forms.RadioButton();
+            this.agentRadio = new System.Windows.Forms.RadioButton();
+            this.wmRadio = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pickBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomSlider)).BeginInit();
+            this.titleGroup.SuspendLayout();
+            this.jobTitleGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // firstNameText
@@ -74,9 +82,11 @@
             this.firstNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameText.Location = new System.Drawing.Point(260, 66);
             this.firstNameText.Name = "firstNameText";
-            this.firstNameText.Size = new System.Drawing.Size(224, 27);
+            this.firstNameText.Size = new System.Drawing.Size(224, 28);
             this.firstNameText.TabIndex = 29;
             this.firstNameText.Text = "First Name";
+            this.firstNameText.Click += new System.EventHandler(this.firstNameText_Click);
+            this.firstNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameText_KeyPress);
             // 
             // label2
             // 
@@ -91,9 +101,9 @@
             // nicText
             // 
             this.nicText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nicText.Location = new System.Drawing.Point(159, 257);
+            this.nicText.Location = new System.Drawing.Point(158, 274);
             this.nicText.Name = "nicText";
-            this.nicText.Size = new System.Drawing.Size(325, 27);
+            this.nicText.Size = new System.Drawing.Size(301, 28);
             this.nicText.TabIndex = 27;
             // 
             // addButton
@@ -156,7 +166,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label7.Location = new System.Drawing.Point(54, 228);
+            this.label7.Location = new System.Drawing.Point(53, 245);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 23);
             this.label7.TabIndex = 37;
@@ -166,7 +176,7 @@
             // 
             this.label8.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label8.Location = new System.Drawing.Point(54, 262);
+            this.label8.Location = new System.Drawing.Point(53, 279);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 23);
             this.label8.TabIndex = 36;
@@ -197,49 +207,29 @@
             this.lastNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastNameText.Location = new System.Drawing.Point(260, 128);
             this.lastNameText.Name = "lastNameText";
-            this.lastNameText.Size = new System.Drawing.Size(224, 27);
+            this.lastNameText.Size = new System.Drawing.Size(224, 28);
             this.lastNameText.TabIndex = 38;
             this.lastNameText.Text = "Last Name";
+            this.lastNameText.Click += new System.EventHandler(this.lastNameText_Click);
+            this.lastNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lastNameText_KeyPress);
             // 
             // middleNameText
             // 
             this.middleNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.middleNameText.Location = new System.Drawing.Point(260, 97);
             this.middleNameText.Name = "middleNameText";
-            this.middleNameText.Size = new System.Drawing.Size(224, 27);
+            this.middleNameText.Size = new System.Drawing.Size(224, 28);
             this.middleNameText.TabIndex = 39;
             this.middleNameText.Text = "Middle Name(s)";
-            // 
-            // mrRadioButton
-            // 
-            this.mrRadioButton.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrRadioButton.Location = new System.Drawing.Point(261, 173);
-            this.mrRadioButton.Name = "mrRadioButton";
-            this.mrRadioButton.Size = new System.Drawing.Size(60, 23);
-            this.mrRadioButton.TabIndex = 40;
-            this.mrRadioButton.TabStop = true;
-            this.mrRadioButton.Text = "Mr.";
-            this.mrRadioButton.UseVisualStyleBackColor = true;
-            this.mrRadioButton.CheckedChanged += new System.EventHandler(this.mrRadioButton_CheckedChanged);
-            // 
-            // mrsRadioButton
-            // 
-            this.mrsRadioButton.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrsRadioButton.Location = new System.Drawing.Point(338, 173);
-            this.mrsRadioButton.Name = "mrsRadioButton";
-            this.mrsRadioButton.Size = new System.Drawing.Size(60, 23);
-            this.mrsRadioButton.TabIndex = 41;
-            this.mrsRadioButton.TabStop = true;
-            this.mrsRadioButton.Text = "MS.";
-            this.mrsRadioButton.UseVisualStyleBackColor = true;
-            this.mrsRadioButton.CheckedChanged += new System.EventHandler(this.mrsRadioButton_CheckedChanged);
+            this.middleNameText.Click += new System.EventHandler(this.middleNameText_Click);
+            this.middleNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.middleNameText_KeyPress);
             // 
             // bdayDateTimePicker
             // 
             this.bdayDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdayDateTimePicker.Location = new System.Drawing.Point(160, 224);
+            this.bdayDateTimePicker.Location = new System.Drawing.Point(159, 241);
             this.bdayDateTimePicker.Name = "bdayDateTimePicker";
-            this.bdayDateTimePicker.Size = new System.Drawing.Size(325, 27);
+            this.bdayDateTimePicker.Size = new System.Drawing.Size(325, 28);
             this.bdayDateTimePicker.TabIndex = 43;
             // 
             // label11
@@ -287,34 +277,37 @@
             this.cityText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cityText.Location = new System.Drawing.Point(159, 369);
             this.cityText.Name = "cityText";
-            this.cityText.Size = new System.Drawing.Size(325, 27);
+            this.cityText.Size = new System.Drawing.Size(325, 28);
             this.cityText.TabIndex = 50;
             this.cityText.Text = "City";
+            this.cityText.Click += new System.EventHandler(this.cityText_Click);
             // 
             // stateText
             // 
             this.stateText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stateText.Location = new System.Drawing.Point(159, 400);
             this.stateText.Name = "stateText";
-            this.stateText.Size = new System.Drawing.Size(325, 27);
+            this.stateText.Size = new System.Drawing.Size(325, 28);
             this.stateText.TabIndex = 49;
             this.stateText.Text = "State";
+            this.stateText.Click += new System.EventHandler(this.stateText_Click);
             // 
             // addressText
             // 
             this.addressText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressText.Location = new System.Drawing.Point(159, 338);
             this.addressText.Name = "addressText";
-            this.addressText.Size = new System.Drawing.Size(325, 27);
+            this.addressText.Size = new System.Drawing.Size(325, 28);
             this.addressText.TabIndex = 48;
             this.addressText.Text = "Address";
+            this.addressText.Click += new System.EventHandler(this.addressText_Click);
             // 
             // mobileText
             // 
             this.mobileText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mobileText.Location = new System.Drawing.Point(159, 474);
             this.mobileText.Name = "mobileText";
-            this.mobileText.Size = new System.Drawing.Size(325, 27);
+            this.mobileText.Size = new System.Drawing.Size(325, 28);
             this.mobileText.TabIndex = 53;
             // 
             // emailText
@@ -322,7 +315,7 @@
             this.emailText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailText.Location = new System.Drawing.Point(159, 509);
             this.emailText.Name = "emailText";
-            this.emailText.Size = new System.Drawing.Size(325, 27);
+            this.emailText.Size = new System.Drawing.Size(325, 28);
             this.emailText.TabIndex = 52;
             this.emailText.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -331,7 +324,7 @@
             this.homeTelText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeTelText.Location = new System.Drawing.Point(159, 438);
             this.homeTelText.Name = "homeTelText";
-            this.homeTelText.Size = new System.Drawing.Size(325, 27);
+            this.homeTelText.Size = new System.Drawing.Size(325, 28);
             this.homeTelText.TabIndex = 51;
             // 
             // label15
@@ -364,45 +357,12 @@
             this.label17.TabIndex = 54;
             this.label17.Text = "Region";
             // 
-            // repRadio
-            // 
-            this.repRadio.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repRadio.Location = new System.Drawing.Point(689, 126);
-            this.repRadio.Name = "repRadio";
-            this.repRadio.Size = new System.Drawing.Size(200, 23);
-            this.repRadio.TabIndex = 59;
-            this.repRadio.TabStop = true;
-            this.repRadio.Text = "Sales Representative";
-            this.repRadio.UseVisualStyleBackColor = true;
-            // 
-            // agentRadio
-            // 
-            this.agentRadio.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agentRadio.Location = new System.Drawing.Point(689, 97);
-            this.agentRadio.Name = "agentRadio";
-            this.agentRadio.Size = new System.Drawing.Size(200, 23);
-            this.agentRadio.TabIndex = 58;
-            this.agentRadio.TabStop = true;
-            this.agentRadio.Text = "Agent";
-            this.agentRadio.UseVisualStyleBackColor = true;
-            // 
-            // wmRadio
-            // 
-            this.wmRadio.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wmRadio.Location = new System.Drawing.Point(689, 68);
-            this.wmRadio.Name = "wmRadio";
-            this.wmRadio.Size = new System.Drawing.Size(200, 23);
-            this.wmRadio.TabIndex = 57;
-            this.wmRadio.TabStop = true;
-            this.wmRadio.Text = "Warehouse Manager";
-            this.wmRadio.UseVisualStyleBackColor = true;
-            // 
             // nameText
             // 
             this.nameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameText.Location = new System.Drawing.Point(689, 169);
             this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(325, 27);
+            this.nameText.Size = new System.Drawing.Size(325, 28);
             this.nameText.TabIndex = 61;
             // 
             // hireDateDateTimePicker2
@@ -410,7 +370,7 @@
             this.hireDateDateTimePicker2.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hireDateDateTimePicker2.Location = new System.Drawing.Point(689, 204);
             this.hireDateDateTimePicker2.Name = "hireDateDateTimePicker2";
-            this.hireDateDateTimePicker2.Size = new System.Drawing.Size(324, 27);
+            this.hireDateDateTimePicker2.Size = new System.Drawing.Size(324, 28);
             this.hireDateDateTimePicker2.TabIndex = 62;
             // 
             // notesRichTextBox
@@ -436,17 +396,122 @@
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = false;
             // 
+            // pickBox
+            // 
+            this.pickBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pickBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pickBox.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pickBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.pickBox.Image = ((System.Drawing.Image)(resources.GetObject("pickBox.Image")));
+            this.pickBox.Location = new System.Drawing.Point(37, 56);
+            this.pickBox.Name = "pickBox";
+            this.pickBox.Size = new System.Drawing.Size(150, 150);
+            this.pickBox.TabIndex = 33;
+            this.pickBox.TabStop = false;
+            this.pickBox.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // zoomSlider
+            // 
+            this.zoomSlider.LargeChange = 1;
+            this.zoomSlider.Location = new System.Drawing.Point(61, 210);
+            this.zoomSlider.Maximum = 5;
+            this.zoomSlider.Minimum = 1;
+            this.zoomSlider.Name = "zoomSlider";
+            this.zoomSlider.Size = new System.Drawing.Size(104, 45);
+            this.zoomSlider.TabIndex = 65;
+            this.zoomSlider.Value = 1;
+            this.zoomSlider.Scroll += new System.EventHandler(this.zoomSlider_Scroll);
+            // 
             // label6
             // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.Location = new System.Drawing.Point(37, 56);
+            this.label6.Location = new System.Drawing.Point(457, 276);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 150);
-            this.label6.TabIndex = 33;
+            this.label6.Size = new System.Drawing.Size(27, 23);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "V";
+            // 
+            // titleGroup
+            // 
+            this.titleGroup.Controls.Add(this.msRadio);
+            this.titleGroup.Controls.Add(this.mrRadio);
+            this.titleGroup.Location = new System.Drawing.Point(260, 169);
+            this.titleGroup.Name = "titleGroup";
+            this.titleGroup.Size = new System.Drawing.Size(224, 28);
+            this.titleGroup.TabIndex = 67;
+            this.titleGroup.TabStop = false;
+            // 
+            // msRadio
+            // 
+            this.msRadio.AutoSize = true;
+            this.msRadio.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msRadio.Location = new System.Drawing.Point(71, 2);
+            this.msRadio.Name = "msRadio";
+            this.msRadio.Size = new System.Drawing.Size(52, 23);
+            this.msRadio.TabIndex = 1;
+            this.msRadio.TabStop = true;
+            this.msRadio.Text = "Ms.";
+            this.msRadio.UseVisualStyleBackColor = true;
+            // 
+            // mrRadio
+            // 
+            this.mrRadio.AutoSize = true;
+            this.mrRadio.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrRadio.Location = new System.Drawing.Point(6, 2);
+            this.mrRadio.Name = "mrRadio";
+            this.mrRadio.Size = new System.Drawing.Size(51, 23);
+            this.mrRadio.TabIndex = 0;
+            this.mrRadio.TabStop = true;
+            this.mrRadio.Text = "Mr.";
+            this.mrRadio.UseVisualStyleBackColor = true;
+            // 
+            // jobTitleGroup
+            // 
+            this.jobTitleGroup.Controls.Add(this.repRadio);
+            this.jobTitleGroup.Controls.Add(this.agentRadio);
+            this.jobTitleGroup.Controls.Add(this.wmRadio);
+            this.jobTitleGroup.Location = new System.Drawing.Point(689, 56);
+            this.jobTitleGroup.Name = "jobTitleGroup";
+            this.jobTitleGroup.Size = new System.Drawing.Size(324, 100);
+            this.jobTitleGroup.TabIndex = 68;
+            this.jobTitleGroup.TabStop = false;
+            // 
+            // repRadio
+            // 
+            this.repRadio.AutoSize = true;
+            this.repRadio.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repRadio.Location = new System.Drawing.Point(7, 68);
+            this.repRadio.Name = "repRadio";
+            this.repRadio.Size = new System.Drawing.Size(161, 23);
+            this.repRadio.TabIndex = 2;
+            this.repRadio.TabStop = true;
+            this.repRadio.Text = "Sales Representative";
+            this.repRadio.UseVisualStyleBackColor = true;
+            // 
+            // agentRadio
+            // 
+            this.agentRadio.AutoSize = true;
+            this.agentRadio.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agentRadio.Location = new System.Drawing.Point(7, 39);
+            this.agentRadio.Name = "agentRadio";
+            this.agentRadio.Size = new System.Drawing.Size(66, 23);
+            this.agentRadio.TabIndex = 1;
+            this.agentRadio.TabStop = true;
+            this.agentRadio.Text = "Agent";
+            this.agentRadio.UseVisualStyleBackColor = true;
+            // 
+            // wmRadio
+            // 
+            this.wmRadio.AutoSize = true;
+            this.wmRadio.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wmRadio.Location = new System.Drawing.Point(7, 10);
+            this.wmRadio.Name = "wmRadio";
+            this.wmRadio.Size = new System.Drawing.Size(163, 23);
+            this.wmRadio.TabIndex = 0;
+            this.wmRadio.TabStop = true;
+            this.wmRadio.Text = "Warehouse Manager";
+            this.wmRadio.UseVisualStyleBackColor = true;
             // 
             // AddEmployee
             // 
@@ -455,13 +520,13 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.Controls.Add(this.jobTitleGroup);
+            this.Controls.Add(this.titleGroup);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.notesRichTextBox);
             this.Controls.Add(this.hireDateDateTimePicker2);
             this.Controls.Add(this.nameText);
-            this.Controls.Add(this.repRadio);
-            this.Controls.Add(this.agentRadio);
-            this.Controls.Add(this.wmRadio);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
@@ -476,15 +541,13 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.bdayDateTimePicker);
-            this.Controls.Add(this.mrsRadioButton);
-            this.Controls.Add(this.mrRadioButton);
             this.Controls.Add(this.middleNameText);
             this.Controls.Add(this.lastNameText);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pickBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -493,6 +556,8 @@
             this.Controls.Add(this.nicText);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.zoomSlider);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -501,6 +566,12 @@
             this.Name = "AddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Employee";
+            ((System.ComponentModel.ISupportInitialize)(this.pickBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomSlider)).EndInit();
+            this.titleGroup.ResumeLayout(false);
+            this.titleGroup.PerformLayout();
+            this.jobTitleGroup.ResumeLayout(false);
+            this.jobTitleGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,15 +587,13 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.PictureBox pickBox;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.TextBox lastNameText;
         public System.Windows.Forms.TextBox middleNameText;
-        public System.Windows.Forms.RadioButton mrRadioButton;
-        public System.Windows.Forms.RadioButton mrsRadioButton;
         public System.Windows.Forms.DateTimePicker bdayDateTimePicker;
         public System.Windows.Forms.Label label11;
         public System.Windows.Forms.Label label12;
@@ -539,12 +608,18 @@
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.Label label16;
         public System.Windows.Forms.Label label17;
-        public System.Windows.Forms.RadioButton repRadio;
-        public System.Windows.Forms.RadioButton agentRadio;
-        public System.Windows.Forms.RadioButton wmRadio;
         public System.Windows.Forms.TextBox nameText;
         public System.Windows.Forms.DateTimePicker hireDateDateTimePicker2;
         public System.Windows.Forms.RichTextBox notesRichTextBox;
         public System.Windows.Forms.Button clearButton;
+        public System.Windows.Forms.TrackBar zoomSlider;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.GroupBox jobTitleGroup;
+        public System.Windows.Forms.GroupBox titleGroup;
+        public System.Windows.Forms.RadioButton msRadio;
+        public System.Windows.Forms.RadioButton repRadio;
+        public System.Windows.Forms.RadioButton agentRadio;
+        public System.Windows.Forms.RadioButton wmRadio;
+        public System.Windows.Forms.RadioButton mrRadio;
     }
 }
