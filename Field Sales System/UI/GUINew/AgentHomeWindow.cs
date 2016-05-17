@@ -64,5 +64,10 @@ namespace GUINew
             string empFirstNametext = empFirstName.Text;
             string empLastNametext = empLastName.Text;
         }
+
+        private void viewInventoryButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -191,6 +191,7 @@
             this.viewInventoryButton.TabIndex = 42;
             this.viewInventoryButton.Text = "View Inventory";
             this.viewInventoryButton.UseVisualStyleBackColor = false;
+            this.viewInventoryButton.Click += new System.EventHandler(this.viewInventoryButton_Click);
             // 
             // goodsReceiveNoteButton
             // 
