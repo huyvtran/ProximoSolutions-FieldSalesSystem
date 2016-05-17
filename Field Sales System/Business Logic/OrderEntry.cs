@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
+    [Serializable]
     public class OrderEntry
     {
         private int quantity;
         private Product product;
-        private string entryState = "Active";
+        //private string entryState = "Active";
         public int Quantity
         {
             get
@@ -36,19 +37,7 @@ namespace Field_Sales_System.Business_Logic
             }
         }
 
-        public string EntryState
-        {
-            get
-            {
-                return entryState;
-
-            }
-
-            set
-            {
-                entryState = value;
-            }
-        }
+        
       
       
     }

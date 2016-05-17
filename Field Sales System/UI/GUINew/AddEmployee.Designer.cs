@@ -57,7 +57,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.nameText = new System.Windows.Forms.TextBox();
+            this.regionText = new System.Windows.Forms.TextBox();
             this.hireDateDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.notesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.clearButton = new System.Windows.Forms.Button();
@@ -71,6 +71,7 @@
             this.repRadio = new System.Windows.Forms.RadioButton();
             this.agentRadio = new System.Windows.Forms.RadioButton();
             this.wmRadio = new System.Windows.Forms.RadioButton();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pickBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomSlider)).BeginInit();
             this.titleGroup.SuspendLayout();
@@ -84,7 +85,7 @@
             this.firstNameText.Name = "firstNameText";
             this.firstNameText.Size = new System.Drawing.Size(224, 28);
             this.firstNameText.TabIndex = 29;
-            this.firstNameText.Text = "First Name";
+            this.firstNameText.Text = "First Name *";
             this.firstNameText.Click += new System.EventHandler(this.firstNameText_Click);
             this.firstNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameText_KeyPress);
             // 
@@ -102,9 +103,11 @@
             // 
             this.nicText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nicText.Location = new System.Drawing.Point(158, 274);
+            this.nicText.MaxLength = 9;
             this.nicText.Name = "nicText";
             this.nicText.Size = new System.Drawing.Size(301, 28);
             this.nicText.TabIndex = 27;
+            this.nicText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nicText_KeyPress);
             // 
             // addButton
             // 
@@ -170,7 +173,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 23);
             this.label7.TabIndex = 37;
-            this.label7.Text = "Birth Date";
+            this.label7.Text = "Birth Date *";
             // 
             // label8
             // 
@@ -180,7 +183,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 23);
             this.label8.TabIndex = 36;
-            this.label8.Text = "NIC No.";
+            this.label8.Text = "NIC No. *";
             // 
             // label9
             // 
@@ -209,7 +212,7 @@
             this.lastNameText.Name = "lastNameText";
             this.lastNameText.Size = new System.Drawing.Size(224, 28);
             this.lastNameText.TabIndex = 38;
-            this.lastNameText.Text = "Last Name";
+            this.lastNameText.Text = "Last Name *";
             this.lastNameText.Click += new System.EventHandler(this.lastNameText_Click);
             this.lastNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lastNameText_KeyPress);
             // 
@@ -240,7 +243,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(99, 23);
             this.label11.TabIndex = 45;
-            this.label11.Text = "Address";
+            this.label11.Text = "Address *";
             // 
             // label12
             // 
@@ -260,7 +263,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(99, 23);
             this.label13.TabIndex = 47;
-            this.label13.Text = "Mobile";
+            this.label13.Text = "Mobile *";
             // 
             // label14
             // 
@@ -306,9 +309,11 @@
             // 
             this.mobileText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mobileText.Location = new System.Drawing.Point(159, 474);
+            this.mobileText.MaxLength = 10;
             this.mobileText.Name = "mobileText";
             this.mobileText.Size = new System.Drawing.Size(325, 28);
             this.mobileText.TabIndex = 53;
+            this.mobileText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mobileText_KeyPress);
             // 
             // emailText
             // 
@@ -323,9 +328,11 @@
             // 
             this.homeTelText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeTelText.Location = new System.Drawing.Point(159, 438);
+            this.homeTelText.MaxLength = 10;
             this.homeTelText.Name = "homeTelText";
             this.homeTelText.Size = new System.Drawing.Size(325, 28);
             this.homeTelText.TabIndex = 51;
+            this.homeTelText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.homeTelText_KeyPress);
             // 
             // label15
             // 
@@ -345,7 +352,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(99, 23);
             this.label16.TabIndex = 55;
-            this.label16.Text = "Job Title";
+            this.label16.Text = "Job Title *";
             // 
             // label17
             // 
@@ -355,15 +362,15 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(99, 23);
             this.label17.TabIndex = 54;
-            this.label17.Text = "Region";
+            this.label17.Text = "Region *";
             // 
-            // nameText
+            // regionText
             // 
-            this.nameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameText.Location = new System.Drawing.Point(689, 169);
-            this.nameText.Name = "nameText";
-            this.nameText.Size = new System.Drawing.Size(325, 28);
-            this.nameText.TabIndex = 61;
+            this.regionText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regionText.Location = new System.Drawing.Point(689, 169);
+            this.regionText.Name = "regionText";
+            this.regionText.Size = new System.Drawing.Size(325, 28);
+            this.regionText.TabIndex = 61;
             // 
             // hireDateDateTimePicker2
             // 
@@ -376,6 +383,7 @@
             // notesRichTextBox
             // 
             this.notesRichTextBox.Location = new System.Drawing.Point(594, 320);
+            this.notesRichTextBox.MaxLength = 1000;
             this.notesRichTextBox.Name = "notesRichTextBox";
             this.notesRichTextBox.Size = new System.Drawing.Size(419, 161);
             this.notesRichTextBox.TabIndex = 63;
@@ -513,6 +521,17 @@
             this.wmRadio.Text = "Warehouse Manager";
             this.wmRadio.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.label18.Location = new System.Drawing.Point(813, 246);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(200, 23);
+            this.label18.TabIndex = 69;
+            this.label18.Text = "* fields are necessary";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -520,13 +539,14 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.jobTitleGroup);
             this.Controls.Add(this.titleGroup);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.notesRichTextBox);
             this.Controls.Add(this.hireDateDateTimePicker2);
-            this.Controls.Add(this.nameText);
+            this.Controls.Add(this.regionText);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
@@ -608,7 +628,7 @@
         public System.Windows.Forms.Label label15;
         public System.Windows.Forms.Label label16;
         public System.Windows.Forms.Label label17;
-        public System.Windows.Forms.TextBox nameText;
+        public System.Windows.Forms.TextBox regionText;
         public System.Windows.Forms.DateTimePicker hireDateDateTimePicker2;
         public System.Windows.Forms.RichTextBox notesRichTextBox;
         public System.Windows.Forms.Button clearButton;
@@ -621,5 +641,6 @@
         public System.Windows.Forms.RadioButton agentRadio;
         public System.Windows.Forms.RadioButton wmRadio;
         public System.Windows.Forms.RadioButton mrRadio;
+        public System.Windows.Forms.Label label18;
     }
 }

@@ -67,7 +67,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(7, 639);
             this.label4.TabIndex = 21;
-            this.label4.Text = "label4";
             // 
             // label3
             // 
@@ -76,11 +75,10 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(1355, 7);
             this.label3.TabIndex = 20;
-            this.label3.Text = "label3";
             // 
             // nameLabel
             // 
-            this.nameLabel.Font = new System.Drawing.Font("Californian FB", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Font = new System.Drawing.Font("Cambria", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.Location = new System.Drawing.Point(72, 12);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(513, 50);
@@ -103,9 +101,9 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.button1.Location = new System.Drawing.Point(16, 639);
+            this.button1.Location = new System.Drawing.Point(16, 648);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(236, 30);
             this.button1.TabIndex = 38;
@@ -118,9 +116,9 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.button2.Location = new System.Drawing.Point(16, 559);
+            this.button2.Location = new System.Drawing.Point(16, 581);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(236, 30);
             this.button2.TabIndex = 39;
@@ -129,9 +127,10 @@
             // 
             // employeeFirstNameText
             // 
-            this.employeeFirstNameText.Location = new System.Drawing.Point(16, 289);
+            this.employeeFirstNameText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeFirstNameText.Location = new System.Drawing.Point(16, 312);
             this.employeeFirstNameText.Name = "employeeFirstNameText";
-            this.employeeFirstNameText.Size = new System.Drawing.Size(236, 26);
+            this.employeeFirstNameText.Size = new System.Drawing.Size(236, 27);
             this.employeeFirstNameText.TabIndex = 37;
             this.employeeFirstNameText.Text = "Employee First Name";
             this.employeeFirstNameText.TextChanged += new System.EventHandler(this.employeeFirstNameText_TextChanged);
@@ -142,9 +141,9 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.button3.Location = new System.Drawing.Point(16, 216);
+            this.button3.Location = new System.Drawing.Point(16, 207);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(236, 30);
             this.button3.TabIndex = 36;
@@ -157,9 +156,9 @@
             this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.searchButton.FlatAppearance.BorderSize = 0;
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchButton.Location = new System.Drawing.Point(16, 351);
+            this.searchButton.Location = new System.Drawing.Point(16, 370);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(236, 30);
             this.searchButton.TabIndex = 35;
@@ -173,9 +172,9 @@
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.button5.Location = new System.Drawing.Point(16, 403);
+            this.button5.Location = new System.Drawing.Point(16, 441);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(236, 30);
             this.button5.TabIndex = 34;
@@ -188,9 +187,9 @@
             this.goodsReceiveNoteButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goodsReceiveNoteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.goodsReceiveNoteButton.FlatAppearance.BorderSize = 0;
-            this.goodsReceiveNoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goodsReceiveNoteButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goodsReceiveNoteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.goodsReceiveNoteButton.Location = new System.Drawing.Point(16, 482);
+            this.goodsReceiveNoteButton.Location = new System.Drawing.Point(16, 512);
             this.goodsReceiveNoteButton.Name = "goodsReceiveNoteButton";
             this.goodsReceiveNoteButton.Size = new System.Drawing.Size(236, 30);
             this.goodsReceiveNoteButton.TabIndex = 33;
@@ -203,7 +202,7 @@
             this.myProfileButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.myProfileButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.myProfileButton.FlatAppearance.BorderSize = 0;
-            this.myProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myProfileButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.myProfileButton.Location = new System.Drawing.Point(16, 140);
             this.myProfileButton.Name = "myProfileButton";
@@ -234,18 +233,20 @@
             // 
             // employeeIDText
             // 
-            this.employeeIDText.Location = new System.Drawing.Point(16, 257);
+            this.employeeIDText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeIDText.Location = new System.Drawing.Point(16, 282);
             this.employeeIDText.Name = "employeeIDText";
-            this.employeeIDText.Size = new System.Drawing.Size(234, 26);
+            this.employeeIDText.Size = new System.Drawing.Size(236, 27);
             this.employeeIDText.TabIndex = 41;
             this.employeeIDText.Text = "employee ID";
             this.employeeIDText.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // employeeLastNameText
             // 
-            this.employeeLastNameText.Location = new System.Drawing.Point(16, 321);
+            this.employeeLastNameText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeLastNameText.Location = new System.Drawing.Point(16, 341);
             this.employeeLastNameText.Name = "employeeLastNameText";
-            this.employeeLastNameText.Size = new System.Drawing.Size(236, 26);
+            this.employeeLastNameText.Size = new System.Drawing.Size(236, 27);
             this.employeeLastNameText.TabIndex = 42;
             this.employeeLastNameText.Text = "Employee Last Name";
             this.employeeLastNameText.TextChanged += new System.EventHandler(this.textBox3_TextChanged);

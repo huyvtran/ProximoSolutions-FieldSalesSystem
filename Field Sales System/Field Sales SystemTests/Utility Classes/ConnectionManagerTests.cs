@@ -121,7 +121,7 @@ namespace Field_Sales_System.Utility_Classes.Tests
             c.openConnection(connection);
             //bool b = c.storeLoginInfo(connection, 1545, "test");
             c.closeConnection(connection);
-           // Assert.IsTrue(b);
+            // Assert.IsTrue(b);
         }
 
         [TestMethod()]
@@ -303,6 +303,12 @@ namespace Field_Sales_System.Utility_Classes.Tests
             MySqlConnection connection = c.connectDatabase("Database = proximoDB; Data Source = us-cdbr-azure-central-a.cloudapp.net; User Id = b5fb261919a40c; Password = aff5b96f");
             c.openConnection(connection);
             List<int> i = c.retrievePasswordResetRequests(connection);
+        }
+
+        [TestMethod()]
+        public void retrieveAllProductsTest()
+        {
+           
         }
     }
 }

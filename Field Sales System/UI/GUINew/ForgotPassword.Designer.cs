@@ -32,14 +32,14 @@
             this.requestNewPasswordButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameText
             // 
             this.usernameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameText.Location = new System.Drawing.Point(13, 82);
-            this.usernameText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usernameText.Margin = new System.Windows.Forms.Padding(4);
             this.usernameText.Name = "usernameText";
             this.usernameText.Size = new System.Drawing.Size(269, 28);
             this.usernameText.TabIndex = 10;
@@ -53,7 +53,7 @@
             this.requestNewPasswordButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestNewPasswordButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.requestNewPasswordButton.Location = new System.Drawing.Point(13, 134);
-            this.requestNewPasswordButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.requestNewPasswordButton.Margin = new System.Windows.Forms.Padding(4);
             this.requestNewPasswordButton.Name = "requestNewPasswordButton";
             this.requestNewPasswordButton.Size = new System.Drawing.Size(269, 30);
             this.requestNewPasswordButton.TabIndex = 9;
@@ -85,18 +85,34 @@
             this.label2.Text = " UPALI FOODS AND BEVERAGES (PVT.) LTD.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // backButton
             // 
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+           /* //this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+<<<<<<< HEAD
  
+=======
+         //   this.label3.Image = global::GUINew.Properties.Resources.back;
+>>>>>>> 910d73690d76255d5ee2e70e3d4b46b59576632b
             this.label3.Location = new System.Drawing.Point(9, 9);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 40);
             this.label3.TabIndex = 12;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Click += new System.EventHandler(this.label3_Click);*/
+
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Location = new System.Drawing.Point(13, 10);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(40, 40);
+            this.backButton.TabIndex = 12;
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+
             // 
             // ForgotPassword
             // 
@@ -106,14 +122,14 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(304, 231);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.usernameText);
             this.Controls.Add(this.requestNewPasswordButton);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ForgotPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgot Password";
@@ -128,6 +144,6 @@
         private System.Windows.Forms.Button requestNewPasswordButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button backButton;
     }
 }

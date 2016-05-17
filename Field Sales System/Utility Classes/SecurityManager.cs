@@ -41,7 +41,7 @@ namespace Field_Sales_System.Utility_Classes
             if (isOnline)
                     {
                         connection = dbManager.openConnection(connection);
-                        if (!connection.Equals(null))
+                        if (connection !=null)
 
                         {
                             List<object> arr = c.retrieveLoginInfo(connection, empId);
