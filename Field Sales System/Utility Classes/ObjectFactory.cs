@@ -655,24 +655,30 @@ namespace Field_Sales_System.Utility_Classes
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection!=null)
-                    {
-                        returnUser = dbManager.retrieveUser(connection, empId)[0];
-                        dbManager.closeConnection(connection);
-                        dbManager.openConnection(connection);
-                        Image i = dbManager.retrieveImage(connection, returnUser.getEmpId());
-                        dbManager.closeConnection(connection);
-                        dbManager.openConnection(connection);
-                        returnUser.Dp = new DisplayPicture(i);
-                        List<ContactDetails> contacts = dbManager.retrieveContactDetails(connection, returnUser.getEmpId());
-                        returnUser.ContactDetails = contacts[contacts.Count - 1];
-
-                        if (connection.State == System.Data.ConnectionState.Open)
+                    {   List<User> uList = dbManager.retrieveUser(connection, empId);
+                        if (uList != null)
                         {
-                            dbManager.closeConnection(connection);
-                        }
-                        userList.Add(returnUser);
-                        return returnUser;
+                            returnUser = uList[0];
 
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
+                            Image i = dbManager.retrieveImage(connection, returnUser.getEmpId());
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
+                            returnUser.Dp = new DisplayPicture(i);
+                            List<ContactDetails> contacts = dbManager.retrieveContactDetails(connection, returnUser.getEmpId());
+                            returnUser.ContactDetails = contacts[contacts.Count - 1];
+
+                            if (connection.State == System.Data.ConnectionState.Open)
+                            {
+                                dbManager.closeConnection(connection);
+                            }
+                            userList.Add(returnUser);
+                            return returnUser;
+                        }
+                        else {
+                            return null;
+                        }
                     }
                     else {
                         return null;
