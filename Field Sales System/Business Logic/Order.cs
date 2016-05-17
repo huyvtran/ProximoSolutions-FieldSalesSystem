@@ -121,7 +121,7 @@ namespace Field_Sales_System.Business_Logic
     
         public void deleteorderentry(int orderEntryId)
         {
-            Orders[orderEntryId].EntryState = "Cancelled";
+           // Orders[orderEntryId].EntryState = "Cancelled";
         }
 
     }

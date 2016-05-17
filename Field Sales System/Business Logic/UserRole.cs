@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Field_Sales_System.Business_Logic
 {
+    [Serializable]
     public class UserRole
     {
 

@@ -61,6 +61,7 @@
             // invoiceDataGrid
             // 
             this.invoiceDataGrid.AllowUserToAddRows = false;
+            this.invoiceDataGrid.AllowUserToDeleteRows = false;
             this.invoiceDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.invoiceDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
@@ -78,12 +79,11 @@
             // 
             // select
             // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.select.Frozen = true;
             this.select.HeaderText = "Select";
-            this.select.MinimumWidth = 65;
             this.select.Name = "select";
-            this.select.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.select.Width = 65;
+            this.select.Width = 53;
             // 
             // productID
             // 
@@ -99,7 +99,7 @@
             this.productName.HeaderText = "Product Name";
             this.productName.MinimumWidth = 250;
             this.productName.Name = "productName";
-            this.productName.Width = 270;
+            this.productName.Width = 300;
             // 
             // unitPrice
             // 
@@ -132,18 +132,13 @@
             this.productNameCombo.AllowDrop = true;
             this.productNameCombo.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productNameCombo.FormattingEnabled = true;
-            this.productNameCombo.Items.AddRange(new object[] {
-            "New Orders",
-            "Pending Orders",
-            "Delivered Orders",
-            "Accepted Orders",
-            "Rejected Orders"});
             this.productNameCombo.Location = new System.Drawing.Point(46, 128);
             this.productNameCombo.MaxDropDownItems = 5;
             this.productNameCombo.Name = "productNameCombo";
             this.productNameCombo.Size = new System.Drawing.Size(315, 28);
             this.productNameCombo.TabIndex = 65;
             this.productNameCombo.Text = "Product Name";
+            this.productNameCombo.SelectedIndexChanged += new System.EventHandler(this.productNameCombo_SelectedIndexChanged);
             // 
             // addItemButton
             // 
@@ -166,9 +161,10 @@
             this.qtyText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.qtyText.Location = new System.Drawing.Point(734, 128);
             this.qtyText.Name = "qtyText";
-            this.qtyText.Size = new System.Drawing.Size(106, 28);
+            this.qtyText.Size = new System.Drawing.Size(106, 27);
             this.qtyText.TabIndex = 66;
             this.qtyText.Text = "Quantity";
+            this.qtyText.Click += new System.EventHandler(this.qtyText_Click);
             // 
             // unitPriceLabel
             // 
@@ -253,7 +249,7 @@
             this.invoiceNumberText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceNumberText.Location = new System.Drawing.Point(158, 22);
             this.invoiceNumberText.Name = "invoiceNumberText";
-            this.invoiceNumberText.Size = new System.Drawing.Size(180, 28);
+            this.invoiceNumberText.Size = new System.Drawing.Size(180, 27);
             this.invoiceNumberText.TabIndex = 77;
             // 
             // empIDText
@@ -261,7 +257,7 @@
             this.empIDText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empIDText.Location = new System.Drawing.Point(557, 22);
             this.empIDText.Name = "empIDText";
-            this.empIDText.Size = new System.Drawing.Size(180, 28);
+            this.empIDText.Size = new System.Drawing.Size(180, 27);
             this.empIDText.TabIndex = 78;
             // 
             // customerNameText
@@ -269,7 +265,7 @@
             this.customerNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerNameText.Location = new System.Drawing.Point(158, 59);
             this.customerNameText.Name = "customerNameText";
-            this.customerNameText.Size = new System.Drawing.Size(298, 28);
+            this.customerNameText.Size = new System.Drawing.Size(298, 27);
             this.customerNameText.TabIndex = 79;
             // 
             // customerContactText
@@ -277,7 +273,7 @@
             this.customerContactText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerContactText.Location = new System.Drawing.Point(557, 59);
             this.customerContactText.Name = "customerContactText";
-            this.customerContactText.Size = new System.Drawing.Size(180, 28);
+            this.customerContactText.Size = new System.Drawing.Size(180, 27);
             this.customerContactText.TabIndex = 81;
             // 
             // label3
@@ -288,7 +284,8 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 23);
             this.label3.TabIndex = 80;
-            this.label3.Text = "Contact";
+            this.label3.Text = "Region";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // finishButton
             // 
@@ -304,13 +301,14 @@
             this.finishButton.TabIndex = 82;
             this.finishButton.Text = "Finish";
             this.finishButton.UseVisualStyleBackColor = false;
+            this.finishButton.Click += new System.EventHandler(this.finishButton_Click_1);
             // 
             // totalText
             // 
             this.totalText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalText.Location = new System.Drawing.Point(868, 434);
             this.totalText.Name = "totalText";
-            this.totalText.Size = new System.Drawing.Size(136, 28);
+            this.totalText.Size = new System.Drawing.Size(136, 27);
             this.totalText.TabIndex = 86;
             // 
             // label6
@@ -396,32 +394,32 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView invoiceDataGrid;
-        private System.Windows.Forms.ComboBox productNameCombo;
-        private System.Windows.Forms.Button addItemButton;
-        private System.Windows.Forms.TextBox qtyText;
-        private System.Windows.Forms.Label unitPriceLabel;
-        private System.Windows.Forms.Label productIDLabel;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn select;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        public System.Windows.Forms.DataGridView invoiceDataGrid;
+        public System.Windows.Forms.ComboBox productNameCombo;
+        public System.Windows.Forms.Button addItemButton;
+        public System.Windows.Forms.TextBox qtyText;
+        public System.Windows.Forms.Label unitPriceLabel;
+        public System.Windows.Forms.Label productIDLabel;
+        public System.Windows.Forms.Label timeLabel;
+        public System.Windows.Forms.TextBox invoiceNumberText;
+        public System.Windows.Forms.TextBox empIDText;
+        public System.Windows.Forms.TextBox customerNameText;
+        public System.Windows.Forms.TextBox customerContactText;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label dateLabel;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Button finishButton;
+        public System.Windows.Forms.TextBox totalText;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Button clearButton;
+        public System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn value;
-        private System.Windows.Forms.Label timeLabel;
-        private System.Windows.Forms.TextBox invoiceNumberText;
-        private System.Windows.Forms.TextBox empIDText;
-        private System.Windows.Forms.TextBox customerNameText;
-        private System.Windows.Forms.TextBox customerContactText;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button finishButton;
-        private System.Windows.Forms.TextBox totalText;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn select;
     }
 }

@@ -51,6 +51,7 @@ namespace Field_Sales_System.Utility_Classes
             isOnline = dbManager.isOnline();
             if (isOnline)
             {
+                dbManager.closeConnection(connection);
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
                 {
@@ -640,8 +641,8 @@ namespace Field_Sales_System.Utility_Classes
             //if not found in the list
             else {
                 bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                //isOnline = dbManager.isOnline();
+                if (true)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -667,6 +668,30 @@ namespace Field_Sales_System.Utility_Classes
             }
         }
 
+        public List<Product> retrieveAllProducts() {
+            List<Product> returnProduct = new List<Product>();
+                connection = dbManager.openConnection(connection);
+                if (connection != null)
+                {
+                returnProduct = dbManager.retrieveAllProducts(connection);
+                productList = returnProduct;
+
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        dbManager.closeConnection(connection);
+                    }
+
+                    return returnProduct;
+
+                }
+                else {
+                    return null;
+                }
+
+            
+
+        }
+
 
         
 
@@ -684,8 +709,8 @@ namespace Field_Sales_System.Utility_Classes
             }
             else {
                 bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                //isOnline = dbManager.isOnline();
+                if (true)
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection!=null)
@@ -733,6 +758,7 @@ namespace Field_Sales_System.Utility_Classes
             //isOnline = dbManager.isOnline();
             if (true)
             {
+                dbManager.closeConnection(connection);
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
                 {

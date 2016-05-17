@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="Utility Classes\ConnectionManagerTests.cs" />
     <Compile Include="Utility Classes\ImageHandlerTests.cs" />
+    <Compile Include="Utility Classes\ObjectFactoryTests.cs" />
     <Compile Include="Utility Classes\SecurityManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>

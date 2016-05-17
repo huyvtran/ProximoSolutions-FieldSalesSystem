@@ -18,16 +18,18 @@ namespace GUINew
         {
             InitializeComponent();
             this.controller = controller;
+            
         }
 
 
         private void repMainPannel_Paint(object sender, PaintEventArgs e)
         {
-            //controller.setMyHome_Representative();
+            controller.setMyHome_Representative();
         }
 
         private void searchRepsButton_Click(object sender, EventArgs e)
         {
+
             controller.searchEmployee_Rep(Int32.Parse(empIdText.Text),firstNameText.Text,lastNameText.Text);
         }
 
@@ -74,6 +76,11 @@ namespace GUINew
         private void viewInventoryButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void requestNewOrderButton_Click(object sender, EventArgs e)
+        {
+            controller.createNewOrder_Rep();
         }
     }
 }
