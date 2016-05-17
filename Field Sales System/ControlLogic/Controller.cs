@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Drawing;
-
+using System.Data;
+using System.Windows.Forms;
 
 namespace Field_Sales_System.ControlLogic
 {
@@ -30,6 +30,7 @@ namespace Field_Sales_System.ControlLogic
         ChangePasswordAdmin changePasswordAdminForm;
         UpdateEmployee updateEmployee;
         Invoice createOrder;
+        
 
 
         public ForgotPassword ForgotPassword
@@ -67,6 +68,7 @@ namespace Field_Sales_System.ControlLogic
             ForgotPassword = new ForgotPassword(this);
             updateEmployee = new UpdateEmployee();
             viewEmployee = new ViewEmployee(this);
+            createOrder = new Invoice(this);
 
         }
         public void initilizer()
@@ -78,7 +80,7 @@ namespace Field_Sales_System.ControlLogic
             string check = securityManager.login(empId, password);
             if (check.Equals("Successfully logged in!"))
             {
-                MessageBox.Show(check);
+                System.Windows.Forms.MessageBox.Show(check);
                 User u = objectFactory.getUser(empId);
                 if (u != null)
                 {
@@ -86,7 +88,7 @@ namespace Field_Sales_System.ControlLogic
                     if (u is CompanyAdmin)
                     {
                         adminHW = new AdminHomeWindow(this);
-                        // adminHW.TopLevel = false;
+                        //adminHW.TopLevel = false;
                         adminHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                         adminHW.photoLabel.Image = u.Dp.getPicture();
                         openingDialogBox.changeCurser();
@@ -131,7 +133,7 @@ namespace Field_Sales_System.ControlLogic
                 }
                 else
                 {
-                    MessageBox.Show(check);
+                    System.Windows.Forms.MessageBox.Show(check);
                     OpeningDialogBox.usernameText.Text = "";
                     OpeningDialogBox.passwordText.Text = "";
                 }
@@ -144,23 +146,56 @@ namespace Field_Sales_System.ControlLogic
         public void adminAddemployer()
         {
             newEmployee = new AddEmployee(this);
-            newEmployee.ShowDialog();
-        }
-        public string addadminemployersave(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
-        {
-             return objectFactory.storeUser(empId, empNIC, DateTime.Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles);
-        }
-        public void adminViewEmployer()
-        {
-            viewEmployee.ShowDialog();
-        }
-        public void adminSearchEmploee(int empId=0, string empFirstName="", string empLastName="")
+            
+            newEmployee.TopLevel = false;
+            newEmployee.AutoScroll = true;
+            adminHW.TopLevel = true;
+            adminHW.adminMainPanel1.Controls.Add(newEmployee);
+            newEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
-        {         
-            viewEmployee.setData(objectFactory.searchUser(empId, empFirstName, empLastName));
-            viewEmployee.ShowDialog();
+            newEmployee.Show();
+        }
+        public List<Permission> permission()
+        { List<Permission> permissionList = new List<Permission>();
+            Permission permission = objectFactory.createPermission("blah", 1);
+            permissionList.Add(permission);
+            return permissionList;
+        }
+        public List<UserRole> userRole(string type)
+        { List<Permission> permissionListSent = permission();
+            List<UserRole> userRoleList = new List<UserRole>();
+
+            UserRole userRole = objectFactory.createUserRole(type, permissionListSent);
+            userRoleList.Add(userRole);
+            return userRoleList;
 
         }
+        public void addAdminEmployerSave(int empId, int empNIC, DateTime Now, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType)
+        {
+            List<UserRole> roles = userRole(userType);
+             MessageBox.Show( ((CompanyAdmin)currentUser).addUser(objectFactory,securityManager,empId, empNIC, Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles,"cat"));
+        }
+        public void searchEmployee_Admin(int empId, string firstName, string lastName)
+        {
+            adminHW.adminMainPanel1.Controls.Clear();
+            List<User> searchResult = objectFactory.searchUser(empId, firstName, lastName);
+            //this.viewEmployee.dataGridView1 = new System.Windows.Forms.DataGridView();
+
+            foreach (User user in searchResult)
+            {
+                Image pic = user.Dp.getPicture();
+                this.viewEmployee.dataGridView1.Rows.Add(user.getEmpId(), user.Dp.getPicture(), user.getFirstName() + " " + user.getLastName(), user.GetType().ToString(), checkState(user.IsActive), user.ContactDetails.MobileNo, user.ContactDetails.EmailAddress);
+
+            }
+            viewEmployee.TopLevel = false;
+            viewEmployee.AutoScroll = true;
+           adminHW.TopLevel = true;
+            adminHW.adminMainPanel1.Controls.Add(viewEmployee);
+            viewEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+            viewEmployee.Show();
+        }
+   
 
         public void setMyHome_Representative() {
             profile.TopLevel = false;
@@ -204,7 +239,7 @@ namespace Field_Sales_System.ControlLogic
         }
         public void resetPassword(int empId) {
             string s = securityManager.requestPasswordReset(empId);
-            MessageBox.Show(s);
+            System.Windows.Forms.MessageBox.Show(s);
         }
         public void changeEmployeePassword() {
             if (currentUser is CompanyAdmin)
@@ -219,12 +254,12 @@ namespace Field_Sales_System.ControlLogic
         }
         public void changePasswordNonAdmin(string oldPassword,string newPassword) {
             string status = securityManager.modifyPassword(currentUser.getEmpId(), oldPassword, newPassword);
-            MessageBox.Show(status);
+            System.Windows.Forms.MessageBox.Show(status);
             changePasswordForm.Hide();
         }
         public void changePasswordAdmin(int empId, string newPassword) {
             string status = securityManager.modifyPasswordAdmin(empId, newPassword);
-            MessageBox.Show(status);
+            System.Windows.Forms.MessageBox.Show(status);
             changePasswordForm.Hide();
         }        
         public void setMyHome_Admin()
@@ -295,9 +330,50 @@ namespace Field_Sales_System.ControlLogic
         }
 
         public void createNewOrder_Rep() {
-            //List<Product> products = 
+            List<Product> products = objectFactory.retrieveAllProducts();
+            if (products != null)
+            {
+                repHW.repMainPannel.Controls.Clear();
+                createOrder.TopLevel = false;
+                repHW.TopLevel = true;
+                createOrder.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                createOrder.productNameCombo.Items.Clear();
+                foreach (Product p in products) {
+                    createOrder.productNameCombo.Items.Add(p.ProductName);
+                }
+                repHW.repMainPannel.Controls.Add(createOrder);
+                createOrder.dateLabel.Text = System.DateTime.Now.ToLongDateString();
+                createOrder.timeLabel.Text = DateTime.Now.ToLongTimeString();
+                createOrder.Show();
+            }
+            else {
+                System.Windows.Forms.MessageBox.Show("There was something wrong. Try again Later!");
+            }
         }
 
+        public Product getSelectedProduct(string productName) {
+            return objectFactory.getProduct(-1, productName);
+        }
+
+        public void addOrder() {
+            List<OrderEntry> entries = new List<OrderEntry>();
+            foreach (DataGridViewRow row in createOrder.invoiceDataGrid.Rows) {
+                OrderEntry oe = new OrderEntry();
+                oe.Product = getSelectedProduct(row.Cells[2].Value.ToString());
+                oe.Quantity = Int32.Parse(row.Cells[4].Value.ToString());
+                entries.Add(oe);
+            }
+
+
+            //DateTime time = new DateTime(createOrder.timeLabel.Text);
+            //order.OrderRequestedDate = System.DateTime.Now;
+            System.Windows.Forms.MessageBox.Show(objectFactory.storeNewOrder(Int32.Parse(createOrder.invoiceNumberText.Text), DateTime.Now, entries, Int32.Parse(createOrder.empIDText.Text), createOrder.customerContactText.Text));
+
+        }
+
+        public void viewOrder() {
+           // List<Order> orderList = objectFactory.
+        }
 
 
 

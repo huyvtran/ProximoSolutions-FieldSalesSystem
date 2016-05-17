@@ -355,7 +355,9 @@
             // 
             // homeButton
             // 
+
             this.homeButton.BackgroundImage = global::Field_Sales_System.Properties.Resources.Home;
+
             this.homeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.homeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeButton.FlatAppearance.BorderSize = 0;

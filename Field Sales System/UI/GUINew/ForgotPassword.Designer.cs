@@ -87,6 +87,21 @@
             // 
             // backButton
             // 
+           /* //this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+<<<<<<< HEAD
+ 
+=======
+         //   this.label3.Image = global::GUINew.Properties.Resources.back;
+>>>>>>> 910d73690d76255d5ee2e70e3d4b46b59576632b
+            this.label3.Location = new System.Drawing.Point(9, 9);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 40);
+            this.label3.TabIndex = 12;
+            this.label3.Click += new System.EventHandler(this.label3_Click);*/
+
             this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backButton.FlatAppearance.BorderSize = 0;
@@ -97,6 +112,7 @@
             this.backButton.TabIndex = 12;
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
+
             // 
             // ForgotPassword
             // 

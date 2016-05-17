@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Field_Sales_System.Business_Logic;
+using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,11 @@ namespace GUINew
 {
     public partial class Invoice : Form
     {
-        public Invoice()
+        private Controller controller;
+        public Invoice(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -34,26 +38,49 @@ namespace GUINew
         }
 
         float price;
-        DataTable table = new DataTable();
-        private void addItemButton_Click(object sender, EventArgs e)
-        {
-            price = (float.Parse(unitPriceLabel.Text)) * (float.Parse(qtyText.Text));
-            table.Rows.Add(productIDLabel.Text, productNameCombo.GetItemText(productNameCombo.SelectedItem), unitPriceLabel.Text, qtyText.Text, price);
 
-            invoiceDataGrid.DataSource = table;
-        }        
+
+        private void addItemButton_Click(object sender, EventArgs e)
+        {           
+            price = (float.Parse(unitPriceLabel.Text)) * (float.Parse(qtyText.Text));
+            this.invoiceDataGrid.Rows.Add(false, productIDLabel.Text, productNameCombo.GetItemText(productNameCombo.SelectedItem.ToString()), unitPriceLabel.Text, qtyText.Text, price);
+           
+        }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            int rowIndex = invoiceDataGrid.CurrentCell.RowIndex;
-            invoiceDataGrid.Rows.RemoveAt(rowIndex);
+
+            List<int> lst = new List<int>();
+            foreach (DataGridViewRow row in invoiceDataGrid.Rows) {
+                if (bool.Parse(row.Cells[0].Value.ToString())) {
+                    lst.Add(row.Index);
+                }
+            }
+            foreach (int i in lst) {
+                invoiceDataGrid.Rows.RemoveAt(i);
+            }
+            invoiceDataGrid.Refresh();
+                
         }
 
-        double sum;
+        //double sum, discount;
 
+        private void productNameCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedProct = productNameCombo.SelectedItem.ToString();
+            Product product = controller.getSelectedProduct(selectedProct);
+            if (product != null) {
+                productIDLabel.Text = product.ProductID.ToString();
+                unitPriceLabel.Text = product.PricePerUnit.ToString();
+            }
+        }
+
+
+
+        double sum = 0;
         private void finishButton_Click(object sender, EventArgs e)
         {
-            sum = 0;
+            
             for (int i = 0; i < invoiceDataGrid.Rows.Count; ++i)
             {
                 sum += Convert.ToDouble(invoiceDataGrid.Rows[i].Cells["Value"].Value);
@@ -62,8 +89,21 @@ namespace GUINew
             totalText.Text = sum.ToString();
         }
 
-        
+        private void qtyText_Click(object sender, EventArgs e)
+        {
+            if (qtyText.Text == "Quantity") {
+                qtyText.Text = "";
+            }
+        }
 
-        
+        private void finishButton_Click_1(object sender, EventArgs e)
+        {
+            controller.addOrder();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

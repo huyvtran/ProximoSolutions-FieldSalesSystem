@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RepHomeWindow));
             this.requestNewOrderButton = new System.Windows.Forms.Button();
+<<<<<<< HEAD
+=======
+
+            this.invoiceButton = new System.Windows.Forms.Button();
+
+>>>>>>> b94ea68564ec8494a4ba05058f737ca9d1d89241
             this.viewReportsButton = new System.Windows.Forms.Button();
             this.lastNameText = new System.Windows.Forms.TextBox();
             this.searchRepsButton = new System.Windows.Forms.Button();
@@ -59,7 +65,29 @@
             this.requestNewOrderButton.TabIndex = 67;
             this.requestNewOrderButton.Text = "Request New Order";
             this.requestNewOrderButton.UseVisualStyleBackColor = false;
+
+            this.requestNewOrderButton.Click += new System.EventHandler(this.requestNewOrderButton_Click);
+
             // 
+<<<<<<< HEAD
+=======
+            // invoiceButton
+            // 
+            this.invoiceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
+            this.invoiceButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.invoiceButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.invoiceButton.FlatAppearance.BorderSize = 0;
+            this.invoiceButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invoiceButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.invoiceButton.Location = new System.Drawing.Point(16, 465);
+            this.invoiceButton.Name = "invoiceButton";
+            this.invoiceButton.Size = new System.Drawing.Size(236, 30);
+            this.invoiceButton.TabIndex = 66;
+            this.invoiceButton.Text = "Invoice";
+            this.invoiceButton.UseVisualStyleBackColor = false;
+
+            // 
+>>>>>>> b94ea68564ec8494a4ba05058f737ca9d1d89241
             // viewReportsButton
             // 
             this.viewReportsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
@@ -68,13 +96,28 @@
             this.viewReportsButton.FlatAppearance.BorderSize = 0;
             this.viewReportsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewReportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+<<<<<<< HEAD
             this.viewReportsButton.Location = new System.Drawing.Point(16, 461);
+=======
+
+            this.viewReportsButton.Location = new System.Drawing.Point(16, 373);
+
+            this.viewReportsButton.Location = new System.Drawing.Point(16, 663);
+
+>>>>>>> b94ea68564ec8494a4ba05058f737ca9d1d89241
             this.viewReportsButton.Name = "viewReportsButton";
             this.viewReportsButton.Size = new System.Drawing.Size(236, 30);
             this.viewReportsButton.TabIndex = 63;
             this.viewReportsButton.Text = "View Reports";
             this.viewReportsButton.UseVisualStyleBackColor = false;
             // 
+<<<<<<< HEAD
+=======
+
+
+           
+
+>>>>>>> b94ea68564ec8494a4ba05058f737ca9d1d89241
             // lastNameText
             // 
             this.lastNameText.Location = new System.Drawing.Point(16, 255);
@@ -101,6 +144,14 @@
             this.searchRepsButton.UseVisualStyleBackColor = false;
             this.searchRepsButton.Click += new System.EventHandler(this.searchRepsButton_Click);
             // 
+<<<<<<< HEAD
+=======
+
+            
+        
+            // 
+
+>>>>>>> b94ea68564ec8494a4ba05058f737ca9d1d89241
             // myProfileButton
             // 
             this.myProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
@@ -212,11 +263,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
+
             this.ClientSize = new System.Drawing.Size(1354, 733);
+<<<<<<< HEAD
+=======
+            
+
+>>>>>>> b94ea68564ec8494a4ba05058f737ca9d1d89241
             this.Controls.Add(this.empIdText);
             this.Controls.Add(this.firstNameText);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.requestNewOrderButton);
+<<<<<<< HEAD
+=======
+
+            this.Controls.Add(this.invoiceButton);
+
+>>>>>>> b94ea68564ec8494a4ba05058f737ca9d1d89241
             this.Controls.Add(this.viewReportsButton);
             this.Controls.Add(this.lastNameText);
             this.Controls.Add(this.searchRepsButton);
@@ -248,6 +311,11 @@
 
 
         public System.Windows.Forms.Button requestNewOrderButton;
+<<<<<<< HEAD
+=======
+
+        public System.Windows.Forms.Button invoiceButton;
+>>>>>>> b94ea68564ec8494a4ba05058f737ca9d1d89241
         public System.Windows.Forms.Button viewReportsButton;
         public System.Windows.Forms.TextBox lastNameText;
         public System.Windows.Forms.Button searchRepsButton;

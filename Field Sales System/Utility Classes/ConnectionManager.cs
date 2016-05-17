@@ -436,6 +436,30 @@ namespace Field_Sales_System.Utility_Classes
                 return null;
             }
         }
+
+        public List<Product> retrieveAllProducts(MySqlConnection connection) {
+            try
+            {
+
+                string command = "SELECT product_col FROM product";
+                MySqlCommand cmd = new MySqlCommand(command, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                List<Product> userData = new List<Product>();
+                while (reader.Read())
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    MemoryStream ms = new MemoryStream((byte[])reader[0]);
+                    ms.Seek(0, SeekOrigin.Begin);
+                    userData.Add((Product)bin.Deserialize(ms));
+                }
+                return userData;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
         //Modifies the given product object in the database
         public bool modifyProduct(MySqlConnection connection, Product product) {
             try

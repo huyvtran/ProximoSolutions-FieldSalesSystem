@@ -24,7 +24,7 @@ namespace GUINew
             InitializeComponent();
 
             this.controller = controller;
-            searchEmployeeButton.Enabled = false;
+
 
 
         }
@@ -47,9 +47,13 @@ namespace GUINew
         }
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
-        {
-            
 
+        { 
+            controller.searchEmployee_Admin(int.Parse(employeeIDText.Text),"cscs","sdsd");
+
+        
+            
+        /*
             string employeeIDtext = empLastNameText.Text;
             try {
                 int employeeID = int.Parse(employeeIDtext);
@@ -61,13 +65,14 @@ namespace GUINew
             string empFirstName = empFirstNameText.Text;
             string empLastName = empLastNameText.Text;
 
-            //controller.adminSearchEmploee(employee);
+            //controller.adminSearchEmploee(employee);*/
+
         }
 
 
         private void empIDText_TextChanged(object sender, EventArgs e)
         {
-            searchEmployeeButton.Enabled = true;
+      
         }
 
         private void adminaMainPanel1_Paint(object sender, PaintEventArgs e)
@@ -75,15 +80,18 @@ namespace GUINew
 
         }
 
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //searchEmployeeButton.Enabled = true;                      
         }
 
+
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
             controller.setMyHome_Admin();
         }
+
 
         private void empLastNameText_TextChanged(object sender, EventArgs e)
         {
@@ -134,5 +142,6 @@ namespace GUINew
         {
             searchEmployeeButton.Enabled = true;
         }
+
     }
 }
