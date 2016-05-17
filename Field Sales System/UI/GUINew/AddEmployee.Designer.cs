@@ -102,9 +102,11 @@
             // 
             this.nicText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nicText.Location = new System.Drawing.Point(158, 274);
+            this.nicText.MaxLength = 9;
             this.nicText.Name = "nicText";
             this.nicText.Size = new System.Drawing.Size(301, 28);
             this.nicText.TabIndex = 27;
+            this.nicText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nicText_KeyPress);
             // 
             // addButton
             // 
@@ -306,9 +308,11 @@
             // 
             this.mobileText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mobileText.Location = new System.Drawing.Point(159, 474);
+            this.mobileText.MaxLength = 10;
             this.mobileText.Name = "mobileText";
             this.mobileText.Size = new System.Drawing.Size(325, 28);
             this.mobileText.TabIndex = 53;
+            this.mobileText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mobileText_KeyPress);
             // 
             // emailText
             // 
@@ -323,9 +327,11 @@
             // 
             this.homeTelText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeTelText.Location = new System.Drawing.Point(159, 438);
+            this.homeTelText.MaxLength = 10;
             this.homeTelText.Name = "homeTelText";
             this.homeTelText.Size = new System.Drawing.Size(325, 28);
             this.homeTelText.TabIndex = 51;
+            this.homeTelText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.homeTelText_KeyPress);
             // 
             // label15
             // 
