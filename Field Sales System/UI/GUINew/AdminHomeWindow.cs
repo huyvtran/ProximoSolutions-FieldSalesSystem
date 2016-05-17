@@ -26,6 +26,7 @@ namespace GUINew
         {
             InitializeComponent();
             this.controller = controller;
+            searchEmployeeButton.Enabled = false;
         }
 
         private void viewReportsButton_Click(object sender, EventArgs e)
@@ -70,7 +71,7 @@ namespace GUINew
 
         private void empIDText_TextChanged(object sender, EventArgs e)
         {
-
+            searchEmployeeButton.Enabled = true;
         }
 
         private void adminaMainPanel1_Paint(object sender, PaintEventArgs e)
@@ -80,12 +81,17 @@ namespace GUINew
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            searchEmployeeButton.Enabled = true;
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
             controller.setMyHome_Admin();
+        }
+
+        private void empLastNameText_TextChanged(object sender, EventArgs e)
+        {
+            searchEmployeeButton.Enabled = true;
         }
     }
 }
