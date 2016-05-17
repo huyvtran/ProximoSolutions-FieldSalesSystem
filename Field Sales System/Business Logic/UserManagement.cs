@@ -10,7 +10,7 @@ namespace Field_Sales_System.Business_Logic
 {
     public interface UserManagement
     {
-        string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC, DateTime DOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password);
+        string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC, DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password);
         List<User> searchUser(ObjectFactory factory, int empId = 0, string firstName = "", string lastName = "");
         string changeUsername(ObjectFactory factory, User user,string firstName,string lastName);
         string changeNIC(ObjectFactory factory, User user, int newNIC);

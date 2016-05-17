@@ -41,7 +41,7 @@
             this.usernameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameText.Location = new System.Drawing.Point(22, 119);
             this.usernameText.Name = "usernameText";
-            this.usernameText.Size = new System.Drawing.Size(269, 27);
+            this.usernameText.Size = new System.Drawing.Size(269, 28);
             this.usernameText.TabIndex = 24;
             // 
             // label2
@@ -60,7 +60,7 @@
             this.adminPwdText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminPwdText.Location = new System.Drawing.Point(22, 185);
             this.adminPwdText.Name = "adminPwdText";
-            this.adminPwdText.Size = new System.Drawing.Size(269, 27);
+            this.adminPwdText.Size = new System.Drawing.Size(269, 28);
             this.adminPwdText.TabIndex = 21;
             // 
             // changePwdButton
@@ -77,7 +77,6 @@
             this.changePwdButton.TabIndex = 20;
             this.changePwdButton.Text = "Change Password";
             this.changePwdButton.UseVisualStyleBackColor = false;
-            this.changePwdButton.Click += new System.EventHandler(this.changePwdButton_Click);
             // 
             // label3
             // 
@@ -115,7 +114,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChangePasswordAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Password";
@@ -126,11 +125,11 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox usernameText;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox adminPwdText;
-        public System.Windows.Forms.Button changePwdButton;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox usernameText;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox adminPwdText;
+        private System.Windows.Forms.Button changePwdButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }

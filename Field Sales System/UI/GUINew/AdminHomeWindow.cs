@@ -13,19 +13,16 @@ namespace GUINew
 {
     public partial class AdminHomeWindow : Form
     {
+        Controller controller;
         private ReportsHome reportsHome;
         private AddEmployee addEmployee;
         private ViewEmployee viewEmployee;
         private EmployeeProfile employeeProfile;
-        private Controller controller;
 
-
-
-        public AdminHomeWindow(Controller controller)
-
+        public AdminHomeWindow(Controller controll)
         {
+            controller = controll;
             InitializeComponent();
-            this.controller = controller;
         }
 
         private void viewReportsButton_Click(object sender, EventArgs e)
@@ -52,19 +49,11 @@ namespace GUINew
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
-
-            this.IsMdiContainer = true;
-            employeeProfile = new EmployeeProfile(controller);
-            employeeProfile.MdiParent = this;
-            employeeProfile.Show();
-            employeeProfile.Location = new Point(279, 113);
-
             string employeeIDtext = empLastNameText.Text;
             string empFirstName = empFirstNameText.Text;
             string empLastName = empLastNameText.Text;
 
             //controller.adminSearchEmploee(employee);
-
         }
 
 

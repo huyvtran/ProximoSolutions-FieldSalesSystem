@@ -17,12 +17,12 @@ namespace Field_Sales_System.Business_Logic
         {
         }
 
-        public override string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC, DateTime DOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password)
+        public override string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC, DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password)
         {
             string securityManagerStatus = securityManager.addUserLoginInformation(empId,password);
             if (securityManagerStatus == "Success!")
             {
-                return factory.storeUser(empId, empNIC,DOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, rolesList);
+                return factory.storeUser(empId, empNIC,dOB, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, rolesList);
 
             }
             else {
@@ -32,30 +32,12 @@ namespace Field_Sales_System.Business_Logic
 
         public override string deactivateUser(SecurityManager securityManager, User user)
         {
-            string status = securityManager.modifyStatus(user.getEmpId(), 0);
-            if (status == "Successfully changed status!")
-            {
-                user.IsActive = true;
-                return status;
-            }
-            else {
-                return status;
-            }
+            return securityManager.modifyStatus(user.getEmpId(), 0);
         }
 
         public override string activateUser(SecurityManager securityManager, User user)
         {
-            string status = securityManager.modifyStatus(user.getEmpId(), 1);
-            if (status == "Successfully changed status!")
-            {
-                user.IsActive = true;
-                return status;
-            }
-            else {
-                return status;
-            }
-            
-
+            return securityManager.modifyStatus(user.getEmpId(), 1);
         }
 
         public override string addRole(ObjectFactory factory, User user, UserRole newRole)

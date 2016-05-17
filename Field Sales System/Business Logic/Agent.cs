@@ -80,7 +80,7 @@ namespace Field_Sales_System.Business_Logic
             return "You do not have permission to perform this action!";
         }
 
-        public override string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC, DateTime dob, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password)
+        public override string addUser(ObjectFactory factory, SecurityManager securityManager, int empId, int empNIC,DateTime dOB, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> rolesList, string password)
         {
             return "You do not have permission to perform this action!";
         }

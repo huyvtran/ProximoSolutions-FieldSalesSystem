@@ -45,10 +45,8 @@ namespace Field_Sales_System.Utility_Classes
             newOrder.Orders = orderEntries;
             newOrder.setProcessDetails(gotprocessDetails);
 
-
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -114,9 +112,7 @@ namespace Field_Sales_System.Utility_Classes
             newProduct.ProductDescription = productDescription;
             newProduct.ProductDetails = newProductDetails(category, batchNo);
             newProduct.ProductPicture = productPicture;
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -195,9 +191,7 @@ namespace Field_Sales_System.Utility_Classes
 
         public string storeContactDetails(ContactDetails contact)
         {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -269,20 +263,13 @@ namespace Field_Sales_System.Utility_Classes
                 }
                 if (user!=null)
                 {
-                    bool isOnline = false;
-                    isOnline = dbManager.isOnline();
-                    if (isOnline)
+                    if (dbManager.isOnline())
                     {
                         connection = dbManager.openConnection(connection);
                         if (connection != null)
                         {
-                            user.IsActive = true;
                             bool user_status = dbManager.storeUser(connection, user);
-                            dbManager.closeConnection(connection);
-                            dbManager.openConnection(connection);
                             bool contacts_status = dbManager.storeContactDetails(connection, empId, user.ContactDetails);
-                            dbManager.closeConnection(connection);
-                            dbManager.openConnection(connection);
                             bool dp_status = dbManager.storeImage(connection, user.getEmpId(), user.Dp.getPicture());
                             if (connection.State == System.Data.ConnectionState.Open)
                             {
@@ -292,7 +279,7 @@ namespace Field_Sales_System.Utility_Classes
                             if (user_status && contacts_status && dp_status)
                             {
 
-                                return "Successfully stored the user!";
+                                return "Successfully stored the contact details!";
                             }
                             else {
                                 return "There was an error during the storage process. Please try again.";
@@ -322,9 +309,7 @@ namespace Field_Sales_System.Utility_Classes
 
         public string storeDailySalesDetails(DailySalesDetails dsd)
         {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -357,9 +342,7 @@ namespace Field_Sales_System.Utility_Classes
 
         public string storeSalesReturns(SalesReturn returns)
         {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection!=null)
@@ -392,9 +375,7 @@ namespace Field_Sales_System.Utility_Classes
 
         public string storeReport(object report)
         {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -454,9 +435,7 @@ namespace Field_Sales_System.Utility_Classes
             }
             if (adminrights)
             {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -491,9 +470,7 @@ namespace Field_Sales_System.Utility_Classes
                 }
             }
             else {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -544,9 +521,7 @@ namespace Field_Sales_System.Utility_Classes
             }
             if (adminrights)
             {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -578,9 +553,7 @@ namespace Field_Sales_System.Utility_Classes
                 }
             }
             else {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -636,9 +609,7 @@ namespace Field_Sales_System.Utility_Classes
             }
             //if not found in the list
             else {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -680,9 +651,7 @@ namespace Field_Sales_System.Utility_Classes
                 return returnUser;
             }
             else {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection!=null)
@@ -717,10 +686,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public List<User> searchUser(int empId = 0, string firstName = "", string lastName = "") {
-
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -768,9 +734,7 @@ namespace Field_Sales_System.Utility_Classes
             }
             if (adminrights)
             {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -806,9 +770,7 @@ namespace Field_Sales_System.Utility_Classes
                 }
             }
             else {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -861,9 +823,7 @@ namespace Field_Sales_System.Utility_Classes
             }
             if (adminrights)
             {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -900,9 +860,7 @@ namespace Field_Sales_System.Utility_Classes
                 }
             }
             else {
-                bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+                if (dbManager.isOnline())
                 {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
@@ -941,11 +899,9 @@ namespace Field_Sales_System.Utility_Classes
 
 
         public List<DailySalesReport> getDailyReport( DateTime beginDate, DateTime endDate) {
-
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
-            {
+            
+                if (dbManager.isOnline())
+                {
                     connection = dbManager.openConnection(connection);
                     if (connection != null)
                     {
@@ -986,9 +942,7 @@ namespace Field_Sales_System.Utility_Classes
         public List<WeeklySalesReport> getWeeklyReport(DateTime beginDate, DateTime endDate)
         {
 
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -1032,9 +986,7 @@ namespace Field_Sales_System.Utility_Classes
 
 
         public string modifyUser(User user) {
-            bool isOnline = false;
-                isOnline = dbManager.isOnline();
-                if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -1069,9 +1021,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public string modifyProduct(Product product) {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)
@@ -1105,9 +1055,7 @@ namespace Field_Sales_System.Utility_Classes
         }
 
         public string modifyOrderStatus(Order updatedOrder,string orderStatus) {
-            bool isOnline = false;
-            isOnline = dbManager.isOnline();
-            if (isOnline)
+            if (dbManager.isOnline())
             {
                 connection = dbManager.openConnection(connection);
                 if (connection != null)

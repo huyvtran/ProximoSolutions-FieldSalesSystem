@@ -66,7 +66,10 @@
             this.hireDateDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.notesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.clearButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.pickBox = new System.Windows.Forms.PictureBox();
+            this.zoomSlider = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize)(this.pickBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // firstNameText
@@ -91,7 +94,7 @@
             // nicText
             // 
             this.nicText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nicText.Location = new System.Drawing.Point(159, 257);
+            this.nicText.Location = new System.Drawing.Point(158, 274);
             this.nicText.Name = "nicText";
             this.nicText.Size = new System.Drawing.Size(325, 27);
             this.nicText.TabIndex = 27;
@@ -156,7 +159,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label7.Location = new System.Drawing.Point(54, 228);
+            this.label7.Location = new System.Drawing.Point(53, 245);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 23);
             this.label7.TabIndex = 37;
@@ -166,7 +169,7 @@
             // 
             this.label8.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label8.Location = new System.Drawing.Point(54, 262);
+            this.label8.Location = new System.Drawing.Point(53, 279);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 23);
             this.label8.TabIndex = 36;
@@ -237,7 +240,7 @@
             // bdayDateTimePicker
             // 
             this.bdayDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdayDateTimePicker.Location = new System.Drawing.Point(160, 224);
+            this.bdayDateTimePicker.Location = new System.Drawing.Point(159, 241);
             this.bdayDateTimePicker.Name = "bdayDateTimePicker";
             this.bdayDateTimePicker.Size = new System.Drawing.Size(325, 27);
             this.bdayDateTimePicker.TabIndex = 43;
@@ -396,6 +399,7 @@
             this.wmRadio.TabStop = true;
             this.wmRadio.Text = "Warehouse Manager";
             this.wmRadio.UseVisualStyleBackColor = true;
+            this.wmRadio.CheckedChanged += new System.EventHandler(this.wmRadio_CheckedChanged);
             // 
             // nameText
             // 
@@ -436,17 +440,31 @@
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // pickBox
             // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.Location = new System.Drawing.Point(37, 56);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 150);
-            this.label6.TabIndex = 33;
+            this.pickBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pickBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pickBox.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pickBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.pickBox.Image = ((System.Drawing.Image)(resources.GetObject("pickBox.Image")));
+            this.pickBox.Location = new System.Drawing.Point(37, 56);
+            this.pickBox.Name = "pickBox";
+            this.pickBox.Size = new System.Drawing.Size(150, 150);
+            this.pickBox.TabIndex = 33;
+            this.pickBox.TabStop = false;
+            this.pickBox.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // zoomSlider
+            // 
+            this.zoomSlider.LargeChange = 1;
+            this.zoomSlider.Location = new System.Drawing.Point(61, 210);
+            this.zoomSlider.Maximum = 5;
+            this.zoomSlider.Minimum = 1;
+            this.zoomSlider.Name = "zoomSlider";
+            this.zoomSlider.Size = new System.Drawing.Size(104, 45);
+            this.zoomSlider.TabIndex = 65;
+            this.zoomSlider.Value = 1;
+            this.zoomSlider.Scroll += new System.EventHandler(this.zoomSlider_Scroll);
             // 
             // AddEmployee
             // 
@@ -484,7 +502,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pickBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -493,6 +511,8 @@
             this.Controls.Add(this.nicText);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.zoomSlider);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -501,6 +521,8 @@
             this.Name = "AddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Employee";
+            ((System.ComponentModel.ISupportInitialize)(this.pickBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,7 +538,7 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.PictureBox pickBox;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label9;
@@ -546,5 +568,7 @@
         public System.Windows.Forms.DateTimePicker hireDateDateTimePicker2;
         public System.Windows.Forms.RichTextBox notesRichTextBox;
         public System.Windows.Forms.Button clearButton;
+        public System.Windows.Forms.TrackBar zoomSlider;
+        
     }
 }
