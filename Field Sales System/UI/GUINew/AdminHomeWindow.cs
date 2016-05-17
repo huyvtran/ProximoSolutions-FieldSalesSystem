@@ -52,16 +52,7 @@ namespace GUINew
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
-
-
-            //.IsMdiContainer = true;
-           // employeeProfile = new EmployeeProfile(controller);
-           // employeeProfile.MdiParent = this;
-          //  employeeProfile.Show();
-            //employeeProfile.Location = new Point(279, 113);
-
-
-
+            
 
             string employeeIDtext = empLastNameText.Text;
             try {
@@ -101,14 +92,6 @@ namespace GUINew
         private void empLastNameText_TextChanged(object sender, EventArgs e)
         {
             searchEmployeeButton.Enabled = true;
-            if (!System.Text.RegularExpressions.Regex.IsMatch(empLastNameText.Text, "^[a-zA-Z_-]"))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters");
-                empLastNameText.Text.Remove(empLastNameText.Text.Length - 1);
-            }
-
-
-
 
         }
 
