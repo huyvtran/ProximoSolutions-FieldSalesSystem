@@ -101,7 +101,7 @@ namespace Field_Sales_System.ControlLogic
             profile.TopLevel = false;
             repHW.TopLevel = true;
             profile.AutoScroll = true;
-            
+            profile.updateButton.Visible = false;
             profile.addressLabel.Text = currentUSer.ContactDetails.AddressLine_1;
             profile.cityLabel.Text = currentUSer.ContactDetails.AddressLine_2;
             profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
@@ -109,7 +109,7 @@ namespace Field_Sales_System.ControlLogic
             profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
             profile.nameLabel.Text = currentUSer.getFirstName() + currentUSer.getLastName();
             profile.regionLabel.Text = "---";
-            profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
+            //profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
