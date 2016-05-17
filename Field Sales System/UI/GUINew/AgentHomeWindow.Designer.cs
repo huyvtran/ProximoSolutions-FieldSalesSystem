@@ -39,7 +39,7 @@
             this.itemDispatchButton = new System.Windows.Forms.Button();
             this.empFirstName = new System.Windows.Forms.TextBox();
             this.viewRepsButton = new System.Windows.Forms.Button();
-            this.searchRepsButton = new System.Windows.Forms.Button();
+            this.searchEmployeeButton = new System.Windows.Forms.Button();
             this.viewInventoryButton = new System.Windows.Forms.Button();
             this.goodsReceiveNoteButton = new System.Windows.Forms.Button();
             this.myProfileButton = new System.Windows.Forms.Button();
@@ -144,6 +144,7 @@
             this.empFirstName.Size = new System.Drawing.Size(232, 26);
             this.empFirstName.TabIndex = 45;
             this.empFirstName.Text = "Employee First Name";
+            this.empFirstName.TextChanged += new System.EventHandler(this.empFirstName_TextChanged);
             // 
             // viewRepsButton
             // 
@@ -160,20 +161,20 @@
             this.viewRepsButton.Text = "View Sales Representatives";
             this.viewRepsButton.UseVisualStyleBackColor = false;
             // 
-            // searchRepsButton
+            // searchEmployeeButton
             // 
-            this.searchRepsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.searchRepsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchRepsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchRepsButton.FlatAppearance.BorderSize = 0;
-            this.searchRepsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchRepsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchRepsButton.Location = new System.Drawing.Point(16, 303);
-            this.searchRepsButton.Name = "searchRepsButton";
-            this.searchRepsButton.Size = new System.Drawing.Size(236, 30);
-            this.searchRepsButton.TabIndex = 43;
-            this.searchRepsButton.Text = "Search Sales Representatives";
-            this.searchRepsButton.UseVisualStyleBackColor = false;
+            this.searchEmployeeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
+            this.searchEmployeeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchEmployeeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.searchEmployeeButton.FlatAppearance.BorderSize = 0;
+            this.searchEmployeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchEmployeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 303);
+            this.searchEmployeeButton.Name = "searchEmployeeButton";
+            this.searchEmployeeButton.Size = new System.Drawing.Size(236, 30);
+            this.searchEmployeeButton.TabIndex = 43;
+            this.searchEmployeeButton.Text = "Search  Employees";
+            this.searchEmployeeButton.UseVisualStyleBackColor = false;
             // 
             // viewInventoryButton
             // 
@@ -285,6 +286,7 @@
             this.empLastName.Size = new System.Drawing.Size(233, 26);
             this.empLastName.TabIndex = 52;
             this.empLastName.Text = "Employee last name";
+            this.empLastName.TextChanged += new System.EventHandler(this.empLastName_TextChanged);
             // 
             // empID
             // 
@@ -293,6 +295,7 @@
             this.empID.Size = new System.Drawing.Size(232, 26);
             this.empID.TabIndex = 53;
             this.empID.Text = "Employee ID";
+            this.empID.TextChanged += new System.EventHandler(this.empID_TextChanged);
             // 
             // AgentHomeWindow
             // 
@@ -311,7 +314,7 @@
             this.Controls.Add(this.itemDispatchButton);
             this.Controls.Add(this.empFirstName);
             this.Controls.Add(this.viewRepsButton);
-            this.Controls.Add(this.searchRepsButton);
+            this.Controls.Add(this.searchEmployeeButton);
             this.Controls.Add(this.viewInventoryButton);
             this.Controls.Add(this.goodsReceiveNoteButton);
             this.Controls.Add(this.myProfileButton);
@@ -346,7 +349,7 @@
         public System.Windows.Forms.Button salesReturnButton;
         public  System.Windows.Forms.Button changeOrderButton;
         public System.Windows.Forms.Button viewInventoryButton;
-        public System.Windows.Forms.Button searchRepsButton;
+        public System.Windows.Forms.Button searchEmployeeButton;
        public System.Windows.Forms.Button viewRepsButton;
       public System.Windows.Forms.Button itemDispatchButton;
         public System.Windows.Forms.Button viewReportsButton;
