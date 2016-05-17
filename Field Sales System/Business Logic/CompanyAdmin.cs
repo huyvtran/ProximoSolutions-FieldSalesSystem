@@ -32,12 +32,30 @@ namespace Field_Sales_System.Business_Logic
 
         public override string deactivateUser(SecurityManager securityManager, User user)
         {
-            return securityManager.modifyStatus(user.getEmpId(), 0);
+            string status = securityManager.modifyStatus(user.getEmpId(), 0);
+            if (status == "Successfully changed status!")
+            {
+                user.IsActive = true;
+                return status;
+            }
+            else {
+                return status;
+            }
         }
 
         public override string activateUser(SecurityManager securityManager, User user)
         {
-            return securityManager.modifyStatus(user.getEmpId(), 1);
+            string status = securityManager.modifyStatus(user.getEmpId(), 1);
+            if (status == "Successfully changed status!")
+            {
+                user.IsActive = true;
+                return status;
+            }
+            else {
+                return status;
+            }
+            
+
         }
 
         public override string addRole(ObjectFactory factory, User user, UserRole newRole)

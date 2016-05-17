@@ -43,15 +43,16 @@
             this.confirmPwdText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPwdText.Location = new System.Drawing.Point(23, 225);
             this.confirmPwdText.Name = "confirmPwdText";
-            this.confirmPwdText.Size = new System.Drawing.Size(269, 28);
+            this.confirmPwdText.Size = new System.Drawing.Size(269, 27);
             this.confirmPwdText.TabIndex = 14;
+            this.confirmPwdText.TextChanged += new System.EventHandler(this.confirmPwdText_TextChanged);
             // 
             // newPwdText
             // 
             this.newPwdText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPwdText.Location = new System.Drawing.Point(23, 173);
             this.newPwdText.Name = "newPwdText";
-            this.newPwdText.Size = new System.Drawing.Size(269, 28);
+            this.newPwdText.Size = new System.Drawing.Size(269, 27);
             this.newPwdText.TabIndex = 13;
             // 
             // changePwdButton
@@ -68,6 +69,7 @@
             this.changePwdButton.TabIndex = 12;
             this.changePwdButton.Text = "Change Password";
             this.changePwdButton.UseVisualStyleBackColor = false;
+            this.changePwdButton.Click += new System.EventHandler(this.changePwdButton_Click);
             // 
             // label4
             // 
@@ -107,7 +109,7 @@
             this.currentPwdText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPwdText.Location = new System.Drawing.Point(23, 107);
             this.currentPwdText.Name = "currentPwdText";
-            this.currentPwdText.Size = new System.Drawing.Size(269, 28);
+            this.currentPwdText.Size = new System.Drawing.Size(269, 27);
             this.currentPwdText.TabIndex = 16;
             // 
             // label2
@@ -138,7 +140,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Change Password";
@@ -149,13 +151,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox confirmPwdText;
-        private System.Windows.Forms.TextBox newPwdText;
-        private System.Windows.Forms.Button changePwdButton;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox currentPwdText;
-        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox confirmPwdText;
+        public System.Windows.Forms.TextBox newPwdText;
+        public System.Windows.Forms.Button changePwdButton;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox currentPwdText;
+        public System.Windows.Forms.Label label2;
     }
 }

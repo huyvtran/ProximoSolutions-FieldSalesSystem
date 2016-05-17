@@ -24,6 +24,8 @@ namespace Field_Sales_System.ControlLogic
         ViewEmployee viewEmployee;
         EmployeeProfile profile;
         ForgotPassword forgotPassword;
+        ChangePassword changePasswordForm;
+        ChangePasswordAdmin changePasswordAdminForm;
 
         public ForgotPassword ForgotPassword
         {
@@ -56,7 +58,7 @@ namespace Field_Sales_System.ControlLogic
             objectFactory = new ObjectFactory();
             securityManager = new SecurityManager();
             OpeningDialogBox = new SignIn(this);
-            profile = new EmployeeProfile();
+            profile = new EmployeeProfile(this);
             ForgotPassword = new ForgotPassword(this);
         }
         public void initilizer()
@@ -73,7 +75,7 @@ namespace Field_Sales_System.ControlLogic
                 currentUSer = u;
                 if (u is CompanyAdmin)
                 {
-                    adminHW = new AdminHomeWindow();
+                    adminHW = new AdminHomeWindow(this);
                     adminHW.TopLevel = false;
                     adminHW.nameLabel.Text = u.getFirstName() + " " + u.getLastName();
                     adminHW.photoLabel.Image = u.Dp.getPicture();
@@ -136,10 +138,11 @@ namespace Field_Sales_System.ControlLogic
             profile.stateLabel.Text = currentUSer.ContactDetails.AddressLine_3;
             profile.mobileLabel.Text = currentUSer.ContactDetails.MobileNo.ToString();
             profile.homeTelLabel.Text = currentUSer.ContactDetails.LandNo.ToString();
-            profile.nameLabel.Text = currentUSer.getFirstName() + currentUSer.getLastName();
+            profile.nameLabel.Text = currentUSer.getFirstName() +" "+ currentUSer.getLastName();
             profile.regionLabel.Text = "---";
             //profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
-            profile.stateLabel.Text = isActive(currentUSer);
+            profile.statusLabel.Text = isActive(currentUSer);
+            profile.jobTitleLabel.Text = currentUSer.GetType().ToString();
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
@@ -160,6 +163,29 @@ namespace Field_Sales_System.ControlLogic
             MessageBox.Show(s);
         }
 
+        public void changeEmployeePassword() {
+            if (currentUSer is CompanyAdmin)
+            {
+                changePasswordAdminForm = new ChangePasswordAdmin(this);
+                changePasswordAdminForm.Show();
+            }
+            else {
+                changePasswordForm = new ChangePassword(this);
+                changePasswordForm.Show();
+            }
+        }
+
+        public void changePasswordNonAdmin(string oldPassword,string newPassword) {
+            string status = securityManager.modifyPassword(currentUSer.getEmpId(), oldPassword, newPassword);
+            MessageBox.Show(status);
+            changePasswordForm.Hide();
+        }
+
+        public void changePasswordAdmin(int empId, string newPassword) {
+            string status = securityManager.modifyPasswordAdmin(empId, newPassword);
+            MessageBox.Show(status);
+            changePasswordForm.Hide();
+        }
         
 
         

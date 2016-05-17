@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +17,12 @@ namespace GUINew
         private AddEmployee addEmployee;
         private ViewEmployee viewEmployee;
         private EmployeeProfile employeeProfile;
+        private Controller controller;
 
-        public AdminHomeWindow()
+        public AdminHomeWindow(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void viewReportsButton_Click(object sender, EventArgs e)
@@ -51,7 +54,7 @@ namespace GUINew
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
             this.IsMdiContainer = true;
-            employeeProfile = new EmployeeProfile();
+            employeeProfile = new EmployeeProfile(controller);
             employeeProfile.MdiParent = this;
             employeeProfile.Show();
             employeeProfile.Location = new Point(279, 113);
