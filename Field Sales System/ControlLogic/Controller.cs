@@ -143,7 +143,22 @@ namespace Field_Sales_System.ControlLogic
             profile.TopLevel = false;
             repHW.TopLevel = true;
             profile.AutoScroll = true;
+<<<<<<< HEAD
             profile.updateButton.Visible = false;
+=======
+
+            profile.updateButton.Visible = false;
+            profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
+            profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
+            profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
+            profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
+            profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
+            profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
+            profile.regionLabel.Text = "---";
+            //profile.jobTitleLabel.Text = currentUSer.UserRoles[0].getRoleName();
+
+            
+>>>>>>> 829c4b1d7148a39b08c1999b908365ad64b0540f
             profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
             profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
             profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
