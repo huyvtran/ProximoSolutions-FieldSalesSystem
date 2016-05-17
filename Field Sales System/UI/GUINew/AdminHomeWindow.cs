@@ -60,7 +60,16 @@ namespace GUINew
             employeeProfile.Show();
             employeeProfile.Location = new Point(279, 113);
 
+
+
             string employeeIDtext = empLastNameText.Text;
+            try {
+                int employeeID = int.Parse(employeeIDtext);
+                }
+            catch(FormatException e)
+            {
+                MessageBox.Show("invalid input,enter numbers only");
+            }
             string empFirstName = empFirstNameText.Text;
             string empLastName = empLastNameText.Text;
 
