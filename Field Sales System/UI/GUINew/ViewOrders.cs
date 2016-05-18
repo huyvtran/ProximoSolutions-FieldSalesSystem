@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace GUINew
 {
     public partial class ViewOrders : Form
     {
-        public ViewOrders()
+        private Controller controller;
+        public ViewOrders(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void label1_Click(object sender, EventArgs e)

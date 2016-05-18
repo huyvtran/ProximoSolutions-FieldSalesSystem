@@ -31,9 +31,9 @@ namespace Field_Sales_System.ControlLogic
         ChangePasswordAdmin changePasswordAdminForm;
         UpdateEmployee updateEmployee;
         Invoice createOrder;
+        ReportsHome reportsHome;
+        ViewOrders viewOrders;
         
-
-
         public ForgotPassword ForgotPassword
         {
             get
@@ -70,6 +70,8 @@ namespace Field_Sales_System.ControlLogic
             updateEmployee = new UpdateEmployee();
             viewEmployee = new ViewEmployee(this);
             createOrder = new Invoice(this);
+            reportsHome = new ReportsHome(this);
+            viewOrders = new ViewOrders(this);
 
         }
         public void initilizer()
@@ -149,9 +151,16 @@ namespace Field_Sales_System.ControlLogic
             newEmployee = new AddEmployee(this);
             newEmployee.ShowDialog();
         }
-        public string addadminemployersave(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
+        public void addadminemployersave(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
         {
-             return objectFactory.storeUser(empId, empNIC, DateTime.Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles);
+            string s = securityManager.addUserLoginInformation(empId, empId.ToString());
+            if (s == "Success!")
+            {
+                System.Windows.Forms.MessageBox.Show(objectFactory.storeUser(empId, empNIC, DateTime.Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles));
+            }
+            else {
+                System.Windows.Forms.MessageBox.Show("Cannot create user profile right now.");
+            }
         }
         public void adminViewEmployer()
         {
@@ -340,7 +349,42 @@ namespace Field_Sales_System.ControlLogic
         }
 
         public void viewOrder() {
-           // List<Order> orderList = objectFactory.
+          
+        }
+
+        public void viewReports_Rep() {
+            reportsHome.nameLabel.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+            reportsHome.photoLabel.Image = currentUser.Dp.getPicture();
+            repHW.Hide();
+            reportsHome.ShowDialog();
+
+        }
+
+        public void viewOrderDetailsInit() {
+            reportsHome.mainPannel.Controls.Clear();
+            viewOrders.TopLevel = false;
+            reportsHome.TopLevel = true;
+            viewOrders.FormBorderStyle = FormBorderStyle.None;
+            reportsHome.mainPannel.Controls.Add(viewOrders);
+            viewOrders.Show();
+        }
+
+        public void loadOrderDetails(bool choice,string status,DateTime beginDate, DateTime endDate) {
+            List<Order> orders;
+
+            if (choice)
+            {
+                orders = objectFactory.getOrderByStatus(currentUser, status);
+            }
+            else {
+                orders = objectFactory.getOrder(currentUser, beginDate, endDate);
+            }
+            if (orders != null) {
+                foreach (Order ord in orders) {
+                    viewOrders.viewOrderGrid.Rows.Add(ord.OrderId,ord.OrdererId,ord.OrderRegion);
+                }
+            }
+            
         }
 
 

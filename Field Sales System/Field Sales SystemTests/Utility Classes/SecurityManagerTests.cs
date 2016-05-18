@@ -41,5 +41,12 @@ namespace Field_Sales_System.Utility_Classes.Tests
             SecurityManager sm = new SecurityManager();
             //sm.modifyStatus(1235, false);
         }
+
+        [TestMethod()]
+        public void addUserLoginInformationTest()
+        {
+            SecurityManager sm = new SecurityManager();
+            sm.addUserLoginInformation(932011000, 932011000.ToString());
+        }
     }
 }

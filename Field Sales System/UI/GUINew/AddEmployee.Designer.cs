@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEmployee));
             this.firstNameText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.regionText = new System.Windows.Forms.TextBox();
             this.hireDateDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.notesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.pickBox = new System.Windows.Forms.PictureBox();
             this.zoomSlider = new System.Windows.Forms.TrackBar();
@@ -72,10 +72,20 @@
             this.agentRadio = new System.Windows.Forms.RadioButton();
             this.wmRadio = new System.Windows.Forms.RadioButton();
             this.label18 = new System.Windows.Forms.Label();
+            this.permissionCombo = new System.Windows.Forms.ComboBox();
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proximoDBDataSet_permissions = new Field_Sales_System.proximoDBDataSet_permissions();
+            this.permissionList = new System.Windows.Forms.ListView();
+            this.Permission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.permissionsTableAdapter = new Field_Sales_System.proximoDBDataSet_permissionsTableAdapters.permissionsTableAdapter();
+            this.listClear = new System.Windows.Forms.Button();
+            this.companyAdminRadio = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pickBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomSlider)).BeginInit();
             this.titleGroup.SuspendLayout();
             this.jobTitleGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.permissionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proximoDBDataSet_permissions)).BeginInit();
             this.SuspendLayout();
             // 
             // firstNameText
@@ -83,7 +93,7 @@
             this.firstNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameText.Location = new System.Drawing.Point(260, 66);
             this.firstNameText.Name = "firstNameText";
-            this.firstNameText.Size = new System.Drawing.Size(224, 28);
+            this.firstNameText.Size = new System.Drawing.Size(224, 27);
             this.firstNameText.TabIndex = 29;
             this.firstNameText.Text = "First Name *";
             this.firstNameText.Click += new System.EventHandler(this.firstNameText_Click);
@@ -105,7 +115,7 @@
             this.nicText.Location = new System.Drawing.Point(158, 274);
             this.nicText.MaxLength = 9;
             this.nicText.Name = "nicText";
-            this.nicText.Size = new System.Drawing.Size(301, 28);
+            this.nicText.Size = new System.Drawing.Size(293, 27);
             this.nicText.TabIndex = 27;
             this.nicText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nicText_KeyPress);
             // 
@@ -153,7 +163,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(200, 23);
             this.label4.TabIndex = 30;
-            this.label4.Text = "Special Notes";
+            this.label4.Text = "Permission";
             // 
             // label5
             // 
@@ -210,7 +220,7 @@
             this.lastNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastNameText.Location = new System.Drawing.Point(260, 128);
             this.lastNameText.Name = "lastNameText";
-            this.lastNameText.Size = new System.Drawing.Size(224, 28);
+            this.lastNameText.Size = new System.Drawing.Size(224, 27);
             this.lastNameText.TabIndex = 38;
             this.lastNameText.Text = "Last Name *";
             this.lastNameText.Click += new System.EventHandler(this.lastNameText_Click);
@@ -221,7 +231,7 @@
             this.middleNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.middleNameText.Location = new System.Drawing.Point(260, 97);
             this.middleNameText.Name = "middleNameText";
-            this.middleNameText.Size = new System.Drawing.Size(224, 28);
+            this.middleNameText.Size = new System.Drawing.Size(224, 27);
             this.middleNameText.TabIndex = 39;
             this.middleNameText.Text = "Middle Name(s)";
             this.middleNameText.Click += new System.EventHandler(this.middleNameText_Click);
@@ -232,7 +242,7 @@
             this.bdayDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bdayDateTimePicker.Location = new System.Drawing.Point(159, 241);
             this.bdayDateTimePicker.Name = "bdayDateTimePicker";
-            this.bdayDateTimePicker.Size = new System.Drawing.Size(325, 28);
+            this.bdayDateTimePicker.Size = new System.Drawing.Size(325, 27);
             this.bdayDateTimePicker.TabIndex = 43;
             // 
             // label11
@@ -280,7 +290,7 @@
             this.cityText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cityText.Location = new System.Drawing.Point(159, 369);
             this.cityText.Name = "cityText";
-            this.cityText.Size = new System.Drawing.Size(325, 28);
+            this.cityText.Size = new System.Drawing.Size(325, 27);
             this.cityText.TabIndex = 50;
             this.cityText.Text = "City";
             this.cityText.Click += new System.EventHandler(this.cityText_Click);
@@ -290,7 +300,7 @@
             this.stateText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stateText.Location = new System.Drawing.Point(159, 400);
             this.stateText.Name = "stateText";
-            this.stateText.Size = new System.Drawing.Size(325, 28);
+            this.stateText.Size = new System.Drawing.Size(325, 27);
             this.stateText.TabIndex = 49;
             this.stateText.Text = "State";
             this.stateText.Click += new System.EventHandler(this.stateText_Click);
@@ -300,7 +310,7 @@
             this.addressText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressText.Location = new System.Drawing.Point(159, 338);
             this.addressText.Name = "addressText";
-            this.addressText.Size = new System.Drawing.Size(325, 28);
+            this.addressText.Size = new System.Drawing.Size(325, 27);
             this.addressText.TabIndex = 48;
             this.addressText.Text = "Address";
             this.addressText.Click += new System.EventHandler(this.addressText_Click);
@@ -311,7 +321,7 @@
             this.mobileText.Location = new System.Drawing.Point(159, 474);
             this.mobileText.MaxLength = 10;
             this.mobileText.Name = "mobileText";
-            this.mobileText.Size = new System.Drawing.Size(325, 28);
+            this.mobileText.Size = new System.Drawing.Size(325, 27);
             this.mobileText.TabIndex = 53;
             this.mobileText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mobileText_KeyPress);
             // 
@@ -320,7 +330,7 @@
             this.emailText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailText.Location = new System.Drawing.Point(159, 509);
             this.emailText.Name = "emailText";
-            this.emailText.Size = new System.Drawing.Size(325, 28);
+            this.emailText.Size = new System.Drawing.Size(325, 27);
             this.emailText.TabIndex = 52;
             this.emailText.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -330,7 +340,7 @@
             this.homeTelText.Location = new System.Drawing.Point(159, 438);
             this.homeTelText.MaxLength = 10;
             this.homeTelText.Name = "homeTelText";
-            this.homeTelText.Size = new System.Drawing.Size(325, 28);
+            this.homeTelText.Size = new System.Drawing.Size(325, 27);
             this.homeTelText.TabIndex = 51;
             this.homeTelText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.homeTelText_KeyPress);
             // 
@@ -338,7 +348,7 @@
             // 
             this.label15.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label15.Location = new System.Drawing.Point(590, 209);
+            this.label15.Location = new System.Drawing.Point(590, 230);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(99, 23);
             this.label15.TabIndex = 56;
@@ -358,7 +368,7 @@
             // 
             this.label17.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label17.Location = new System.Drawing.Point(590, 173);
+            this.label17.Location = new System.Drawing.Point(590, 194);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(99, 23);
             this.label17.TabIndex = 54;
@@ -367,27 +377,18 @@
             // regionText
             // 
             this.regionText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regionText.Location = new System.Drawing.Point(689, 169);
+            this.regionText.Location = new System.Drawing.Point(689, 190);
             this.regionText.Name = "regionText";
-            this.regionText.Size = new System.Drawing.Size(325, 28);
+            this.regionText.Size = new System.Drawing.Size(325, 27);
             this.regionText.TabIndex = 61;
             // 
             // hireDateDateTimePicker2
             // 
             this.hireDateDateTimePicker2.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hireDateDateTimePicker2.Location = new System.Drawing.Point(689, 204);
+            this.hireDateDateTimePicker2.Location = new System.Drawing.Point(689, 225);
             this.hireDateDateTimePicker2.Name = "hireDateDateTimePicker2";
-            this.hireDateDateTimePicker2.Size = new System.Drawing.Size(324, 28);
+            this.hireDateDateTimePicker2.Size = new System.Drawing.Size(324, 27);
             this.hireDateDateTimePicker2.TabIndex = 62;
-            // 
-            // notesRichTextBox
-            // 
-            this.notesRichTextBox.Location = new System.Drawing.Point(594, 320);
-            this.notesRichTextBox.MaxLength = 1000;
-            this.notesRichTextBox.Name = "notesRichTextBox";
-            this.notesRichTextBox.Size = new System.Drawing.Size(419, 161);
-            this.notesRichTextBox.TabIndex = 63;
-            this.notesRichTextBox.Text = "";
             // 
             // clearButton
             // 
@@ -476,12 +477,13 @@
             // 
             // jobTitleGroup
             // 
+            this.jobTitleGroup.Controls.Add(this.companyAdminRadio);
             this.jobTitleGroup.Controls.Add(this.repRadio);
             this.jobTitleGroup.Controls.Add(this.agentRadio);
             this.jobTitleGroup.Controls.Add(this.wmRadio);
             this.jobTitleGroup.Location = new System.Drawing.Point(689, 56);
             this.jobTitleGroup.Name = "jobTitleGroup";
-            this.jobTitleGroup.Size = new System.Drawing.Size(324, 100);
+            this.jobTitleGroup.Size = new System.Drawing.Size(324, 128);
             this.jobTitleGroup.TabIndex = 68;
             this.jobTitleGroup.TabStop = false;
             // 
@@ -525,12 +527,83 @@
             // 
             this.label18.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label18.Location = new System.Drawing.Point(813, 246);
+            this.label18.Location = new System.Drawing.Point(813, 267);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(200, 23);
             this.label18.TabIndex = 69;
             this.label18.Text = "* fields are necessary";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // permissionCombo
+            // 
+            this.permissionCombo.DataSource = this.permissionsBindingSource;
+            this.permissionCombo.DisplayMember = "permName";
+            this.permissionCombo.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.permissionCombo.FormattingEnabled = true;
+            this.permissionCombo.Location = new System.Drawing.Point(564, 310);
+            this.permissionCombo.Name = "permissionCombo";
+            this.permissionCombo.Size = new System.Drawing.Size(200, 27);
+            this.permissionCombo.TabIndex = 70;
+            this.permissionCombo.ValueMember = "permId";
+            this.permissionCombo.SelectedIndexChanged += new System.EventHandler(this.permissionCombo_SelectedIndexChanged);
+            // 
+            // permissionsBindingSource
+            // 
+            this.permissionsBindingSource.DataMember = "permissions";
+            this.permissionsBindingSource.DataSource = this.proximoDBDataSet_permissions;
+            // 
+            // proximoDBDataSet_permissions
+            // 
+            this.proximoDBDataSet_permissions.DataSetName = "proximoDBDataSet_permissions";
+            this.proximoDBDataSet_permissions.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // permissionList
+            // 
+            this.permissionList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Permission});
+            this.permissionList.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.permissionList.Location = new System.Drawing.Point(771, 308);
+            this.permissionList.Name = "permissionList";
+            this.permissionList.Size = new System.Drawing.Size(243, 193);
+            this.permissionList.TabIndex = 71;
+            this.permissionList.UseCompatibleStateImageBehavior = false;
+            this.permissionList.View = System.Windows.Forms.View.List;
+            // 
+            // Permission
+            // 
+            this.Permission.Width = 250;
+            // 
+            // permissionsTableAdapter
+            // 
+            this.permissionsTableAdapter.ClearBeforeFill = true;
+            // 
+            // listClear
+            // 
+            this.listClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
+            this.listClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.listClear.FlatAppearance.BorderSize = 0;
+            this.listClear.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.listClear.Location = new System.Drawing.Point(565, 356);
+            this.listClear.Name = "listClear";
+            this.listClear.Size = new System.Drawing.Size(200, 30);
+            this.listClear.TabIndex = 72;
+            this.listClear.Text = "Clear Permission List";
+            this.listClear.UseVisualStyleBackColor = false;
+            this.listClear.Click += new System.EventHandler(this.listClear_Click);
+            // 
+            // companyAdminRadio
+            // 
+            this.companyAdminRadio.AutoSize = true;
+            this.companyAdminRadio.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyAdminRadio.Location = new System.Drawing.Point(9, 97);
+            this.companyAdminRadio.Name = "companyAdminRadio";
+            this.companyAdminRadio.Size = new System.Drawing.Size(142, 23);
+            this.companyAdminRadio.TabIndex = 3;
+            this.companyAdminRadio.TabStop = true;
+            this.companyAdminRadio.Text = "Company Admin";
+            this.companyAdminRadio.UseVisualStyleBackColor = true;
             // 
             // AddEmployee
             // 
@@ -539,12 +612,14 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.Controls.Add(this.listClear);
+            this.Controls.Add(this.permissionList);
+            this.Controls.Add(this.permissionCombo);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.jobTitleGroup);
             this.Controls.Add(this.titleGroup);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.notesRichTextBox);
             this.Controls.Add(this.hireDateDateTimePicker2);
             this.Controls.Add(this.regionText);
             this.Controls.Add(this.label15);
@@ -586,12 +661,15 @@
             this.Name = "AddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Employee";
+            this.Load += new System.EventHandler(this.AddEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pickBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomSlider)).EndInit();
             this.titleGroup.ResumeLayout(false);
             this.titleGroup.PerformLayout();
             this.jobTitleGroup.ResumeLayout(false);
             this.jobTitleGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.permissionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proximoDBDataSet_permissions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -630,7 +708,6 @@
         public System.Windows.Forms.Label label17;
         public System.Windows.Forms.TextBox regionText;
         public System.Windows.Forms.DateTimePicker hireDateDateTimePicker2;
-        public System.Windows.Forms.RichTextBox notesRichTextBox;
         public System.Windows.Forms.Button clearButton;
         public System.Windows.Forms.TrackBar zoomSlider;
         public System.Windows.Forms.Label label6;
@@ -642,5 +719,13 @@
         public System.Windows.Forms.RadioButton wmRadio;
         public System.Windows.Forms.RadioButton mrRadio;
         public System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox permissionCombo;
+        private System.Windows.Forms.ListView permissionList;
+        private Field_Sales_System.proximoDBDataSet_permissions proximoDBDataSet_permissions;
+        private System.Windows.Forms.BindingSource permissionsBindingSource;
+        private Field_Sales_System.proximoDBDataSet_permissionsTableAdapters.permissionsTableAdapter permissionsTableAdapter;
+        public System.Windows.Forms.Button listClear;
+        private System.Windows.Forms.ColumnHeader Permission;
+        public System.Windows.Forms.RadioButton companyAdminRadio;
     }
 }
