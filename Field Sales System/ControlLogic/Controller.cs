@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
+using Field_Sales_System.UI.GUINew;
 
 namespace Field_Sales_System.ControlLogic
 {
@@ -32,6 +33,7 @@ namespace Field_Sales_System.ControlLogic
         Invoice createOrder;
         ReportsHome reportsHome;
         ViewOrders viewOrders;
+        AddProduct addProduct_Form;
         
         public ForgotPassword ForgotPassword
         {
@@ -71,6 +73,7 @@ namespace Field_Sales_System.ControlLogic
             createOrder = new Invoice(this);
             reportsHome = new ReportsHome(this);
             viewOrders = new ViewOrders(this);
+            addProduct_Form = new AddProduct(this);
 
         }
         public void initilizer()
@@ -422,6 +425,30 @@ namespace Field_Sales_System.ControlLogic
 
         }
 
+        public void viewreports_Admin() {
+            reportsHome.nameLabel.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+            reportsHome.photoLabel.Image = currentUser.Dp.getPicture();
+            //repHW.Hide();
+            try
+            {
+                reportsHome.ShowDialog();
+            }
+            catch (Exception e)
+            {
+                this.reportsHome = new ReportsHome(this);
+                reportsHome.nameLabel.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+                reportsHome.photoLabel.Image = currentUser.Dp.getPicture();
+                reportsHome.ShowDialog();
+
+            }
+
+
+        }
+
+        public void addProduct() {
+            List<Product> productList = objectFactory.retrieveAllProducts();
+           // if
+        }
 
 
 

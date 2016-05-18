@@ -143,5 +143,14 @@ namespace GUINew
             searchEmployeeButton.Enabled = true;
         }
 
+        private void viewReportsButton_Click_1(object sender, EventArgs e)
+        {
+            controller.viewreports_Admin();
+        }
+
+        private void addProductButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

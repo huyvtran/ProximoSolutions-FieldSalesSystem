@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Field_Sales_System.ControlLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,12 @@ namespace Field_Sales_System.UI.GUINew
 {
     public partial class AddProduct : Form
     {
-        public AddProduct()
+        Controller controller;
+        public AddProduct(Controller controller)
         {
             InitializeComponent();
             productNameText.Enabled = false;
+            this.controller = controller;
         }
 
         private void clearButton_Click(object sender, EventArgs e)

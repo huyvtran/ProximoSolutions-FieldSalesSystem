@@ -103,12 +103,13 @@
             this.viewReportsButton.FlatAppearance.BorderSize = 0;
             this.viewReportsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewReportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewReportsButton.Location = new System.Drawing.Point(16, 443);
+            this.viewReportsButton.Location = new System.Drawing.Point(16, 441);
             this.viewReportsButton.Name = "viewReportsButton";
             this.viewReportsButton.Size = new System.Drawing.Size(236, 30);
             this.viewReportsButton.TabIndex = 13;
             this.viewReportsButton.Text = "View Reports";
             this.viewReportsButton.UseVisualStyleBackColor = false;
+            this.viewReportsButton.Click += new System.EventHandler(this.viewReportsButton_Click_1);
             // 
             // searchEmployeeButton
             // 
@@ -198,6 +199,7 @@
             this.addProductButton.TabIndex = 21;
             this.addProductButton.Text = "Add Products";
             this.addProductButton.UseVisualStyleBackColor = false;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
             // label2
             // 
