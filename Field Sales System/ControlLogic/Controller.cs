@@ -172,7 +172,8 @@ namespace Field_Sales_System.ControlLogic
         {
             if (adminHW.adminMainPanel1 != null)
             {
-               adminHW.adminMainPanel1.Controls.Clear();
+                this.viewEmployee.dataGridView1.Rows.Clear();
+                adminHW.adminMainPanel1.Controls.Clear();
             }
 
             List<User> searchResult = objectFactory.searchUser(empId, firstName, lastName);
@@ -272,6 +273,7 @@ namespace Field_Sales_System.ControlLogic
 
         public void searchEmployee_Rep(int empId, string firstName,string lastName) {
             if (repHW.repMainPannel != null) {
+                this.viewEmployee.dataGridView1.Rows.Clear();
                 repHW.repMainPannel.Controls.Clear();
             }
             
@@ -359,7 +361,7 @@ namespace Field_Sales_System.ControlLogic
 
             //DateTime time = new DateTime(createOrder.timeLabel.Text);
             //order.OrderRequestedDate = System.DateTime.Now;
-            System.Windows.Forms.MessageBox.Show(objectFactory.storeNewOrder(Int32.Parse(createOrder.invoiceNumberText.Text), DateTime.Now, entries, Int32.Parse(createOrder.empIDText.Text), createOrder.customerContactText.Text));
+            System.Windows.Forms.MessageBox.Show(objectFactory.storeNewOrder(Int32.Parse(createOrder.empIDText.Text), DateTime.Now, entries, Int32.Parse(createOrder.invoiceNumberText.Text), createOrder.customerContactText.Text));
 
         }
 
@@ -370,8 +372,19 @@ namespace Field_Sales_System.ControlLogic
         public void viewReports_Rep() {
             reportsHome.nameLabel.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
             reportsHome.photoLabel.Image = currentUser.Dp.getPicture();
-            repHW.Hide();
-            reportsHome.ShowDialog();
+            //repHW.Hide();
+            try
+            {
+                reportsHome.ShowDialog();
+            }
+            catch (Exception e) {
+                this.reportsHome = new ReportsHome(this);
+                reportsHome.nameLabel.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+                reportsHome.photoLabel.Image = currentUser.Dp.getPicture();
+                reportsHome.ShowDialog();
+
+            }
+
 
         }
 
@@ -400,6 +413,13 @@ namespace Field_Sales_System.ControlLogic
                 }
             }
             
+        }
+
+        public void loadNewOrder() {
+            createOrder.empIDText.Text = currentUser.getEmpId().ToString();
+            createOrder.customerContactText.Text = currentUser.ContactDetails.AddressLine_3;
+            createOrder.customerNameText.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+
         }
 
 

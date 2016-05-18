@@ -39,19 +39,17 @@ namespace GUINew
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
             controller.adminAddemployer();
-
-
+            
         }
 
         private void viewEmployeesButton_Click(object sender, EventArgs e)
         {
-            controller.setMyHome_Admin();
         }
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
 
         { 
-            controller.searchEmployee_Admin(int.Parse(employeeIDText.Text),empFirstNameText.Text,empLastNameText.Text);
+            controller.searchEmployee_Admin(int.Parse(employeeIDText.Text),"cscs","sdsd");
 
         
             
@@ -145,9 +143,5 @@ namespace GUINew
             searchEmployeeButton.Enabled = true;
         }
 
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
     }
 }

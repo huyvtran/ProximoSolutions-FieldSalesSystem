@@ -137,12 +137,8 @@
             this.productNameCombo.Name = "productNameCombo";
             this.productNameCombo.Size = new System.Drawing.Size(315, 28);
             this.productNameCombo.TabIndex = 65;
-
-            this.productNameCombo.Text = "Product Name";
-            this.productNameCombo.SelectedIndexChanged += new System.EventHandler(this.productNameCombo_SelectedIndexChanged);
-
             this.productNameCombo.Text = "--Product Name--";
-
+            this.productNameCombo.SelectedIndexChanged += new System.EventHandler(this.productNameCombo_SelectedIndexChanged);
             // 
             // addItemButton
             // 
@@ -253,8 +249,7 @@
             this.invoiceNumberText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceNumberText.Location = new System.Drawing.Point(172, 22);
             this.invoiceNumberText.Name = "invoiceNumberText";
-
-            this.invoiceNumberText.Size = new System.Drawing.Size(166, 28);
+            this.invoiceNumberText.Size = new System.Drawing.Size(166, 27);
             this.invoiceNumberText.TabIndex = 77;
             // 
             // empIDText
@@ -270,8 +265,7 @@
             this.customerNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerNameText.Location = new System.Drawing.Point(172, 59);
             this.customerNameText.Name = "customerNameText";
-
-            this.customerNameText.Size = new System.Drawing.Size(284, 28);
+            this.customerNameText.Size = new System.Drawing.Size(284, 27);
             this.customerNameText.TabIndex = 79;
             // 
             // customerContactText
@@ -307,7 +301,8 @@
             this.finishButton.TabIndex = 82;
             this.finishButton.Text = "Finish";
             this.finishButton.UseVisualStyleBackColor = false;
-            this.finishButton.Click += new System.EventHandler(this.finishButton_Click_1);
+            this.finishButton.Click += new System.EventHandler(this.finishButton_Click);
+            this.finishButton.Paint += new System.Windows.Forms.PaintEventHandler(this.finishButton_Paint);
             // 
             // totalText
             // 
@@ -392,6 +387,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Invoice";
             this.Text = "Invoice";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Invoice_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.invoiceDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -98,24 +98,28 @@ namespace GUINew
             OpenFileDialog open = new OpenFileDialog();
             // image filters
             open.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
+            Image img;
             if (open.ShowDialog() == DialogResult.OK)
             {
                 // display image in picture box
-                pickBox.Image = new Bitmap(open.FileName);
-                
+                img = new Bitmap(open.FileName);
+                ImageHandler ih = new ImageHandler();
+                img = ih.resizeImage(img);
+                pickBox.Image = img;
                 // image file path
                 //pickBox.Text = open.FileName;
             }
+            
         }
         public Image PictureBoxZoom(Image img, Size size)
         {
             ImageHandler ih = new ImageHandler();
             img = ih.resizeImage(img);
-            Bitmap bm = new Bitmap(img, Convert.ToInt32(img.Width * size.Width), Convert.ToInt32(img.Height * size.Height));
+            //Bitmap bm = new Bitmap(img, Convert.ToInt32(img.Width * size.Width), Convert.ToInt32(img.Height * size.Height));
             
-            Graphics grap = Graphics.FromImage(bm);
-            grap.InterpolationMode = InterpolationMode.Low;
-            return bm;
+            //Graphics grap = Graphics.FromImage(bm);
+            //grap.InterpolationMode = InterpolationMode.Low;
+            return img;
         }
 
         private void zoomSlider_Scroll(object sender, EventArgs e)

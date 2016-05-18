@@ -32,5 +32,10 @@ namespace GUINew
         {
 
         }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

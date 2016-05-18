@@ -80,6 +80,9 @@ namespace GUINew
             }
 
             totalText.Text = sum.ToString();
+            controller.addOrder();
+            //removeButton_Click(sender, e);
+            clearButton_Click(sender, e);
         }
 
         private void qtyText_Click(object sender, EventArgs e)
@@ -91,13 +94,22 @@ namespace GUINew
 
         private void finishButton_Click_1(object sender, EventArgs e)
         {
-            controller.addOrder();
-            removeButton_Click(sender, e);
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void finishButton_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Invoice_Paint(object sender, PaintEventArgs e)
+        {
+            controller.loadNewOrder();
         }
     }
 }

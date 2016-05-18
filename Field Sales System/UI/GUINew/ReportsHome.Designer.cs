@@ -60,8 +60,8 @@
             this.photoLabel = new System.Windows.Forms.Label();
             this.generateWeeklyReporatsButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.orderStatusRadio = new System.Windows.Forms.RadioButton();
             this.dateRadio = new System.Windows.Forms.RadioButton();
+            this.orderStatusRadio = new System.Windows.Forms.RadioButton();
             this.generateDailyReporatsButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -361,6 +361,7 @@
             this.homeButton.Size = new System.Drawing.Size(50, 50);
             this.homeButton.TabIndex = 31;
             this.homeButton.UseVisualStyleBackColor = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // photoLabel
             // 
@@ -396,18 +397,6 @@
             this.groupBox1.TabIndex = 63;
             this.groupBox1.TabStop = false;
             // 
-            // orderStatusRadio
-            // 
-            this.orderStatusRadio.AutoSize = true;
-            this.orderStatusRadio.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderStatusRadio.Location = new System.Drawing.Point(0, 0);
-            this.orderStatusRadio.Name = "orderStatusRadio";
-            this.orderStatusRadio.Size = new System.Drawing.Size(105, 24);
-            this.orderStatusRadio.TabIndex = 0;
-            this.orderStatusRadio.TabStop = true;
-            this.orderStatusRadio.Text = "Order Status";
-            this.orderStatusRadio.UseVisualStyleBackColor = true;
-            // 
             // dateRadio
             // 
             this.dateRadio.AutoSize = true;
@@ -419,6 +408,18 @@
             this.dateRadio.TabStop = true;
             this.dateRadio.Text = "Date";
             this.dateRadio.UseVisualStyleBackColor = true;
+            // 
+            // orderStatusRadio
+            // 
+            this.orderStatusRadio.AutoSize = true;
+            this.orderStatusRadio.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderStatusRadio.Location = new System.Drawing.Point(0, 0);
+            this.orderStatusRadio.Name = "orderStatusRadio";
+            this.orderStatusRadio.Size = new System.Drawing.Size(105, 24);
+            this.orderStatusRadio.TabIndex = 0;
+            this.orderStatusRadio.TabStop = true;
+            this.orderStatusRadio.Text = "Order Status";
+            this.orderStatusRadio.UseVisualStyleBackColor = true;
             // 
             // generateDailyReporatsButton
             // 

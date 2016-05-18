@@ -122,7 +122,7 @@ namespace GUINew
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
     }
 }

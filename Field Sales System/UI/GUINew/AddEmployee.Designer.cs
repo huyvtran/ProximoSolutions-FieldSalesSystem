@@ -68,6 +68,7 @@
             this.msRadio = new System.Windows.Forms.RadioButton();
             this.mrRadio = new System.Windows.Forms.RadioButton();
             this.jobTitleGroup = new System.Windows.Forms.GroupBox();
+            this.companyAdminRadio = new System.Windows.Forms.RadioButton();
             this.repRadio = new System.Windows.Forms.RadioButton();
             this.agentRadio = new System.Windows.Forms.RadioButton();
             this.wmRadio = new System.Windows.Forms.RadioButton();
@@ -79,7 +80,6 @@
             this.Permission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.permissionsTableAdapter = new Field_Sales_System.proximoDBDataSet_permissionsTableAdapters.permissionsTableAdapter();
             this.listClear = new System.Windows.Forms.Button();
-            this.companyAdminRadio = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pickBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomSlider)).BeginInit();
             this.titleGroup.SuspendLayout();
@@ -429,6 +429,7 @@
             this.zoomSlider.Size = new System.Drawing.Size(104, 45);
             this.zoomSlider.TabIndex = 65;
             this.zoomSlider.Value = 1;
+            this.zoomSlider.Visible = false;
             this.zoomSlider.Scroll += new System.EventHandler(this.zoomSlider_Scroll);
             // 
             // label6
@@ -487,6 +488,18 @@
             this.jobTitleGroup.TabIndex = 68;
             this.jobTitleGroup.TabStop = false;
             // 
+            // companyAdminRadio
+            // 
+            this.companyAdminRadio.AutoSize = true;
+            this.companyAdminRadio.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyAdminRadio.Location = new System.Drawing.Point(9, 97);
+            this.companyAdminRadio.Name = "companyAdminRadio";
+            this.companyAdminRadio.Size = new System.Drawing.Size(142, 23);
+            this.companyAdminRadio.TabIndex = 3;
+            this.companyAdminRadio.TabStop = true;
+            this.companyAdminRadio.Text = "Company Admin";
+            this.companyAdminRadio.UseVisualStyleBackColor = true;
+            // 
             // repRadio
             // 
             this.repRadio.AutoSize = true;
@@ -540,7 +553,7 @@
             this.permissionCombo.DisplayMember = "permName";
             this.permissionCombo.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.permissionCombo.FormattingEnabled = true;
-            this.permissionCombo.Location = new System.Drawing.Point(564, 310);
+            this.permissionCombo.Location = new System.Drawing.Point(594, 308);
             this.permissionCombo.Name = "permissionCombo";
             this.permissionCombo.Size = new System.Drawing.Size(200, 27);
             this.permissionCombo.TabIndex = 70;
@@ -562,9 +575,9 @@
             this.permissionList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Permission});
             this.permissionList.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.permissionList.Location = new System.Drawing.Point(771, 308);
+            this.permissionList.Location = new System.Drawing.Point(814, 308);
             this.permissionList.Name = "permissionList";
-            this.permissionList.Size = new System.Drawing.Size(243, 193);
+            this.permissionList.Size = new System.Drawing.Size(200, 193);
             this.permissionList.TabIndex = 71;
             this.permissionList.UseCompatibleStateImageBehavior = false;
             this.permissionList.View = System.Windows.Forms.View.List;
@@ -585,25 +598,13 @@
             this.listClear.FlatAppearance.BorderSize = 0;
             this.listClear.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.listClear.Location = new System.Drawing.Point(565, 356);
+            this.listClear.Location = new System.Drawing.Point(595, 354);
             this.listClear.Name = "listClear";
             this.listClear.Size = new System.Drawing.Size(200, 30);
             this.listClear.TabIndex = 72;
             this.listClear.Text = "Clear Permission List";
             this.listClear.UseVisualStyleBackColor = false;
             this.listClear.Click += new System.EventHandler(this.listClear_Click);
-            // 
-            // companyAdminRadio
-            // 
-            this.companyAdminRadio.AutoSize = true;
-            this.companyAdminRadio.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyAdminRadio.Location = new System.Drawing.Point(9, 97);
-            this.companyAdminRadio.Name = "companyAdminRadio";
-            this.companyAdminRadio.Size = new System.Drawing.Size(142, 23);
-            this.companyAdminRadio.TabIndex = 3;
-            this.companyAdminRadio.TabStop = true;
-            this.companyAdminRadio.Text = "Company Admin";
-            this.companyAdminRadio.UseVisualStyleBackColor = true;
             // 
             // AddEmployee
             // 
