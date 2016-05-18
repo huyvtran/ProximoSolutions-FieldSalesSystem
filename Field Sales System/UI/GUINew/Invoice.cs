@@ -105,5 +105,11 @@ namespace GUINew
         {
 
         }
+
+        private void removeButton_Click_1(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in invoiceDataGrid.SelectedRows)
+                if (!row.IsNewRow) invoiceDataGrid.Rows.Remove(row);
+        }
     }
 }

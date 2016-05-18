@@ -157,6 +157,7 @@
     <Compile Include="UI\GUINew\OrderDetails.Designer.cs">
       <DependentUpon>OrderDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GUINew\Program.cs" />
     <Compile Include="UI\GUINew\Properties\AssemblyInfo.cs" />
     <Compile Include="UI\GUINew\Properties\Resources.Designer.cs" />
     <Compile Include="UI\GUINew\Properties\Settings.Designer.cs" />

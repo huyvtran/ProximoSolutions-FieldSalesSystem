@@ -137,12 +137,8 @@
             this.productNameCombo.Name = "productNameCombo";
             this.productNameCombo.Size = new System.Drawing.Size(315, 28);
             this.productNameCombo.TabIndex = 65;
-
-            this.productNameCombo.Text = "Product Name";
-            this.productNameCombo.SelectedIndexChanged += new System.EventHandler(this.productNameCombo_SelectedIndexChanged);
-
             this.productNameCombo.Text = "--Product Name--";
-
+            this.productNameCombo.SelectedIndexChanged += new System.EventHandler(this.productNameCombo_SelectedIndexChanged);
             // 
             // addItemButton
             // 
@@ -165,7 +161,7 @@
             this.qtyText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.qtyText.Location = new System.Drawing.Point(734, 128);
             this.qtyText.Name = "qtyText";
-            this.qtyText.Size = new System.Drawing.Size(106, 27);
+            this.qtyText.Size = new System.Drawing.Size(106, 28);
             this.qtyText.TabIndex = 66;
             this.qtyText.Text = "Quantity";
             this.qtyText.Click += new System.EventHandler(this.qtyText_Click);
@@ -253,7 +249,6 @@
             this.invoiceNumberText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceNumberText.Location = new System.Drawing.Point(172, 22);
             this.invoiceNumberText.Name = "invoiceNumberText";
-
             this.invoiceNumberText.Size = new System.Drawing.Size(166, 28);
             this.invoiceNumberText.TabIndex = 77;
             // 
@@ -262,7 +257,7 @@
             this.empIDText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empIDText.Location = new System.Drawing.Point(557, 22);
             this.empIDText.Name = "empIDText";
-            this.empIDText.Size = new System.Drawing.Size(180, 27);
+            this.empIDText.Size = new System.Drawing.Size(180, 28);
             this.empIDText.TabIndex = 78;
             // 
             // customerNameText
@@ -270,7 +265,6 @@
             this.customerNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerNameText.Location = new System.Drawing.Point(172, 59);
             this.customerNameText.Name = "customerNameText";
-
             this.customerNameText.Size = new System.Drawing.Size(284, 28);
             this.customerNameText.TabIndex = 79;
             // 
@@ -279,7 +273,7 @@
             this.customerContactText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerContactText.Location = new System.Drawing.Point(557, 59);
             this.customerContactText.Name = "customerContactText";
-            this.customerContactText.Size = new System.Drawing.Size(180, 27);
+            this.customerContactText.Size = new System.Drawing.Size(180, 28);
             this.customerContactText.TabIndex = 81;
             // 
             // label3
@@ -314,7 +308,7 @@
             this.totalText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalText.Location = new System.Drawing.Point(868, 434);
             this.totalText.Name = "totalText";
-            this.totalText.Size = new System.Drawing.Size(136, 27);
+            this.totalText.Size = new System.Drawing.Size(136, 28);
             this.totalText.TabIndex = 86;
             // 
             // label6
@@ -358,6 +352,7 @@
             this.removeButton.TabIndex = 90;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = false;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click_1);
             // 
             // Invoice
             // 

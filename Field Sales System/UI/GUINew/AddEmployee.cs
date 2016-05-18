@@ -17,11 +17,32 @@ namespace GUINew
         Controller controller;
         bool gender;
         string userType = "Agent";
+        string email;
+        string Address;
         public AddEmployee(Controller controll)
         {
             controller = controll;
             InitializeComponent();
         }
+
+
+        bool IsValidEmail(string email)
+        {
+
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -40,6 +61,19 @@ namespace GUINew
                 MessageBox.Show("Invalid e-mail address");
                 emailText.Text = "";
             }
+
+            else if ((emailText.Text.Contains("@")))
+            {
+                IsValidEmail(emailText.Text);
+            }
+
+            
+
+        
+
+           
+
+
             else
             {
                 controller.addAdminEmployerSave(11, Convert.ToInt32(nicText.Text), Convert.ToDateTime(bdayDateTimePicker.Text), gender, firstNameText.Text + " " + middleNameText.Text, lastNameText.Text, Convert.ToInt32(mobileText.Text), Convert.ToInt32(homeTelText.Text), emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image, userType);

@@ -159,7 +159,7 @@ namespace Field_Sales_System.Business_Logic
             {
                 foreach (Permission perm in role.Permissions)
                 {
-                    if (perm.PermId == 2000)
+                    if (perm.PermId == 2005)
                     {
                         adminRights = true;
                     }
@@ -191,7 +191,7 @@ namespace Field_Sales_System.Business_Logic
             {
                 foreach (Permission perm in role.Permissions)
                 {
-                    if (perm.PermId == 2000)
+                    if (perm.PermId == 2006)
                     {
                         adminRights = true;
                     }
@@ -222,7 +222,7 @@ namespace Field_Sales_System.Business_Logic
             {
                 foreach (Permission perm in role.Permissions)
                 {
-                    if (perm.PermId == 2000)
+                    if (perm.PermId == 2007)
                     {
                         adminRights = true;
                     }
@@ -253,7 +253,7 @@ namespace Field_Sales_System.Business_Logic
             {
                 foreach (Permission perm in role.Permissions)
                 {
-                    if (perm.PermId == 2000)
+                    if (perm.PermId == 2008)
                     {
                         adminRights = true;
                     }
