@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminHomeWindow));
-            this.photoLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,23 +36,14 @@
             this.adminMainPanel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.viewReportsButton = new System.Windows.Forms.Button();
-            this.itemDispatchButton = new System.Windows.Forms.Button();
             this.searchEmployeeButton = new System.Windows.Forms.Button();
             this.viewEmployeesButton = new System.Windows.Forms.Button();
             this.empLastNameText = new System.Windows.Forms.TextBox();
-            this.logoutButton = new System.Windows.Forms.Button();
             this.empFirstNameText = new System.Windows.Forms.TextBox();
             this.employeeIDText = new System.Windows.Forms.TextBox();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.photoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // photoLabel
-            // 
-            this.photoLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.photoLabel.Image = ((System.Drawing.Image)(resources.GetObject("photoLabel.Image")));
-            this.photoLabel.Location = new System.Drawing.Point(16, 18);
-            this.photoLabel.Name = "photoLabel";
-            this.photoLabel.Size = new System.Drawing.Size(50, 50);
-            this.photoLabel.TabIndex = 0;
             // 
             // nameLabel
             // 
@@ -125,27 +115,12 @@
             this.viewReportsButton.FlatAppearance.BorderSize = 0;
             this.viewReportsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewReportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewReportsButton.Location = new System.Drawing.Point(16, 599);
+            this.viewReportsButton.Location = new System.Drawing.Point(16, 528);
             this.viewReportsButton.Name = "viewReportsButton";
             this.viewReportsButton.Size = new System.Drawing.Size(236, 30);
             this.viewReportsButton.TabIndex = 13;
             this.viewReportsButton.Text = "View Reports";
             this.viewReportsButton.UseVisualStyleBackColor = false;
-            // 
-            // itemDispatchButton
-            // 
-            this.itemDispatchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.itemDispatchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.itemDispatchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.itemDispatchButton.FlatAppearance.BorderSize = 0;
-            this.itemDispatchButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemDispatchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.itemDispatchButton.Location = new System.Drawing.Point(16, 514);
-            this.itemDispatchButton.Name = "itemDispatchButton";
-            this.itemDispatchButton.Size = new System.Drawing.Size(236, 30);
-            this.itemDispatchButton.TabIndex = 14;
-            this.itemDispatchButton.Text = "Authenticate Item Dispatch";
-            this.itemDispatchButton.UseVisualStyleBackColor = false;
             // 
             // searchEmployeeButton
             // 
@@ -191,19 +166,6 @@
             this.empLastNameText.TextChanged += new System.EventHandler(this.empLastNameText_TextChanged);
             this.empLastNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.empLastNameText_KeyPress);
             // 
-            // logoutButton
-            // 
-            this.logoutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoutButton.BackgroundImage")));
-            this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutButton.FlatAppearance.BorderSize = 0;
-            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.Location = new System.Drawing.Point(1300, 18);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(50, 50);
-            this.logoutButton.TabIndex = 18;
-            this.logoutButton.UseVisualStyleBackColor = true;
-            // 
             // empFirstNameText
             // 
             this.empFirstNameText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -213,7 +175,7 @@
             this.empFirstNameText.TabIndex = 19;
             this.empFirstNameText.Text = "Employee First Name";
             this.empFirstNameText.Click += new System.EventHandler(this.empFirstNameText_Click);
-            this.empFirstNameText.TextChanged += new System.EventHandler(this.empIDText_TextChanged);
+            this.empFirstNameText.TextChanged += new System.EventHandler(this.empFirstNameText_TextChanged);
             this.empFirstNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.empFirstNameText_KeyPress);
             // 
             // employeeIDText
@@ -228,6 +190,29 @@
             this.employeeIDText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.employeeIDText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.employeeIDText_KeyPress);
             // 
+            // logoutButton
+            // 
+            this.logoutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoutButton.BackgroundImage")));
+            this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Location = new System.Drawing.Point(1300, 18);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(50, 50);
+            this.logoutButton.TabIndex = 18;
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // photoLabel
+            // 
+            this.photoLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.photoLabel.Image = ((System.Drawing.Image)(resources.GetObject("photoLabel.Image")));
+            this.photoLabel.Location = new System.Drawing.Point(16, 18);
+            this.photoLabel.Name = "photoLabel";
+            this.photoLabel.Size = new System.Drawing.Size(50, 50);
+            this.photoLabel.TabIndex = 0;
+            // 
             // AdminHomeWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -240,7 +225,6 @@
             this.Controls.Add(this.empLastNameText);
             this.Controls.Add(this.viewEmployeesButton);
             this.Controls.Add(this.searchEmployeeButton);
-            this.Controls.Add(this.itemDispatchButton);
             this.Controls.Add(this.viewReportsButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.adminMainPanel1);
@@ -271,7 +255,6 @@
         public System.Windows.Forms.Panel adminMainPanel1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button viewReportsButton;
-        public System.Windows.Forms.Button itemDispatchButton;
         public System.Windows.Forms.Button searchEmployeeButton;
         public System.Windows.Forms.Button viewEmployeesButton;
         public System.Windows.Forms.TextBox empLastNameText;

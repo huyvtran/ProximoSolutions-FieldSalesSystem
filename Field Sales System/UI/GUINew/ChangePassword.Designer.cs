@@ -55,6 +55,7 @@
             this.newPwdText.PasswordChar = '*';
             this.newPwdText.Size = new System.Drawing.Size(269, 27);
             this.newPwdText.TabIndex = 13;
+            this.newPwdText.TextChanged += new System.EventHandler(this.newPwdText_TextChanged_1);
             // 
             // changePwdButton
             // 
@@ -144,7 +145,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangePassword";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Password";
             this.ResumeLayout(false);
             this.PerformLayout();

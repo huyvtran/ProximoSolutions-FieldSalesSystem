@@ -53,7 +53,7 @@
             this.requestNewOrderButton.FlatAppearance.BorderSize = 0;
             this.requestNewOrderButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestNewOrderButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.requestNewOrderButton.Location = new System.Drawing.Point(16, 323);
+            this.requestNewOrderButton.Location = new System.Drawing.Point(16, 364);
             this.requestNewOrderButton.Name = "requestNewOrderButton";
             this.requestNewOrderButton.Size = new System.Drawing.Size(236, 30);
             this.requestNewOrderButton.TabIndex = 67;
@@ -69,7 +69,7 @@
             this.viewReportsButton.FlatAppearance.BorderSize = 0;
             this.viewReportsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewReportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewReportsButton.Location = new System.Drawing.Point(16, 379);
+            this.viewReportsButton.Location = new System.Drawing.Point(16, 433);
             this.viewReportsButton.Name = "viewReportsButton";
             this.viewReportsButton.Size = new System.Drawing.Size(236, 30);
             this.viewReportsButton.TabIndex = 63;
@@ -79,7 +79,7 @@
             // 
             // lastNameText
             // 
-            this.lastNameText.Location = new System.Drawing.Point(16, 247);
+            this.lastNameText.Location = new System.Drawing.Point(16, 255);
             this.lastNameText.Name = "lastNameText";
             this.lastNameText.Size = new System.Drawing.Size(236, 26);
             this.lastNameText.TabIndex = 62;
@@ -95,7 +95,7 @@
             this.searchRepsButton.FlatAppearance.BorderSize = 0;
             this.searchRepsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchRepsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchRepsButton.Location = new System.Drawing.Point(16, 274);
+            this.searchRepsButton.Location = new System.Drawing.Point(16, 282);
             this.searchRepsButton.Name = "searchRepsButton";
             this.searchRepsButton.Size = new System.Drawing.Size(236, 30);
             this.searchRepsButton.TabIndex = 60;
@@ -178,6 +178,7 @@
             this.logoutButton.Size = new System.Drawing.Size(50, 50);
             this.logoutButton.TabIndex = 68;
             this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // photoLabel
             // 
@@ -190,7 +191,7 @@
             // 
             // firstNameText
             // 
-            this.firstNameText.Location = new System.Drawing.Point(16, 219);
+            this.firstNameText.Location = new System.Drawing.Point(16, 227);
             this.firstNameText.Name = "firstNameText";
             this.firstNameText.Size = new System.Drawing.Size(236, 26);
             this.firstNameText.TabIndex = 69;
@@ -200,7 +201,7 @@
             // 
             // empIdText
             // 
-            this.empIdText.Location = new System.Drawing.Point(16, 191);
+            this.empIdText.Location = new System.Drawing.Point(16, 199);
             this.empIdText.Name = "empIdText";
             this.empIdText.Size = new System.Drawing.Size(236, 26);
             this.empIdText.TabIndex = 70;
@@ -247,8 +248,6 @@
 
    
         public System.Windows.Forms.Panel repMainPannel;
-
-
         public System.Windows.Forms.Button requestNewOrderButton;
         public System.Windows.Forms.Button viewReportsButton;
         public System.Windows.Forms.TextBox lastNameText;

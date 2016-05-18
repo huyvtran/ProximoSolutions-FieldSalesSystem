@@ -115,7 +115,14 @@ namespace GUINew
 
         private void viewReportsButton_Click(object sender, EventArgs e)
         {
+
             controller.viewReports_Rep();
+
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

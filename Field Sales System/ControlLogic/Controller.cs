@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
@@ -149,7 +148,13 @@ namespace Field_Sales_System.ControlLogic
         public void adminAddemployer()
         {
             newEmployee = new AddEmployee(this);
-            newEmployee.ShowDialog();
+            adminHW.adminMainPanel1.Controls.Clear();
+            newEmployee.TopLevel = false;
+            newEmployee.AutoScroll = true;
+            adminHW.TopLevel = true;
+            adminHW.adminMainPanel1.Controls.Add(newEmployee);
+            newEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            newEmployee.Show();
         }
         public void addadminemployersave(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
         {
@@ -161,18 +166,33 @@ namespace Field_Sales_System.ControlLogic
             else {
                 System.Windows.Forms.MessageBox.Show("Cannot create user profile right now.");
             }
+
         }
-        public void adminViewEmployer()
+        public void searchEmployee_Admin(int empId, string firstName, string lastName)
         {
-            viewEmployee.ShowDialog();
-        }
-        public void adminSearchEmploee(int empId=0, string empFirstName="", string empLastName="")
+            if (adminHW.adminMainPanel1 != null)
+            {
+               adminHW.adminMainPanel1.Controls.Clear();
+            }
 
-        {         
-            viewEmployee.setData(objectFactory.searchUser(empId, empFirstName, empLastName));
-            viewEmployee.ShowDialog();
+            List<User> searchResult = objectFactory.searchUser(empId, firstName, lastName);
+            //this.viewEmployee.dataGridView1 = new System.Windows.Forms.DataGridView();
 
+            foreach (User user in searchResult)
+            {
+                Image pic = user.Dp.getPicture();
+                this.viewEmployee.dataGridView1.Rows.Add(user.getEmpId(), user.Dp.getPicture(), user.getFirstName() + " " + user.getLastName(), user.GetType().ToString(), checkState(user.IsActive), user.ContactDetails.MobileNo, user.ContactDetails.EmailAddress);
+
+            }
+            viewEmployee.TopLevel = false;
+            viewEmployee.AutoScroll = true;
+            adminHW.TopLevel = true;
+            adminHW.adminMainPanel1.Controls.Add(viewEmployee);
+            viewEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
+            viewEmployee.Show();
         }
+   
 
         public void setMyHome_Representative() {
             profile.TopLevel = false;
@@ -186,21 +206,11 @@ namespace Field_Sales_System.ControlLogic
             profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
             profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
             profile.nameLabel.Text = currentUser.getFirstName() +" "+ currentUser.getLastName();
-            profile.regionLabel.Text = "---";
+            profile.regionLabel.Text = currentUser.ContactDetails.AddressLine_3;
             profile.photoLabel.Image = currentUser.Dp.getPicture();
-            //profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+            profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
             //profile.statusLabel.Text = isActive(currentUser);
-            profile.jobTitleLabel.Text = currentUser.GetType().ToString();
-
-            
-           // profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
-            //profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
-            //profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
-            //profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
-            //profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
-           // profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
-           // profile.regionLabel.Text = "---";
-           // profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+            profile.jobTitleLabel.Text = currentUser.GetType().ToString();       
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
@@ -251,15 +261,20 @@ namespace Field_Sales_System.ControlLogic
             profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
             profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
             profile.nameLabel.Text = currentUser.getFirstName() +" "+ currentUser.getLastName();
-            profile.regionLabel.Text = "---";
-            profile.jobTitleLabel.Text = "ioio";// currentUser.UserRoles[0].getRoleName();
+            profile.regionLabel.Text = currentUser.ContactDetails.AddressLine_3;
+           // profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+            profile.photoLabel.Image = currentUser.Dp.getPicture();
+            //currentUser.UserRoles[0].getRoleName();
             adminHW.adminMainPanel1.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
         }
 
         public void searchEmployee_Rep(int empId, string firstName,string lastName) {
-            repHW.repMainPannel.Controls.Clear();
+            if (repHW.repMainPannel != null) {
+                repHW.repMainPannel.Controls.Clear();
+            }
+            
             List<User> searchResult = objectFactory.searchUser(empId,firstName,lastName);
             //this.viewEmployee.dataGridView1 = new System.Windows.Forms.DataGridView();
             

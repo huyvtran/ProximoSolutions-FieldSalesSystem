@@ -30,6 +30,7 @@ namespace GUINew
 
         private void addButton_Click(object sender, EventArgs e)
         {
+
             if (firstNameText.Text == null || lastNameText.Text == null || nicText.Text == null || addressText.Text == null || stateText.Text == null || mobileText.Text == null || regionText.Text == null)
             {
                 MessageBox.Show("Fill in the required fields");
@@ -48,10 +49,14 @@ namespace GUINew
                      tempPerm.PermName = lwi[0].ToString();
                     permList.Add(tempPerm);
                }
+                UserRole firstRole = new UserRole();
+                firstRole.Permissions = permList;
+                firstRole.setRoleName(selectUserType());
+                List<UserRole> userRoles = new List<UserRole>();
                 controller.addadminemployersave(Convert.ToInt32(nicText.Text), Convert.ToInt32(nicText.Text),
                     mrRadio.Checked, firstNameText.Text,lastNameText.Text,Int32.Parse(mobileText.Text),
                     Int32.Parse(homeTelText.Text),emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image,
-                     selectUserType(),null);
+                     selectUserType(),userRoles);
             }
         }
         private string selectUserType() {
@@ -73,7 +78,9 @@ namespace GUINew
             }
             else {
                 return "Representative";
+
             }
+
         }
         private void mrsRadioButton_CheckedChanged(object sender, EventArgs e)
         {

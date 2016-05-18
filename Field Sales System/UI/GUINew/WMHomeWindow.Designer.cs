@@ -35,12 +35,10 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.photoLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.employeeFirstNameText = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.goodsReceiveNoteButton = new System.Windows.Forms.Button();
             this.myProfileButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -103,27 +101,12 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.button1.Location = new System.Drawing.Point(16, 648);
+            this.button1.Location = new System.Drawing.Point(16, 515);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(236, 30);
             this.button1.TabIndex = 38;
             this.button1.Text = "View Reports";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.button2.Location = new System.Drawing.Point(16, 581);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 30);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "Item Dispatch";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // employeeFirstNameText
             // 
@@ -162,7 +145,7 @@
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(236, 30);
             this.searchButton.TabIndex = 35;
-            this.searchButton.Text = "Search Agent / Reps";
+            this.searchButton.Text = "Search Employee";
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
@@ -180,21 +163,6 @@
             this.button5.TabIndex = 34;
             this.button5.Text = "View Inventory";
             this.button5.UseVisualStyleBackColor = false;
-            // 
-            // goodsReceiveNoteButton
-            // 
-            this.goodsReceiveNoteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.goodsReceiveNoteButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.goodsReceiveNoteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.goodsReceiveNoteButton.FlatAppearance.BorderSize = 0;
-            this.goodsReceiveNoteButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goodsReceiveNoteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.goodsReceiveNoteButton.Location = new System.Drawing.Point(16, 512);
-            this.goodsReceiveNoteButton.Name = "goodsReceiveNoteButton";
-            this.goodsReceiveNoteButton.Size = new System.Drawing.Size(236, 30);
-            this.goodsReceiveNoteButton.TabIndex = 33;
-            this.goodsReceiveNoteButton.Text = "Goods Receive Note";
-            this.goodsReceiveNoteButton.UseVisualStyleBackColor = false;
             // 
             // myProfileButton
             // 
@@ -223,6 +191,7 @@
             this.logoutButton.Size = new System.Drawing.Size(50, 50);
             this.logoutButton.TabIndex = 40;
             this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // panel2
             // 
@@ -263,12 +232,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.employeeFirstNameText);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.goodsReceiveNoteButton);
             this.Controls.Add(this.myProfileButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
@@ -294,12 +261,10 @@
         public System.Windows.Forms.Label nameLabel;
         public System.Windows.Forms.Label photoLabel;
         public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button button2;
         public System.Windows.Forms.TextBox employeeFirstNameText;
         public System.Windows.Forms.Button button3;
         public System.Windows.Forms.Button searchButton;
         public System.Windows.Forms.Button button5;
-        public System.Windows.Forms.Button goodsReceiveNoteButton;
         public System.Windows.Forms.Button myProfileButton;
         public System.Windows.Forms.Button logoutButton;
         public System.Windows.Forms.Panel panel2;
