@@ -49,17 +49,10 @@ namespace GUINew
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
-            List<int> lst = new List<int>();
-            foreach (DataGridViewRow row in invoiceDataGrid.Rows) {
-                if (bool.Parse(row.Cells[0].Value.ToString())) {
-                    lst.Add(row.Index);
-                }
+            foreach (DataGridViewRow row in invoiceDataGrid.SelectedRows) {
+                if (!row.IsNewRow) invoiceDataGrid.Rows.Remove(row);
             }
-            foreach (int i in lst) {
-                invoiceDataGrid.Rows.RemoveAt(i);
-            }
-            invoiceDataGrid.Refresh();
+           
                 
         }
 
@@ -99,6 +92,7 @@ namespace GUINew
         private void finishButton_Click_1(object sender, EventArgs e)
         {
             controller.addOrder();
+            removeButton_Click(sender, e);
         }
 
         private void label3_Click(object sender, EventArgs e)

@@ -57,5 +57,10 @@ namespace GUINew
             //    employeeFirstNameText.Text.Remove(employeeFirstNameText.Text.Length - 1);
             //}
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

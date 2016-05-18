@@ -154,6 +154,20 @@
             this.myProfileButton.Text = "My Profile";
             this.myProfileButton.UseVisualStyleBackColor = false;
             // 
+            // logoutButton
+            // 
+            this.logoutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoutButton.BackgroundImage")));
+            this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Location = new System.Drawing.Point(1300, 15);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(50, 50);
+            this.logoutButton.TabIndex = 40;
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(280, 107);

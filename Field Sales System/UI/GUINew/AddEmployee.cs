@@ -1,4 +1,6 @@
-﻿using Field_Sales_System.ControlLogic;
+﻿using Field_Sales_System.Business_Logic;
+using Field_Sales_System.ControlLogic;
+using Field_Sales_System.Utility_Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +17,6 @@ namespace GUINew
     public partial class AddEmployee : Form
     {
         Controller controller;
-        bool gender;
-        string userType = "Agent";
         public AddEmployee(Controller controll)
         {
             controller = controll;
@@ -42,20 +42,54 @@ namespace GUINew
             }
             else
             {
-                controller.addAdminEmployerSave(11, Convert.ToInt32(nicText.Text), Convert.ToDateTime(bdayDateTimePicker.Text), gender, firstNameText.Text + " " + middleNameText.Text, lastNameText.Text, Convert.ToInt32(mobileText.Text), Convert.ToInt32(homeTelText.Text), emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image, userType);
+                List<Permission> permList = new List<Permission>();
+                foreach (DataRowView lwi in currentPerms) {
+                     Permission tempPerm = new Permission();
+                     tempPerm.PermId = Int32.Parse(lwi[1].ToString());
+                     tempPerm.PermName = lwi[0].ToString();
+                    permList.Add(tempPerm);
+               }
+                UserRole firstRole = new UserRole();
+                firstRole.Permissions = permList;
+                firstRole.setRoleName(selectUserType());
+                List<UserRole> userRoles = new List<UserRole>();
+                controller.addadminemployersave(Convert.ToInt32(nicText.Text), Convert.ToInt32(nicText.Text),
+                    mrRadio.Checked, firstNameText.Text,lastNameText.Text,Int32.Parse(mobileText.Text),
+                    Int32.Parse(homeTelText.Text),emailText.Text, addressText.Text, cityText.Text, stateText.Text, pickBox.Image,
+                     selectUserType(),userRoles);
+            }
+        }
+        private string selectUserType() {
+            if (wmRadio.Checked)
+            {
+                return "WarehouseManager";
+            }
+            else if (agentRadio.Checked)
+            {
+                return "Agent";
+            }
+            else if (repRadio.Checked)
+            {
+                return "Representative";
+            }
+            else if (companyAdminRadio.Checked)
+            {
+                return "CompanyAdmin";
+            }
+            else {
+                return "Representative";
 
             }
 
         }
-
         private void mrsRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            gender = false;
+           // gender = false;
         }
 
         private void mrRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            gender = true;
+            //gender = true;
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -75,7 +109,10 @@ namespace GUINew
         }
         public Image PictureBoxZoom(Image img, Size size)
         {
+            ImageHandler ih = new ImageHandler();
+            img = ih.resizeImage(img);
             Bitmap bm = new Bitmap(img, Convert.ToInt32(img.Width * size.Width), Convert.ToInt32(img.Height * size.Height));
+            
             Graphics grap = Graphics.FromImage(bm);
             grap.InterpolationMode = InterpolationMode.Low;
             return bm;
@@ -174,6 +211,29 @@ namespace GUINew
         private void mobileText_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
+        }
+
+        ListViewItem listViewItem;
+        List<DataRowView> currentPerms = new List<DataRowView>();
+        private void permissionCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataRowView permDR = (DataRowView)permissionCombo.SelectedItem;
+            currentPerms.Add(permDR);
+            listViewItem = new ListViewItem(permDR[0].ToString()+" "+permDR[1].ToString());
+            permissionList.Items.Add(listViewItem);
+        }
+
+        private void AddEmployee_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'proximoDBDataSet_permissions.permissions' table. You can move, or remove it, as needed.
+            this.permissionsTableAdapter.Fill(this.proximoDBDataSet_permissions.permissions);
+
+        }
+
+        private void listClear_Click(object sender, EventArgs e)
+        {
+            permissionList.Clear();
+            currentPerms = new List<DataRowView>();
         }
     }
 }

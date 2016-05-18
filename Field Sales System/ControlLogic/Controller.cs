@@ -30,9 +30,9 @@ namespace Field_Sales_System.ControlLogic
         ChangePasswordAdmin changePasswordAdminForm;
         UpdateEmployee updateEmployee;
         Invoice createOrder;
+        ReportsHome reportsHome;
+        ViewOrders viewOrders;
         
-
-
         public ForgotPassword ForgotPassword
         {
             get
@@ -69,6 +69,8 @@ namespace Field_Sales_System.ControlLogic
             updateEmployee = new UpdateEmployee();
             viewEmployee = new ViewEmployee(this);
             createOrder = new Invoice(this);
+            reportsHome = new ReportsHome(this);
+            viewOrders = new ViewOrders(this);
 
         }
         public void initilizer()
@@ -146,38 +148,33 @@ namespace Field_Sales_System.ControlLogic
         public void adminAddemployer()
         {
             newEmployee = new AddEmployee(this);
-            
+            adminHW.adminMainPanel1.Controls.Clear();
             newEmployee.TopLevel = false;
             newEmployee.AutoScroll = true;
             adminHW.TopLevel = true;
             adminHW.adminMainPanel1.Controls.Add(newEmployee);
             newEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
             newEmployee.Show();
         }
-        public List<Permission> permission()
-        { List<Permission> permissionList = new List<Permission>();
-            Permission permission = objectFactory.createPermission("blah", 1);
-            permissionList.Add(permission);
-            return permissionList;
-        }
-        public List<UserRole> userRole(string type)
-        { List<Permission> permissionListSent = permission();
-            List<UserRole> userRoleList = new List<UserRole>();
-
-            UserRole userRole = objectFactory.createUserRole(type, permissionListSent);
-            userRoleList.Add(userRole);
-            return userRoleList;
-
-        }
-        public void addAdminEmployerSave(int empId, int empNIC, DateTime Now, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType)
+        public void addadminemployersave(int empId, int empNIC, bool gender, string firstName, string lastName, int mobileNo, int landNo, string email, string addressLine_1, string addressLine_2, string addressLine_3, Image img, string userType, List<UserRole> roles)
         {
-            List<UserRole> roles = userRole(userType);
-             MessageBox.Show( ((CompanyAdmin)currentUser).addUser(objectFactory,securityManager,empId, empNIC, Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles,"cat"));
+            string s = securityManager.addUserLoginInformation(empId, empId.ToString());
+            if (s == "Success!")
+            {
+                System.Windows.Forms.MessageBox.Show(objectFactory.storeUser(empId, empNIC, DateTime.Now, gender, firstName, lastName, mobileNo, landNo, email, addressLine_1, addressLine_2, addressLine_3, img, userType, roles));
+            }
+            else {
+                System.Windows.Forms.MessageBox.Show("Cannot create user profile right now.");
+            }
+
         }
         public void searchEmployee_Admin(int empId, string firstName, string lastName)
         {
-            adminHW.adminMainPanel1.Controls.Clear();
+            if (adminHW.adminMainPanel1 != null)
+            {
+               adminHW.adminMainPanel1.Controls.Clear();
+            }
+
             List<User> searchResult = objectFactory.searchUser(empId, firstName, lastName);
             //this.viewEmployee.dataGridView1 = new System.Windows.Forms.DataGridView();
 
@@ -189,7 +186,7 @@ namespace Field_Sales_System.ControlLogic
             }
             viewEmployee.TopLevel = false;
             viewEmployee.AutoScroll = true;
-           adminHW.TopLevel = true;
+            adminHW.TopLevel = true;
             adminHW.adminMainPanel1.Controls.Add(viewEmployee);
             viewEmployee.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
@@ -209,21 +206,11 @@ namespace Field_Sales_System.ControlLogic
             profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
             profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
             profile.nameLabel.Text = currentUser.getFirstName() +" "+ currentUser.getLastName();
-            profile.regionLabel.Text = "---";
+            profile.regionLabel.Text = currentUser.ContactDetails.AddressLine_3;
             profile.photoLabel.Image = currentUser.Dp.getPicture();
-            //profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+            profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
             //profile.statusLabel.Text = isActive(currentUser);
-            profile.jobTitleLabel.Text = currentUser.GetType().ToString();
-
-            
-           // profile.addressLabel.Text = currentUser.ContactDetails.AddressLine_1;
-            //profile.cityLabel.Text = currentUser.ContactDetails.AddressLine_2;
-            //profile.stateLabel.Text = currentUser.ContactDetails.AddressLine_3;
-            //profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
-            //profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
-           // profile.nameLabel.Text = currentUser.getFirstName() + currentUser.getLastName();
-           // profile.regionLabel.Text = "---";
-           // profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+            profile.jobTitleLabel.Text = currentUser.GetType().ToString();       
             repHW.repMainPannel.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
@@ -274,15 +261,20 @@ namespace Field_Sales_System.ControlLogic
             profile.mobileLabel.Text = currentUser.ContactDetails.MobileNo.ToString();
             profile.homeTelLabel.Text = currentUser.ContactDetails.LandNo.ToString();
             profile.nameLabel.Text = currentUser.getFirstName() +" "+ currentUser.getLastName();
-            profile.regionLabel.Text = "---";
-            profile.jobTitleLabel.Text = "ioio";// currentUser.UserRoles[0].getRoleName();
+            profile.regionLabel.Text = currentUser.ContactDetails.AddressLine_3;
+           // profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+            profile.photoLabel.Image = currentUser.Dp.getPicture();
+            //currentUser.UserRoles[0].getRoleName();
             adminHW.adminMainPanel1.Controls.Add(profile);
             profile.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             profile.Show();
         }
 
         public void searchEmployee_Rep(int empId, string firstName,string lastName) {
-            repHW.repMainPannel.Controls.Clear();
+            if (repHW.repMainPannel != null) {
+                repHW.repMainPannel.Controls.Clear();
+            }
+            
             List<User> searchResult = objectFactory.searchUser(empId,firstName,lastName);
             //this.viewEmployee.dataGridView1 = new System.Windows.Forms.DataGridView();
             
@@ -372,7 +364,42 @@ namespace Field_Sales_System.ControlLogic
         }
 
         public void viewOrder() {
-           // List<Order> orderList = objectFactory.
+          
+        }
+
+        public void viewReports_Rep() {
+            reportsHome.nameLabel.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+            reportsHome.photoLabel.Image = currentUser.Dp.getPicture();
+            repHW.Hide();
+            reportsHome.ShowDialog();
+
+        }
+
+        public void viewOrderDetailsInit() {
+            reportsHome.mainPannel.Controls.Clear();
+            viewOrders.TopLevel = false;
+            reportsHome.TopLevel = true;
+            viewOrders.FormBorderStyle = FormBorderStyle.None;
+            reportsHome.mainPannel.Controls.Add(viewOrders);
+            viewOrders.Show();
+        }
+
+        public void loadOrderDetails(bool choice,string status,DateTime beginDate, DateTime endDate) {
+            List<Order> orders;
+
+            if (choice)
+            {
+                orders = objectFactory.getOrderByStatus(currentUser, status);
+            }
+            else {
+                orders = objectFactory.getOrder(currentUser, beginDate, endDate);
+            }
+            if (orders != null) {
+                foreach (Order ord in orders) {
+                    viewOrders.viewOrderGrid.Rows.Add(ord.OrderId,ord.OrdererId,ord.OrderRegion);
+                }
+            }
+            
         }
 
 

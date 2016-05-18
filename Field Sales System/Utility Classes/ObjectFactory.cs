@@ -288,6 +288,9 @@ namespace Field_Sales_System.Utility_Classes
                             dbManager.closeConnection(connection);
                             dbManager.openConnection(connection);
                             bool dp_status = dbManager.storeImage(connection, user.getEmpId(), user.Dp.getPicture());
+                            dbManager.closeConnection(connection);
+                            dbManager.openConnection(connection);
+                            //SecurityManager sm = new SecurityManager();
                             if (connection.State == System.Data.ConnectionState.Open)
                             {
                                 dbManager.closeConnection(connection);

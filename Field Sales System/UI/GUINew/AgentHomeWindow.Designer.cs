@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.viewReportsButton = new System.Windows.Forms.Button();
-            this.searchRepsButton = new System.Windows.Forms.Button();
             this.searchEmployeeButton = new System.Windows.Forms.Button();
             this.viewInventoryButton = new System.Windows.Forms.Button();
             this.myProfileButton = new System.Windows.Forms.Button();
@@ -50,11 +49,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label2.Location = new System.Drawing.Point(1107, 712);
+            this.label2.Location = new System.Drawing.Point(1095, 712);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(295, 15);
+            this.label2.Size = new System.Drawing.Size(252, 14);
             this.label2.TabIndex = 37;
             this.label2.Text = " UPALI FOODS AND BEVERAGES (PVT.) LTD.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -106,22 +105,6 @@
             this.viewReportsButton.TabIndex = 46;
             this.viewReportsButton.Text = "View Reports";
             this.viewReportsButton.UseVisualStyleBackColor = false;
-            // 
-            // searchRepsButton
-            // 
-            this.searchRepsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.searchRepsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchRepsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchRepsButton.FlatAppearance.BorderSize = 0;
-            this.searchRepsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchRepsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchRepsButton.Location = new System.Drawing.Point(16, 253);
-            this.searchRepsButton.Name = "searchRepsButton";
-            this.searchRepsButton.Size = new System.Drawing.Size(236, 30);
-            this.searchRepsButton.TabIndex = 43;
-            this.searchRepsButton.Text = "Search Sales Representatives";
-            this.searchRepsButton.UseVisualStyleBackColor = false;
-            this.searchRepsButton.Click += new System.EventHandler(this.searchRepsButton_Click);
             // 
             // searchEmployeeButton
             // 
@@ -209,7 +192,7 @@
             this.empLastName.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.empLastName.Location = new System.Drawing.Point(16, 255);
             this.empLastName.Name = "empLastName";
-            this.empLastName.Size = new System.Drawing.Size(233, 27);
+            this.empLastName.Size = new System.Drawing.Size(236, 27);
             this.empLastName.TabIndex = 52;
             this.empLastName.Text = "Employee Last Name";
             this.empLastName.TextChanged += new System.EventHandler(this.empLastName_TextChanged);
@@ -221,11 +204,12 @@
             this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logoutButton.FlatAppearance.BorderSize = 0;
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.Location = new System.Drawing.Point(1300, 12);
+            this.logoutButton.Location = new System.Drawing.Point(1292, 12);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(50, 50);
             this.logoutButton.TabIndex = 51;
             this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // photoLabel
             // 
@@ -249,7 +233,6 @@
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.requestNewOrderButton);
             this.Controls.Add(this.viewReportsButton);
-            this.Controls.Add(this.searchRepsButton);
             this.Controls.Add(this.searchEmployeeButton);
             this.Controls.Add(this.viewInventoryButton);
             this.Controls.Add(this.myProfileButton);
@@ -280,8 +263,6 @@
         public System.Windows.Forms.Button myProfileButton;
         public System.Windows.Forms.Button requestNewOrderButton;
         public System.Windows.Forms.Button viewInventoryButton;
-
-        public System.Windows.Forms.Button searchRepsButton;
         public System.Windows.Forms.Button viewReportsButton;
         public System.Windows.Forms.Button logoutButton;
         public System.Windows.Forms.TextBox empFirstNameText;
