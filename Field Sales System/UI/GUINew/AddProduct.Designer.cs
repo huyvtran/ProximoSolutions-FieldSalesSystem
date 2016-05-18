@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,18 +45,11 @@
             this.mfdDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.clearButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.priceText = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.InitialImage = global::Field_Sales_System.Properties.Resources.Camera;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label9
             // 
@@ -67,7 +59,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(114, 23);
             this.label9.TabIndex = 37;
-            this.label9.Text = "Product Name";
+            this.label9.Text = "Product Name*";
             // 
             // label10
             // 
@@ -77,7 +69,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 23);
             this.label10.TabIndex = 36;
-            this.label10.Text = "Product ID";
+            this.label10.Text = "Product ID*";
             // 
             // label1
             // 
@@ -87,7 +79,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 23);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Batch No";
+            this.label1.Text = "Batch No*";
             // 
             // productIDText
             // 
@@ -103,7 +95,7 @@
             this.batchNoText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.batchNoText.Location = new System.Drawing.Point(151, 208);
             this.batchNoText.Name = "batchNoText";
-            this.batchNoText.Size = new System.Drawing.Size(122, 28);
+            this.batchNoText.Size = new System.Drawing.Size(111, 28);
             this.batchNoText.TabIndex = 41;
             this.batchNoText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.batchNoText_KeyPress);
             // 
@@ -173,13 +165,13 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 23);
             this.label3.TabIndex = 69;
-            this.label3.Text = "Category";
+            this.label3.Text = "Category*";
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label4.Location = new System.Drawing.Point(712, 211);
+            this.label4.Location = new System.Drawing.Point(771, 214);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 23);
             this.label4.TabIndex = 71;
@@ -189,7 +181,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label5.Location = new System.Drawing.Point(335, 211);
+            this.label5.Location = new System.Drawing.Point(507, 214);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 23);
             this.label5.TabIndex = 73;
@@ -198,17 +190,17 @@
             // expDateTimePicker
             // 
             this.expDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expDateTimePicker.Location = new System.Drawing.Point(763, 205);
+            this.expDateTimePicker.Location = new System.Drawing.Point(813, 208);
             this.expDateTimePicker.Name = "expDateTimePicker";
-            this.expDateTimePicker.Size = new System.Drawing.Size(245, 28);
+            this.expDateTimePicker.Size = new System.Drawing.Size(195, 28);
             this.expDateTimePicker.TabIndex = 74;
             // 
             // mfdDateTimePicker
             // 
             this.mfdDateTimePicker.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mfdDateTimePicker.Location = new System.Drawing.Point(394, 205);
+            this.mfdDateTimePicker.Location = new System.Drawing.Point(557, 208);
             this.mfdDateTimePicker.Name = "mfdDateTimePicker";
-            this.mfdDateTimePicker.Size = new System.Drawing.Size(245, 28);
+            this.mfdDateTimePicker.Size = new System.Drawing.Size(195, 28);
             this.mfdDateTimePicker.TabIndex = 75;
             // 
             // clearButton
@@ -243,12 +235,43 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.InitialImage = global::Field_Sales_System.Properties.Resources.Camera;
+            this.pictureBox1.Location = new System.Drawing.Point(53, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // priceText
+            // 
+            this.priceText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceText.Location = new System.Drawing.Point(363, 208);
+            this.priceText.Name = "priceText";
+            this.priceText.Size = new System.Drawing.Size(111, 28);
+            this.priceText.TabIndex = 79;
+            this.priceText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceText_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.label6.Location = new System.Drawing.Point(302, 211);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 23);
+            this.label6.TabIndex = 78;
+            this.label6.Text = "Price*";
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.Controls.Add(this.priceText);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.mfdDateTimePicker);
@@ -298,5 +321,7 @@
         public System.Windows.Forms.DateTimePicker mfdDateTimePicker;
         public System.Windows.Forms.Button clearButton;
         public System.Windows.Forms.Button addButton;
+        public System.Windows.Forms.TextBox priceText;
+        public System.Windows.Forms.Label label6;
     }
 }

@@ -37,7 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.viewReportsButton = new System.Windows.Forms.Button();
             this.searchEmployeeButton = new System.Windows.Forms.Button();
-            this.viewEmployeesButton = new System.Windows.Forms.Button();
             this.empLastNameText = new System.Windows.Forms.TextBox();
             this.empFirstNameText = new System.Windows.Forms.TextBox();
             this.employeeIDText = new System.Windows.Forms.TextBox();
@@ -115,7 +114,7 @@
             this.viewReportsButton.FlatAppearance.BorderSize = 0;
             this.viewReportsButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewReportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewReportsButton.Location = new System.Drawing.Point(16, 528);
+            this.viewReportsButton.Location = new System.Drawing.Point(16, 443);
             this.viewReportsButton.Name = "viewReportsButton";
             this.viewReportsButton.Size = new System.Drawing.Size(236, 30);
             this.viewReportsButton.TabIndex = 13;
@@ -130,7 +129,7 @@
             this.searchEmployeeButton.FlatAppearance.BorderSize = 0;
             this.searchEmployeeButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEmployeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 427);
+            this.searchEmployeeButton.Location = new System.Drawing.Point(16, 342);
             this.searchEmployeeButton.Name = "searchEmployeeButton";
             this.searchEmployeeButton.Size = new System.Drawing.Size(236, 30);
             this.searchEmployeeButton.TabIndex = 15;
@@ -138,26 +137,10 @@
             this.searchEmployeeButton.UseVisualStyleBackColor = false;
             this.searchEmployeeButton.Click += new System.EventHandler(this.searchEmployeeButton_Click);
             // 
-            // viewEmployeesButton
-            // 
-            this.viewEmployeesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(31)))), ((int)(((byte)(1)))));
-            this.viewEmployeesButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.viewEmployeesButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewEmployeesButton.FlatAppearance.BorderSize = 0;
-            this.viewEmployeesButton.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewEmployeesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.viewEmployeesButton.Location = new System.Drawing.Point(16, 237);
-            this.viewEmployeesButton.Name = "viewEmployeesButton";
-            this.viewEmployeesButton.Size = new System.Drawing.Size(236, 30);
-            this.viewEmployeesButton.TabIndex = 16;
-            this.viewEmployeesButton.Text = "View Employee Details";
-            this.viewEmployeesButton.UseVisualStyleBackColor = false;
-            this.viewEmployeesButton.Click += new System.EventHandler(this.viewEmployeesButton_Click);
-            // 
             // empLastNameText
             // 
             this.empLastNameText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empLastNameText.Location = new System.Drawing.Point(16, 395);
+            this.empLastNameText.Location = new System.Drawing.Point(16, 310);
             this.empLastNameText.Name = "empLastNameText";
             this.empLastNameText.Size = new System.Drawing.Size(236, 27);
             this.empLastNameText.TabIndex = 17;
@@ -169,7 +152,7 @@
             // empFirstNameText
             // 
             this.empFirstNameText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empFirstNameText.Location = new System.Drawing.Point(16, 367);
+            this.empFirstNameText.Location = new System.Drawing.Point(16, 282);
             this.empFirstNameText.Name = "empFirstNameText";
             this.empFirstNameText.Size = new System.Drawing.Size(236, 27);
             this.empFirstNameText.TabIndex = 19;
@@ -181,7 +164,7 @@
             // employeeIDText
             // 
             this.employeeIDText.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeeIDText.Location = new System.Drawing.Point(16, 338);
+            this.employeeIDText.Location = new System.Drawing.Point(16, 253);
             this.employeeIDText.Name = "employeeIDText";
             this.employeeIDText.Size = new System.Drawing.Size(236, 27);
             this.employeeIDText.TabIndex = 20;
@@ -222,7 +205,6 @@
             this.Controls.Add(this.empFirstNameText);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.empLastNameText);
-            this.Controls.Add(this.viewEmployeesButton);
             this.Controls.Add(this.searchEmployeeButton);
             this.Controls.Add(this.viewReportsButton);
             this.Controls.Add(this.label2);
@@ -255,7 +237,6 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button viewReportsButton;
         public System.Windows.Forms.Button searchEmployeeButton;
-        public System.Windows.Forms.Button viewEmployeesButton;
         public System.Windows.Forms.TextBox empLastNameText;
         public System.Windows.Forms.Button logoutButton;
         public System.Windows.Forms.TextBox empFirstNameText;
