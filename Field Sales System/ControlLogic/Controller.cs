@@ -208,7 +208,7 @@ namespace Field_Sales_System.ControlLogic
             profile.nameLabel.Text = currentUser.getFirstName() +" "+ currentUser.getLastName();
             profile.regionLabel.Text = currentUser.ContactDetails.AddressLine_3;
             profile.photoLabel.Image = currentUser.Dp.getPicture();
-            profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
+            //profile.jobTitleLabel.Text = currentUser.UserRoles[0].getRoleName();
             //profile.statusLabel.Text = isActive(currentUser);
             profile.jobTitleLabel.Text = currentUser.GetType().ToString();       
             repHW.repMainPannel.Controls.Add(profile);
