@@ -32,9 +32,6 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.notesRichTextBox = new System.Windows.Forms.RichTextBox();
             this.nameText = new System.Windows.Forms.TextBox();
-            this.repRadio = new System.Windows.Forms.RadioButton();
-            this.agentRadio = new System.Windows.Forms.RadioButton();
-            this.wmRadio = new System.Windows.Forms.RadioButton();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.mobileText = new System.Windows.Forms.TextBox();
@@ -47,14 +44,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.missRadioButton = new System.Windows.Forms.RadioButton();
-            this.mrsRadioButton = new System.Windows.Forms.RadioButton();
-            this.mrRadioButton = new System.Windows.Forms.RadioButton();
             this.middleNameText = new System.Windows.Forms.TextBox();
             this.lastNameText = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,6 +55,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.updateButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.titleGroup = new System.Windows.Forms.GroupBox();
+            this.msRadio = new System.Windows.Forms.RadioButton();
+            this.mrRadio = new System.Windows.Forms.RadioButton();
+            this.jobTitleGroup = new System.Windows.Forms.GroupBox();
+            this.repRadio = new System.Windows.Forms.RadioButton();
+            this.agentRadio = new System.Windows.Forms.RadioButton();
+            this.wmRadio = new System.Windows.Forms.RadioButton();
+            this.nicText = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.titleGroup.SuspendLayout();
+            this.jobTitleGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // clearButton
@@ -95,39 +101,6 @@
             this.nameText.Size = new System.Drawing.Size(325, 28);
             this.nameText.TabIndex = 100;
             // 
-            // repRadio
-            // 
-            this.repRadio.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repRadio.Location = new System.Drawing.Point(689, 137);
-            this.repRadio.Name = "repRadio";
-            this.repRadio.Size = new System.Drawing.Size(200, 23);
-            this.repRadio.TabIndex = 99;
-            this.repRadio.TabStop = true;
-            this.repRadio.Text = "Sales Representative";
-            this.repRadio.UseVisualStyleBackColor = true;
-            // 
-            // agentRadio
-            // 
-            this.agentRadio.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agentRadio.Location = new System.Drawing.Point(689, 108);
-            this.agentRadio.Name = "agentRadio";
-            this.agentRadio.Size = new System.Drawing.Size(200, 23);
-            this.agentRadio.TabIndex = 98;
-            this.agentRadio.TabStop = true;
-            this.agentRadio.Text = "Agent";
-            this.agentRadio.UseVisualStyleBackColor = true;
-            // 
-            // wmRadio
-            // 
-            this.wmRadio.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wmRadio.Location = new System.Drawing.Point(689, 79);
-            this.wmRadio.Name = "wmRadio";
-            this.wmRadio.Size = new System.Drawing.Size(200, 23);
-            this.wmRadio.TabIndex = 97;
-            this.wmRadio.TabStop = true;
-            this.wmRadio.Text = "Warehouse Manager";
-            this.wmRadio.UseVisualStyleBackColor = true;
-            // 
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,6 +125,7 @@
             // 
             this.mobileText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mobileText.Location = new System.Drawing.Point(159, 453);
+            this.mobileText.MaxLength = 10;
             this.mobileText.Name = "mobileText";
             this.mobileText.Size = new System.Drawing.Size(325, 28);
             this.mobileText.TabIndex = 93;
@@ -168,6 +142,7 @@
             // 
             this.homeTelText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeTelText.Location = new System.Drawing.Point(159, 417);
+            this.homeTelText.MaxLength = 10;
             this.homeTelText.Name = "homeTelText";
             this.homeTelText.Size = new System.Drawing.Size(325, 28);
             this.homeTelText.TabIndex = 91;
@@ -239,39 +214,6 @@
             this.label12.TabIndex = 84;
             this.label12.Text = "Home Tel.";
             // 
-            // missRadioButton
-            // 
-            this.missRadioButton.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.missRadioButton.Location = new System.Drawing.Point(424, 185);
-            this.missRadioButton.Name = "missRadioButton";
-            this.missRadioButton.Size = new System.Drawing.Size(60, 23);
-            this.missRadioButton.TabIndex = 82;
-            this.missRadioButton.TabStop = true;
-            this.missRadioButton.Text = "Miss";
-            this.missRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // mrsRadioButton
-            // 
-            this.mrsRadioButton.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrsRadioButton.Location = new System.Drawing.Point(338, 185);
-            this.mrsRadioButton.Name = "mrsRadioButton";
-            this.mrsRadioButton.Size = new System.Drawing.Size(60, 23);
-            this.mrsRadioButton.TabIndex = 81;
-            this.mrsRadioButton.TabStop = true;
-            this.mrsRadioButton.Text = "Mrs.";
-            this.mrsRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // mrRadioButton
-            // 
-            this.mrRadioButton.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrRadioButton.Location = new System.Drawing.Point(261, 185);
-            this.mrRadioButton.Name = "mrRadioButton";
-            this.mrRadioButton.Size = new System.Drawing.Size(60, 23);
-            this.mrRadioButton.TabIndex = 80;
-            this.mrRadioButton.TabStop = true;
-            this.mrRadioButton.Text = "Mr.";
-            this.mrRadioButton.UseVisualStyleBackColor = true;
-            // 
             // middleNameText
             // 
             this.middleNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -309,18 +251,6 @@
             this.label10.Size = new System.Drawing.Size(52, 23);
             this.label10.TabIndex = 74;
             this.label10.Text = "Title";
-            // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.Location = new System.Drawing.Point(37, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 150);
-            this.label6.TabIndex = 73;
             // 
             // label5
             // 
@@ -396,6 +326,126 @@
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = false;
             // 
+            // label6
+            // 
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label6.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
+            this.label6.Location = new System.Drawing.Point(37, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(150, 150);
+            this.label6.TabIndex = 73;
+            // 
+            // titleGroup
+            // 
+            this.titleGroup.Controls.Add(this.msRadio);
+            this.titleGroup.Controls.Add(this.mrRadio);
+            this.titleGroup.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleGroup.Location = new System.Drawing.Point(260, 184);
+            this.titleGroup.Name = "titleGroup";
+            this.titleGroup.Size = new System.Drawing.Size(224, 23);
+            this.titleGroup.TabIndex = 104;
+            this.titleGroup.TabStop = false;
+            // 
+            // msRadio
+            // 
+            this.msRadio.AutoSize = true;
+            this.msRadio.Location = new System.Drawing.Point(77, -1);
+            this.msRadio.Name = "msRadio";
+            this.msRadio.Size = new System.Drawing.Size(52, 23);
+            this.msRadio.TabIndex = 1;
+            this.msRadio.TabStop = true;
+            this.msRadio.Text = "Ms.";
+            this.msRadio.UseVisualStyleBackColor = true;
+            // 
+            // mrRadio
+            // 
+            this.mrRadio.AutoSize = true;
+            this.mrRadio.Location = new System.Drawing.Point(6, -1);
+            this.mrRadio.Name = "mrRadio";
+            this.mrRadio.Size = new System.Drawing.Size(51, 23);
+            this.mrRadio.TabIndex = 0;
+            this.mrRadio.TabStop = true;
+            this.mrRadio.Text = "Mr.";
+            this.mrRadio.UseVisualStyleBackColor = true;
+            // 
+            // jobTitleGroup
+            // 
+            this.jobTitleGroup.Controls.Add(this.repRadio);
+            this.jobTitleGroup.Controls.Add(this.agentRadio);
+            this.jobTitleGroup.Controls.Add(this.wmRadio);
+            this.jobTitleGroup.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jobTitleGroup.Location = new System.Drawing.Point(689, 78);
+            this.jobTitleGroup.Name = "jobTitleGroup";
+            this.jobTitleGroup.Size = new System.Drawing.Size(325, 80);
+            this.jobTitleGroup.TabIndex = 105;
+            this.jobTitleGroup.TabStop = false;
+            // 
+            // repRadio
+            // 
+            this.repRadio.AutoSize = true;
+            this.repRadio.Location = new System.Drawing.Point(7, 58);
+            this.repRadio.Name = "repRadio";
+            this.repRadio.Size = new System.Drawing.Size(161, 23);
+            this.repRadio.TabIndex = 2;
+            this.repRadio.TabStop = true;
+            this.repRadio.Text = "Sales Representative";
+            this.repRadio.UseVisualStyleBackColor = true;
+            // 
+            // agentRadio
+            // 
+            this.agentRadio.AutoSize = true;
+            this.agentRadio.Location = new System.Drawing.Point(6, 28);
+            this.agentRadio.Name = "agentRadio";
+            this.agentRadio.Size = new System.Drawing.Size(66, 23);
+            this.agentRadio.TabIndex = 1;
+            this.agentRadio.TabStop = true;
+            this.agentRadio.Text = "Agent";
+            this.agentRadio.UseVisualStyleBackColor = true;
+            // 
+            // wmRadio
+            // 
+            this.wmRadio.AutoSize = true;
+            this.wmRadio.Location = new System.Drawing.Point(6, -1);
+            this.wmRadio.Name = "wmRadio";
+            this.wmRadio.Size = new System.Drawing.Size(163, 23);
+            this.wmRadio.TabIndex = 0;
+            this.wmRadio.TabStop = true;
+            this.wmRadio.Text = "Warehouse Manager";
+            this.wmRadio.UseVisualStyleBackColor = true;
+            // 
+            // nicText
+            // 
+            this.nicText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nicText.Location = new System.Drawing.Point(159, 235);
+            this.nicText.MaxLength = 9;
+            this.nicText.Name = "nicText";
+            this.nicText.Size = new System.Drawing.Size(298, 28);
+            this.nicText.TabIndex = 107;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.label7.Location = new System.Drawing.Point(54, 240);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 23);
+            this.label7.TabIndex = 106;
+            this.label7.Text = "NIC No.";
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Adobe Garamond Pro", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.label8.Location = new System.Drawing.Point(461, 238);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(22, 23);
+            this.label8.TabIndex = 108;
+            this.label8.Text = "V";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // UpdateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -403,12 +453,14 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(236)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.nicText);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.jobTitleGroup);
+            this.Controls.Add(this.titleGroup);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.notesRichTextBox);
             this.Controls.Add(this.nameText);
-            this.Controls.Add(this.repRadio);
-            this.Controls.Add(this.agentRadio);
-            this.Controls.Add(this.wmRadio);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.mobileText);
@@ -421,9 +473,6 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.missRadioButton);
-            this.Controls.Add(this.mrsRadioButton);
-            this.Controls.Add(this.mrRadioButton);
             this.Controls.Add(this.middleNameText);
             this.Controls.Add(this.lastNameText);
             this.Controls.Add(this.label9);
@@ -438,10 +487,14 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Update Employee";
+            this.titleGroup.ResumeLayout(false);
+            this.titleGroup.PerformLayout();
+            this.jobTitleGroup.ResumeLayout(false);
+            this.jobTitleGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,9 +505,6 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.RichTextBox notesRichTextBox;
         private System.Windows.Forms.TextBox nameText;
-        private System.Windows.Forms.RadioButton repRadio;
-        private System.Windows.Forms.RadioButton agentRadio;
-        private System.Windows.Forms.RadioButton wmRadio;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox mobileText;
@@ -467,9 +517,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.RadioButton missRadioButton;
-        private System.Windows.Forms.RadioButton mrsRadioButton;
-        private System.Windows.Forms.RadioButton mrRadioButton;
         private System.Windows.Forms.TextBox middleNameText;
         private System.Windows.Forms.TextBox lastNameText;
         private System.Windows.Forms.Label label9;
@@ -482,5 +529,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.GroupBox titleGroup;
+        private System.Windows.Forms.RadioButton msRadio;
+        private System.Windows.Forms.RadioButton mrRadio;
+        private System.Windows.Forms.GroupBox jobTitleGroup;
+        private System.Windows.Forms.RadioButton wmRadio;
+        private System.Windows.Forms.RadioButton agentRadio;
+        private System.Windows.Forms.RadioButton repRadio;
+        private System.Windows.Forms.TextBox nicText;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

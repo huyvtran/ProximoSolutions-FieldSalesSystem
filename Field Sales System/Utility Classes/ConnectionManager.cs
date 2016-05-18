@@ -441,7 +441,7 @@ namespace Field_Sales_System.Utility_Classes
             try
             {
 
-                string command = "SELECT product_col FROM product";
+                string command = "SELECT product FROM product";
                 MySqlCommand cmd = new MySqlCommand(command, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 List<Product> userData = new List<Product>();

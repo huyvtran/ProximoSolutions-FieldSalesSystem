@@ -88,6 +88,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="proximoDBDataSet_permissions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>proximoDBDataSet_permissions.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UI\GUINew\AddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +177,12 @@
     </Compile>
     <Compile Include="UI\GUINew\ReportsHome.Designer.cs">
       <DependentUpon>ReportsHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GUINew\Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GUINew\Sales.Designer.cs">
+      <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GUINew\SignIn.cs">
       <SubType>Form</SubType>
@@ -270,6 +281,9 @@
     <EmbeddedResource Include="UI\GUINew\ReportsHome.resx">
       <DependentUpon>ReportsHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\GUINew\Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\GUINew\SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +319,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="proximoDBDataSet_permissions.xsc">
+      <DependentUpon>proximoDBDataSet_permissions.xsd</DependentUpon>
+    </None>
+    <None Include="proximoDBDataSet_permissions.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>proximoDBDataSet_permissions.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="proximoDBDataSet_permissions.xss">
+      <DependentUpon>proximoDBDataSet_permissions.xsd</DependentUpon>
+    </None>
     <None Include="UI\GUINew\App.config" />
     <None Include="UI\GUINew\bin\Debug\GUINew.exe.config" />
     <None Include="UI\GUINew\bin\Debug\GUINew.vshost.exe.config" />

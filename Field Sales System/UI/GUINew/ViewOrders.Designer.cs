@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.viewOrderGrid = new System.Windows.Forms.DataGridView();
-            this.select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.invoiceNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.repName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.region = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pickupList = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.viewOrderButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.invoiceNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.repName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.region = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewOrderGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,60 +44,15 @@
             this.viewOrderGrid.AllowUserToDeleteRows = false;
             this.viewOrderGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.viewOrderGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.select,
             this.invoiceNo,
             this.repName,
-            this.region,
-            this.orderStatus});
+            this.region});
             this.viewOrderGrid.Location = new System.Drawing.Point(50, 41);
             this.viewOrderGrid.Margin = new System.Windows.Forms.Padding(4);
             this.viewOrderGrid.Name = "viewOrderGrid";
             this.viewOrderGrid.ReadOnly = true;
             this.viewOrderGrid.Size = new System.Drawing.Size(712, 448);
             this.viewOrderGrid.TabIndex = 0;
-            // 
-            // select
-            // 
-            this.select.HeaderText = "Select";
-            this.select.MinimumWidth = 70;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 70;
-            // 
-            // invoiceNo
-            // 
-            this.invoiceNo.HeaderText = "Invoice No.";
-            this.invoiceNo.MinimumWidth = 100;
-            this.invoiceNo.Name = "invoiceNo";
-            this.invoiceNo.ReadOnly = true;
-            this.invoiceNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.invoiceNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.invoiceNo.Width = 150;
-            // 
-            // repName
-            // 
-            this.repName.HeaderText = "Representative name";
-            this.repName.MinimumWidth = 150;
-            this.repName.Name = "repName";
-            this.repName.ReadOnly = true;
-            this.repName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.repName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.repName.Width = 250;
-            // 
-            // region
-            // 
-            this.region.HeaderText = "Region";
-            this.region.MinimumWidth = 100;
-            this.region.Name = "region";
-            this.region.ReadOnly = true;
-            this.region.Width = 110;
-            // 
-            // orderStatus
-            // 
-            this.orderStatus.HeaderText = "Order Status";
-            this.orderStatus.Name = "orderStatus";
-            this.orderStatus.ReadOnly = true;
-            this.orderStatus.Width = 90;
             // 
             // pickupList
             // 
@@ -154,6 +107,34 @@
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = false;
             // 
+            // invoiceNo
+            // 
+            this.invoiceNo.HeaderText = "Invoice No.";
+            this.invoiceNo.MinimumWidth = 100;
+            this.invoiceNo.Name = "invoiceNo";
+            this.invoiceNo.ReadOnly = true;
+            this.invoiceNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.invoiceNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.invoiceNo.Width = 150;
+            // 
+            // repName
+            // 
+            this.repName.HeaderText = "Representative Id";
+            this.repName.MinimumWidth = 150;
+            this.repName.Name = "repName";
+            this.repName.ReadOnly = true;
+            this.repName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.repName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.repName.Width = 250;
+            // 
+            // region
+            // 
+            this.region.HeaderText = "Region";
+            this.region.MinimumWidth = 100;
+            this.region.Name = "region";
+            this.region.ReadOnly = true;
+            this.region.Width = 110;
+            // 
             // ViewOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -179,15 +160,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView viewOrderGrid;
-        private System.Windows.Forms.ListView pickupList;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn select;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn repName;
+        public System.Windows.Forms.DataGridView viewOrderGrid;
+        public System.Windows.Forms.ListView pickupList;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button viewOrderButton;
+        public System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn region;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderStatus;
-        private System.Windows.Forms.Button viewOrderButton;
-        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn repName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceNo;
     }
 }

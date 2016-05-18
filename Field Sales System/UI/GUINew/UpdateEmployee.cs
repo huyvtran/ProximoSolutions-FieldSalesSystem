@@ -16,5 +16,8 @@ namespace GUINew
         {
             InitializeComponent();
         }
+
+        bool gender;
+        
     }
 }

@@ -79,5 +79,10 @@ namespace GUINew
         {
             empIdText.Text = "";
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

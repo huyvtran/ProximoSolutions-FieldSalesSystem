@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe.config
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe
 H:\Pasindu\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.pdb
@@ -30,6 +31,12 @@ C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Deb
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.pdb
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csprojResolveAssemblyReference.cache
+=======
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe.config
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.pdb
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\MySql.Data.dll
+>>>>>>> 93c3057ea334bd1eeee5e286716e5298a6f09708
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.Properties.Resources.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.AddEmployee.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.UI.GUINew.AddProduct.resources
@@ -45,9 +52,22 @@ C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Deb
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.UI.GUINew.Properties.Resources.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.RepHomeWindow.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ReportsHome.resources
+<<<<<<< HEAD
+=======
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field_Sales_System.UI.GUINew.Sales.resources
+>>>>>>> 93c3057ea334bd1eeee5e286716e5298a6f09708
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.SignIn.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.UpdateEmployee.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ViewEmployee.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.ViewOrders.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\GUINew.WMHomeWindow.resources
 C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csproj.GenerateResource.Cache
+<<<<<<< HEAD
+=======
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\bin\Debug\Field Sales System.exe.config
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.exe
+C:\ProximoSolutions\Proximo\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.pdb
+C:\ProximoSolutions\ProximoSolutions-FieldSalesSystem\Field Sales System\obj\Debug\Field Sales System.csprojResolveAssemblyReference.cache
+>>>>>>> 93c3057ea334bd1eeee5e286716e5298a6f09708

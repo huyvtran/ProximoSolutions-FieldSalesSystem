@@ -39,6 +39,11 @@ namespace GUINew
 
         string currentPassword, newPassword, confirmedPassword;
 
+        private void newPwdText_TextChanged_1(object sender, EventArgs e)
+        {
+            confirmPwdText.Enabled = true;
+        }
+
         private void changePwdButton_Click(object sender, EventArgs e)
         {
             currentPassword = currentPwdText.Text;

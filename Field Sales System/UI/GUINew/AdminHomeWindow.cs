@@ -26,6 +26,7 @@ namespace GUINew
             this.controller = controller;
 
 
+
         }
 
         private void viewReportsButton_Click(object sender, EventArgs e)
@@ -82,7 +83,7 @@ namespace GUINew
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            searchEmployeeButton.Enabled = true;                      
+            //searchEmployeeButton.Enabled = true;                      
         }
 
 
@@ -95,7 +96,6 @@ namespace GUINew
         private void empLastNameText_TextChanged(object sender, EventArgs e)
         {
             searchEmployeeButton.Enabled = true;
-
         }
 
         private void employeeIDText_KeyPress(object sender, KeyPressEventArgs e)
@@ -105,12 +105,19 @@ namespace GUINew
 
         private void employeeIDText_Click(object sender, EventArgs e)
         {
-            employeeIDText.Text = "";
+            if (employeeIDText.Text == "Employee ID")
+            {
+                employeeIDText.Text = "";
+            }
+            
         }
 
         private void empFirstNameText_Click(object sender, EventArgs e)
         {
-            empFirstNameText.Text = "";
+            if (empFirstNameText.Text == "Employee First Name")
+            {
+                empFirstNameText.Text = "";
+            }            
         }
 
         private void empFirstNameText_KeyPress(object sender, KeyPressEventArgs e)
@@ -125,8 +132,25 @@ namespace GUINew
 
         private void empLastNameText_Click(object sender, EventArgs e)
         {
-            empLastNameText.Text = "";
+            if (empLastNameText.Text == "Employee Last Name")
+            {
+                empLastNameText.Text = "";
+            }
         }
 
+        private void empFirstNameText_TextChanged(object sender, EventArgs e)
+        {
+            searchEmployeeButton.Enabled = true;
+        }
+
+        private void viewReportsButton_Click_1(object sender, EventArgs e)
+        {
+            controller.viewreports_Admin();
+        }
+
+        private void addProductButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

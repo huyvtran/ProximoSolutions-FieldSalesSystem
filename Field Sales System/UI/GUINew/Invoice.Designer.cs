@@ -249,7 +249,11 @@
             this.invoiceNumberText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.invoiceNumberText.Location = new System.Drawing.Point(172, 22);
             this.invoiceNumberText.Name = "invoiceNumberText";
+<<<<<<< HEAD
             this.invoiceNumberText.Size = new System.Drawing.Size(166, 28);
+=======
+            this.invoiceNumberText.Size = new System.Drawing.Size(166, 27);
+>>>>>>> 93c3057ea334bd1eeee5e286716e5298a6f09708
             this.invoiceNumberText.TabIndex = 77;
             // 
             // empIDText
@@ -265,7 +269,11 @@
             this.customerNameText.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerNameText.Location = new System.Drawing.Point(172, 59);
             this.customerNameText.Name = "customerNameText";
+<<<<<<< HEAD
             this.customerNameText.Size = new System.Drawing.Size(284, 28);
+=======
+            this.customerNameText.Size = new System.Drawing.Size(284, 27);
+>>>>>>> 93c3057ea334bd1eeee5e286716e5298a6f09708
             this.customerNameText.TabIndex = 79;
             // 
             // customerContactText
@@ -301,7 +309,8 @@
             this.finishButton.TabIndex = 82;
             this.finishButton.Text = "Finish";
             this.finishButton.UseVisualStyleBackColor = false;
-            this.finishButton.Click += new System.EventHandler(this.finishButton_Click_1);
+            this.finishButton.Click += new System.EventHandler(this.finishButton_Click);
+            this.finishButton.Paint += new System.Windows.Forms.PaintEventHandler(this.finishButton_Paint);
             // 
             // totalText
             // 
@@ -387,6 +396,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Invoice";
             this.Text = "Invoice";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Invoice_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.invoiceDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -112,5 +112,17 @@ namespace GUINew
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Left || e.KeyChar == (char)Keys.Right || e.KeyChar == (char)Keys.Delete);
 
         }
+
+        private void viewReportsButton_Click(object sender, EventArgs e)
+        {
+
+            controller.viewReports_Rep();
+
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
